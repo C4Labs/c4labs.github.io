@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+    <body class="{{ page.title | downcase }}" data-spy="scroll" data-target="#toc">
+
+    {% include header.html %}
+
+    <div class="container content {{ page.title | downcase }}" >
+      <div class="row">
+        <div class="col-xs-12 col-md-12 breadcrumb">
+          <h1><a href="#">Tutorial</a><div class="bread-caret">></div><a href="/cosmos">COSMOS</a><div class="bread-caret">></div>{{ page.title }}</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <span class="img large">
+            <img src="{{ site.baseurl }}/images/cosmos/1/{{ page.image }}" />
+          </span>
+          <p class="title">Chapter {{ page.chapter }}<br /><span class="lighter">{{ page.title }}</span></p>
+          <p>Tags<br />{% for tag in page.tags %}<a href="#">{{ tag | capitalize }}</a>, {% endfor %}</p>
+          <p>Estimated Time<br /><span class="lighter">{{ page.length }}</span></p>
+
+          <hr />
+
+          <!--<nav id="toc" data-spy="affix" data-toggle="toc" class="affix"></nav>-->
+          <nav id="toc" data-toggle="toc"><span class="title">Contents</nav>
+        </div>
+
+        <div class="col-xs-9 col-sm-9 col-md-9 tutorial">
+          {{ content }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <h1 class="text-center blue">Well done! Continue COSMOS?</h1>
+          <ul class="next-prev list-unstyled">
+            {% if page.previous.url and page.previous.categories contains 'cosmos' %}
+              <li>
+                <a class="more previous" href="{{ page.previous.url }}" title="Earlier article: {{ page.previous.title }}"><< {{ page.previous.title }}</a>
+                <p>{{ page.previous.description }}</p>
+              </li>
+            {% endif %}
+            {% if page.next.url and page.next.categories contains 'cosmos' %}
+              <li>
+                <a class="more next" href="{{ page.next.url }}" title="Later article: {{ page.next.title }}">{{ page.next.title }} >></a>
+                <p>{{ page.next.description }}</p>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          <ul class="examples-list list-unstyled">
+            {% assign cosmosPosts = site.categories['cosmos'] | sort: 'order' %}
+            {% for post in cosmosPosts %}
+              <li>
+                <a href="{{ post.url }}">
+                  <div>
+                    <span class="img">
+                      <img src="{{ site.baseurl }}/images/{{ post.chapter }}/{{ post.image }}" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter {{ post.chapter }}<br />{{ post.title }}</p>
+                      <p>{{ post.description }}</p>
+                    </text>
+                  </div>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+    <!-- <script src="{{ site.path }}/js/toc.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+          $('#toc').toc();
+      });
+    </script>
+    -->
+    <script src="{{ site.path }}/js/bootstrap-toc.js"></script>
+    <link href="{{ site.path }}/css/bootstrap-toc.css" rel="stylesheet">
+    <script>
+      Toc.init({
+        $nav: $('#toc'),
+        $scope: $('.col-md-9')
+      });
+    </script>
+  </body>
+</html>

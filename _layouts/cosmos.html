@@ -1,49 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-   <meta charset="utf-8">
-   <title>{{ page.title }} - {{ site.title }}</title>
 
-   <link rel="stylesheet" type="text/css" href="{{ site.path }}/css/style.css" >
+  {% include head.html %}
 
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-   <script src="{{ site.path }}/js/bootstrap.min.js"></script>
-</head>
-<body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">{{ site.title }}</a>
-      </div>
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="https://github.com/drjekyllthemes/jekyll-bootstrap-theme">About</a></li>
-        </ul>
-      </div><!--/.nav-collapse -->
-    </div>
-  </nav>
+    <body class="{{ page.title | downcase }}">
 
-  <div class="container">
-    <div class="content">
-      <p>This is the COSMOS template</p>
-      {{ content }}
-    </div>
+    {% include header.html %}
 
-    {% for page in site.pages %}
-      {% if page.categories contains 'cosmos' %}
-        <div class="item">
-          <h3><a href="{{page.url}}">{{page.title}}</a></h
+    <div class="container content {{ page.title | downcase }}" >
+      <div class="row">
+        <div class="col-xs-12 col-md-12 breadcrumb">
+          <h1><a href="#">Tutorial</a><div class="bread-caret">></div>COSMOS</h1>
         </div>
-      {% endif %}
-    {% endfor %}
+      </div>
+      {{ content }}
 
-  </div><!-- /.container -->
-</body>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <ul class="next-prev list-unstyled">
+            {% if page.previous.url and page.previous.categories contains 'cosmos' %}
+              <li>
+                <a class="more previous" href="{{ page.previous.url }}" title="Earlier article: {{ page.previous.title }}"><< {{ page.previous.title }}</a>
+                <p>{{ page.previous.description }}</p>
+              </li>
+            {% endif %}
+            {% if page.next.url and page.next.categories contains 'cosmos' %}
+              <li>
+                <a class="more next" href="{{ page.next.url }}" title="Later article: {{ page.next.title }}">{{ page.next.title }} >></a>
+                <p>{{ page.next.description }}</p>
+              </li>
+            {% endif %}
+          </ul>
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+    </body>
 </html>

@@ -20,6 +20,10 @@ github_username:  c4framework
 # Build settings
 markdown: kramdown
 
+highlighter: pygments
+
+markdown: redcarpet
+
 sass:
   sass_dir: css
   style:    expanded
@@ -30,4 +34,6 @@ exclude:
 safe: true
 lsi: false
 
-categories: [cosmos, tutorials]
+catgories: [cosmos]
+
+gems: ['pygments.rb']

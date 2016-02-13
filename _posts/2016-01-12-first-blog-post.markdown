@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to c4ios.com v2.0!"
+title:  "First post!"
 date:   2016-01-12 10:55:39 -0800
 categories: jekyll update
 ---
