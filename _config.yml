@@ -22,8 +22,6 @@ markdown: kramdown
 
 highlighter: rouge
 
-markdown: redcarpet
-
 sass:
   sass_dir: css
   style:    expanded
