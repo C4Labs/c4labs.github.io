@@ -5852,14 +5852,14 @@ hr {
   width: 50%;
   float: left;
   margin-bottom: 24px; }
-  .examples-list li span {
+  .examples-list li span.img {
     width: 85px;
     height: 85px;
     background: #E8E8E8;
     border-radius: 4px;
     position: relative;
     float: left; }
-    .examples-list li span img {
+    .examples-list li span.img img {
       width: 50%;
       display: block;
       position: absolute;
@@ -5927,5 +5927,60 @@ div.tutorial p {
     font-size: 100%; }
 div.tutorial div.highlight {
   margin: 24px 0; }
+
+.toc {
+  font-size: 14px; }
+  .toc .toc-heading a {
+    font-size: 16px;
+    border-bottom: 1px solid #4A4E58;
+    display: inline-block;
+    padding: 0px !important;
+    margin-bottom: 24px; }
+  .toc ul li.active > a {
+    color: #4A4E58;
+    background: rgba(130, 134, 145, 0.15); }
+    .toc ul li.active > a li.active > a {
+      color: #4A4E58;
+      background: rgba(130, 134, 145, 0.15); }
+  .toc a {
+    color: #828691;
+    padding: 10px !important; }
+  .toc.affix {
+    top: 10px;
+    position: fixed !important; }
+  .toc .toc-link-2 {
+    padding-left: 20px !important; }
+  .toc .toc-link-3 {
+    padding-left: 40px !important; }
+
+.chapter-nav {
+  background: rgba(147, 147, 147, 0.08);
+  padding: 60px 0; }
+  .chapter-nav .examples-list {
+    margin-top: 42px; }
+    .chapter-nav .examples-list li {
+      width: 47%;
+      padding: 30px 20px;
+      background: #ffffff;
+      border-radius: 8px;
+      margin-bottom: 0px;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1); }
+      .chapter-nav .examples-list li .glyphicon {
+        font-size: 2em;
+        color: #B9BBC1;
+        margin-top: 24px; }
+        .chapter-nav .examples-list li .glyphicon.glyphicon-menu-left {
+          float: left;
+          margin-right: 12px; }
+        .chapter-nav .examples-list li .glyphicon.glyphicon-menu-right {
+          float: right;
+          margin-left: 12px; }
+      .chapter-nav .examples-list li .text {
+        width: 70%; }
+      .chapter-nav .examples-list li a:hover span.glyphicon {
+        box-shadow: none;
+        color: #2062FF; }
+      .chapter-nav .examples-list li:nth-child(2) {
+        float: right; }
 
 /*# sourceMappingURL=style.css.map */
