@@ -47,6 +47,20 @@ row
 	width: 1088px;
 }
 
+.container-fluid
+{
+	background: rgba(147, 147, 147, 0.08);
+	margin-top: 48px;
+	margin-bottom: 48px;
+
+	.row
+	{
+		width: 1088px;
+		padding: 60px 0;
+		margin: 0 auto;
+	}
+}
+
 nav
 {
 	height: 90px;
@@ -447,9 +461,6 @@ div.tutorial
 
 .chapter-nav
 {
-	background: rgba(147, 147, 147, 0.08);
-	padding: 60px 0;
-
 	.examples-list
 	{
 		margin-top: 42px;
