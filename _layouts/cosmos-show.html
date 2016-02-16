@@ -114,7 +114,7 @@
           ulClass: 'nav',
           heading: 'Contents',
           indexingFormats: 'number',
-          selector: 'h2, h3, h4'
+          selector: 'h2, h3, h4',
         });
 
         $('body').scrollspy({
@@ -138,6 +138,7 @@
             }
           });
         }, 100);
+        console.log($('#toc'));
 
         $('td.gutter').each(function(index)
         {
