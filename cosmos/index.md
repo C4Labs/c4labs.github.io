@@ -30,7 +30,7 @@ categories: cosmos, tutorials
 			  	<a href="{{ post.url }}">
 			  		<div>
 			  			<span class="img">
-				  			<img src="{{ site.baseurl }}/images/{{ post.image }}" />
+				  			<img src="{{ site.baseurl }}/images/cosmos/{{ post.chapter }}/{{ post.image }}" />
 				  		</span>
 				  		<div class="text">
 					  		<p class="title">Chapter {{ post.chapter }}<br />{{ post.title }}</p>
