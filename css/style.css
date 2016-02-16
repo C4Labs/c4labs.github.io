@@ -5919,6 +5919,8 @@ span.title {
 div.tutorial code {
   font-family: 'Inconsolata';
   font-size: 16px; }
+div.tutorial .code pre {
+  border: none; }
 div.tutorial h1 {
   margin: 0 0 42px 0; }
 div.tutorial h2 {

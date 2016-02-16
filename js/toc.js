@@ -177,9 +177,9 @@
                          .hide()
                          .appendTo(headings[i]);
                 $(headings[i]).on('mouseover', function() {
-                    $(this).find('.toc-anchor').show();
+                    //$(this).find('.toc-anchor').show();
                 }).on('mouseout', function() {
-                    $(this).find('.toc-anchor').hide();
+                    //$(this).find('.toc-anchor').hide();
                 });
 
                 if (numbering.length == 1) {
