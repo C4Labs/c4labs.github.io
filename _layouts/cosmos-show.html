@@ -40,8 +40,8 @@
           <h1 class="text-center blue">Well done! Continue COSMOS?</h1>
           <ul class="examples-list next-prev list-unstyled">
             {% if page.previous.url and page.previous.categories contains 'cosmos' %}
-              <li>
-                <a class="more previous" href="{{ page.previous.url }}" title="Earlier article: {{ page.previous.title }}">
+              <li class="pull-left">
+                <a class="more" href="{{ page.previous.url }}" title="Earlier article: {{ page.previous.title }}">
                   <div>
                     <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
                     <span class="img">
@@ -56,11 +56,11 @@
               </li>
             {% endif %}
             {% if page.next.url and page.next.categories contains 'cosmos' %}
-              <li>
-                <a class="more next" href="{{ page.next.url }}" title="Later article: {{ page.next.title }}">
+              <li class="pull-right">
+                <a class="more" href="{{ page.next.url }}" title="Later article: {{ page.next.title }}">
                   <div>
                     <span class="img">
-                      <img src="{{ site.baseurl }}/images/{{ page.next.chapter }}/{{ page.next.image }}" />
+                      <img src="{{ site.baseurl }}/images/cosmos/{{ page.next.chapter }}/{{ page.next.image }}" />
                     </span>
                     <div class="text">
                       <p class="title">Chapter {{ page.next.chapter }}<br />{{ page.next.title }}</p>
@@ -86,7 +86,7 @@
                 <a href="{{ post.url }}">
                   <div>
                     <span class="img">
-                      <img src="{{ site.baseurl }}/images/{{ post.chapter }}/{{ post.image }}" />
+                      <img src="{{ site.baseurl }}/images/cosmos/{{ post.chapter }}/{{ post.image }}" />
                     </span>
                     <div class="text">
                       <p class="title">Chapter {{ post.chapter }}<br />{{ post.title }}</p>
@@ -137,6 +137,17 @@
             }
           });
         }, 100);
+
+        $('td.gutter').each(function(index)
+        {
+          $(this).parents('.language-swift').closest('pre').addClass('has-gutter');
+        });
+
+        $('.tutorial img').each(function()
+        {
+          var img = $(this).attr('src');
+          $(this).attr('src', '/images/cosmos/{{ page.chapter }}/' + img + '').addClass('img-responsive');
+        });
       });
     </script>
   </body>

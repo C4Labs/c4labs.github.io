@@ -5723,6 +5723,10 @@ blockquote {
   blockquote {
     font-size: 1.5em;
     line-height: 1.45833333; } }
+code, pre {
+  font-family: 'Inconsolata';
+  font-size: 1em; }
+
 row {
   margin-left: -24px;
   margin-right: -24px; }
@@ -5916,15 +5920,38 @@ span.title {
     top: 54px;
     margin: auto; }
 
-div.tutorial code {
-  font-family: 'Inconsolata';
-  font-size: 16px; }
-div.tutorial .code pre {
-  border: none; }
+div.tutorial p {
+  margin-bottom: 24px; }
+div.tutorial figure {
+  margin-bottom: 24px; }
+  div.tutorial figure pre {
+    background-color: #ffffff;
+    border: 1px solid #dee0e6;
+    margin: 0; }
+    div.tutorial figure pre.has-gutter {
+      padding: 0px 0px !important; }
+    div.tutorial figure pre code table pre {
+      background-color: #ffffff; }
+      div.tutorial figure pre code table pre.lineno {
+        border: none;
+        border-right: 1px solid #dee0e6;
+        border-radius: 0;
+        padding: 10px 15px;
+        text-align: center;
+        line-height: 2em;
+        font-size: 0.75em;
+        background: #fbfbfb;
+        color: #B9BBC1; }
+    div.tutorial figure pre code table .code {
+      margin: 0;
+      padding: 0 0 0 21px; }
+      div.tutorial figure pre code table .code pre {
+        border: none;
+        line-height: 1.5em; }
 div.tutorial h1 {
   margin: 0 0 42px 0; }
 div.tutorial h2 {
-  margin: 62px 0 28px 0; }
+  margin: 48px 0 18px 0; }
 div.tutorial p {
   color: #828691; }
   div.tutorial p strong {
@@ -5938,6 +5965,15 @@ div.tutorial p {
     font-size: 100%; }
 div.tutorial div.highlight {
   margin: 24px 0; }
+div.tutorial blockquote {
+  font-size: 1em;
+  border-left: none;
+  background-color: rgba(32, 98, 255, 0.08);
+  padding: 24px 36px 1px 36px;
+  border-radius: 4px; }
+  div.tutorial blockquote p {
+    color: #2062FF;
+    line-height: 1.75em; }
 
 .toc {
   font-size: 14px; }
@@ -5973,6 +6009,10 @@ div.tutorial div.highlight {
     border-radius: 8px;
     margin-bottom: 0px;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1); }
+    .chapter-nav .examples-list li .next {
+      float: right; }
+    .chapter-nav .examples-list li .previous {
+      float: left; }
     .chapter-nav .examples-list li .glyphicon {
       font-size: 2em;
       color: #B9BBC1;
