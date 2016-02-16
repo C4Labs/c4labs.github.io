@@ -79,6 +79,7 @@
     <div class="container">
       <div class="row related">
         <div class="col-xs-12 col-md-12">
+          <h1 class="text-center blue">All COSMOS Chapters</h1>
           <ul class="examples-list list-unstyled">
             {% assign cosmosPosts = site.categories['cosmos'] | sort: 'order' %}
             {% for post in cosmosPosts %}
@@ -103,7 +104,7 @@
 
     {% include footer.html %}
 
-    <script src="{{ site.path }}/js/toc.js"></script>
+    <script type="text/javascript" src="{{ site.path }}/js/toc.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
         $('#toc').width($('#toc').parents().width());
