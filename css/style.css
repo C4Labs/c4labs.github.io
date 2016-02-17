@@ -5840,6 +5840,11 @@ hr {
 .blue {
   color: #2062FF; }
 
+.image-wrapper {
+  text-align: center; }
+  .image-wrapper .image-caption {
+    color: #828691; }
+
 .breadcrumb {
   background: none;
   margin-bottom: 48px; }
@@ -5924,6 +5929,12 @@ div.tutorial p {
   margin-bottom: 24px; }
 div.tutorial figure {
   margin-bottom: 24px; }
+  div.tutorial figure img {
+    margin: 0 auto;
+    width: 100%; }
+  div.tutorial figure figcaption {
+    font-size: 0.8em;
+    margin-top: 0.5em; }
   div.tutorial figure pre {
     background-color: #ffffff;
     border: 1px solid #dee0e6;

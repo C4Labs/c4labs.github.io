@@ -138,7 +138,6 @@
             }
           });
         }, 100);
-        console.log($('#toc'));
 
         $('td.gutter').each(function(index)
         {
@@ -147,8 +146,13 @@
 
         $('.tutorial img').each(function()
         {
+          console.log($(this).parent());
           var img = $(this).attr('src');
           $(this).attr('src', '/images/cosmos/{{ page.chapter }}/' + img + '').addClass('img-responsive');
+        });
+
+        $('.tutorial p img').unwrap().wrap('<figure></figure>').after(function() {
+            return '<figcaption>'+this.alt+'</figcaption>';
         });
       });
     </script>
