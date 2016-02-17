@@ -5710,7 +5710,8 @@ h3 {
     line-height: 1.25; } }
 h4 {
   font-size: 1.125em;
-  line-height: 1.11111111; }
+  line-height: 1.11111111;
+  font-weight: 400; }
 
 @media (min-width: 43.75em) {
   h4 {
@@ -5985,6 +5986,10 @@ div.tutorial blockquote {
   div.tutorial blockquote p {
     color: #2062FF;
     line-height: 1.75em; }
+div.tutorial .footnotes {
+  display: inline-block;
+  margin-top: 24px;
+  width: 100%; }
 
 .toc {
   font-size: 14px; }
