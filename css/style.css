@@ -6047,4 +6047,30 @@ div.tutorial .footnotes {
     .chapter-nav .examples-list li:nth-child(2) {
       float: right; }
 
+div.gfyitem {
+  width: 100%; }
+  div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 300px !important; }
+    div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull).gfyPreLoadCanvas {
+      display: none; }
+    div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) video {
+      position: relative !important;
+      margin-top: 0;
+      width: 100%;
+      height: 300px; }
+  div.gfyitem .gfyCtrlBox {
+    margin-bottom: 10px !important;
+    display: none !important; }
+    div.gfyitem .gfyCtrlBox .gfyCtrlPause, div.gfyitem .gfyCtrlBox div.gfyitem .gfyCtrlBox .gfyCtrlReverse, div.gfyitem .gfyCtrlBox div.gfyitem .gfyCtrlBox .gfyCtrlSlower, div.gfyitem .gfyCtrlBox div.gfyitem .gfyCtrlBox .gfyCtrlFaster {
+      width: 15px;
+      height: 15px;
+      margin-top: 0;
+      display: none; }
+  div.gfyitem .gfyGif {
+    position: relative !important; }
+  div.gfyitem.install div video {
+    height: 500px !important; }
+
 /*# sourceMappingURL=style.css.map */

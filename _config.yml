@@ -29,9 +29,9 @@ sass:
 exclude:
 - README.md
 
-safe: true
 lsi: false
 
 catgories: [cosmos]
 
-gems: ['pygments.rb']
+gems: 
+  - pygments.rb

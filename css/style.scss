@@ -621,3 +621,51 @@ div.tutorial
 {
 
 }
+
+div.gfyitem 
+{
+  width: 100%; 
+
+  div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) 
+  {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 300px !important;
+
+    &.gfyPreLoadCanvas {
+      display: none;
+		}
+
+		video 
+		{
+      position: relative !important;
+      margin-top: 0;
+      width: 100%;
+      height: 300px; 
+   	}
+  }
+
+  .gfyCtrlBox 
+  {
+    margin-bottom: 10px !important;
+    display: none !important;
+
+    .gfyCtrlPause, div.gfyitem .gfyCtrlBox .gfyCtrlReverse, div.gfyitem .gfyCtrlBox .gfyCtrlSlower, div.gfyitem .gfyCtrlBox .gfyCtrlFaster 
+    {
+      width: 15px;
+      height: 15px;
+      margin-top: 0;
+      display: none; 
+   	}
+  }
+
+  .gfyGif 
+  {
+    position: relative !important; 
+  }
+  
+  &.install div video 
+  {
+    height: 500px !important; 
+ 	}
+}
