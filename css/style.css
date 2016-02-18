@@ -5986,6 +5986,11 @@ div.tutorial blockquote {
   div.tutorial blockquote p {
     color: #2062FF;
     line-height: 1.75em; }
+div.tutorial ul {
+  margin-bottom: 24px; }
+  div.tutorial ul li {
+    color: #828691;
+    padding-left: 12px; }
 div.tutorial .footnotes {
   display: inline-block;
   margin-top: 24px;

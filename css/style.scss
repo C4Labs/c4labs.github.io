@@ -493,6 +493,17 @@ div.tutorial
 		}
 	}
 
+	ul
+	{
+		margin-bottom: 24px;
+		
+		li
+		{
+			color: $light-grey;
+			padding-left: 12px;
+		}
+	}
+
 	.footnotes
 	{
 		display: inline-block;
