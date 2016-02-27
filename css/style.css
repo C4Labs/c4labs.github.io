@@ -1471,8 +1471,6 @@ pre {
   margin: 0 0 10px;
   font-size: 13px;
   line-height: 1.42857;
-  word-break: break-all;
-  word-wrap: break-word;
   color: #333333;
   background-color: #f5f5f5;
   border: 1px solid #ccc;
@@ -5751,6 +5749,9 @@ row {
 
 .container {
   width: 1088px; }
+  @media screen and (max-width: 1199px) {
+    .container {
+      width: 100%; } }
 
 .container-fluid {
   background: rgba(147, 147, 147, 0.08);
@@ -5765,26 +5766,31 @@ nav {
   height: 90px; }
   nav div.navlist {
     margin-top: 18px; }
+    @media screen and (max-width: 1199px) {
+      nav div.navlist {
+        font-size: 0.9em; }
+        nav div.navlist ul li + li {
+          margin-left: 60px !important; } }
     nav div.navlist div {
       width: 20%; }
     nav div.navlist ul {
       width: 40%; }
       nav div.navlist ul li {
-        margin-top: 10px; }
-        nav div.navlist ul li + li {
-          margin-left: 75px; }
+        margin-top: 10px;
+        width: 96px; }
       nav div.navlist ul a {
         color: #828691;
         padding: 5px 0; }
         nav div.navlist ul a:hover {
           color: #4A4E58;
           border-bottom: 1px solid #4A4E58; }
-  nav div.logo {
-    width: auto;
-    margin: 0 auto;
-    display: inline-block;
-    text-align: center; }
-    nav div.logo img {
+  nav .navbar-brand {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin: auto; }
+    nav .navbar-brand img {
       width: 48px;
       margin-top: 6px; }
 
@@ -5950,16 +5956,13 @@ div.tutorial figure {
         border-radius: 0;
         padding: 10px 15px;
         text-align: center;
-        line-height: 2em;
-        font-size: 0.75em;
         background: #fbfbfb;
         color: #B9BBC1; }
     div.tutorial figure pre code table .code {
       margin: 0;
       padding: 0 0 0 21px; }
       div.tutorial figure pre code table .code pre {
-        border: none;
-        line-height: 1.5em; }
+        border: none; }
 div.tutorial h1 {
   margin: 0 0 42px 0; }
 div.tutorial h2 {
@@ -6077,5 +6080,14 @@ div.gfyitem {
     position: relative !important; }
   div.gfyitem.install div video {
     height: 500px !important; }
+
+/*
+@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) {
+    div.tutorial figure pre code table .code pre
+    {
+    	line-height: 1.42em !important;
+    }
+}
+*/
 
 /*# sourceMappingURL=style.css.map */

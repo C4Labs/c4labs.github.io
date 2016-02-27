@@ -12,6 +12,12 @@ $link-note-blue: #2062FF;
 $c4-blue: #2062FF;
 $code-pink: #FF0079;
 
+$screen-sm-min: 768px;
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-md-min: 992px;
+$screen-sm-max: ($screen-md-min - 1);
+$screen-lg-min: 1200px;
+$screen-md-max: ($screen-lg-min - 1);
 
 ///////////////////////////////////////////////// GRID
 
@@ -45,6 +51,11 @@ row
 .container
 {
 	width: 1088px;
+
+	@media screen and (max-width: $screen-md-max)
+	{
+		width: 100%;
+	}
 }
 
 .container-fluid
@@ -69,6 +80,24 @@ nav
 	{
 		margin-top: 18px;
 
+		@media screen and (max-width: $screen-md-max)
+		{
+			font-size: 0.9em;
+
+			ul li + li
+			{
+				margin-left: 60px !important;
+			}
+		}
+
+		@media screen and (max-width: $screen-sm-max)
+		{
+			ul
+			{
+
+			}
+		}
+
 		div
 		{
 			width: 20%;
@@ -81,10 +110,11 @@ nav
 			li
 			{
 				margin-top: 10px;
+				width: 96px;
 
 				& + li
 				{
-					margin-left: 75px;
+					
 				}
 			}
 
@@ -101,17 +131,27 @@ nav
 			}
 		}
 	}
-	div.logo
-	{
-		width: auto;
-		margin: 0 auto;
-		display: inline-block;
-		text-align: center;
 
-		img
+	.navbar-brand
+	{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin: auto;
+
+    img
 		{
 			width: 48px;
 			margin-top: 6px;
+		}
+	}
+	
+	.navbar-right
+	{
+		li
+		{
+
 		}
 	}
 }
@@ -420,8 +460,8 @@ div.tutorial
 					    border-radius: 0;
 					    padding: 10px 15px;
 					    text-align: center;
-					    line-height: 2em;
-					    font-size: 0.75em;
+					    //line-height: 2em;
+					    //font-size: 0.75em;
 					    background: #fbfbfb;
 					    color: $lighter-grey;
 						}
@@ -435,7 +475,7 @@ div.tutorial
 						pre
 						{
 							border: none;
-							line-height: 1.5em;
+							//line-height: 1.5em;
 						}
 					}
 				}
@@ -496,7 +536,7 @@ div.tutorial
 	ul
 	{
 		margin-bottom: 24px;
-		
+
 		li
 		{
 			color: $light-grey;
@@ -680,3 +720,12 @@ div.gfyitem
     height: 500px !important; 
  	}
 }
+
+/*
+@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) {
+    div.tutorial figure pre code table .code pre
+    {
+    	line-height: 1.42em !important;
+    }
+}
+*/
