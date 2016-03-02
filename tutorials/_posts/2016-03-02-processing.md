@@ -502,7 +502,7 @@ void segment(float x, float y, float a) {
 ### C4
 ![](Follow1_C4.png)
 
-You'll see here that the `Vector` class has many functions that are identical to Processing. The difference between these two examples is that we don't have calls to `pushMatrix()` and `popMatrix()`. Instead, we position the circle (which has the line embedded as a subview.
+You'll see here that the `Vector` class has many functions that are identical to Processing. The difference between these two examples is that we don't have calls to `pushMatrix()` and `popMatrix()`. Instead, we position the circle (which has the line embedded as a subview).
 
 {% highlight swift lineos %}
 override func setup() {
