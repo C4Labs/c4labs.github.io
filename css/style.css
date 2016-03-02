@@ -6038,7 +6038,7 @@ div.tutorial .footnotes {
       background: rgba(130, 134, 145, 0.15); }
   .toc a {
     color: #828691;
-    padding: 10px !important; }
+    padding: 7px !important; }
   .toc.affix {
     top: 10px;
     position: fixed !important; }
@@ -6078,6 +6078,9 @@ div.tutorial .footnotes {
     .chapter-nav .examples-list li:nth-child(2) {
       float: right; }
 
+.related-tutorial {
+  margin-top: 300px; }
+
 div.gfyitem {
   width: 100%; }
   div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) {
@@ -6103,14 +6106,5 @@ div.gfyitem {
     position: relative !important; }
   div.gfyitem.install div video {
     height: 500px !important; }
-
-/*
-@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) {
-    div.tutorial figure pre code table .code pre
-    {
-    	line-height: 1.42em !important;
-    }
-}
-*/
 
 /*# sourceMappingURL=style.css.map */

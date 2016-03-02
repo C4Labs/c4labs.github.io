@@ -607,7 +607,7 @@ div.tutorial
 	a
 	{
 		color: $light-grey;
-		padding: 10px !important;
+		padding: 7px !important;
 	}
 
 	&.affix
@@ -689,9 +689,9 @@ div.tutorial
 	}
 }
 
-.related
+.related-tutorial
 {
-
+	margin-top: 300px;
 }
 
 div.gfyitem 
@@ -741,12 +741,3 @@ div.gfyitem
     height: 500px !important; 
  	}
 }
-
-/*
-@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) {
-    div.tutorial figure pre code table .code pre
-    {
-    	line-height: 1.42em !important;
-    }
-}
-*/

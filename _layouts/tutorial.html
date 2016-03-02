@@ -10,14 +10,14 @@
     <div class="container content {{ page.title | downcase }}" >
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 breadcrumb">
-          <h1><a href="/tutorials">Tutorials</a><div class="bread-caret">></div><a href="/cosmos">COSMOS</a><div class="bread-caret">></div>{{ page.title }}</h1>
+          <h1><a href="/tutorials">Tutorials</a><div class="bread-caret">></div>{{ page.title }}</h1>
         </div>
       </div>
 
       <div class="row">
         <div class="col-xs-3 col-sm-3 col-md-3">
           <span class="img large">
-            <img src="{{ site.baseurl }}/images/cosmos/1/{{ page.image }}" />
+            <img src="{{ site.baseurl }}/images/tutorials/{{ page.title | downcase }}/{{ page.image }}" />
           </span>
           <p class="title">Chapter {{ page.chapter }}<br /><span class="lighter">{{ page.title }}</span></p>
           <p>Tags<br />{% for tag in page.tags %}<a href="#">{{ tag | capitalize }}</a>, {% endfor %}</p>
@@ -34,60 +34,18 @@
       </div>
     </div>
 
-    <div class="container-fluid">
-      <div class="row chapter-nav">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-          <h1 class="text-center blue">Well done! Continue COSMOS?</h1>
-          <ul class="examples-list next-prev list-unstyled">
-            {% if page.previous.url and page.previous.categories contains 'cosmos' %}
-              <li class="pull-left">
-                <a class="more" href="{{ page.previous.url }}" title="Earlier article: {{ page.previous.title }}">
-                  <div>
-                    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-                    <span class="img">
-                      <img src="{{ site.baseurl }}/images/cosmos/{{ page.previous.chapter }}/{{ page.previous.image }}" />
-                    </span>
-                    <div class="text">
-                      <p class="title">Chapter {{ page.previous.chapter }}<br />{{ page.previous.title }}</p>
-                      <p>{{ page.previous.description }}</p>
-                    </div>
-                  </div>
-                </a>
-              </li>
-            {% endif %}
-            {% if page.next.url and page.next.categories contains 'cosmos' %}
-              <li class="pull-right">
-                <a class="more" href="{{ page.next.url }}" title="Later article: {{ page.next.title }}">
-                  <div>
-                    <span class="img">
-                      <img src="{{ site.baseurl }}/images/cosmos/{{ page.next.chapter }}/{{ page.next.image }}" />
-                    </span>
-                    <div class="text">
-                      <p class="title">Chapter {{ page.next.chapter }}<br />{{ page.next.title }}</p>
-                      <p>{{ page.next.description }}</p>
-                    </div>
-                    <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-                  </div>
-                </a>
-              </li>
-            {% endif %}
-          </ul>
-        </div>
-      </div>
-    </div>
-
     <div class="container">
-      <div class="row related">
+      <div class="row related-tutorial">
         <div class="col-xs-12 col-md-12">
-          <h1 class="text-center blue">All COSMOS Chapters</h1>
+          <h1 class="text-center blue">Nice Work! Explore More Tutorials?</h1>
           <ul class="examples-list list-unstyled">
-            {% assign cosmosPosts = site.categories['cosmos'] | sort: 'order' %}
-            {% for post in cosmosPosts %}
+            {% assign tutorials = site.categories['tutorials'] | sort: 'order' %}
+            {% for post in tutorials %}
               <li>
                 <a href="{{ post.url }}">
                   <div>
                     <span class="img">
-                      <img src="{{ site.baseurl }}/images/cosmos/{{ post.chapter }}/{{ post.image }}" />
+                      <img src="{{ site.baseurl }}/images/tutorials/{{ post.title | downcase }}/{{ post.image }}" />
                     </span>
                     <div class="text">
                       <p class="title">Chapter {{ post.chapter }}<br />{{ post.title }}</p>
@@ -136,13 +94,13 @@
           $sideBar.affix({
             offset: {
               top: function() {
-                var offsetTop      = $sideBar.offset().top,
+                var offsetTop = $sideBar.offset().top,
                 sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10),
                 navOuterHeight = $('#headerNav').height();
                 return (this.top = offsetTop - navOuterHeight - sideBarMargin);
               },
               bottom: function() {
-                return (this.bottom = $('footer').outerHeight(true) + $('.chapter-nav').outerHeight(true) + $('.related').outerHeight(true) + 60);
+                return (this.bottom = $('footer').outerHeight(true) + $('.chapter-nav').outerHeight(true) + $('.related').outerHeight(true) + 500);
               }
             }
           });
@@ -157,7 +115,7 @@
         {
           console.log($(this).parent());
           var img = $(this).attr('src');
-          $(this).attr('src', '/images/cosmos/{{ page.chapter }}/' + img + '').addClass('img-responsive');
+          $(this).attr('src', '/images/tutorials/{{ page.title | downcase }}/{{ page.chapter }}/' + img + '').addClass('img-responsive');
         });
 
         $('.tutorial p img').unwrap().wrap('<figure></figure>').after(function() {
