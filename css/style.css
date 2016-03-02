@@ -6081,6 +6081,22 @@ div.tutorial .footnotes {
 .related-tutorial {
   margin-top: 300px; }
 
+.col-img {
+  width: 20%;
+  float: left; }
+  .col-img figure {
+    display: inline-block;
+    width: 100%;
+    text-align: center; }
+
+.download-block {
+  display: inline-block;
+  width: 100%; }
+  .download-block img {
+    width: 150px;
+    float: left;
+    margin: 24px; }
+
 div.gfyitem {
   width: 100%; }
   div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) {
