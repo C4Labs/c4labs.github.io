@@ -1,3 +1,6 @@
+{% assign current = page.url | downcase | split: '/' %}
+{{ current }}
+
 <header>
   <nav class="navbar navbar-default {{ page.title | downcase }}" role="navigation"> 
     <div class="navbar-header container">
@@ -12,7 +15,7 @@
             <li><a href="/cosmos">COSMOS</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-           <li><a href="/install">Install</a></li>
+           <li><a href="/install"  {% if current == 'about' %}class='current'{% endif %}>Install</a></li>
             <li><a href="/forums">Forums</a></li>
             <li><a href="/docs">Documentation</a></li>
           </ul>
