@@ -4,26 +4,17 @@ title: Install C4
 permalink: /install/
 ---
 
-{% highlight swift lineos %}
-use_frameworks!
-
-target 'TitleOfYourProject' do
-  pod 'C4', '~> 1.0'
-end
-{% endhighlight %}
-
 <div class="row">
 	<div class="col-md-10 col-md-offset-1 text-center">
 		<header class="post-header">
 		  <h1 class="post-title">{{ page.title }}</h1>
 			<p>Pick your weapon of choice and start kung-fu'ing some code.</p>
 		</header>
-
 		<hr>  
 	</div>
+</div>
 
-
-<div class="row">
+<div class="row tutorial install">
 	<div class="col-md-10 col-md-offset-1">
 		<p>There are a few ways to install C4:</p>
 
@@ -104,7 +95,7 @@ end
 				</ol></li>
 		</ol>
 
-{% highlight swift lineos %}
+{% highlight plaintext %}
 use_frameworks!
 
 target 'TitleOfYourProject' do
@@ -122,23 +113,24 @@ end
 
 		<p>This is what my terminal output looks like at this point:</p>
 
-		<pre><code>Computer:~ SlantMacPro$ cd /Users/Computer/Desktop/C4CocoaPod 
-		Computer:C4CocoaPod SlantMacPro$ touch Podfile .
-		Computer:C4CocoaPod SlantMacPro$ open .
-		Computer:C4CocoaPod SlantMacPro$ pod install
-		Updating local specs repositories
-		Analyzing dependencies
-		Downloading dependencies
-		Installing C4 (1.0.2)
-		Generating Pods project
-		Integrating client project
+{% highlight plaintext %}
+Computer:~ SlantMacPro$ cd /Users/Computer/Desktop/C4CocoaPod 
+Computer:C4CocoaPod SlantMacPro$ touch Podfile .
+Computer:C4CocoaPod SlantMacPro$ open .
+Computer:C4CocoaPod SlantMacPro$ pod install
+Updating local specs repositories
+Analyzing dependencies
+Downloading dependencies
+Installing C4 (1.0.2)
+Generating Pods project
+Integrating client project
 
-		[!] Please close any current Xcode sessions and use `C4CocoaPod.xcworkspace` for this project from now on.
-		Sending stats
-		Pod installation complete! There is 1 dependency from the Podfile and 1 total
-		pod installed.
-		S0106003ee1c0f960:C4CocoaPod SlantMacPro$ 
-		</code></pre>
+[!] Please close any current Xcode sessions and use `C4CocoaPod.xcworkspace` for this project from now on.
+Sending stats
+Pod installation complete! There is 1 dependency from the Podfile and 1 total
+pod installed.
+S0106003ee1c0f960:C4CocoaPod SlantMacPro$ 
+{% endhighlight %}
 
 		<p>Now, we need to update the Xcode project so that it works with the pod’ed thing.</p>
 
@@ -147,19 +139,20 @@ end
 			<li>Open ViewController and change its contents to look like this:</li>
 		</ol>
 
-		<pre><code>import UIKit
-		import C4
+{% highlight swift linenos %}
+import UIKit
+import C4
 
-		class ViewController: C4CanvasController {
-		    override func setup() {
-		        canvas.backgroundColor = C4Blue
-		    }
-		}
-		</code></pre>
+class ViewController: C4CanvasController {
+    override func setup() {
+        canvas.backgroundColor = C4Blue
+    }
+}
+{% endhighlight %}
 
-		<ol>
-			<li>Run it.</li>
-		</ol>
+		<ul class="list-unstyled">
+			<li>3. Run it.</li>
+		</ul>
 
 		<p>Done.</p>
 
@@ -238,3 +231,12 @@ end
 		<p>Ultimate control.</p>
 	</div>
 </div>
+
+<script>
+ (function(d, t) {
+    var g = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    g.src = 'http://assets.gfycat.com/js/gfyajax-0.517d.js';
+    s.parentNode.insertBefore(g, s);
+  }(document, 'script'));
+</script>

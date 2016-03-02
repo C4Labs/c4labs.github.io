@@ -6012,11 +6012,13 @@ div.tutorial blockquote {
   div.tutorial blockquote p {
     color: #2062FF;
     line-height: 1.75em; }
-div.tutorial ul {
+div.tutorial ul, div.tutorial ol {
   margin-bottom: 24px; }
-  div.tutorial ul li {
+  div.tutorial ul li, div.tutorial ol li {
     color: #828691;
     padding-left: 12px; }
+    div.tutorial ul li code, div.tutorial ol li code {
+      color: #ff0079; }
 div.tutorial .footnotes {
   display: inline-block;
   margin-top: 24px;
@@ -6121,6 +6123,7 @@ div.gfyitem {
   div.gfyitem .gfyGif {
     position: relative !important; }
   div.gfyitem.install div video {
-    height: 500px !important; }
+    height: 500px !important;
+    margin: 12px 0 36px 0 !important; }
 
 /*# sourceMappingURL=style.css.map */

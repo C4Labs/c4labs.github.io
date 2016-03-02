@@ -554,7 +554,7 @@ div.tutorial
 		}
 	}
 
-	ul
+	ul, ol
 	{
 		margin-bottom: 24px;
 
@@ -562,6 +562,11 @@ div.tutorial
 		{
 			color: $light-grey;
 			padding-left: 12px;
+
+			code
+			{
+				color: #ff0079;
+			}
 		}
 	}
 
@@ -765,5 +770,6 @@ div.gfyitem
   &.install div video 
   {
     height: 500px !important; 
+    margin: 12px 0 36px 0 !important;
  	}
 }
