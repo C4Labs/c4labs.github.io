@@ -4,6 +4,14 @@ title: Install C4
 permalink: /install/
 ---
 
+{% highlight swift lineos %}
+use_frameworks!
+
+target 'TitleOfYourProject' do
+  pod 'C4', '~> 1.0'
+end
+{% endhighlight %}
+
 <div class="row">
 	<div class="col-md-10 col-md-offset-1 text-center">
 		<header class="post-header">
@@ -96,7 +104,7 @@ permalink: /install/
 				</ol></li>
 		</ol>
 
-{% highlight livecodeserver lineos %}
+{% highlight swift lineos %}
 use_frameworks!
 
 target 'TitleOfYourProject' do
