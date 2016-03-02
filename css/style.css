@@ -3672,14 +3672,19 @@ tbody.collapse.in {
   padding: 15px 15px;
   font-size: 18px;
   line-height: 20px;
-  height: 50px; }
+  height: 50px;
+  /*
+  @media (min-width: $grid-float-breakpoint) {
+    .navbar > .container &,
+    .navbar > .container-fluid & {
+      margin-left: -$navbar-padding-horizontal;
+    }
+  }
+  */ }
   .navbar-brand:hover, .navbar-brand:focus {
     text-decoration: none; }
   .navbar-brand > img {
     display: block; }
-  @media (min-width: 768px) {
-    .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
-      margin-left: -15px; } }
 
 .navbar-toggle {
   position: relative;
@@ -5764,35 +5769,53 @@ row {
 
 nav {
   height: 90px; }
+  @media screen and (max-width: 991px) {
+    nav {
+      height: 200px; } }
+  nav .navbar-header {
+    float: none; }
+  nav .navbar-nav {
+    margin: 0; }
   nav div.navlist {
     margin-top: 18px; }
     @media screen and (max-width: 1199px) {
       nav div.navlist {
         font-size: 0.9em; }
-        nav div.navlist ul li + li {
-          margin-left: 60px !important; } }
-    nav div.navlist div {
-      width: 20%; }
-    nav div.navlist ul {
-      width: 40%; }
-      nav div.navlist ul li {
-        margin-top: 10px;
-        width: 96px; }
-      nav div.navlist ul a {
-        color: #828691;
-        padding: 5px 0; }
-        nav div.navlist ul a:hover {
-          color: #4A4E58;
-          border-bottom: 1px solid #4A4E58; }
+        nav div.navlist ul li:nth-child(2) {
+          padding: 0 45px !important; } }
+    @media screen and (max-width: 991px) {
+      nav div.navlist ul {
+        text-align: center;
+        width: 50%;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        float: none !important; }
+        nav div.navlist ul.navbar-left {
+          margin-top: 48px; }
+        nav div.navlist ul li {
+          float: left;
+          text-align: center;
+          width: 33%; }
+          nav div.navlist ul li:nth-child(2) {
+            padding: 0 !important; } }
+    nav div.navlist ul li {
+      margin-top: 10px; }
+      nav div.navlist ul li:nth-child(2) {
+        padding: 0 60px; }
+    nav div.navlist ul a {
+      color: #828691;
+      padding: 5px 0; }
+      nav div.navlist ul a:hover {
+        color: #4A4E58;
+        border-bottom: 1px solid #4A4E58; }
   nav .navbar-brand {
     position: absolute;
     width: 100%;
     left: 0;
-    text-align: center;
-    margin: auto; }
+    text-align: center; }
     nav .navbar-brand img {
       width: 48px;
-      margin-top: 6px; }
+      margin-top: -6px; }
 
 footer {
   background: #efefef; }

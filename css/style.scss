@@ -76,6 +76,21 @@ nav
 {
 	height: 90px;
 
+	@media screen and (max-width: $screen-sm-max)
+	{
+		height: 200px;
+	}
+
+	.navbar-header
+	{
+		float: none;
+	}
+
+	.navbar-nav
+	{
+		margin: 0;
+	}
+
 	div.navlist
 	{
 		margin-top: 18px;
@@ -84,9 +99,9 @@ nav
 		{
 			font-size: 0.9em;
 
-			ul li + li
+			ul li:nth-child(2)
 			{
-				margin-left: 60px !important;
+				padding: 0 45px !important;
 			}
 		}
 
@@ -94,27 +109,42 @@ nav
 		{
 			ul
 			{
+				text-align: center;
+				width: 50%;
+	    	margin-left: auto !important;
+	    	margin-right: auto !important;
+	    	float: none !important;
 
+				&.navbar-left
+				{
+					margin-top: 48px;
+				}
+
+				li
+				{
+					float: left;
+					text-align: center;
+					width: 33%;
+
+					&:nth-child(2)
+					{
+						padding: 0 !important;
+					}
+    			
+				}
 			}
-		}
-
-		div
-		{
-			width: 20%;
 		}
 
 		ul
 		{
-			width: 40%;
 
 			li
 			{
 				margin-top: 10px;
-				width: 96px;
 
-				& + li
+				&:nth-child(2)
 				{
-					
+					padding: 0 60px;
 				}
 			}
 
@@ -138,20 +168,11 @@ nav
     width: 100%;
     left: 0;
     text-align: center;
-    margin: auto;
 
     img
 		{
 			width: 48px;
-			margin-top: 6px;
-		}
-	}
-	
-	.navbar-right
-	{
-		li
-		{
-
+			margin-top: -6px;
 		}
 	}
 }
