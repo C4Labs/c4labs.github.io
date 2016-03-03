@@ -16,7 +16,8 @@ Here are eight Processing examples coded in C4.
 ## Pie Chart
 Creating shapes in C4 is very similar to Processing. Here you'll see that C4 has an `Arc` shape that corresponds to Processing's `arc()` function.
 
-### Processing
+### Processing 
+{: .toc-omit }
 ![](PieChart_P5.png)
 
 From: [Pie Chart](https://processing.org/examples/piechart.html)
@@ -49,7 +50,8 @@ void pieChart(float diameter, int[] data) {
 }
 {% endhighlight %}
 
-###C4
+### C4
+{: .toc-omit }
 ![](PieChart_C4.png)
 
 There are many math functions that are common between both projects. This example also shows that using C4's `map` function is almost identical.
@@ -75,6 +77,7 @@ override func setup() {
 The effect of the Array 2D example shows how to create a fading grid of points. This example shows you how to create the same effect, even though the C4 version doesn't actually use arrays.
 
 ### Processing
+{: .toc-omit }
 ![](Array2D_P5.png)
 
 From: [Array 2D](https://processing.org/examples/array2d.html)
@@ -112,6 +115,7 @@ void draw() {
 {% endhighlight %}
 
 ### C4
+{: .toc-omit }
 ![](Array2D_C4.png)
 
 Instead of points, we create `Circle` shapes that are `1pt` in diameter.
@@ -141,6 +145,7 @@ override func setup() {
 There is no mouse in C4, but there are gesture recognizers. This example shows how you can add a long press gesture recognizer to an object to achieve a similar effect to `mousePressed`, `mouseDragged` and `mouseReleased`.
 
 ### Processing
+{: .toc-omit }
 ![](MouseFunctions_P5.png)
 
 From: [Mouse Functions](https://processing.org/examples/mousefunctions.html)

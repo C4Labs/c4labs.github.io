@@ -81,7 +81,7 @@
           ulClass: 'nav',
           heading: 'Contents',
           indexingFormats: 'number',
-          selector: 'h2, h3, h4',
+          selector: 'h2:not(.toc-omit), h3:not(.toc-omit), h4:not(.toc-omit)'
         });
 
         $('body').scrollspy({
