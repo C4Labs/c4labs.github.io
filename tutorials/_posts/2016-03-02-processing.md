@@ -10,7 +10,7 @@ image: poster.png
 tags: [getting started, basics, introduction, easy, c4]
 ---
 
-#Processing Examples
+# Processing Examples
 Here are eight Processing examples coded in C4. 
 
 ## Pie Chart
