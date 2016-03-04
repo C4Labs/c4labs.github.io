@@ -261,7 +261,7 @@
             }
 
             if (converted.length > 0) {
-                var text = converted.join('. ') + '. ';
+                var text = converted.join('.') + '. ';
                 $(linkElement).prepend(text);
                 $(heading).prepend(text);
             }

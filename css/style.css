@@ -5626,12 +5626,14 @@ button.close {
     display: none !important; } }
 /** Ultra Light */
 @font-face {
-  font-family: "SF UI Display";
-  font-weight: 300;
+  font-family: "SF Reg";
   src: url(/fonts/SFUIDisplay-Regular.ttf); }
+@font-face {
+  font-family: "SF Thin";
+  src: url(/fonts/SFUIDisplay-Thin.ttf); }
 body {
   font-size: 16px;
-  font-family: "SF UI Display", "Helvetica Neue", "Lucida Grande"; }
+  font-family: "SF Reg", "Helvetica Neue", "Lucida Grande"; }
 
 body, h1, h2, h3, h4, h5, h6 {
   font-size-adjust: 0.5; }
@@ -5646,7 +5648,8 @@ body, h1, h2, h3, h4, h5, h6 {
     font-size: 1em;
     line-height: 1.5; } }
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 100; }
+  font-weight: 100;
+  font-family: "SF Thin", "Helvetica Neue", "Lucida Grande"; }
 
 h1 {
   font-size: 1.5em;
