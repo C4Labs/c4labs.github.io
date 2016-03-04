@@ -15,7 +15,7 @@ categories: cosmos, tutorials
 			  	<a href="{{ post.url }}">
 			  		<div>
 			  			<span class="img">
-				  			<img src="{{ site.baseurl }}/images/cosmos/{{ post.chapter }}/{{ post.image }}" />
+				  			<img src="{{ site.baseurl }}/images/tutorials/{{ post.url | split: '/' | last }}/{{ post.image }}" />
 				  		</span>
 				  		<div class="text">
 					  		<p class="title">{{ post.title }}</p>
