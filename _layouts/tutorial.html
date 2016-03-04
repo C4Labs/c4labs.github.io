@@ -17,7 +17,7 @@
       <div class="row">
         <div class="col-xs-3 col-sm-3 col-md-3">
           <span class="img large">
-            <img src="{{ site.baseurl }}/images/tutorials/{{ page.title | downcase }}/{{ page.image }}" />
+            <img src="{{ site.baseurl }}/images/tutorials/{{ page.url | split: '/' | last }}/{{ page.image }}" />
           </span>
           <p>Tags<br />{% for tag in page.tags %}<a href="#">{{ tag | capitalize }}</a>, {% endfor %}</p>
           <p>Estimated Time<br /><span class="lighter">{{ page.length }}</span></p>
@@ -112,7 +112,6 @@
 
         $('.tutorial img').each(function()
         {
-          console.log($(this).parent());
           var img = $(this).attr('src');
           $(this).attr('src', '/images/tutorials/{{ page.url | split: '/' | last }}/' + img + '').addClass('img-responsive');
         });
