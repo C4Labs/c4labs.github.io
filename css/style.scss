@@ -48,9 +48,15 @@ row
 
 ///////////////////////////////////////////////// STRUCTURE
 
+html, body
+{
+	height: 100%;
+}
+
 .container
 {
 	width: 1088px;
+	min-height: 100%;
 
 	@media screen and (max-width: $screen-md-max)
 	{

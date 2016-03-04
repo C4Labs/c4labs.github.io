@@ -5733,8 +5733,12 @@ row {
   padding-left: 24px;
   padding-right: 24px; }
 
+html, body {
+  height: 100%; }
+
 .container {
-  width: 1088px; }
+  width: 1088px;
+  min-height: 100%; }
   @media screen and (max-width: 1199px) {
     .container {
       width: 100%; } }
