@@ -5733,12 +5733,8 @@ row {
   padding-left: 24px;
   padding-right: 24px; }
 
-html, body {
-  height: 100%; }
-
 .container {
-  width: 1088px;
-  min-height: 100%; }
+  width: 1088px; }
   @media screen and (max-width: 1199px) {
     .container {
       width: 100%; } }
@@ -6126,5 +6122,9 @@ div.gfyitem {
   div.gfyitem.install div video {
     height: 500px !important;
     margin: 12px 0 36px 0 !important; }
+
+.container.terms {
+  min-height: 100%;
+  margin-bottom: 600px; }
 
 /*# sourceMappingURL=style.css.map */
