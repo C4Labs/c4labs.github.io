@@ -331,11 +331,14 @@ hr
 
 .examples-list
 {
+	display: inline-block;
+	
 	li
 	{
 		width: 50%;
 		float: left;
 		margin-bottom: 24px;
+		min-height: 120px;
 
 		span.img
 		{

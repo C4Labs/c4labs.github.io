@@ -5877,41 +5877,44 @@ hr {
 .intro h2 {
   margin: -6px 0 30px 0; }
 
-.examples-list li {
-  width: 50%;
-  float: left;
-  margin-bottom: 24px; }
-  .examples-list li span.img {
-    width: 85px;
-    height: 85px;
-    background: #E8E8E8;
-    border-radius: 4px;
-    position: relative;
-    float: left; }
-    .examples-list li span.img img {
-      width: 50%;
-      display: block;
-      position: absolute;
-      left: 22px;
-      top: 22px;
-      margin: auto; }
-  .examples-list li a {
-    display: inline-block; }
-    .examples-list li a:hover span {
-      box-shadow: 0 1px 13px rgba(0, 0, 0, 0.2); }
-  .examples-list li p {
-    color: #828691; }
-    .examples-list li p.title {
-      color: #4A4E58; }
-    .examples-list li p:hover {
-      text-decoration: none; }
-  .examples-list li p {
-    margin: 0 0 0 12px;
-    display: inline-block; }
-  .examples-list li div.text {
+.examples-list {
+  display: inline-block; }
+  .examples-list li {
+    width: 50%;
     float: left;
-    width: 80%;
-    margin-top: -4px; }
+    margin-bottom: 24px;
+    min-height: 120px; }
+    .examples-list li span.img {
+      width: 85px;
+      height: 85px;
+      background: #E8E8E8;
+      border-radius: 4px;
+      position: relative;
+      float: left; }
+      .examples-list li span.img img {
+        width: 50%;
+        display: block;
+        position: absolute;
+        left: 22px;
+        top: 22px;
+        margin: auto; }
+    .examples-list li a {
+      display: inline-block; }
+      .examples-list li a:hover span {
+        box-shadow: 0 1px 13px rgba(0, 0, 0, 0.2); }
+    .examples-list li p {
+      color: #828691; }
+      .examples-list li p.title {
+        color: #4A4E58; }
+      .examples-list li p:hover {
+        text-decoration: none; }
+    .examples-list li p {
+      margin: 0 0 0 12px;
+      display: inline-block; }
+    .examples-list li div.text {
+      float: left;
+      width: 80%;
+      margin-top: -4px; }
 
 span.title {
   color: #4A4E58;
