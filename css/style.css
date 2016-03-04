@@ -6096,7 +6096,8 @@ div.tutorial .footnotes {
     margin: 24px; }
 
 div.gfyitem {
-  width: 100%; }
+  width: 100%;
+  background: #ffffff; }
   div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) {
     width: 100% !important;
     max-width: 100% !important;

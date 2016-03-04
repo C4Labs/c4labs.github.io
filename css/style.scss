@@ -332,7 +332,7 @@ hr
 .examples-list
 {
 	display: inline-block;
-	
+
 	li
 	{
 		width: 50%;
@@ -752,6 +752,7 @@ div.tutorial
 div.gfyitem 
 {
   width: 100%; 
+  background: #ffffff;
 
   div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) 
   {
