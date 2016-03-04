@@ -539,6 +539,25 @@ div.tutorial
 		margin: 24px 0;
 	}
 
+	.highlighter-rouge
+	{
+		.highlight
+		{
+			border: none;
+			background: rgba(130, 134, 145, 0.08);
+			border-radius: 4px;
+			display: inline-block;
+    	padding: 20px;
+    	margin-bottom: 24px;
+
+			code
+			{
+				color: $light-grey;
+				font-family: 'SF UI Display';
+			}
+		}
+	}
+
 	blockquote
 	{
 		font-size: 1em;

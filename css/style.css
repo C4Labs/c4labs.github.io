@@ -5626,38 +5626,12 @@ button.close {
     display: none !important; } }
 /** Ultra Light */
 @font-face {
-  font-family: "San Francisco";
-  font-weight: 100;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-ultralight-webfont.woff"); }
-/** Thin */
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 200;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff"); }
-/** Regular */
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 400;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff"); }
-/** Medium */
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 500;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff"); }
-/** Semi Bold */
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 600;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff"); }
-/** Bold */
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 700;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff"); }
+  font-family: "SF UI Display";
+  font-weight: 300;
+  src: url(/fonts/SFUIDisplay-Regular.ttf); }
 body {
   font-size: 16px;
-  font-family: "San Francisco", "Helvetica Neue", "Lucida Grande";
-  font-weight: 400; }
+  font-family: "SF UI Display", "Helvetica Neue", "Lucida Grande"; }
 
 body, h1, h2, h3, h4, h5, h6 {
   font-size-adjust: 0.5; }
@@ -5676,7 +5650,8 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 1.5em;
-  line-height: 1.25; }
+  line-height: 1.25;
+  letter-spacing: 2.25px; }
 
 @media (min-width: 43.75em) {
   h1 {
@@ -5688,7 +5663,8 @@ h1 {
     line-height: 1.05; } }
 h2 {
   font-size: 1.25em;
-  line-height: 1.15384615; }
+  line-height: 1.15384615;
+  letter-spacing: 2.25px; }
 
 @media (min-width: 43.75em) {
   h2 {
@@ -5701,7 +5677,8 @@ h2 {
     letter-spacing: 0.75px; } }
 h3 {
   font-size: 1.375em;
-  line-height: 1.13636364; }
+  line-height: 1.13636364;
+  letter-spacing: 2.25px; }
 
 @media (min-width: 43.75em) {
   h3 {
@@ -5714,7 +5691,8 @@ h3 {
 h4 {
   font-size: 1.125em;
   line-height: 1.11111111;
-  font-weight: 400; }
+  font-weight: 400;
+  letter-spacing: 1.25px; }
 
 @media (min-width: 43.75em) {
   h4 {
@@ -6003,6 +5981,16 @@ div.tutorial p {
     font-size: 100%; }
 div.tutorial div.highlight {
   margin: 24px 0; }
+div.tutorial .highlighter-rouge .highlight {
+  border: none;
+  background: rgba(130, 134, 145, 0.08);
+  border-radius: 4px;
+  display: inline-block;
+  padding: 20px;
+  margin-bottom: 24px; }
+  div.tutorial .highlighter-rouge .highlight code {
+    color: #828691;
+    font-family: 'SF UI Display'; }
 div.tutorial blockquote {
   font-size: 1em;
   border-left: none;
