@@ -5945,7 +5945,8 @@ div.tutorial figure {
     width: 100%; }
   div.tutorial figure figcaption {
     font-size: 0.8em;
-    margin-top: 0.5em; }
+    margin-top: 0.5em;
+    color: #828691; }
   div.tutorial figure pre {
     background-color: #ffffff;
     border: 1px solid #dee0e6;
