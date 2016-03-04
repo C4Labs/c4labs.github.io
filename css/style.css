@@ -6005,7 +6005,8 @@ div.tutorial blockquote {
     color: #2062FF;
     line-height: 1.75em; }
 div.tutorial ul, div.tutorial ol {
-  margin-bottom: 24px; }
+  margin-bottom: 24px;
+  font-size: 95%; }
   div.tutorial ul li, div.tutorial ol li {
     color: #828691;
     padding-left: 12px; }
