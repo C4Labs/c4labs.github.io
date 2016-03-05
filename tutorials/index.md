@@ -6,10 +6,10 @@ categories: cosmos, tutorials
 
 # Tutorials
 
-<div class="row">
+<div class="row" style="margin-top: 48px;">
 	<div class="col-xs-12 col-md-12">
 		<ul class="examples-list list-unstyled">
-			{% assign tutorialsPosts = site.categories['tutorials'] | sort: 'order' %}
+			{% assign tutorialsPosts = site.categories['tutorials'] %}
 			{% for post in tutorialsPosts %}
 			  <li>
 			  	<a href="{{ post.url }}">
