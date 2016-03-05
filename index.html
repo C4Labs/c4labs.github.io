@@ -127,7 +127,7 @@ let m = movie.frame.size.width
               <div class="col-md-6">
                 <h4>C4</h4> 
 {% highlight swift %}
-C4ViewAnimation(duration: 0.5) {
+ViewAnimation(duration: 0.5) {
   shape.center = self.canvas.center
   shape.lineWidth = 5
 }.animate()
@@ -137,12 +137,14 @@ C4ViewAnimation(duration: 0.5) {
                 <h4>UIKit + Core Animation</h4>
 {% highlight swift %}
 UIView.animateWithDuration(0.5) {
-  shape.center = self.canvas.center
+    v.center = self.view.center
 }
 
 CATransaction.begin()
 CATransaction.setValue(NSNumber(float: 0.5), forKey: kCATransactionAnimationDuration)
-shape.lineWidth = 5
+if let shapeLayer = v.layer as? CAShapeLayer {
+    shapeLayer.lineWidth = 5
+}
 CATransaction.commit()
 {% endhighlight %}
               </div>
@@ -225,9 +227,9 @@ let bananaName = "Jimmy".banana
             <h4>C4</h4>
 {% highlight swift %}
 func setup() {
-  let movie = C4Movie("myClip.mov")
+  let movie = Movie("halo.mp4")
   canvas.add(movie)
-  movie.play()
+  movie?.play()
 }
 {% endhighlight %}
           </div>
@@ -235,8 +237,8 @@ func setup() {
             <h4>UIKit + AVFoundation</h4>
 {% highlight swift %}
 func viewDidLoad() {
-  guard let url = NSBundle.mainBundle().URLForResource("myClip.mov", withExtension: nil) else {
-    fatalError("File not found")
+  guard let url = NSBundle.mainBundle().URLForResource("halo.mp4", withExtension: nil) else {
+      fatalError("File not found")
   }
 
   let asset = AVAsset(URL: url)
@@ -245,8 +247,15 @@ func viewDidLoad() {
 
   let movieLayer = AVPlayerLayer(player: player)
   movieLayer.videoGravity = AVLayerVideoGravityResize
-  self.view.layer.addSublayer(movieLayer)
 
+  let tracks = asset.tracksWithMediaType(AVMediaTypeVideo)
+
+  //grab the movie track and size
+  let movieTrack = tracks[0]
+  let size = movieTrack.naturalSize
+
+  movieLayer.frame = CGRect(x: 0,y: 0,width: size.width,height: size.height)
+  self.view.layer.addSublayer(movieLayer)
   player.play()
 }
 {% endhighlight %}
