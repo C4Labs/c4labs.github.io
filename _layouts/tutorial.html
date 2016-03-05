@@ -44,10 +44,10 @@
                 <a href="{{ post.url }}">
                   <div>
                     <span class="img">
-                      <img src="{{ site.baseurl }}/images/tutorials/{{ post.title | downcase }}/{{ post.image }}" />
+                      <img src="{{ site.baseurl }}/images/tutorials/{{ post.url | split: '/' | last }}/{{ post.image }}" />
                     </span>
                     <div class="text">
-                      <p class="title">Chapter {{ post.chapter }}<br />{{ post.title }}</p>
+                      <p class="title">{{ post.title }}</p>
                       <p>{{ post.description }}</p>
                     </text>
                   </div>
