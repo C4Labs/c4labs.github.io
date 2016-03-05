@@ -6215,6 +6215,8 @@ div.gfyitem {
     margin-bottom: 36px; }
   .index-content .col-md-10 ul li {
     color: light-grey !important; }
+  .index-content code {
+    font-size: 90%; }
 
 .cta {
   margin: 72px 0; }
