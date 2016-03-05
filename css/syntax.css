@@ -1,4 +1,5 @@
-.highlight  { background: #ffffff; }
+.highlight  { background: #ffffff; white-space: nowrap; word-wrap: normal;}
+.highlight .pre {  white-space: nowrap; word-wrap: normal; }
 .highlight .c { color: #9E9C9B; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
 .highlight .k { color: #38B47B; } /* Keyword */
