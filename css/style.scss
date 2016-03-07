@@ -540,7 +540,7 @@ hr
 			margin: 0 auto;
 		}
 
-		@media screen and (max-width: $screen-sm-max)
+		@media screen and (max-width: $screen-xs-max)
 		{
 			&:nth-child(n + 3)
 			{
@@ -1049,7 +1049,7 @@ div.gfyitem
       display: none;
 		}
 
-		video 
+		video , img
 		{
       position: relative !important;
       margin-top: 0;

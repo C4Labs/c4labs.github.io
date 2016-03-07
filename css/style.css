@@ -5989,7 +5989,7 @@ hr {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     padding: 36px 12px;
     margin: 0 auto; }
-  @media screen and (max-width: 991px) {
+  @media screen and (max-width: 767px) {
     .cta .col-md-3:nth-child(n + 3) {
       margin-top: 48px; } }
   .cta span {
@@ -6253,7 +6253,7 @@ div.gfyitem {
     height: 300px !important; }
     div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull).gfyPreLoadCanvas {
       display: none; }
-    div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) video {
+    div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) video, div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) img {
       position: relative !important;
       margin-top: 0;
       width: 100%;
