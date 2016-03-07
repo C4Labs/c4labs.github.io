@@ -35,7 +35,7 @@ categories: cosmos, tutorials
 				  		<div class="text">
 					  		<p class="title">Chapter {{ post.chapter }}<br />{{ post.title }}</p>
 					  		<p>{{ post.description }}</p>
-					  	</text>
+					  	</div>
 				  	</div>
 				  </a>
 			  </li>

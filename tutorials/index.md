@@ -7,8 +7,8 @@ description: 'Here be tutorials'
 
 # Tutorials
 
-<div class="row" style="margin-top: 48px;">
-	<div class="col-xs-12 col-md-12">
+<div class="row">
+	<div class="col-md-12 col-sm-12 col-xs-12">
 		<ul class="examples-list list-unstyled">
 			{% assign tutorialsPosts = site.categories['tutorials'] %}
 			{% for post in tutorialsPosts %}
@@ -21,7 +21,7 @@ description: 'Here be tutorials'
 				  		<div class="text">
 					  		<p class="title">{{ post.title }}</p>
 					  		<p>{{ post.description }}</p>
-					  	</text>
+					  	</div>
 				  	</div>
 				  </a>
 			  </li>
