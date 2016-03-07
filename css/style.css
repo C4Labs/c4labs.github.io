@@ -6250,14 +6250,13 @@ div.gfyitem {
   div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) {
     width: 100% !important;
     max-width: 100% !important;
-    height: 300px !important; }
+    height: auto !important; }
     div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull).gfyPreLoadCanvas {
       display: none; }
     div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) video, div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) img {
       position: relative !important;
       margin-top: 0;
-      width: 100%;
-      height: 300px; }
+      width: 100%; }
   div.gfyitem .gfyCtrlBox {
     margin-bottom: 10px !important;
     display: none !important; }
