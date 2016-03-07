@@ -5868,6 +5868,143 @@ hr {
   .image-wrapper .image-caption {
     color: #828691; }
 
+.container-fluid {
+  background-color: #ffffff;
+  margin-top: 0px; }
+
+.background {
+  width: 1200px;
+  height: 800px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden; }
+  @media screen and (max-width: 1199px) {
+    .background {
+      width: 100% !important; }
+      .background #scroll-grid {
+        width: 100% !important; }
+        .background #scroll-grid .taglines {
+          margin-top: 50px !important; }
+        .background #scroll-grid .poster {
+          left: 0 !important;
+          width: 100%; }
+      .background .image {
+        max-width: 200px !important; } }
+  @media screen and (max-width: 1199px) {
+    .background #scroll-grid .poster {
+      width: 50%;
+      left: 250px !important; } }
+  .background #scroll-grid {
+    width: 1200px;
+    height: 2400px;
+    overflow: hidden;
+    position: absolute; }
+    .background #scroll-grid .taglines {
+      text-align: center;
+      margin-top: 200px;
+      z-index: 99999;
+      position: relative; }
+      .background #scroll-grid .taglines h1 {
+        font-size: 5em;
+        color: #4A4E58; }
+      .background #scroll-grid .taglines p {
+        font-size: 2em;
+        color: #4A4E58;
+        font-family: "SF Thin";
+        letter-spacing: 1.5px;
+        margin: 12px 0 36px; }
+      .background #scroll-grid .taglines a.button {
+        color: #2062FF;
+        background-color: rgba(32, 98, 255, 0.08);
+        border-radius: 4px;
+        padding: 15px 20px; }
+        .background #scroll-grid .taglines a.button:hover {
+          text-decoration: none;
+          background-color: rgba(32, 98, 255, 0.16); }
+    .background #scroll-grid .image {
+      position: absolute;
+      max-width: 400px; }
+      .background #scroll-grid .image a {
+        float: left;
+        background: white;
+        transition: all 0.25s ease; }
+        .background #scroll-grid .image a img {
+          width: 100%;
+          opacity: 0.5;
+          box-shadow: 0px 0px 20px #cccccc; }
+        .background #scroll-grid .image a:hover {
+          z-index: 9999999; }
+          .background #scroll-grid .image a:hover img {
+            opacity: 1; }
+    .background #scroll-grid .poster {
+      position: absolute;
+      left: 315px;
+      z-index: 9999;
+      top: 450px; }
+    .background #scroll-grid .gradient {
+      width: 100%;
+      height: 200px;
+      position: absolute;
+      top: 600px;
+      z-index: 999;
+      background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 62%, white 99%);
+      background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 62%, white 99%);
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 62%, white 99%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0); }
+  .background .chevron {
+    position: absolute;
+    top: 777px;
+    left: 47.5%;
+    z-index: 9999; }
+
+.index-content {
+  text-align: center; }
+  .index-content pre {
+    background-color: white;
+    text-align: left; }
+  .index-content h1.headliner {
+    font-size: 5em;
+    margin-bottom: 48px; }
+  .index-content .col-md-10 p {
+    font-size: 1.25em;
+    font-weight: 100;
+    color: #828691;
+    margin-bottom: 36px; }
+  .index-content .col-md-10 ul li {
+    color: light-grey !important; }
+  .index-content code {
+    font-size: 90%; }
+
+.cta {
+  margin: 72px 0; }
+  .cta a:hover {
+    text-decoration: none; }
+    .cta a:hover div {
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4); }
+      .cta a:hover div p {
+        text-decoration: none; }
+  .cta .col-md-3 div {
+    max-width: 210px;
+    border-radius: 8px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    padding: 36px 12px;
+    margin: 0 auto; }
+  @media screen and (max-width: 991px) {
+    .cta .col-md-3:nth-child(n + 3) {
+      margin-top: 48px; } }
+  .cta span {
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    margin-bottom: 12px; }
+    .cta span img {
+      margin: 0 auto;
+      max-width: 100px; }
+  .cta p {
+    color: #828691; }
+    .cta p.title {
+      color: #4A4E58; }
+
 .breadcrumb {
   background: none;
   margin-bottom: 48px; }
@@ -6138,126 +6275,5 @@ div.gfyitem {
 .container.terms {
   min-height: 100%;
   margin-bottom: 600px; }
-
-.container-fluid {
-  background-color: #ffffff;
-  margin-top: 0px; }
-
-.background {
-  width: 1200px;
-  height: 800px;
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden; }
-  .background #scroll-grid {
-    width: 1200px;
-    height: 2400px;
-    overflow: hidden;
-    position: absolute; }
-    .background #scroll-grid .taglines {
-      text-align: center;
-      margin-top: 200px;
-      z-index: 99999;
-      position: relative; }
-      .background #scroll-grid .taglines h1 {
-        font-size: 5em;
-        color: #4A4E58; }
-      .background #scroll-grid .taglines p {
-        font-size: 2em;
-        color: #4A4E58;
-        font-family: "SF Thin";
-        letter-spacing: 1.5px;
-        margin: 12px 0 36px; }
-      .background #scroll-grid .taglines a.button {
-        color: #2062FF;
-        background-color: rgba(32, 98, 255, 0.08);
-        border-radius: 4px;
-        padding: 15px 20px; }
-        .background #scroll-grid .taglines a.button:hover {
-          text-decoration: none;
-          background-color: rgba(32, 98, 255, 0.16); }
-    .background #scroll-grid .image {
-      position: absolute;
-      max-width: 400px; }
-      .background #scroll-grid .image a {
-        float: left;
-        background: white;
-        transition: all 0.25s ease; }
-        .background #scroll-grid .image a img {
-          width: 100%;
-          opacity: 0.5;
-          box-shadow: 0px 0px 20px #cccccc; }
-        .background #scroll-grid .image a:hover {
-          z-index: 9999999; }
-          .background #scroll-grid .image a:hover img {
-            opacity: 1; }
-    .background #scroll-grid .poster {
-      position: absolute;
-      left: 315px;
-      z-index: 9999;
-      top: 450px; }
-    .background #scroll-grid .gradient {
-      width: 100%;
-      height: 200px;
-      position: absolute;
-      top: 600px;
-      z-index: 999;
-      background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 62%, white 99%);
-      background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 62%, white 99%);
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 62%, white 99%);
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0); }
-  .background .chevron {
-    position: absolute;
-    top: 777px;
-    left: 47.5%;
-    z-index: 9999; }
-
-.index-content {
-  text-align: center; }
-  .index-content pre {
-    background-color: white;
-    text-align: left; }
-  .index-content h1.headliner {
-    font-size: 5em;
-    margin-bottom: 48px; }
-  .index-content .col-md-10 p {
-    font-size: 1.25em;
-    font-weight: 100;
-    color: #828691;
-    margin-bottom: 36px; }
-  .index-content .col-md-10 ul li {
-    color: light-grey !important; }
-  .index-content code {
-    font-size: 90%; }
-
-.cta {
-  margin: 72px 0; }
-  .cta a:hover {
-    text-decoration: none; }
-    .cta a:hover div {
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4); }
-      .cta a:hover div p {
-        text-decoration: none; }
-  .cta .col-md-3 div {
-    max-width: 210px;
-    border-radius: 8px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-    padding: 36px 12px;
-    margin: 0 auto; }
-  @media screen and (max-width: 991px) {
-    .cta .col-md-3:nth-child(n + 3) {
-      margin-top: 48px; } }
-  .cta span {
-    height: 100px;
-    width: 100px;
-    display: inline-block;
-    margin-bottom: 12px; }
-    .cta span img {
-      margin: 0 auto;
-      max-width: 100px; }
-  .cta p {
-    color: #828691; }
-    .cta p.title {
-      color: #4A4E58; }
 
 /*# sourceMappingURL=style.css.map */
