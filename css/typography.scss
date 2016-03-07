@@ -23,11 +23,18 @@ body, h1, h2, h3, h4, h5, h6 {
 /* Body Content */
 
 #page, p {
-  font-size: 1em;
-  line-height: 1.5;
+  font-size: 0.75em;
+  line-height: 1.25;
 }
 
 @media (min-width: 43.75em) {
+  #page, p {
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+}
+
+@media (min-width: 56.25em) {
   #page, p {
     font-size: 1em;
     line-height: 1.5;

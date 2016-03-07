@@ -5639,10 +5639,14 @@ body, h1, h2, h3, h4, h5, h6 {
 
 /* Body Content */
 #page, p {
-  font-size: 1em;
-  line-height: 1.5; }
+  font-size: 0.75em;
+  line-height: 1.25; }
 
 @media (min-width: 43.75em) {
+  #page, p {
+    font-size: 0.9em;
+    line-height: 1.4; } }
+@media (min-width: 56.25em) {
   #page, p {
     font-size: 1em;
     line-height: 1.5; } }
@@ -5749,7 +5753,7 @@ row {
 
 nav {
   height: 90px; }
-  @media screen and (max-width: 991px) {
+  @media screen and (max-width: 767px) {
     nav {
       height: 200px; } }
   nav .navbar-header {
@@ -5758,15 +5762,23 @@ nav {
     margin: 0; }
   nav div.navlist {
     margin-top: 18px; }
-    @media screen and (max-width: 1199px) {
+    @media screen and (max-width: 991px) {
       nav div.navlist {
         font-size: 0.9em; }
-        nav div.navlist ul li:nth-child(2) {
-          padding: 0 45px !important; } }
-    @media screen and (max-width: 991px) {
+        nav div.navlist ul {
+          text-align: center;
+          width: 50%;
+          float: left !important; }
+          nav div.navlist ul li {
+            width: 33%;
+            margin: 0 auto;
+            text-align: center; }
+            nav div.navlist ul li:nth-child(2) {
+              padding: 0 !important; } }
+    @media screen and (max-width: 767px) {
       nav div.navlist ul {
         text-align: center;
-        width: 50%;
+        width: 100%;
         margin-left: auto !important;
         margin-right: auto !important;
         float: none !important; }
@@ -5784,7 +5796,8 @@ nav {
         padding: 0 60px; }
     nav div.navlist ul a {
       color: #828691;
-      padding: 5px 0; }
+      padding: 5px 0;
+      display: inline-block; }
       nav div.navlist ul a:hover, nav div.navlist ul a.active {
         color: #4A4E58;
         border-bottom: 1px solid #4A4E58; }
@@ -6226,10 +6239,14 @@ div.gfyitem {
       .cta a:hover div p {
         text-decoration: none; }
   .cta .col-md-3 div {
-    width: 210px;
+    max-width: 210px;
     border-radius: 8px;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-    padding: 36px 12px; }
+    padding: 36px 12px;
+    margin: 0 auto; }
+  @media screen and (max-width: 991px) {
+    .cta .col-md-3:nth-child(n + 3) {
+      margin-top: 48px; } }
   .cta span {
     height: 100px;
     width: 100px;

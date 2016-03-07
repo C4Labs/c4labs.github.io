@@ -76,7 +76,7 @@ nav
 {
 	height: 90px;
 
-	@media screen and (max-width: $screen-sm-max)
+	@media screen and (max-width: $screen-xs-max)
 	{
 		height: 200px;
 	}
@@ -95,22 +95,36 @@ nav
 	{
 		margin-top: 18px;
 
-		@media screen and (max-width: $screen-md-max)
+		@media screen and (max-width: $screen-sm-max)
 		{
 			font-size: 0.9em;
 
-			ul li:nth-child(2)
-			{
-				padding: 0 45px !important;
-			}
-		}
-
-		@media screen and (max-width: $screen-sm-max)
-		{
 			ul
 			{
 				text-align: center;
 				width: 50%;
+	    	float: left !important;
+
+				li
+				{
+					width: 33%;
+					margin: 0 auto;
+					text-align: center;
+
+					&:nth-child(2)
+					{
+						padding: 0 !important;
+					}
+				}
+			}
+		}
+
+		@media screen and (max-width: $screen-xs-max)
+		{
+			ul
+			{
+				text-align: center;
+				width: 100%;
 	    	margin-left: auto !important;
 	    	margin-right: auto !important;
 	    	float: none !important;
@@ -152,6 +166,7 @@ nav
 			{
 				color: $light-grey;
 				padding: 5px 0;
+				display: inline-block;
 
 				&:hover, &.active
 				{
@@ -992,10 +1007,19 @@ div.gfyitem
 	{
 		div
 		{
-			width: 210px;
+			max-width: 210px;
 			border-radius: 8px;
 			box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 			padding: 36px 12px;
+			margin: 0 auto;
+		}
+
+		@media screen and (max-width: $screen-sm-max)
+		{
+			&:nth-child(n + 3)
+			{
+				margin-top: 48px;
+			}
 		}
 	}
 
