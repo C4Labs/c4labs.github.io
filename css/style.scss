@@ -153,7 +153,7 @@ nav
 				color: $light-grey;
 				padding: 5px 0;
 
-				&:hover
+				&:hover, &.active
 				{
 					color: $light-grey-highlight;
 					border-bottom: 1px solid $light-grey-highlight;

@@ -7,13 +7,13 @@
             <span><img src="{{ site.baseurl }}/images/c4logo.png"></span>
           </a>
           <ul class="nav navbar-nav navbar-left">
-            <li><a href="/install" {% if page.url == '/install/' %}class='active'{% endif %}>Install</a></li>
-            <li><a href="/tutorials">Tutorials</a></li>
-            <li><a href="/cosmos">COSMOS</a></li>
+            <li><a href="/install" {% if page.url contains '/install/' %}class='active'{% endif %}>Install</a></li>
+            <li><a href="/tutorials" {% if page.url contains '/tutorials/' %}class='active'{% endif %}>Tutorials</a></li>
+            <li><a href="/cosmos" {% if page.url contains '/cosmos/' %}class='active'{% endif %}>COSMOS</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/examples">Examples</a></li>
-            <li><a href="discourse.c4ios.com">Forums</a></li>
+            <li><a href="/examples" {% if page.url contains '/examples/' %}class='active'{% endif %}>Examples</a></li>
+            <li><a href="http://discourse.c4ios.com">Forums</a></li>
             <li><a href="http://cocoadocs.org/docsets/C4/1.0.3/">Documentation</a></li>
           </ul>
         </div>

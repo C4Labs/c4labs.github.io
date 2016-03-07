@@ -5785,7 +5785,7 @@ nav {
     nav div.navlist ul a {
       color: #828691;
       padding: 5px 0; }
-      nav div.navlist ul a:hover {
+      nav div.navlist ul a:hover, nav div.navlist ul a.active {
         color: #4A4E58;
         border-bottom: 1px solid #4A4E58; }
   nav .navbar-brand {
