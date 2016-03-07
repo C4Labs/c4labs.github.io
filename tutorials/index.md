@@ -2,6 +2,7 @@
 layout: page
 title: 'Basics'
 categories: cosmos, tutorials
+description: 'Here be tutorials'
 ---
 
 # Tutorials
