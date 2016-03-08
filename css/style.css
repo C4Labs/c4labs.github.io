@@ -5893,7 +5893,16 @@ hr {
   @media screen and (max-width: 1199px) {
     .background #scroll-grid .poster {
       width: 50%;
-      left: 250px !important; } }
+      left: 25% !important; } }
+  @media screen and (max-width: 767px) {
+    .background #scroll-grid .taglines h1 {
+      font-size: 3em !important; }
+    .background #scroll-grid .poster {
+      width: 100%;
+      left: 0 !important;
+      top: 350px; }
+    .background .chevron {
+      display: none; } }
   .background #scroll-grid {
     width: 1200px;
     height: 2400px;

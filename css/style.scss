@@ -355,8 +355,34 @@ hr
 			.poster
 			{
 				width: 50%;
-				left: 250px !important;
+				left: 25% !important;
 			}
+		}
+	}
+
+	@media screen and (max-width: $screen-xs-max)
+	{
+		#scroll-grid
+		{
+			.taglines
+			{
+				h1
+				{
+					font-size: 3em !important;
+				}
+			}
+
+			.poster
+			{
+				width: 100%;
+				left: 0 !important;
+				top: 350px;
+			}
+		}
+
+		.chevron
+		{
+			display: none;
 		}
 	}
 
