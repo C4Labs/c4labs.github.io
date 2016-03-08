@@ -1,6 +1,12 @@
 var grid = $('#scroll-grid');
 var images = ['01.png','02.png','03.png','04.png','05.png','06.png','07.png','08.png','09.png','10.png','11.png','12.png','13.png','14.png','15.png','16.png','17.png'];
 var i = 0;
+var scale = 1;
+
+if (screen.width < 768)
+{
+	var scale = 0.25;
+}
 
 for(i = 0; i < 25; i++)
 {
@@ -36,7 +42,7 @@ function addMoreImages(i) {
 }
 function toggleRand() 
 {
-  return [Math.floor(Math.random() * 200), Math.floor(Math.random() * (300) + 800)]
+  return [Math.floor(Math.random() * 200 * scale), Math.floor(Math.random() * (300) + (800 * scale))]
   [Math.random() > .5 ? 0 : 1];
 }
 

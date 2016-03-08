@@ -5755,7 +5755,7 @@ nav {
   height: 90px; }
   @media screen and (max-width: 767px) {
     nav {
-      height: 200px; } }
+      height: 160px; } }
   nav .navbar-header {
     float: none; }
   nav .navbar-nav {
@@ -5882,9 +5882,10 @@ hr {
     .background {
       width: 100% !important; }
       .background #scroll-grid {
-        width: 100% !important; }
+        width: 100% !important;
+        max-height: 100% !important; }
         .background #scroll-grid .taglines {
-          margin-top: 50px !important; }
+          margin-top: 0px !important; }
         .background #scroll-grid .poster {
           left: 0 !important;
           width: 100%; }
@@ -5896,11 +5897,13 @@ hr {
       left: 25% !important; } }
   @media screen and (max-width: 767px) {
     .background #scroll-grid .taglines h1 {
-      font-size: 3em !important; }
+      font-size: 2.5em !important; }
+    .background #scroll-grid .taglines p {
+      font-size: 1.25em !important; }
     .background #scroll-grid .poster {
       width: 100%;
       left: 0 !important;
-      top: 350px; }
+      top: 350px !important; }
     .background .chevron {
       display: none; } }
   .background #scroll-grid {
@@ -5939,7 +5942,7 @@ hr {
         transition: all 0.25s ease; }
         .background #scroll-grid .image a img {
           width: 100%;
-          opacity: 0.5;
+          opacity: 0.4;
           box-shadow: 0px 0px 20px #cccccc; }
         .background #scroll-grid .image a:hover {
           z-index: 9999999; }

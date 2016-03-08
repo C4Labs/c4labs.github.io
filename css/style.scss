@@ -78,7 +78,7 @@ nav
 
 	@media screen and (max-width: $screen-xs-max)
 	{
-		height: 200px;
+		height: 160px;
 	}
 
 	.navbar-header
@@ -329,10 +329,11 @@ hr
 		#scroll-grid
 		{
 			width: 100% !important;
+			max-height: 100% !important;
 
 			.taglines
 			{
-				margin-top: 50px !important;
+				margin-top: 0px !important;
 			}
 
 			.poster
@@ -368,7 +369,12 @@ hr
 			{
 				h1
 				{
-					font-size: 3em !important;
+					font-size: 2.5em !important;
+				}
+
+				p
+				{
+					font-size: 1.25em !important;
 				}
 			}
 
@@ -376,7 +382,7 @@ hr
 			{
 				width: 100%;
 				left: 0 !important;
-				top: 350px;
+				top: 350px !important;
 			}
 		}
 
@@ -444,7 +450,7 @@ hr
 				img
 				{
 					width: 100%;
-					opacity: 0.5;
+					opacity: 0.4;
 					box-shadow: 0px 0px 20px #cccccc;
 				}
 
