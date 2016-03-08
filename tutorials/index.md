@@ -9,10 +9,10 @@ description: 'Here be tutorials'
 
 <div class="row">
 	<div class="col-md-12 col-sm-12 col-xs-12">
-		<ul class="examples-list list-unstyled">
+		<ul class="examples-block list-unstyled">
 			{% assign tutorialsPosts = site.categories['tutorials'] %}
 			{% for post in tutorialsPosts %}
-			  <li>
+			  <li class="col-md-3 col-sm-4 col-xs-12 text-center">
 			  	<a href="{{ post.url }}">
 			  		<div>
 			  			<span class="img">

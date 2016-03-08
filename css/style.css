@@ -6068,6 +6068,8 @@ hr {
         color: #4A4E58; }
       .examples-list li p:hover {
         text-decoration: none; }
+      .examples-list li p.title {
+        color: #4A4E58; }
     .examples-list li p {
       margin: 0 0 0 12px; }
 
@@ -6274,7 +6276,7 @@ div.gfyitem {
   div.gfyitem .gfyGif {
     position: relative !important; }
   div.gfyitem.install div video {
-    height: 500px !important;
+    height: auto;
     margin: 12px 0 36px 0 !important; }
 
 .container.terms {
