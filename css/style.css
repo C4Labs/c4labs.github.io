@@ -5896,16 +5896,22 @@ hr {
       width: 50%;
       left: 25% !important; } }
   @media screen and (max-width: 767px) {
-    .background #scroll-grid .taglines h1 {
-      font-size: 2.5em !important; }
-    .background #scroll-grid .taglines p {
-      font-size: 1.25em !important; }
-    .background #scroll-grid .poster {
-      width: 100%;
-      left: 0 !important;
-      top: 350px !important; }
-    .background .chevron {
-      display: none; } }
+    .background {
+      max-height: 100% !important; }
+      .background #scroll-grid {
+        max-height: 75% !important; }
+        .background #scroll-grid .taglines h1 {
+          font-size: 2.5em !important; }
+        .background #scroll-grid .taglines p {
+          font-size: 1.25em !important; }
+        .background #scroll-grid .poster {
+          width: 100%;
+          left: 0 !important;
+          top: 350px !important; }
+        .background #scroll-grid .gradient {
+          top: 400px !important; }
+      .background .chevron {
+        display: none; } }
   .background #scroll-grid {
     width: 1200px;
     height: 2400px;

@@ -351,6 +351,7 @@ hr
 
 	@media screen and (max-width: $screen-md-max)
 	{
+
 		#scroll-grid
 		{
 			.poster
@@ -363,8 +364,12 @@ hr
 
 	@media screen and (max-width: $screen-xs-max)
 	{
+		max-height: 100% !important;
+
 		#scroll-grid
 		{
+			max-height: 75% !important;
+
 			.taglines
 			{
 				h1
@@ -383,6 +388,11 @@ hr
 				width: 100%;
 				left: 0 !important;
 				top: 350px !important;
+			}
+
+			.gradient
+			{
+				top: 400px !important;
 			}
 		}
 

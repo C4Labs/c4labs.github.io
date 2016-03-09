@@ -12,11 +12,11 @@ description: 'Here be tutorials'
 		<ul class="examples-block list-unstyled">
 			{% assign tutorialsPosts = site.categories['tutorials'] %}
 			{% for post in tutorialsPosts %}
-			  <li class="col-md-3 col-sm-4 col-xs-12 text-center">
+			  <li class="col-md-3 col-sm-3 col-xs-12 text-center">
 			  	<a href="{{ post.url }}">
 			  		<div>
 			  			<span class="img">
-				  			<img src="{{ site.baseurl }}/images/tutorials/{{ post.url | split: '/' | last }}/{{ post.image }}" />
+				  			<img src="{{ site.baseurl }}/images/tutorials/{{ post.url | split: '/' | last }}/{{ post.image }}" class="img-responsive" />
 				  		</span>
 				  		<div class="text">
 					  		<p class="title">{{ post.title }}</p>
