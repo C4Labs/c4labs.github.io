@@ -5639,8 +5639,8 @@ body, h1, h2, h3, h4, h5, h6 {
 
 /* Body Content */
 #page, p {
-  font-size: 0.75em;
-  line-height: 1.25; }
+  font-size: 0.8em;
+  line-height: 1.5; }
 
 @media (min-width: 43.75em) {
   #page, p {
@@ -6090,6 +6090,17 @@ hr {
         color: #4A4E58; }
     .examples-list li p {
       margin: 0 0 0 12px; }
+
+.examples-block li {
+  float: left;
+  width: 25%;
+  margin: 0px; }
+  .examples-block li div.text {
+    margin-top: 18px; }
+    .examples-block li div.text p {
+      color: #828691; }
+      .examples-block li div.text p.title {
+        color: #4A4E58; }
 
 span.title {
   color: #4A4E58;
