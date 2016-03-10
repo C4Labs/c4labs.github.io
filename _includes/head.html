@@ -8,6 +8,19 @@
 
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:image" content="http://www.c4ios.com/images/banner.jpg">
+  <meta property="og:url"   content="http://www.c4ios.com" />
+  <meta property="og:title" content="C4 – Code, creatively."/>
+  <meta property="og:type"  content="website"/>
+  <meta property="og:site_name"  content="C4"/>
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@c4framework">
+  <meta name="twitter:creator" content="@c4framework">
+  <meta name="twitter:title" content="C4 – Code, creatively.">
+  <meta name="twitter:description" content="C4 gives you the power of a native iOS programming environment with a simplified API that lets you get down to working with media right away. Build artworks, design interfaces, and explore new possibilities of working with media and interaction.">
+  <meta name="twitter:image" content="http://www.c4ios.com/images/banner.jpg">
+
 
   <link rel="stylesheet" type="text/css" href="{{ site.path }}/css/style.css" >
   <link rel="stylesheet" href="{{ site.path }}/css/syntax.css">
