@@ -6091,16 +6091,39 @@ hr {
     .examples-list li p {
       margin: 0 0 0 12px; }
 
-.examples-block li {
-  float: left;
-  width: 25%;
-  margin: 0px; }
-  .examples-block li div.text {
-    margin-top: 18px; }
-    .examples-block li div.text p {
-      color: #828691; }
-      .examples-block li div.text p.title {
-        color: #4A4E58; }
+.examples-block {
+  width: 100%; }
+  .examples-block li {
+    float: left;
+    width: 24%;
+    margin: 0px 12px 12px 0px; }
+    @media screen and (max-width: 991px) {
+      .examples-block li {
+        width: 23%; } }
+    @media screen and (max-width: 767px) {
+      .examples-block li {
+        width: 47%; }
+        .examples-block li:nth-child(odd) {
+          margin-left: 0;
+          padding-left: 0; }
+        .examples-block li:nth-child(even) {
+          margin-right: 0;
+          padding-right: 0; } }
+    .examples-block li:nth-child(4n + 1) {
+      margin-left: 0;
+      padding-left: 0; }
+    .examples-block li:nth-child(4n + 4) {
+      margin-right: 0;
+      padding-right: 0; }
+    .examples-block li span.img img {
+      margin: 0 auto; }
+    .examples-block li div.text {
+      margin-top: 18px; }
+      .examples-block li div.text p {
+        padding: 0px 12px;
+        color: #828691; }
+        .examples-block li div.text p.title {
+          color: #4A4E58; }
 
 span.title {
   color: #4A4E58;

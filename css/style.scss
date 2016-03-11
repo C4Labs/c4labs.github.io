@@ -742,15 +742,53 @@ hr
 
 .examples-block
 {
-
-
-	
+	width: 100%;	
 
 	li
 	{
 		float: left;
-		width: 25%;
-		margin: 0px;
+		width: 24%;
+		margin: 0px 12px 12px 0px;
+
+		@media screen and (max-width: $screen-sm-max)
+		{
+			width: 23%;
+		}
+
+		@media screen and (max-width: $screen-xs-max)
+		{
+			width: 47%;
+
+		&:nth-child(odd)
+		{
+			margin-left: 0;
+			padding-left: 0; 
+		}
+
+		&:nth-child(even)
+		{
+			margin-right: 0;
+			padding-right: 0;
+		}
+		}
+
+
+		&:nth-child(4n + 1)
+		{
+			margin-left: 0;
+			padding-left: 0; 
+		}
+
+		&:nth-child(4n + 4)
+		{
+			margin-right: 0;
+			padding-right: 0;
+		}
+
+		span.img img
+		{
+			margin: 0 auto;
+		}
 
 		div.text
 		{
@@ -758,6 +796,7 @@ hr
 
 			p
 			{
+				padding: 0px 12px;
 				color: $light-grey;
 
 				&.title
