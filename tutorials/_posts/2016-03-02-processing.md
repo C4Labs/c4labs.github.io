@@ -8,6 +8,7 @@ categories: tutorials
 permalink: /tutorials/processing/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]
+author: Travis Kirton
 ---
 
 # Processing Examples

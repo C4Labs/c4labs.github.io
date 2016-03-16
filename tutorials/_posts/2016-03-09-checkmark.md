@@ -8,6 +8,7 @@ categories: tutorials
 permalink: /tutorials/checkmark/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]
+author: Travis Kirton
 ---
 
 # Checkmark

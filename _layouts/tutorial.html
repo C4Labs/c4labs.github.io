@@ -19,6 +19,7 @@
           <span class="img large">
             <img src="{{ site.baseurl }}/images/tutorials/{{ page.url | split: '/' | last }}/{{ page.image }}" />
           </span>
+          <p>Author<br /><span class="lighter">{{ page.author }}</span></p>
           <p>Tags<br />{% for tag in page.tags %}<a href="#">{{ tag | capitalize }}</a>, {% endfor %}</p>
           <p>Estimated Time<br /><span class="lighter">{{ page.length }}</span></p>
 
