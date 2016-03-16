@@ -342,3 +342,6 @@ The logic of the gesture is the same as before, but now your `toCheck()` and `to
 
 ### Fin
 Run your app now and tap to see the great animation you just created. I encourage you to try new shapes and values in the animations to see what cool effects you can come up with!
+
+#### Code
+Grab a copy of the final code [Here](https://gist.github.com/C4Framework/c96a2043a6feaf6bb1e1)
