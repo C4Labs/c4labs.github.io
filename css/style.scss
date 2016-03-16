@@ -1105,7 +1105,8 @@ div.tutorial
 
 			.text
 			{
-				width: 70%;
+				display: block;
+    		overflow: hidden;
 			}
 
 			a:hover span.glyphicon
