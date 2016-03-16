@@ -1165,8 +1165,9 @@ div.gfyitem
     max-width: 100% !important;
     height: auto !important;
 
-    &.gfyPreLoadCanvas {
+    canvas.gfyPreLoadCanvas {
       display: none;
+      width: 100% !important;
 		}
 
 		video, img

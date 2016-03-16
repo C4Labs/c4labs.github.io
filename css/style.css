@@ -6312,8 +6312,9 @@ div.gfyitem {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important; }
-    div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull).gfyPreLoadCanvas {
-      display: none; }
+    div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) canvas.gfyPreLoadCanvas {
+      display: none;
+      width: 100% !important; }
     div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) video, div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) img {
       position: relative !important;
       margin-top: 0;
