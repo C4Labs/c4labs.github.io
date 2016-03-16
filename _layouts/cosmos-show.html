@@ -3,11 +3,11 @@
 
   {% include head.html %}
 
-    <body class="{{ page.title | downcase }}" data-spy="scroll" data-target="#toc">
+    <body class="{{ page.title | downcase | replace: ' ', '-' }}" data-spy="scroll" data-target="#toc">
 
     {% include header.html %}
 
-    <div class="container content {{ page.title | downcase }}" >
+    <div class="container content {{ page.title | downcase | replace: ' ', '-' }}" >
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 breadcrumb">
           <h1><a href="/tutorials">Tutorials</a><div class="bread-caret">></div><a href="/cosmos">COSMOS</a><div class="bread-caret">></div>{{ page.title }}</h1>

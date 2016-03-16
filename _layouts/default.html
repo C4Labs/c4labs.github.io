@@ -3,7 +3,7 @@
 
   {% include head.html %}
 
-    <body class="{{ page.title | downcase }}">
+    <body class="{{ page.title | downcase | join: '.' }}">
 
     {% include header.html %}
 
