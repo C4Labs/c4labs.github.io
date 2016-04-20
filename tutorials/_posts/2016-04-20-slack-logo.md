@@ -1,7 +1,7 @@
 ---
 title: Slack Logo
 description: Animating the Slack Logo.
-date:   2016-03-09 00:17:39 -0800
+date:   2016-04-20 00:17:39 -0800
 layout: tutorial
 length: 10 - 20 minutes
 categories: tutorials
