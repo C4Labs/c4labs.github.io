@@ -222,10 +222,10 @@ Now, run the application and you should see this:
 
 Notice the green line overlays 2 other lines?! Unfortunately iOS doesn't have real-time overlay effects... So, we'll have to handle this in a bit with a nice trick.
 
-####Pause.
+#### Pause.
 At this point your classes should look like:
 
-#####Workspace.swift
+##### Workspace.swift
 {% highlight swift linenos %}
 class WorkSpace: CanvasController {
     override func setup() {
@@ -237,7 +237,7 @@ class WorkSpace: CanvasController {
 
 {% endhighlight %}
 
-#####SlackLogo.swift
+##### SlackLogo.swift
 {% highlight swift linenos %}
 class SlackLogo: View {
     let slackGreen = Color(red: 0.31, green: 0.76, blue: 0.61, alpha: 1.0)
@@ -272,7 +272,7 @@ class SlackLogo: View {
 }
 {% endhighlight %}
 
-#####SlackLine.swift
+##### SlackLine.swift
 {% highlight swift linenos %}
 class SlackLine: View {
     var line: Line!
@@ -324,7 +324,7 @@ class SlackLine: View {
 }
 {% endhighlight %}
 
-###Animating the Logo
+### Animating the Logo
 Let's get this logo rotating and doing all the nice things. Back in `SlackLogo.swift`, add the following function:
 
 {% highlight swift linenos %}
@@ -342,7 +342,7 @@ func animate() {
 The animation of the logo is simple, it spins. Your line animations are already setup you just need to call their `animate` function. So, when `animate()` is called we simply need to fire off all the line animations.
 
 
-####Tap It.
+#### Tap It.
 Add a tap gesture to the `setup()` in your `WorkSpace`:
 {% highlight swift linenos %}
 override func setup() {
@@ -363,17 +363,17 @@ override func setup() {
 }
 {% endhighlight %}
 
-####Run it!
+#### Run it!
 Wham. Lookit that:
 
 ![](){: data-id="DirtyGrayEnglishsetter" .gfyitem }
 
-##Handling the Overlays
+## Handling the Overlays
 One drawback of iOS is that it's Core Animation framework doesn't handle real-time layer effects. Yeah, it's possible to create layer effects between images using filters, but animated layers aren't important enough to warrant such nice things. 
 
 So, we have to be sneaky...
 
-###Overlays are Just Visual Effects
+### Overlays are Just Visual Effects
 If you look closely at the motion of the Slack logo you'll notice that as each line is animating in or out and gets to the point where it crosses another line, you can see the overlay color take the shape of the lines round cap. With a deeper look at [some examples of the logo that have been posted online](http://callmenick.com/post/building-the-slack-animating-logo-with-only-css) it's pretty clear that someone, somewhere, at some point probably used an overlay effect... like this:
 
 {% highlight swift linenos %}
@@ -401,7 +401,7 @@ Since we already have the lines positioned and timed for the `SlackLogo`, why do
 
 Here's what I mean...
 
-###Modify SlackLogo
+### Modify SlackLogo
 We're going to add some overlay squares to our current logo (actually to each line), with the proper color to look like the multiply effect between two lines. Then, we're going to the use the existing line shape as the mask.
 
 You say: 
@@ -412,7 +412,7 @@ I say:
 
     You can't. But, you can use 2 different SlackLogo objects.
     
-####Modify SlackLine
+#### Modify SlackLine
 Pop on over to `SlackLine.swift` and add the following variables to the class:
 
 {% highlight swift linenos %}
@@ -459,7 +459,7 @@ The need for offsets and anchor points is because a mask object is positined in 
 
 Furthermore, we want the mask to rotate around the center of the square, hence the need for the anchor point.
 
-####Run It.
+#### Run It.
 Temporarily change `square.hidden = true` to `false` and run the app to see this:
 
 ![](singleSquare.png)
@@ -474,7 +474,7 @@ Tap it!
 
 All the squares are there, they're just hidden by the overlaid lines.
 
-####Animate the Masks
+#### Animate the Masks
 The next step is really a bunch of tiny little steps woven into our already existing code for animating the `SlackLine`. Instead of walking through it all, you can replace the current `animate()` with the following:
 
 {% highlight swift linenos %}
@@ -532,7 +532,7 @@ Here's what happens with the masking animations:
 
 > I had to tweak a few things to get this appearance. Don't worry about doing it yourself, just trust me! Everything's going to be just fine.
 
-####Give the Logo a Little Toggle
+#### Give the Logo a Little Toggle
 In `SlackLogo` add the following property:
 
 {% highlight swift linenos %}
@@ -547,7 +547,7 @@ var isSquares = false {
 
 Toggling this value will switch a logo from showing its main lines to showing only its overlay squares. 
 
-####Add a Dash of Color
+#### Add a Dash of Color
 Now, add these color properties to `SlackLogo`:
 
 {% highlight swift linenos %}
@@ -586,7 +586,7 @@ override init() {
 
 This step gives each line's overlay the proper color.
 
-###Add Another Logo
+### Add Another Logo
 To see the overlays, simply add another logo on top of the one we already have. In the main `WorkSpace` modify the `setup()` to look like this:
 
 {% highlight swift linenos %}
@@ -615,8 +615,8 @@ And, this is what you get:
 
 Try running the app and trying for yourself!
 
-##That was a long one...
+## That was a long one...
 Honestly, when we started we thought this example would be straightforward. In the end we realized how intricate the motion of the Slack logo really is.
 
-###Code
+### Code
 You can grab a copy of the code for this project from [HERE](https://gist.github.com/C4Framework/a7b4bb933016dbf27f44)
