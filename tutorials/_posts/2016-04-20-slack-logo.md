@@ -406,7 +406,7 @@ We're going to add some overlay squares to our current logo (actually to each li
 
 You say: 
 
-    "Buuuuuut...... Waaaaaait a minute. How can we see a shape if it is being used as a mask?"<br />
+    "Buuuuuut...... Waaaaaait a minute. How can we see a shape if it is being used as a mask?"
 
 I say: 
 
