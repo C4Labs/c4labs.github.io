@@ -6122,7 +6122,8 @@ hr {
       display: block; }
       .examples-block li span.img img {
         margin: 0 auto;
-        border: 1px solid #e7e7e7; }
+        border: 1px solid #e7e7e7;
+        width: 100%; }
     .examples-block li div.text {
       margin-top: 18px; }
       .examples-block li div.text p {
