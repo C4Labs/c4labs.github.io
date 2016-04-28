@@ -6118,8 +6118,11 @@ hr {
     .examples-block li:nth-child(4n + 4) {
       margin-right: 0;
       padding-right: 0; }
-    .examples-block li span.img img {
-      margin: 0 auto; }
+    .examples-block li span.img {
+      display: block; }
+      .examples-block li span.img img {
+        margin: 0 auto;
+        border: 1px solid #e7e7e7; }
     .examples-block li div.text {
       margin-top: 18px; }
       .examples-block li div.text p {
