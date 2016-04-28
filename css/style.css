@@ -3837,12 +3837,8 @@ tbody.collapse.in {
       margin-right: 15px; } }
 
 @media (min-width: 768px) {
-  .navbar-left {
-    float: left !important; }
-
   .navbar-right {
-    float: right !important;
-    margin-right: -15px; }
+    float: right !important; }
     .navbar-right ~ .navbar-right {
       margin-right: 0; } }
 .navbar-default {

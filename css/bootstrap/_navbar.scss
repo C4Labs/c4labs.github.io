@@ -379,13 +379,9 @@
 // Declared after the navbar components to ensure more specificity on the margins.
 
 @media (min-width: $grid-float-breakpoint) {
-  .navbar-left {
-    float: left !important;
-  }
   .navbar-right {
     float: right !important;
-  margin-right: -$navbar-padding-horizontal;
-
+ 
     ~ .navbar-right {
       margin-right: 0;
     }
