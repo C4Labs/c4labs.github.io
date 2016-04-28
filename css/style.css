@@ -5737,6 +5737,8 @@ row {
   @media screen and (max-width: 1199px) {
     .container {
       width: 100%; } }
+  .container .post-content {
+    margin-bottom: 96px; }
 
 .container-fluid {
   background: rgba(147, 147, 147, 0.08);
