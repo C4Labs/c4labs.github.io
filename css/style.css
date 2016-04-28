@@ -6307,6 +6307,8 @@ div.tutorial .footnotes {
     width: 150px;
     float: left;
     margin: 24px; }
+  .download-block h3 {
+    margin-top: 56px; }
 
 div.gfyitem {
   width: 100%;
