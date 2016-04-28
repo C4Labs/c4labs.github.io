@@ -6079,6 +6079,8 @@ hr {
         text-decoration: none; }
         .examples-list li a:hover p {
           color: #4A4E58; }
+      .examples-list li a div:not(.text) {
+        padding: 6px 5px 0; }
     .examples-list li p {
       color: #828691; }
       .examples-list li p span {

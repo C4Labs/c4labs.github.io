@@ -717,6 +717,12 @@ hr
 					color: $body-grey;
 				}
 			}
+
+			div:not(.text)
+			{
+				padding: 6px 5px 0;
+			}
+
 		}
 
 		p
