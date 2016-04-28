@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Install C4
+description: This is where you install C4!
 permalink: /install/
 ---
 
