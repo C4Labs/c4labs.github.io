@@ -45,16 +45,3 @@ function toggleRand()
   return [Math.floor(Math.random() * 200 * scale), Math.floor(Math.random() * (300) + (800 * scale))]
   [Math.random() > .5 ? 0 : 1];
 }
-
-/*
-window.setInterval(function(){
-  addMoreImages(i);
-  i = i + 1;
-}, 1500);
-
-$(function() {
-	$( document ).tooltip({
-	  track: true
-	});
-});
-*/
