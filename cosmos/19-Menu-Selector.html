@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+  <title>Menu Selector</title>
+  <meta name="description" content="Now we need to work on the selector. The easiest way to see if we’re getting things right is to make sure the menu is OUT while we’re testing. To do this, mo...">
+  <meta property="og:image" content="http://www.c4ios.com/images/banner.jpg">
+  <meta property="og:url"   content="http://c4ios.com" />
+  <meta property="og:title" content="Menu Selector"/>
+  <meta name="og:description" content="Now we need to work on the selector. The easiest way to see if we’re getting things right is to make sure the menu is OUT while we’re testing. To do this, mo...">
+  <meta property="og:type"  content="website"/>
+  <meta property="og:site_name"  content="C4"/>
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@c4framework">
+  <meta name="twitter:creator" content="@c4framework">
+  <meta name="twitter:title" content="Menu Selector">
+  <meta name="twitter:description" content="Now we need to work on the selector. The easiest way to see if we’re getting things right is to make sure the menu is OUT while we’re testing. To do this, mo...">
+  <meta name="twitter:image" content="http://www.c4ios.com/images/banner.jpg">
+
+
+  <link rel="stylesheet" type="text/css" href="/css/style.css" >
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+  <link rel="canonical" href="www.c4ios.com/cosmos/19-Menu-Selector">
+  <link rel="alternate" type="application/rss+xml" title="C4 website" href="www.c4ios.com/feed.xml">
+</head>
+
+    <body class="menu-selector" data-spy="scroll" data-target="#toc">
+
+    <header>
+  <nav class="navbar navbar-default" role="navigation"> 
+    <div class="navbar-header container">
+      <div class="row"> 
+        <div class="col-xs-12 col-sm-12 col-md-12 navlist">
+          <a class="navbar-brand" href="/">
+            <span><img src="/images/c4logo.png"></span>
+          </a>
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/install" >Install</a></li>
+            <li><a href="/tutorials" >Tutorials</a></li>
+            <li><a href="/cosmos" class='active'>COSMOS</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/examples" >Examples</a></li>
+            <li><a href="http://discourse.c4ios.com">Forums</a></li>
+            <li><a href="http://cocoadocs.org/docsets/C4/1.1.0/">Documentation</a></li>
+          </ul>
+        </div>
+      </div>  
+    </div>        
+  </nav>      
+</header>
+
+    <div class="container content menu-selector" >
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 breadcrumb">
+          <h1><a href="/tutorials">Tutorials</a><div class="bread-caret">></div><a href="/cosmos">COSMOS</a><div class="bread-caret">></div>Menu Selector</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <span class="img large">
+            <img src="/images/cosmos/1/poster.png" />
+          </span>
+          <p class="title">Chapter 19<br /><span class="lighter">Menu Selector</span></p>
+          <p>Tags<br /><a href="/tag/getting started">getting started</a>, <a href="/tag/basics">basics</a>, <a href="/tag/introduction">introduction</a>, <a href="/tag/easy">easy</a>, <a href="/tag/c4">c4</a>, </p>
+          <p>Estimated Time<br /><span class="lighter"></span></p>
+
+          <hr />
+
+          <div id="toc"></div>
+        </div>
+
+        <div class="col-xs-9 col-sm-9 col-md-9 tutorial">
+          <p>Now we need to work on the selector. The easiest way to see if we’re getting things right is to make sure the menu is OUT while we’re testing. To do this, modify your project’s <code class="highlighter-rouge">WorkSpace</code> to have the following <code class="highlighter-rouge">setup()</code>:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17</pre></td><td class="code"><pre><span class="k">override</span> <span class="kd">func</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="kt">COSMOSbkgd</span>
+    
+    <span class="k">let</span> <span class="nv">rings</span> <span class="o">=</span> <span class="kt">MenuRings</span><span class="p">()</span>
+    <span class="n">rings</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">center</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="n">rings</span><span class="o">.</span><span class="n">canvas</span><span class="p">)</span>
+    <span class="n">rings</span><span class="o">.</span><span class="n">revealDashedRings</span><span class="p">?</span><span class="o">.</span><span class="nf">animate</span><span class="p">()</span>
+    <span class="n">rings</span><span class="o">.</span><span class="nf">revealHideDividingLines</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">rings</span><span class="o">.</span><span class="n">thickRingOut</span><span class="p">?</span><span class="o">.</span><span class="nf">animate</span><span class="p">()</span>
+    <span class="n">rings</span><span class="o">.</span><span class="n">thinRingsOut</span><span class="p">?</span><span class="o">.</span><span class="nf">animate</span><span class="p">()</span>
+    
+    <span class="k">let</span> <span class="nv">icons</span> <span class="o">=</span> <span class="kt">MenuIcons</span><span class="p">()</span>
+    <span class="n">icons</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">center</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="n">icons</span><span class="o">.</span><span class="n">canvas</span><span class="p">)</span>
+    <span class="n">icons</span><span class="o">.</span><span class="n">signIconsOut</span><span class="p">?</span><span class="o">.</span><span class="nf">animate</span><span class="p">()</span>
+    <span class="n">icons</span><span class="o">.</span><span class="n">revealSignIcons</span><span class="p">?</span><span class="o">.</span><span class="nf">animate</span><span class="p">()</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>When you run the app it should look like this:</p>
+
+<p><img src="01.png" alt="" /></p>
+
+<p>Now, the goal of this chapter is to make sure that when the user drags around the menu a selector will appear for whichever element their thumb is over top of. It should look like:</p>
+
+<p><img src="" alt="" data-id="VainTautKagu" class="gfyitem" /></p>
+
+<p>We’re going to need to combine the following things to get it to work:</p>
+
+<p>a long press gesture that tracks the user’s touch
+a method that converts the position of the touch to an angle / position in the menu
+a shape that acts as a highlight
+allow the gesture to trigger the in/out animations</p>
+
+<h2 id="add-the-gesture">Add the gesture</h2>
+
+<p>The first step is to attach a gesture to the canvas and to start tracking the position of the user’s touch.</p>
+
+<p>Open <code class="highlighter-rouge">MenuSelector.swift</code> and add the following two methods to your class:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14</pre></td><td class="code"><pre><span class="kd">func</span> <span class="nf">createGesture</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">addLongPressGestureRecognizer</span> <span class="p">{</span> <span class="p">(</span><span class="n">locations</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">()</span> <span class="k">in</span>
+        <span class="k">switch</span> <span class="n">state</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">.</span><span class="kt">Changed</span><span class="p">:</span>
+            <span class="k">self</span><span class="o">.</span><span class="nf">update</span><span class="p">(</span><span class="n">center</span><span class="p">)</span>
+        <span class="k">default</span><span class="p">:</span>
+            <span class="n">_</span> <span class="o">=</span> <span class="s">""</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="nv">location</span><span class="p">:</span> <span class="kt">Point</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Then, add modify <code class="highlighter-rouge">setup()</code> to look like this:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="kt">Rect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="kt">C4Pink</span>
+    <span class="nf">createGesture</span><span class="p">()</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Then, go back to your project’s <code class="highlighter-rouge">WorkSpace</code> and add the following to the <code class="highlighter-rouge">setup()</code> there:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></td><td class="code"><pre><span class="kd">class</span> <span class="kt">WorkSpace</span><span class="p">:</span> <span class="kt">CanvasController</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+      <span class="n">canvas</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="kt">COSMOSbkgd</span>
+        
+        <span class="k">let</span> <span class="nv">rings</span> <span class="o">=</span> <span class="kt">MenuRings</span><span class="p">()</span>
+        <span class="n">rings</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">center</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="n">rings</span><span class="o">.</span><span class="n">canvas</span><span class="p">)</span>
+        <span class="n">rings</span><span class="o">.</span><span class="n">revealDashedRings</span><span class="p">?</span><span class="o">.</span><span class="nf">animate</span><span class="p">()</span>
+        <span class="n">rings</span><span class="o">.</span><span class="nf">revealHideDividingLines</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">rings</span><span class="o">.</span><span class="n">thickRingOut</span><span class="p">?</span><span class="o">.</span><span class="nf">animate</span><span class="p">()</span>
+        <span class="n">rings</span><span class="o">.</span><span class="n">thinRingsOut</span><span class="p">?</span><span class="o">.</span><span class="nf">animate</span><span class="p">()</span>
+        
+        <span class="k">let</span> <span class="nv">icons</span> <span class="o">=</span> <span class="kt">MenuIcons</span><span class="p">()</span>
+        <span class="n">icons</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">center</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="n">icons</span><span class="o">.</span><span class="n">canvas</span><span class="p">)</span>
+        <span class="n">icons</span><span class="o">.</span><span class="n">signIconsOut</span><span class="p">?</span><span class="o">.</span><span class="nf">animate</span><span class="p">()</span>
+        <span class="n">icons</span><span class="o">.</span><span class="n">revealSignIcons</span><span class="p">?</span><span class="o">.</span><span class="nf">animate</span><span class="p">()</span>
+        
+        <span class="k">let</span> <span class="nv">selector</span> <span class="o">=</span> <span class="kt">MenuSelector</span><span class="p">()</span>
+        <span class="n">selector</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">center</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="n">selector</span><span class="o">.</span><span class="n">canvas</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Run it, and you should see this:</p>
+
+<p><img src="" alt="" data-id="FaithfulOrganicBigmouthbass" class="gfyitem" /></p>
+
+<p>And when you long press then drag, starting on the pink box, you should see the current position of the touch update constantly in the console.</p>
+
+<p><img src="02.png" alt="" /></p>
+
+<p>We’re using the <code class="highlighter-rouge">switch</code> statement now to check when the touch is updated, but by default the method does nothing. For now we are testing the drag / changed component of the gesture, eventually we’re going to track the beginning and end states as well.</p>
+
+<h2 id="calculate-the-angles">Calculate the Angles</h2>
+
+<p>We need to know the angle from the center of the canvas to wherever the user’s touch is, and when calculating the angles between points, it’s important to remember three things.</p>
+
+<p>First, calculating an angle always defaults to the smallest positive angle (so we’ll need to adjust for this). The following two states return equivalent values:</p>
+
+<p><img src="03.png" alt="" /></p>
+
+<p>Second, we’re going to work with a coordinate system that starts on the right and rotates clockwise.</p>
+
+<p><img src="04.png" alt="" /></p>
+
+<p>Third, we need 3 points to calculate the angle between the user’s touch and the center of the screen. The points are: a) an arbitrary point on the x-axis to the right of the center, b) the center point, c) the touch point. With these three points we can calculate the angle:</p>
+
+<p><img src="05.png" alt="" /></p>
+
+<p>Replace the contents of <code class="highlighter-rouge">update(location:)</code> with:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="k">let</span> <span class="nv">a</span> <span class="o">=</span> <span class="kt">Vector</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span><span class="k">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mf">2.0</span><span class="o">+</span><span class="mf">1.0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span><span class="k">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">height</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">b</span> <span class="o">=</span> <span class="kt">Vector</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span><span class="k">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span><span class="k">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">height</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">c</span> <span class="o">=</span> <span class="kt">Vector</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span><span class="n">location</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span><span class="n">location</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+
+<span class="k">var</span> <span class="nv">ϴ</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="nf">angleTo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nv">basedOn</span><span class="p">:</span> <span class="n">b</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="kt">ϴ</span><span class="p">)</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Run it. Notice that when the touch drags across the x-axis on the left-hand side of the screen that the values to up to 𝜋 then starts going back down to zero. Here’s how we adjust for that:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">a</span><span class="o">.</span><span class="n">y</span> <span class="p">{</span>
+    <span class="kt">ϴ</span> <span class="o">=</span> <span class="mf">2*</span><span class="kt">M_PI</span> <span class="o">-</span> <span class="kt">ϴ</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<blockquote>
+  <p>Place this right before <code class="highlighter-rouge">print(ϴ)</code>.</p>
+</blockquote>
+
+<p>We’re going to want to convert ϴ to an index based on the number of divisions in our menu. There are 12 divisions and the menu is 360∘ (a full circle) so we will modify the value like this:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="k">let</span> <span class="nv">index</span> <span class="o">=</span> <span class="kt">Int</span><span class="p">(</span><span class="nf">radToDeg</span><span class="p">(</span><span class="kt">ϴ</span><span class="p">))</span> <span class="o">/</span> <span class="mi">30</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Now we know in which section of the menu our point is generally sitting.</p>
+
+<p>Finally, change the print statement to:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="nf">print</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Run it, and you’ll see that you get a number from 0 to 11 instead of radian values.</p>
+
+<h2 id="the-highlight">The Highlight</h2>
+
+<p>The highlight is supposed to pop up in the area surrounding an icon. So… It has a weird shape.</p>
+
+<p><img src="06.png" alt="" /></p>
+
+<p>We could do some tricky thing were where figure out the exact arcs and dimension of a shape, then rotate that thing around, but… I prefer to do things a little simpler.</p>
+
+<p>First, we’re going to use a wedge to define the highlight. The wedge is a pie slice out of a circle, so it’s outer edge is already rounded. Let’s build a wedge and add it to the menu.</p>
+
+<p>Add the following variable to your class:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="k">var</span> <span class="nv">highlight</span> <span class="p">:</span> <span class="kt">Shape</span><span class="o">!</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Then, add this method:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre></td><td class="code"><pre><span class="kd">func</span> <span class="nf">createHighlight</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">highlight</span> <span class="o">=</span> <span class="kt">Wedge</span><span class="p">(</span><span class="nv">center</span><span class="p">:</span> <span class="n">canvas</span><span class="o">.</span><span class="n">center</span><span class="p">,</span> <span class="nv">radius</span><span class="p">:</span> <span class="mi">156</span><span class="p">,</span> <span class="nv">start</span><span class="p">:</span> <span class="kt">M_PI</span><span class="o">/</span><span class="mf">6.0</span><span class="p">,</span> <span class="nv">end</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="nv">clockwise</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+    <span class="n">highlight</span><span class="o">.</span><span class="n">fillColor</span> <span class="o">=</span> <span class="kt">COSMOSblue</span>
+    <span class="n">highlight</span><span class="o">.</span><span class="n">lineWidth</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">highlight</span><span class="o">.</span><span class="n">opacity</span> <span class="o">=</span> <span class="mf">0.8</span>
+    <span class="n">highlight</span><span class="o">.</span><span class="n">interactionEnabled</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="n">highlight</span><span class="o">.</span><span class="n">anchorPoint</span> <span class="o">=</span> <span class="kt">Point</span><span class="p">()</span>
+    <span class="n">highlight</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">center</span>
+    
+    <span class="n">canvas</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="n">highlight</span><span class="p">)</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Finally, call that method in <code class="highlighter-rouge">setup()</code>:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="kt">Rect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="kt">C4Pink</span>
+    <span class="nf">createGesture</span><span class="p">()</span>
+    <span class="nf">createHighlight</span><span class="p">()</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Run it, and you should see:</p>
+
+<p><img src="07.png" alt="" /></p>
+
+<p>What we’ve done is created a wedge that sits at the first position (e.g. 0) of our menu. It’s anchorPoint is set to the top-left corner of its view and is the point around which we will rotate the shape. The rest of the code is essentially layout.</p>
+
+<h3 id="donut-that-wedge">Donut that Wedge</h3>
+
+<p>We want to get rid of the part of the wedge that is outside of the “container” of the icon. The easiest way to do this is to mask the wedge.</p>
+
+<p>Add the following to <code class="highlighter-rouge">createHighlight()</code> right before adding the wedge to the canvas:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="k">let</span> <span class="nv">donut</span> <span class="o">=</span> <span class="kt">Circle</span><span class="p">(</span><span class="nv">center</span><span class="p">:</span> <span class="n">highlight</span><span class="o">.</span><span class="n">center</span><span class="p">,</span> <span class="nv">radius</span><span class="p">:</span> <span class="mi">156</span><span class="o">-</span><span class="mi">54</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="n">donut</span><span class="o">.</span><span class="n">fillColor</span> <span class="o">=</span> <span class="n">clear</span>
+<span class="n">donut</span><span class="o">.</span><span class="n">lineWidth</span> <span class="o">=</span> <span class="mi">54</span>
+<span class="n">highlight</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="n">donut</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Run it!</p>
+
+<p><img src="08.png" alt="" /></p>
+
+<p>Wham!</p>
+
+<p>This creates a circle whose diameter goes to the mid-point of the icon’s container, and whose lineWidth fills the entire container. It then uses that shape as a mask where anything opaque is revealed, and anything clear is hidden.</p>
+
+<p>This is what the donut looks like if it is added to the wedge:</p>
+
+<p><img src="09.png" alt="The wedge is contained to the space of the icon." />
+<img src="10.png" alt="The position of the donut. Without the interface (left) underneath the interface (right)" /></p>
+
+<h3 id="move-it">Move It</h3>
+
+<p>Now, we’re going to attach the position of the highlight to the gesture we’ve already made.</p>
+
+<p>Add the following at the end of <code class="highlighter-rouge">update(location:)</code>:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre><span class="k">let</span> <span class="nv">rotation</span> <span class="o">=</span> <span class="kt">Transform</span><span class="o">.</span><span class="nf">makeRotation</span><span class="p">(</span><span class="nf">degToRad</span><span class="p">(</span><span class="kt">Double</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="o">*</span> <span class="mf">30.0</span><span class="p">),</span> <span class="nv">axis</span><span class="p">:</span> <span class="kt">Vector</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span><span class="nv">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span><span class="nv">z</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">highlight</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">rotation</span> <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Run it:</p>
+
+<p><img src="" alt="" data-id="SnivelingFlamboyantFieldspaniel" class="gfyitem" /></p>
+
+<h2 id="a-few-behaviours">A Few Behaviours</h2>
+
+<p>We want the behaviour of the wedge to follow these rules:</p>
+
+<p>Trigger the change in position only once as the user’s touch moves into a new icon
+Highlight only when the user’s touch is over top of one of the icons
+Hide the highlight when the user’s touch is not over an icon
+Create a class variable to mark the current selection, like so:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="k">var</span> <span class="nv">currentSelection</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Then, modify <code class="highlighter-rouge">update()</code> with some logic to check if the current selection is the same as the index that was just calculated:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre><span class="k">if</span> <span class="n">currentSelection</span> <span class="o">!=</span> <span class="n">index</span> <span class="p">{</span>
+    <span class="n">currentSelection</span> <span class="o">=</span> <span class="n">index</span>
+    <span class="k">let</span> <span class="nv">rotation</span> <span class="o">=</span> <span class="kt">Transform</span><span class="o">.</span><span class="nf">makeRotation</span><span class="p">(</span><span class="nf">degToRad</span><span class="p">(</span><span class="kt">Double</span><span class="p">(</span><span class="n">currentSelection</span><span class="p">)</span> <span class="o">*</span> <span class="mf">30.0</span><span class="p">),</span> <span class="nv">axis</span><span class="p">:</span> <span class="kt">Vector</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span><span class="nv">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span><span class="nv">z</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">highlight</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">rotation</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>This won’t look like much on screen, but trust me: it’s preventing updating every time the user’s touch moves, and only updating when they’ve rolled over into a new section of the menu.</p>
+
+<p>Then, wrap the logic in an <code class="highlighter-rouge">if-else</code> that checks the distance of the user’s touch from the center of the canvas. Since we’re dealing with a circle, any time the user’s touch is between <code class="highlighter-rouge">102</code> and <code class="highlighter-rouge">156</code> points from the center of the canvas we know it’s in the area of the icons.</p>
+
+<p>The end of <code class="highlighter-rouge">update()</code> should now look like this:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td class="code"><pre><span class="k">let</span> <span class="nv">dist</span> <span class="o">=</span> <span class="nf">distance</span><span class="p">(</span><span class="n">location</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">center</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">dist</span> <span class="o">&gt;</span> <span class="mi">102</span> <span class="o">&amp;&amp;</span> <span class="n">dist</span> <span class="o">&lt;</span> <span class="mi">156</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="n">currentSelection</span> <span class="o">!=</span> <span class="n">index</span> <span class="p">{</span>
+        <span class="n">currentSelection</span> <span class="o">=</span> <span class="n">index</span>
+        <span class="k">let</span> <span class="nv">rotation</span> <span class="o">=</span> <span class="kt">Transform</span><span class="o">.</span><span class="nf">makeRotation</span><span class="p">(</span><span class="nf">degToRad</span><span class="p">(</span><span class="kt">Double</span><span class="p">(</span><span class="n">currentSelection</span><span class="p">)</span> <span class="o">*</span> <span class="mf">30.0</span><span class="p">),</span> <span class="nv">axis</span><span class="p">:</span> <span class="kt">Vector</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span><span class="nv">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span><span class="nv">z</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">highlight</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">rotation</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>And, when you run it you should see that the highlight only updates whenever the touch is within the bounds of the icon ring:</p>
+
+<p><img src="" alt="" data-id="CapitalCarefreeIceblueredtopzebra" class="gfyitem" /></p>
+
+<p>Finally, add the following to <code class="highlighter-rouge">createHighlight()</code>:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="n">highlight</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="kc">true</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>And, turn the previous if statement into an if-else where that toggles the hiding / revealing of the highlight:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td><td class="code"><pre><span class="k">if</span> <span class="n">dist</span> <span class="o">&gt;</span> <span class="mi">102</span> <span class="o">&amp;&amp;</span> <span class="n">dist</span> <span class="o">&lt;</span> <span class="mi">156</span> <span class="p">{</span>
+    <span class="n">highlight</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="k">if</span> <span class="n">currentSelection</span> <span class="o">!=</span> <span class="n">index</span> <span class="p">{</span>
+        <span class="n">currentSelection</span> <span class="o">=</span> <span class="n">index</span>
+        <span class="k">let</span> <span class="nv">rotation</span> <span class="o">=</span> <span class="kt">Transform</span><span class="o">.</span><span class="nf">makeRotation</span><span class="p">(</span><span class="nf">degToRad</span><span class="p">(</span><span class="kt">Double</span><span class="p">(</span><span class="n">currentSelection</span><span class="p">)</span> <span class="o">*</span> <span class="mf">30.0</span><span class="p">),</span> <span class="nv">axis</span><span class="p">:</span> <span class="kt">Vector</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span><span class="nv">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span><span class="nv">z</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">highlight</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">rotation</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">highlight</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>If the user’s touch is in the icon area we reveal the highlight by setting its hidden property to <code class="highlighter-rouge">false</code>, and if the touch falls outside that area we hide the highlight again.</p>
+
+<p>Last, but not least, we want the highlight to hide when the user touch ends. To do this we add a bit of logic to our gesture:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="k">case</span> <span class="o">.</span><span class="kt">Cancelled</span><span class="p">,</span> <span class="o">.</span><span class="kt">Ended</span><span class="p">,</span> <span class="o">.</span><span class="kt">Failed</span><span class="p">:</span>
+    <span class="n">currentSelection</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">highlight</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="kc">true</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<blockquote>
+  <p><code class="highlighter-rouge">currentSelection = -1</code> is included here because we want the selection to be reset whenever the gesture ends.</p>
+</blockquote>
+
+<p>This logic states that if the gesture is canceled, or failed (states that are governed by the device) or if it is ended (based on the user’s action) then we check to see if the highlight is visible, and if so it hides it.</p>
+
+<p>The whole gesture method should look like:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14</pre></td><td class="code"><pre><span class="kd">func</span> <span class="nf">createGesture</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//add a long press gesture to the menu's canvas</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">addLongPressGestureRecognizer</span> <span class="p">{</span> <span class="p">(</span><span class="n">locations</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">()</span> <span class="k">in</span>
+        <span class="k">switch</span> <span class="n">state</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">.</span><span class="kt">Changed</span><span class="p">:</span>
+            <span class="k">self</span><span class="o">.</span><span class="nf">update</span><span class="p">(</span><span class="n">center</span><span class="p">)</span>
+        <span class="k">case</span> <span class="o">.</span><span class="kt">Cancelled</span><span class="p">,</span> <span class="o">.</span><span class="kt">Ended</span><span class="p">,</span> <span class="o">.</span><span class="kt">Failed</span><span class="p">:</span>
+            <span class="k">self</span><span class="o">.</span><span class="n">currentSelection</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+      <span class="k">self</span><span class="o">.</span><span class="n">highlight</span><span class="o">.</span><span class="n">hidden</span> <span class="o">==</span> <span class="kc">true</span>
+        <span class="k">default</span><span class="p">:</span>
+            <span class="n">_</span> <span class="o">=</span> <span class="s">""</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>And, this is what things should look like:</p>
+
+<p><img src="" alt="" data-id="NeighboringAgonizingAztecant" class="gfyitem" /></p>
+
+<h2 id="menu-label">Menu Label</h2>
+
+<p>The label will be centered in the menu and will show the name of the astrological sign the user is currently selecting.</p>
+
+<p>Create a class variable like so:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="k">var</span> <span class="nv">menuLabel</span> <span class="p">:</span> <span class="kt">TextShape</span><span class="o">!</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>And, add the following method:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td class="code"><pre><span class="kd">func</span> <span class="nf">createLabel</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">f</span> <span class="o">=</span> <span class="kt">Font</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"Menlo-Regular"</span><span class="p">,</span> <span class="nv">size</span><span class="p">:</span> <span class="mi">13</span><span class="p">)</span><span class="o">!</span>
+    <span class="n">menuLabel</span> <span class="o">=</span> <span class="kt">TextShape</span><span class="p">(</span><span class="nv">text</span><span class="p">:</span> <span class="s">"COSMOS"</span><span class="p">,</span> <span class="nv">font</span><span class="p">:</span> <span class="n">f</span><span class="p">)</span><span class="o">!</span>
+    <span class="n">menuLabel</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">center</span>
+    <span class="n">menuLabel</span><span class="o">.</span><span class="n">fillColor</span> <span class="o">=</span> <span class="n">white</span>
+    <span class="n">menuLabel</span><span class="o">.</span><span class="n">interactionEnabled</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="n">menuLabel</span><span class="p">)</span>
+    <span class="n">menuLabel</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Add a call to <code class="highlighter-rouge">createLabel()</code> to <code class="highlighter-rouge">setup()</code>.</p>
+
+<p>Then, in <code class="highlighter-rouge">update(location:)</code>, just above <code class="highlighter-rouge">highlight.hidden = false</code> add the following:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="n">menuLabel</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="kc">false</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>And, inside the following <code class="highlighter-rouge">if</code> statement, add this logic:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="kt">ShapeLayer</span><span class="o">.</span><span class="n">disableActions</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="n">menuLabel</span><span class="p">?</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="kt">AstrologicalSignProvider</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="n">order</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">capitalizedString</span>
+<span class="n">menuLabel</span><span class="p">?</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">center</span>
+<span class="kt">ShapeLayer</span><span class="o">.</span><span class="n">disableActions</span> <span class="o">=</span> <span class="kc">false</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>This updates the text of the label while disabling Core Animation’s implicit animation which happens because we’re changing the path of a shape.</p>
+
+<p>Then, in the final <code class="highlighter-rouge">else</code> of the same method, hide the menu label like this:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="n">menuLabel</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="kc">true</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>You also want to add the <code class="highlighter-rouge">hidden = true</code> line to the <code class="highlighter-rouge">.Cancelled</code> case of the long press gesture.</p>
+
+<p>Your <code class="highlighter-rouge">update(location:)</code> should now look like this:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></td><td class="code"><pre><span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="nv">location</span><span class="p">:</span> <span class="kt">Point</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">a</span> <span class="o">=</span> <span class="kt">Vector</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span><span class="k">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mf">2.0</span><span class="o">+</span><span class="mf">1.0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span><span class="k">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">height</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span>
+    <span class="k">let</span> <span class="nv">b</span> <span class="o">=</span> <span class="kt">Vector</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span><span class="k">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span><span class="k">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">height</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span>
+    <span class="k">let</span> <span class="nv">c</span> <span class="o">=</span> <span class="kt">Vector</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span><span class="n">location</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span><span class="n">location</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+    
+    <span class="k">var</span> <span class="nv">ϴ</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="nf">angleTo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nv">basedOn</span><span class="p">:</span> <span class="n">b</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">a</span><span class="o">.</span><span class="n">y</span> <span class="p">{</span>
+        <span class="kt">ϴ</span> <span class="o">=</span> <span class="mf">2*</span><span class="kt">M_PI</span> <span class="o">-</span> <span class="kt">ϴ</span>
+    <span class="p">}</span>
+    
+    <span class="k">let</span> <span class="nv">index</span> <span class="o">=</span> <span class="kt">Int</span><span class="p">(</span><span class="nf">radToDeg</span><span class="p">(</span><span class="kt">ϴ</span><span class="p">))</span> <span class="o">/</span> <span class="mi">30</span>
+    
+    <span class="k">let</span> <span class="nv">dist</span> <span class="o">=</span> <span class="nf">distance</span><span class="p">(</span><span class="n">location</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">center</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">dist</span> <span class="o">&gt;</span> <span class="mi">102</span> <span class="o">&amp;&amp;</span> <span class="n">dist</span> <span class="o">&lt;</span> <span class="mi">156</span> <span class="p">{</span>
+        <span class="n">menuLabel</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="kc">false</span>
+        <span class="n">highlight</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="kc">false</span>
+        <span class="k">if</span> <span class="n">currentSelection</span> <span class="o">!=</span> <span class="n">index</span> <span class="p">{</span>
+            <span class="kt">ShapeLayer</span><span class="o">.</span><span class="n">disableActions</span> <span class="o">=</span> <span class="kc">true</span>
+            <span class="n">menuLabel</span><span class="p">?</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="kt">AstrologicalSignProvider</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="n">order</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">capitalizedString</span>
+            <span class="n">menuLabel</span><span class="p">?</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">center</span>
+            <span class="kt">ShapeLayer</span><span class="o">.</span><span class="n">disableActions</span> <span class="o">=</span> <span class="kc">false</span>
+            
+            <span class="n">currentSelection</span> <span class="o">=</span> <span class="n">index</span>
+            <span class="k">let</span> <span class="nv">rotation</span> <span class="o">=</span> <span class="kt">Transform</span><span class="o">.</span><span class="nf">makeRotation</span><span class="p">(</span><span class="nf">degToRad</span><span class="p">(</span><span class="kt">Double</span><span class="p">(</span><span class="n">currentSelection</span><span class="p">)</span> <span class="o">*</span> <span class="mf">30.0</span><span class="p">),</span> <span class="nv">axis</span><span class="p">:</span> <span class="kt">Vector</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span><span class="nv">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span><span class="nv">z</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">highlight</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">rotation</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">highlight</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="kc">true</span>
+        <span class="n">menuLabel</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="kc">true</span>
+        <span class="n">currentSelection</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Your <code class="highlighter-rouge">setup()</code> should look like:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7</pre></td><td class="code"><pre><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="kt">Rect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="kt">C4Pink</span>
+    <span class="nf">createGesture</span><span class="p">()</span>
+    <span class="nf">createHighlight</span><span class="p">()</span>
+    <span class="nf">createLabel</span><span class="p">()</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>And, this is what your app should act like when you run it:</p>
+
+<p><img src="" alt="" data-id="NiceInfiniteBlueshark" class="gfyitem" /></p>
+
+<h2 id="info-button">Info Button</h2>
+
+<p>We chose to include in the app an info panel with a bit of text about the app and a link to the C4 site. Since we’ll access this panel from the menu we need to also include an info button.</p>
+
+<p>Add a class-level variable to your project like so:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="k">var</span> <span class="nv">infoButton</span> <span class="p">:</span> <span class="kt">View</span><span class="o">!</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>We are going to use a view as our button because we want to do a little trick.</p>
+
+<p>First, we’re going to use the standard info image from iOS which looks like this:</p>
+
+<p><img src="11.png" alt="" /></p>
+
+<p>I’ve previously grabbed the image by running the following code in another project:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7</pre></td><td class="code"><pre><span class="k">let</span> <span class="nv">button</span> <span class="o">=</span> <span class="kt">UIButton</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="kt">UIButtonType</span><span class="o">.</span><span class="kt">InfoLight</span><span class="p">)</span>
+<span class="n">button</span><span class="o">.</span><span class="n">imageView</span><span class="p">?</span><span class="o">.</span><span class="n">tintColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="o">.</span><span class="nf">whiteColor</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">img</span> <span class="o">=</span> <span class="n">button</span><span class="o">.</span><span class="nf">imageForState</span><span class="p">(</span><span class="o">.</span><span class="kt">Normal</span><span class="p">)</span>
+
+<span class="k">let</span> <span class="nv">fileManager</span> <span class="o">=</span> <span class="kt">NSFileManager</span><span class="o">.</span><span class="nf">defaultManager</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="kt">UIImagePNGRepresentation</span><span class="p">(</span><span class="n">img</span><span class="o">!</span><span class="p">)</span>
+<span class="n">fileManager</span><span class="o">.</span><span class="nf">createFileAtPath</span><span class="p">(</span><span class="s">"/Users/travis/Desktop/info.png"</span><span class="p">,</span> <span class="nv">contents</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="nv">attributes</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>This gave me an image that I loaded into Photoshop, inverted its color to white, then exported all 3 size assets.</p>
+
+<p>The standard size of the info button on iOS is 22 x 22 pts, which is quite small. If we made a button this small it would be difficult to hit. So…</p>
+
+<p>Having our <code class="highlighter-rouge">infoButton</code> be a <code class="highlighter-rouge">View</code> allows us to make the hit area of our button larger than the image we’re going to show.</p>
+
+<p>Copy the following method into your class:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td><td class="code"><pre><span class="kd">func</span> <span class="nf">createInfoButton</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">infoButton</span> <span class="o">=</span> <span class="kt">View</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="kt">Rect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">44</span><span class="p">))</span>
+    <span class="k">let</span> <span class="nv">buttonImage</span> <span class="o">=</span> <span class="kt">Image</span><span class="p">(</span><span class="s">"info"</span><span class="p">)</span><span class="o">!</span>
+    <span class="n">buttonImage</span><span class="o">.</span><span class="n">interactionEnabled</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="n">buttonImage</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">infoButton</span><span class="o">.</span><span class="n">center</span>
+    <span class="n">infoButton</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="n">buttonImage</span><span class="p">)</span>
+    <span class="n">infoButton</span><span class="o">.</span><span class="n">opacity</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">infoButton</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="kt">Point</span><span class="p">(</span><span class="n">canvas</span><span class="o">.</span><span class="n">center</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">canvas</span><span class="o">.</span><span class="n">center</span><span class="o">.</span><span class="n">y</span><span class="o">+</span><span class="mf">190.0</span><span class="p">)</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="n">infoButton</span><span class="p">)</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Fairly straightforward: make a small image, make a larger view, add the image to the view, add the view to the canvas and hide it.</p>
+
+<p>Next, add two more variables and a method for creating the animations to reveal / hide the button:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14</pre></td><td class="code"><pre><span class="k">var</span> <span class="nv">revealInfoButton</span> <span class="p">:</span> <span class="kt">ViewAnimation</span><span class="p">?</span>
+<span class="k">var</span> <span class="nv">hideInfoButton</span> <span class="p">:</span> <span class="kt">ViewAnimation</span><span class="p">?</span>
+
+<span class="kd">func</span> <span class="nf">createInfoButtonAnimations</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">revealInfoButton</span> <span class="o">=</span> <span class="kt">ViewAnimation</span><span class="p">(</span><span class="nv">duration</span><span class="p">:</span><span class="mf">0.33</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">self</span><span class="o">.</span><span class="n">infoButton</span><span class="p">?</span><span class="o">.</span><span class="n">opacity</span> <span class="o">=</span> <span class="mf">1.0</span>
+  <span class="p">}</span>
+  <span class="n">revealInfoButton</span><span class="p">?</span><span class="o">.</span><span class="n">curve</span> <span class="o">=</span> <span class="o">.</span><span class="kt">EaseOut</span>
+
+  <span class="n">hideInfoButton</span> <span class="o">=</span> <span class="kt">ViewAnimation</span><span class="p">(</span><span class="nv">duration</span><span class="p">:</span><span class="mf">0.33</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">self</span><span class="o">.</span><span class="n">infoButton</span><span class="p">?</span><span class="o">.</span><span class="n">opacity</span> <span class="o">=</span> <span class="mf">0.0</span>
+  <span class="p">}</span>
+  <span class="n">hideInfoButton</span><span class="p">?</span><span class="o">.</span><span class="n">curve</span> <span class="o">=</span> <span class="o">.</span><span class="kt">EaseOut</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>We won’t bother with these animations yet, they’ll come into play in a later chapter.</p>
+
+<p>Finally, we want to check if the user’s touch is over top of the info button, and since the button is outside of the icon menu, add the following to the <code class="highlighter-rouge">else</code> at the end of <code class="highlighter-rouge">update</code>:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td class="code"><pre><span class="k">if</span> <span class="k">let</span> <span class="nv">l</span> <span class="o">=</span> <span class="n">infoButton</span>  <span class="p">{</span>
+    <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="nf">hitTest</span><span class="p">(</span><span class="n">location</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span><span class="n">canvas</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">menuLabel</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="kc">false</span>
+        <span class="kt">ShapeLayer</span><span class="o">.</span><span class="n">disableActions</span> <span class="o">=</span> <span class="kc">true</span>
+        <span class="n">menuLabel</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">"Info"</span>
+        <span class="n">menuLabel</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">center</span>
+        <span class="kt">ShapeLayer</span><span class="o">.</span><span class="n">disableActions</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="the-sound-of-menu">The Sound of Menu</h2>
+
+<p>We want the selector to also trigger some sounds. Eventually, the selector will be synced with the opening and closing of the menu, so we’ll handle three things here:</p>
+
+<ol>
+  <li>A tick for when the user’s touch rolls into a new icon</li>
+  <li>A menu open sound</li>
+  <li>A menu close sound</li>
+</ol>
+
+<p>Add the following three variables to you class:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="k">let</span> <span class="nv">tick</span> <span class="o">=</span> <span class="kt">AudioPlayer</span><span class="p">(</span><span class="s">"tick.mp3"</span><span class="p">)</span><span class="o">!</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Then, in <code class="highlighter-rouge">setup</code> add this:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="n">tick</span><span class="o">.</span><span class="n">volume</span> <span class="o">=</span> <span class="mf">0.4</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Then, right inside of the if <code class="highlighter-rouge">currentSelection != index {...}</code> add this:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre><span class="n">tick</span><span class="o">.</span><span class="nf">stop</span><span class="p">()</span>
+<span class="n">tick</span><span class="o">.</span><span class="nf">play</span><span class="p">()</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>The reason why we call <code class="highlighter-rouge">stop()</code> is because Core Audio defaults to waiting for a sound to finish playing before playing it again. Stopping it right before playing removes the potential delay in playing if the user is moving their thumb around the menu very quickly.</p>
+
+<p>Run it, and you’ll hear some nice little sounds play out.</p>
+
+<h2 id="clean-up">Clean Up</h2>
+
+<p>Now, change <code class="highlighter-rouge">setup()</code> to:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td><td class="code"><pre><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//create the frame, small like the other classes</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="kt">Rect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="n">clear</span>
+    <span class="nf">createHighlight</span><span class="p">()</span>
+    <span class="nf">createLabel</span><span class="p">()</span>
+    <span class="nf">createInfoButton</span><span class="p">()</span>
+    <span class="nf">createInfoButtonAnimations</span><span class="p">()</span>
+    <span class="n">tick</span><span class="o">.</span><span class="n">volume</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Also, remove all the junk we put into <code class="highlighter-rouge">setup()</code> in your project’s <code class="highlighter-rouge">WorkSpace</code>.</p>
+
+<p>Eventually, we’re going to create the gesture somewhere else and remove it from this class.</p>
+
+<p>You can grab the current state of <a href="https://gist.github.com/C4Framework/fc16b1e3552a9de94955">MenuSelector.swift</a>.</p>
+
+<p>Breathe.</p>
+
+<p>You’re doing good.</p>
+
+<p>We’re almost done.</p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row chapter-nav">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <h1 class="text-center blue">Well done! Continue COSMOS?</h1>
+          <ul class="examples-list next-prev list-unstyled">
+            
+              <li class="pull-left">
+                <a class="more" href="/cosmos/18-Menu-Icons" title="Earlier article: Menu Icons">
+                  <div>
+                    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                    <span class="img">
+                      <img src="/images/cosmos/18/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 18<br />Menu Icons</p>
+                      <p>Time to flesh out the radial menu with some animated icons.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+            
+              <li class="pull-right">
+                <a class="more" href="/cosmos/20-Menu-Shadow" title="Later article: Menu Shadow">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/20/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 20<br />Menu Shadow</p>
+                      <p>Give a little visual pop to the radial menu with a simple shadow.</p>
+                    </div>
+                    <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                  </div>
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row related">
+        <div class="col-xs-12 col-md-12">
+          <h1 class="text-center blue">All COSMOS Chapters</h1>
+          <ul class="examples-list list-unstyled">
+            
+            
+              <li>
+                <a href="/cosmos/0-getting-started">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/0/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 0<br />Getting Started</p>
+                      <p>Get up and running quickly with the COSMOS Xcode project files.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/1-prelude-to-design">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/1/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 1<br />Prelude To Design</p>
+                      <p>An overview explaining why & how we chose to create COSMOS in the first place.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/2-designing-the-cosmos">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/2/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 2<br />Designing the COSMOS</p>
+                      <p>Where to start? Defining the visual concept and deciding the functionality.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/3-plan-it">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/3/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 3<br />Plan It!</p>
+                      <p>Get your goggles on as we start diving into the code with C4.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/4-Infinite-Scrollview">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/4/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 4<br />Infinite Scrollview</p>
+                      <p>Implementing the idea of an infinite scrollview that loops around rather than stopping at the end.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/5-Infinite-Scrollview-Build">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/5/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 5<br />Infinite Scrollview</p>
+                      <p>Time to code – get that infinite scrollview looping.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/6-Astrological-Sign-Provider">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/6/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 6<br />Astrological Sign Provider</p>
+                      <p>How to go about wrangling all the data for the 12 astrological signs.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/7-Astrological-Sign-Provider-Build">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/7/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 7<br />Astrological Sign Provider - Build it!</p>
+                      <p>We've wrangled all that data, now let's do something with it.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/8-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/8/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 8<br />Stars</p>
+                      <p>Start bringing the COSMOS to life with some nice visual work.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/9-Parallax-Testing">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/9/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 9<br />Parallax Testing (Optional)</p>
+                      <p>This optional chapter will walk you through how I originally tested the background.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/10-Stars-Background">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/10/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 10<br />Stars Background</p>
+                      <p>Time to stargaze – we're going to build some constellations.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/11-Sign-Lines">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/11/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 11<br />Sign Lines</p>
+                      <p>Time to stargaze – we're going to build some constellations.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/12-Small-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/12/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 12<br />Small Stars</p>
+                      <p>Bring those constellations to life with stars. We're starting small.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/13-Big-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/13/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 13<br />Big Stars</p>
+                      <p>We've got the small constellation stars, let's keep going with the big ones.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/14-Assembling-The-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/14/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 14<br />Assembling the Stars</p>
+                      <p>Small stars, meet big stars. Time to unite them all.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/15-Radial-Menu">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/15/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 15<br />Radial Menu</p>
+                      <p>Building the heart of the app - a radial menu with embedded animation that reacts to different gestures.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/16-Menu-Rings">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/16/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 16<br />Menu Rings</p>
+                      <p>It's time to build the backbone of our radial menu.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/17-Menu-Rings">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/17/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 17<br />Animating the Menu Rings</p>
+                      <p>Time to bring the radial menu to life with embedded animation.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/18-Menu-Icons">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/18/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 18<br />Menu Icons</p>
+                      <p>Time to flesh out the radial menu with some animated icons.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/19-Menu-Selector">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/19/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 19<br />Menu Selector</p>
+                      <p>Give the radial menu interaction and responsiveness with some programming wizardry.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/20-Menu-Shadow">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/20/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 20<br />Menu Shadow</p>
+                      <p>Give a little visual pop to the radial menu with a simple shadow.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/21-Menu-Pull-It-Together">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/21/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 21<br />The Menu – Pull it Together</p>
+                      <p>We've got all the components, let's get this beast put together now.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/22-Info-Panel">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/22/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 22<br />Info Panel</p>
+                      <p>A straightforward info panel with push controllers, popups and external links.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/23-Pulling-It-All-Together">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/23/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 23<br />Pulling It All Together</p>
+                      <p>Time to weave all the components into a unified app.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/24-Pulling-It-All-Together">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/24/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 24<br />Submitting to App Store</p>
+                      <p>Our last task is to get COSMOS on the App Store. Seriously.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <li class="title"><a href="/#overview">About</a></li>
+          <li><a href="/#overview">Features</a></li>
+          <!-- <li><a href="/about#history">History</a></li> -->
+          <!-- <li><a href="/about/contributors">Contributors</a></li> -->
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <li class="title"><a href="/learn">Learn + Explore</a></li>
+          <li><a href="/install">Install C4</a></li>
+          <li><a href="/examples">Examples</a></li>
+          <li><a href="/tutorials">Tutorials</a></li>
+          <li><a href="http://cocoadocs.org/docsets/C4/1.1.0/">Docs</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <li class="title"><a href="/contact">Connect</a></li>
+          <li><a href="http://discourse.c4ios.com">Forums</a></li>
+          <li><a href="http://www.medium.com/@c4framework" target="_blank">Medium</a></li>
+          <li><a href="http://www.twitter.com/c4framework" target="_blank">Twitter</a></li>
+          <li><a href="https://join-c4.herokuapp.com/" target="_blank">Slack</a></li>
+          <li><a href="https://vimeo.com/c4ios" target="_blank">Vimeo</a></li>
+          <li><a href="http://github.com/c4framework" target="_blank">GitHub</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <!-- <li class="title"><a href="/about">Sign Up for Newsletter</a></li>
+          <li><input type="text" placeholder="Enter Email + Press Enter"></li> -->
+          <li>© 2016 C4</li>
+          <li><a href="/terms">Terms of Use</a></li>
+          <li><a href="mailto:info@c4ios.com">Contact</a></li>
+        </ul>    
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-18444113-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+    <script type="text/javascript" src="/js/toc.js"></script>
+    <script>
+     (function(d, t) {
+        var g = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        g.src = 'http://assets.gfycat.com/js/gfyajax-0.517d.js';
+        s.parentNode.insertBefore(g, s);
+      }(document, 'script'));
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#toc').width($('#toc').parents().width());
+
+        $('#toc').toc({
+          elementClass: 'toc',
+          ulClass: 'nav',
+          heading: 'Contents',
+          indexingFormats: 'number',
+          selector: 'h2, h3, h4',
+        });
+
+        $('body').scrollspy({
+          target: '#toc',
+          offset: $('#headerNav').outerHeight(true)
+        });
+
+        setTimeout(function() {
+          var $sideBar = $('#toc');
+          $sideBar.affix({
+            offset: {
+              top: function() {
+                var offsetTop      = $sideBar.offset().top,
+                sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10),
+                navOuterHeight = $('#headerNav').height();
+                return (this.top = offsetTop - navOuterHeight - sideBarMargin);
+              },
+              bottom: function() {
+                return (this.bottom = $('footer').outerHeight(true) + $('.chapter-nav').outerHeight(true) + $('.related').outerHeight(true) + 60);
+              }
+            }
+          });
+        }, 100);
+
+        $('td.gutter').each(function(index)
+        {
+          $(this).parents('.language-swift').closest('pre').addClass('has-gutter');
+        });
+
+        $('.tutorial img').each(function()
+        {
+          console.log($(this).parent());
+          var img = $(this).attr('src');
+          $(this).attr('src', '/images/cosmos/19/' + img + '').addClass('img-responsive');
+        });
+
+        $('.tutorial p img').unwrap().wrap('<figure></figure>').after(function() {
+            return '<figcaption>'+this.alt+'</figcaption>';
+        });
+
+        $('.footnotes').prepend('<h4>Footnotes</h4>');
+      });
+    </script>
+  </body>
+</html>

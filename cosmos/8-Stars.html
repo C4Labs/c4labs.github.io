@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+  <title>Stars</title>
+  <meta name="description" content="Now we’re going to get into some nice visual work. Building the parallax background is somewhat straightforward: add a bunch of layers, add a bunch of images...">
+  <meta property="og:image" content="http://www.c4ios.com/images/banner.jpg">
+  <meta property="og:url"   content="http://c4ios.com" />
+  <meta property="og:title" content="Stars"/>
+  <meta name="og:description" content="Now we’re going to get into some nice visual work. Building the parallax background is somewhat straightforward: add a bunch of layers, add a bunch of images...">
+  <meta property="og:type"  content="website"/>
+  <meta property="og:site_name"  content="C4"/>
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@c4framework">
+  <meta name="twitter:creator" content="@c4framework">
+  <meta name="twitter:title" content="Stars">
+  <meta name="twitter:description" content="Now we’re going to get into some nice visual work. Building the parallax background is somewhat straightforward: add a bunch of layers, add a bunch of images...">
+  <meta name="twitter:image" content="http://www.c4ios.com/images/banner.jpg">
+
+
+  <link rel="stylesheet" type="text/css" href="/css/style.css" >
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+  <link rel="canonical" href="www.c4ios.com/cosmos/8-Stars">
+  <link rel="alternate" type="application/rss+xml" title="C4 website" href="www.c4ios.com/feed.xml">
+</head>
+
+    <body class="stars" data-spy="scroll" data-target="#toc">
+
+    <header>
+  <nav class="navbar navbar-default" role="navigation"> 
+    <div class="navbar-header container">
+      <div class="row"> 
+        <div class="col-xs-12 col-sm-12 col-md-12 navlist">
+          <a class="navbar-brand" href="/">
+            <span><img src="/images/c4logo.png"></span>
+          </a>
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/install" >Install</a></li>
+            <li><a href="/tutorials" >Tutorials</a></li>
+            <li><a href="/cosmos" class='active'>COSMOS</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/examples" >Examples</a></li>
+            <li><a href="http://discourse.c4ios.com">Forums</a></li>
+            <li><a href="http://cocoadocs.org/docsets/C4/1.1.0/">Documentation</a></li>
+          </ul>
+        </div>
+      </div>  
+    </div>        
+  </nav>      
+</header>
+
+    <div class="container content stars" >
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 breadcrumb">
+          <h1><a href="/tutorials">Tutorials</a><div class="bread-caret">></div><a href="/cosmos">COSMOS</a><div class="bread-caret">></div>Stars</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <span class="img large">
+            <img src="/images/cosmos/1/poster.png" />
+          </span>
+          <p class="title">Chapter 8<br /><span class="lighter">Stars</span></p>
+          <p>Tags<br /><a href="/tag/getting started">getting started</a>, <a href="/tag/basics">basics</a>, <a href="/tag/introduction">introduction</a>, <a href="/tag/easy">easy</a>, <a href="/tag/c4">c4</a>, </p>
+          <p>Estimated Time<br /><span class="lighter"></span></p>
+
+          <hr />
+
+          <div id="toc"></div>
+        </div>
+
+        <div class="col-xs-9 col-sm-9 col-md-9 tutorial">
+          <p>Now we’re going to get into some nice visual work. Building the parallax background is somewhat straightforward: add a bunch of layers, add a bunch of images and textures, add some polish to the interactions (incl. animations). Buuuuut, a lot of the details are interdependent.</p>
+
+<h2 id="design">Design</h2>
+
+<p>We went over the general design of the whole app in a <a href="http://www.c4ios.com/cosmos/2-designing-the-cosmos">previous chapter</a>, so we’re not going go into crazy detail here. However, here’s a visual breakdown of what we need to do:</p>
+
+<p><img src="01.png" alt="" /></p>
+
+<p>This is what the app looks like from a flat perspective, which is deceivingly simple looking. If we disregard the little circle menu for now, a blown-out version of the flat view so that we can see all the layers:</p>
+
+<p><img src="02.png" alt="" /></p>
+
+<p>As you can see, there are 8 layers that all have some kind of texture, some are moving and some are static (e.g. speed = 0.0), one has animations and the last layer has additional visual elements for the dashes and small signs.</p>
+
+<h2 id="breakdown">Breakdown</h2>
+
+<p>As I mentioned, putting this together in steps is somewhat tricky because there are interdependent elements.</p>
+
+<p>We’re going to break down our work into these steps and deal with interdependencies when we tie everything together:</p>
+
+<ol>
+  <li>Build the StarsBackground class to handle the basic layers</li>
+  <li>Build a SignLines class to handle the lines layer</li>
+  <li>Build a StarsSmall class to handle the small constellation stars</li>
+  <li>Build a StarsBig class to handle the big constellation stars</li>
+  <li>Tie everything together in a Stars class that will be the actual background of the app.</li>
+</ol>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row chapter-nav">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <h1 class="text-center blue">Well done! Continue COSMOS?</h1>
+          <ul class="examples-list next-prev list-unstyled">
+            
+              <li class="pull-left">
+                <a class="more" href="/cosmos/7-Astrological-Sign-Provider-Build" title="Earlier article: Astrological Sign Provider - Build it!">
+                  <div>
+                    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                    <span class="img">
+                      <img src="/images/cosmos/7/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 7<br />Astrological Sign Provider - Build it!</p>
+                      <p>We've wrangled all that data, now let's do something with it.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+            
+              <li class="pull-right">
+                <a class="more" href="/cosmos/9-Parallax-Testing" title="Later article: Parallax Testing (Optional)">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/9/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 9<br />Parallax Testing (Optional)</p>
+                      <p>This optional chapter will walk you through how I originally tested the background.</p>
+                    </div>
+                    <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                  </div>
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row related">
+        <div class="col-xs-12 col-md-12">
+          <h1 class="text-center blue">All COSMOS Chapters</h1>
+          <ul class="examples-list list-unstyled">
+            
+            
+              <li>
+                <a href="/cosmos/0-getting-started">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/0/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 0<br />Getting Started</p>
+                      <p>Get up and running quickly with the COSMOS Xcode project files.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/1-prelude-to-design">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/1/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 1<br />Prelude To Design</p>
+                      <p>An overview explaining why & how we chose to create COSMOS in the first place.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/2-designing-the-cosmos">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/2/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 2<br />Designing the COSMOS</p>
+                      <p>Where to start? Defining the visual concept and deciding the functionality.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/3-plan-it">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/3/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 3<br />Plan It!</p>
+                      <p>Get your goggles on as we start diving into the code with C4.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/4-Infinite-Scrollview">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/4/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 4<br />Infinite Scrollview</p>
+                      <p>Implementing the idea of an infinite scrollview that loops around rather than stopping at the end.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/5-Infinite-Scrollview-Build">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/5/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 5<br />Infinite Scrollview</p>
+                      <p>Time to code – get that infinite scrollview looping.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/6-Astrological-Sign-Provider">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/6/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 6<br />Astrological Sign Provider</p>
+                      <p>How to go about wrangling all the data for the 12 astrological signs.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/7-Astrological-Sign-Provider-Build">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/7/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 7<br />Astrological Sign Provider - Build it!</p>
+                      <p>We've wrangled all that data, now let's do something with it.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/8-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/8/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 8<br />Stars</p>
+                      <p>Start bringing the COSMOS to life with some nice visual work.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/9-Parallax-Testing">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/9/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 9<br />Parallax Testing (Optional)</p>
+                      <p>This optional chapter will walk you through how I originally tested the background.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/10-Stars-Background">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/10/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 10<br />Stars Background</p>
+                      <p>Time to stargaze – we're going to build some constellations.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/11-Sign-Lines">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/11/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 11<br />Sign Lines</p>
+                      <p>Time to stargaze – we're going to build some constellations.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/12-Small-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/12/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 12<br />Small Stars</p>
+                      <p>Bring those constellations to life with stars. We're starting small.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/13-Big-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/13/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 13<br />Big Stars</p>
+                      <p>We've got the small constellation stars, let's keep going with the big ones.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/14-Assembling-The-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/14/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 14<br />Assembling the Stars</p>
+                      <p>Small stars, meet big stars. Time to unite them all.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/15-Radial-Menu">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/15/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 15<br />Radial Menu</p>
+                      <p>Building the heart of the app - a radial menu with embedded animation that reacts to different gestures.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/16-Menu-Rings">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/16/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 16<br />Menu Rings</p>
+                      <p>It's time to build the backbone of our radial menu.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/17-Menu-Rings">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/17/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 17<br />Animating the Menu Rings</p>
+                      <p>Time to bring the radial menu to life with embedded animation.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/18-Menu-Icons">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/18/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 18<br />Menu Icons</p>
+                      <p>Time to flesh out the radial menu with some animated icons.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/19-Menu-Selector">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/19/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 19<br />Menu Selector</p>
+                      <p>Give the radial menu interaction and responsiveness with some programming wizardry.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/20-Menu-Shadow">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/20/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 20<br />Menu Shadow</p>
+                      <p>Give a little visual pop to the radial menu with a simple shadow.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/21-Menu-Pull-It-Together">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/21/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 21<br />The Menu – Pull it Together</p>
+                      <p>We've got all the components, let's get this beast put together now.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/22-Info-Panel">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/22/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 22<br />Info Panel</p>
+                      <p>A straightforward info panel with push controllers, popups and external links.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/23-Pulling-It-All-Together">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/23/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 23<br />Pulling It All Together</p>
+                      <p>Time to weave all the components into a unified app.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/24-Pulling-It-All-Together">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/24/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 24<br />Submitting to App Store</p>
+                      <p>Our last task is to get COSMOS on the App Store. Seriously.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <li class="title"><a href="/#overview">About</a></li>
+          <li><a href="/#overview">Features</a></li>
+          <!-- <li><a href="/about#history">History</a></li> -->
+          <!-- <li><a href="/about/contributors">Contributors</a></li> -->
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <li class="title"><a href="/learn">Learn + Explore</a></li>
+          <li><a href="/install">Install C4</a></li>
+          <li><a href="/examples">Examples</a></li>
+          <li><a href="/tutorials">Tutorials</a></li>
+          <li><a href="http://cocoadocs.org/docsets/C4/1.1.0/">Docs</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <li class="title"><a href="/contact">Connect</a></li>
+          <li><a href="http://discourse.c4ios.com">Forums</a></li>
+          <li><a href="http://www.medium.com/@c4framework" target="_blank">Medium</a></li>
+          <li><a href="http://www.twitter.com/c4framework" target="_blank">Twitter</a></li>
+          <li><a href="https://join-c4.herokuapp.com/" target="_blank">Slack</a></li>
+          <li><a href="https://vimeo.com/c4ios" target="_blank">Vimeo</a></li>
+          <li><a href="http://github.com/c4framework" target="_blank">GitHub</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <!-- <li class="title"><a href="/about">Sign Up for Newsletter</a></li>
+          <li><input type="text" placeholder="Enter Email + Press Enter"></li> -->
+          <li>© 2016 C4</li>
+          <li><a href="/terms">Terms of Use</a></li>
+          <li><a href="mailto:info@c4ios.com">Contact</a></li>
+        </ul>    
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-18444113-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+    <script type="text/javascript" src="/js/toc.js"></script>
+    <script>
+     (function(d, t) {
+        var g = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        g.src = 'http://assets.gfycat.com/js/gfyajax-0.517d.js';
+        s.parentNode.insertBefore(g, s);
+      }(document, 'script'));
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#toc').width($('#toc').parents().width());
+
+        $('#toc').toc({
+          elementClass: 'toc',
+          ulClass: 'nav',
+          heading: 'Contents',
+          indexingFormats: 'number',
+          selector: 'h2, h3, h4',
+        });
+
+        $('body').scrollspy({
+          target: '#toc',
+          offset: $('#headerNav').outerHeight(true)
+        });
+
+        setTimeout(function() {
+          var $sideBar = $('#toc');
+          $sideBar.affix({
+            offset: {
+              top: function() {
+                var offsetTop      = $sideBar.offset().top,
+                sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10),
+                navOuterHeight = $('#headerNav').height();
+                return (this.top = offsetTop - navOuterHeight - sideBarMargin);
+              },
+              bottom: function() {
+                return (this.bottom = $('footer').outerHeight(true) + $('.chapter-nav').outerHeight(true) + $('.related').outerHeight(true) + 60);
+              }
+            }
+          });
+        }, 100);
+
+        $('td.gutter').each(function(index)
+        {
+          $(this).parents('.language-swift').closest('pre').addClass('has-gutter');
+        });
+
+        $('.tutorial img').each(function()
+        {
+          console.log($(this).parent());
+          var img = $(this).attr('src');
+          $(this).attr('src', '/images/cosmos/8/' + img + '').addClass('img-responsive');
+        });
+
+        $('.tutorial p img').unwrap().wrap('<figure></figure>').after(function() {
+            return '<figcaption>'+this.alt+'</figcaption>';
+        });
+
+        $('.footnotes').prepend('<h4>Footnotes</h4>');
+      });
+    </script>
+  </body>
+</html>

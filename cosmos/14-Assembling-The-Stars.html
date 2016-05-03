@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+  <title>Assembling the Stars</title>
+  <meta name="description" content="It’s time to assemble all 8 layers of the Stars background and hook them up. The list of layers is:">
+  <meta property="og:image" content="http://www.c4ios.com/images/banner.jpg">
+  <meta property="og:url"   content="http://c4ios.com" />
+  <meta property="og:title" content="Assembling the Stars"/>
+  <meta name="og:description" content="It’s time to assemble all 8 layers of the Stars background and hook them up. The list of layers is:">
+  <meta property="og:type"  content="website"/>
+  <meta property="og:site_name"  content="C4"/>
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@c4framework">
+  <meta name="twitter:creator" content="@c4framework">
+  <meta name="twitter:title" content="Assembling the Stars">
+  <meta name="twitter:description" content="It’s time to assemble all 8 layers of the Stars background and hook them up. The list of layers is:">
+  <meta name="twitter:image" content="http://www.c4ios.com/images/banner.jpg">
+
+
+  <link rel="stylesheet" type="text/css" href="/css/style.css" >
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+  <link rel="canonical" href="www.c4ios.com/cosmos/14-Assembling-The-Stars">
+  <link rel="alternate" type="application/rss+xml" title="C4 website" href="www.c4ios.com/feed.xml">
+</head>
+
+    <body class="assembling-the-stars" data-spy="scroll" data-target="#toc">
+
+    <header>
+  <nav class="navbar navbar-default" role="navigation"> 
+    <div class="navbar-header container">
+      <div class="row"> 
+        <div class="col-xs-12 col-sm-12 col-md-12 navlist">
+          <a class="navbar-brand" href="/">
+            <span><img src="/images/c4logo.png"></span>
+          </a>
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/install" >Install</a></li>
+            <li><a href="/tutorials" >Tutorials</a></li>
+            <li><a href="/cosmos" class='active'>COSMOS</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/examples" >Examples</a></li>
+            <li><a href="http://discourse.c4ios.com">Forums</a></li>
+            <li><a href="http://cocoadocs.org/docsets/C4/1.1.0/">Documentation</a></li>
+          </ul>
+        </div>
+      </div>  
+    </div>        
+  </nav>      
+</header>
+
+    <div class="container content assembling-the-stars" >
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 breadcrumb">
+          <h1><a href="/tutorials">Tutorials</a><div class="bread-caret">></div><a href="/cosmos">COSMOS</a><div class="bread-caret">></div>Assembling the Stars</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <span class="img large">
+            <img src="/images/cosmos/1/poster.png" />
+          </span>
+          <p class="title">Chapter 14<br /><span class="lighter">Assembling the Stars</span></p>
+          <p>Tags<br /><a href="/tag/getting started">getting started</a>, <a href="/tag/basics">basics</a>, <a href="/tag/introduction">introduction</a>, <a href="/tag/easy">easy</a>, <a href="/tag/c4">c4</a>, </p>
+          <p>Estimated Time<br /><span class="lighter"></span></p>
+
+          <hr />
+
+          <div id="toc"></div>
+        </div>
+
+        <div class="col-xs-9 col-sm-9 col-md-9 tutorial">
+          <p>It’s time to assemble all 8 layers of the Stars background and hook them up. The list of layers is:</p>
+
+<ol>
+  <li>dark background stars</li>
+  <li>vignette</li>
+  <li>small background stars</li>
+  <li>medium background stars</li>
+  <li>large background stars</li>
+  <li>lines</li>
+  <li>small constellation stars</li>
+  <li>big constellation stars</li>
+</ol>
+
+<p>The way we’re going to do this is like so:</p>
+
+<ol>
+  <li>Create an array of speeds so we know how quickly to move each layer</li>
+  <li>Create and add all the layers based on their speeds</li>
+  <li>Add a context and observer for creating the parallax effect</li>
+  <li>Add snapping</li>
+  <li>Add animations for the lines</li>
+</ol>
+
+<h2 id="create-speeds-and-scrollviews-arrays">Create Speeds and Scrollviews Arrays</h2>
+
+<p>This step is dead-easy. Create an array of <code class="highlighter-rouge">CGFloat</code> values that we’ll be using throughout the rest of our setup.</p>
+
+<p>Open <code class="highlighter-rouge">Stars.swift</code> and add the following variable to your class:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="k">let</span> <span class="nv">speeds</span> <span class="p">:</span> <span class="p">[</span><span class="kt">CGFloat</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.08</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.10</span><span class="p">,</span><span class="mf">0.12</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>We have simply taken the values from the design file and added them in order such that the bottom layer’s speed, 0.08 is the first entry (i.e. [0]) in the array, and the top layer’s speed is the last entry.</p>
+
+<p>We label the array <code class="highlighter-rouge">: [CGFloat]</code> because we’re going to be passing these values directly to views that are subclassed from <code class="highlighter-rouge">UIScrollView</code> and it’s just a bit cleaner to not have to cast from <code class="highlighter-rouge">Double</code> when we know we’re only going to be working with <code class="highlighter-rouge">CGFloat</code> variables.</p>
+
+<p>Finally, add a variable array of <code class="highlighter-rouge">InfiniteScrollview</code> types to your class. Later on we’re going to reference this array so we’ll add it here to be a bit ahead of the game.</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="k">var</span> <span class="nv">scrollviews</span> <span class="p">:</span> <span class="p">[</span><span class="kt">InfiniteScrollView</span><span class="p">]</span><span class="o">!</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<blockquote>
+  <p>If you worked through the <a href="">ParallaxBackground</a> chapter, this is where things start to get a bit different.</p>
+</blockquote>
+
+<p>Next, we also know that we need layers for the lines, small and big stars. So, create variables that will reference those:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="k">var</span> <span class="nv">signLines</span> <span class="p">:</span> <span class="kt">SignLines</span><span class="o">!</span>
+<span class="k">var</span> <span class="nv">bigStars</span> <span class="p">:</span> <span class="kt">StarsBig</span><span class="o">!</span>
+<span class="k">var</span> <span class="nv">snapTargets</span> <span class="p">:</span> <span class="p">[</span><span class="kt">CGFloat</span><span class="p">]</span><span class="o">!</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Your class should look like this:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td><td class="code"><pre><span class="kd">class</span> <span class="kt">Stars</span> <span class="p">:</span> <span class="kt">CanvasController</span><span class="p">,</span> <span class="kt">UIScrollViewDelegate</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">speeds</span> <span class="p">:</span> <span class="p">[</span><span class="kt">CGFloat</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.08</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.10</span><span class="p">,</span><span class="mf">0.12</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nv">scrollviews</span> <span class="p">:</span> <span class="p">[</span><span class="kt">InfiniteScrollView</span><span class="p">]</span><span class="o">!</span>
+    <span class="k">var</span> <span class="nv">signLines</span> <span class="p">:</span> <span class="kt">SignLines</span><span class="o">!</span>
+    <span class="k">var</span> <span class="nv">bigStars</span> <span class="p">:</span> <span class="kt">StarsBig</span><span class="o">!</span>
+    <span class="k">var</span> <span class="nv">snapTargets</span> <span class="p">:</span> <span class="p">[</span><span class="kt">CGFloat</span><span class="p">]</span><span class="o">!</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="create-layers">Create Layers</h2>
+
+<p>Since we’ve already built the various star background classes (all subclasses of <code class="highlighter-rouge">InfiniteScrollview</code>), we can start working with them right away. The easiest way to add all our layers is to create and add them individually based on their speeds and images.</p>
+
+<p><img src="01.png" alt="" /></p>
+
+<p>The previous image shows how varying speeds will actually dictate how much of a scrollview’s contents will actually be seen. Compared to the top layer which encapsulates the full width of all our app’s contents, the first layer with a speed of <code class="highlighter-rouge">0.08</code> will only need a <code class="highlighter-rouge">contentSize</code> that is <code class="highlighter-rouge">8%</code> the width of the top layer’s size.</p>
+
+<h3 id="the-vignette">The Vignette</h3>
+
+<p>There is one layer that we haven’t considered yet: the vignette. This is an image that sits behind most of the other layers, but over top of one, to give an added sense of depth. Since the vignette doesn’t move, we don’t need to make a class for it.</p>
+
+<p>However, because all our other layers are subclasses of <code class="highlighter-rouge">InfiniteScrollview</code> we want our vignette to be the same. Add the following function:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7</pre></td><td class="code"><pre><span class="kd">func</span> <span class="nf">createVignette</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">InfiniteScrollView</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">sv</span> <span class="o">=</span> <span class="kt">InfiniteScrollView</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="p">)</span>
+    <span class="k">let</span> <span class="nv">img</span> <span class="o">=</span> <span class="kt">Image</span><span class="p">(</span><span class="s">"1vignette"</span><span class="p">)</span><span class="o">!</span>
+    <span class="n">img</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">frame</span>
+    <span class="n">sv</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sv</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Simple.</p>
+
+<h3 id="the-first-5-layers">The First 5 Layers</h3>
+
+<p>Here’s how we create the first five layers. Add the following to <code class="highlighter-rouge">setup()</code>:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td class="code"><pre><span class="n">canvas</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="kt">COSMOSbkgd</span>
+
+<span class="n">scrollviews</span> <span class="o">=</span> <span class="p">[</span><span class="kt">InfiniteScrollView</span><span class="p">]()</span>
+<span class="n">scrollviews</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="kt">StarsBackground</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span> <span class="nv">imageName</span><span class="p">:</span> <span class="s">"0Star"</span><span class="p">,</span> <span class="nv">starCount</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nv">speed</span><span class="p">:</span> <span class="n">speeds</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="n">scrollviews</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="nf">createVignette</span><span class="p">())</span>
+<span class="n">scrollviews</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="kt">StarsBackground</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span> <span class="nv">imageName</span><span class="p">:</span> <span class="s">"2Star"</span><span class="p">,</span> <span class="nv">starCount</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nv">speed</span><span class="p">:</span> <span class="n">speeds</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+<span class="n">scrollviews</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="kt">StarsBackground</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span> <span class="nv">imageName</span><span class="p">:</span> <span class="s">"3Star"</span><span class="p">,</span> <span class="nv">starCount</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nv">speed</span><span class="p">:</span> <span class="n">speeds</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+<span class="n">scrollviews</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="kt">StarsBackground</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span> <span class="nv">imageName</span><span class="p">:</span> <span class="s">"4Star"</span><span class="p">,</span> <span class="nv">starCount</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nv">speed</span><span class="p">:</span> <span class="n">speeds</span><span class="p">[</span><span class="mi">4</span><span class="p">]))</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<blockquote>
+  <p>I also added a background color.</p>
+</blockquote>
+
+<h3 id="the-last-3-layers">The Last 3 Layers</h3>
+
+<p>The last 3 layers are a bit different in that the 6th and 8th need to be place in variables. The reason for this is that later on we want to act on the top layer as well as the layer with the lines.</p>
+
+<p>Add the following to your <code class="highlighter-rouge">setup()</code>:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre></td><td class="code"><pre><span class="n">signLines</span> <span class="o">=</span> <span class="kt">SignLines</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="p">)</span>
+<span class="n">scrollviews</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">signLines</span><span class="p">)</span>
+
+<span class="n">scrollviews</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="kt">StarsSmall</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span> <span class="nv">speed</span><span class="p">:</span> <span class="n">speeds</span><span class="p">[</span><span class="mi">6</span><span class="p">]))</span>
+
+<span class="n">bigStars</span> <span class="o">=</span> <span class="kt">StarsBig</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="p">)</span>
+<span class="n">scrollviews</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">bigStars</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">sv</span> <span class="k">in</span> <span class="n">scrollviews</span> <span class="p">{</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="n">sv</span><span class="p">)</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>We create the <code class="highlighter-rouge">signLines</code> variable, then append that to the scrollviews array. Then, we add the small stars, followed by creating the <code class="highlighter-rouge">bigStars</code> variable and then append that as well.</p>
+
+<p>Finally, we iterate through all the scrollviews in the array and add them to the canvas one at a time.</p>
+
+<h2 id="observe-the-big-stars">Observe the Big Stars</h2>
+
+<p>The next step is to start observing the top layer for when it scrolls, then have all the other layers update their positions based on that top layer.</p>
+
+<blockquote>
+  <p>If you want a run through of observing and contexts, etc., have a look at the <a href="">ParallaxBackground</a> chapter.</p>
+</blockquote>
+
+<p>Start by adding the following variable to your class:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="k">var</span> <span class="nv">scrollviewOffsetContext</span> <span class="o">=</span> <span class="mi">0</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Then, after creating <code class="highlighter-rouge">bigStars</code> add the following two lines to <code class="highlighter-rouge">setup()</code>:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre><span class="n">bigStars</span><span class="o">.</span><span class="nf">addObserver</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">forKeyPath</span><span class="p">:</span> <span class="s">"contentOffset"</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span> <span class="o">.</span><span class="kt">New</span><span class="p">,</span> <span class="nv">context</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">scrollviewOffsetContext</span><span class="p">)</span>
+<span class="n">bigStars</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>On its own, this won’t do anything. To see the tracking in action we’ll have to add an <code class="highlighter-rouge">observeValueForKeyPath</code> function that has a bit of logic to determine how the layers should scroll.</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td><td class="code"><pre><span class="k">override</span> <span class="kd">func</span> <span class="nf">observeValueForKeyPath</span><span class="p">(</span><span class="nv">keyPath</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="n">ofObject</span> <span class="nv">object</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="p">?,</span> <span class="nv">change</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">AnyObject</span><span class="p">]?,</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="n">context</span> <span class="o">==</span> <span class="o">&amp;</span><span class="n">scrollviewOffsetContext</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">sv</span> <span class="o">=</span> <span class="n">object</span> <span class="k">as!</span> <span class="kt">InfiniteScrollView</span>
+        <span class="k">let</span> <span class="nv">offset</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">contentOffset</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..&lt;</span><span class="n">scrollviews</span><span class="o">.</span><span class="n">count</span><span class="o">-</span><span class="mi">1</span> <span class="p">{</span>
+            <span class="k">let</span> <span class="nv">layer</span> <span class="o">=</span> <span class="n">scrollviews</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">layer</span><span class="o">.</span><span class="n">contentOffset</span> <span class="o">=</span> <span class="kt">CGPointMake</span><span class="p">(</span><span class="n">offset</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">speeds</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Switch your project’s WorkSpace to:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></td><td class="code"><pre><span class="kd">import</span> <span class="kt">UIKit</span>
+
+<span class="c1">//three colors we'll use throughout the app, so we make them project-level variables</span>
+<span class="k">let</span> <span class="nv">COSMOSprpl</span> <span class="o">=</span> <span class="kt">Color</span><span class="p">(</span><span class="nv">red</span><span class="p">:</span><span class="mf">0.565</span><span class="p">,</span> <span class="nv">green</span><span class="p">:</span> <span class="mf">0.075</span><span class="p">,</span> <span class="nv">blue</span><span class="p">:</span> <span class="mf">0.996</span><span class="p">,</span> <span class="nv">alpha</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">COSMOSblue</span> <span class="o">=</span> <span class="kt">Color</span><span class="p">(</span><span class="nv">red</span><span class="p">:</span> <span class="mf">0.094</span><span class="p">,</span> <span class="nv">green</span><span class="p">:</span> <span class="mf">0.271</span><span class="p">,</span> <span class="nv">blue</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="nv">alpha</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">COSMOSbkgd</span> <span class="o">=</span> <span class="kt">Color</span><span class="p">(</span><span class="nv">red</span><span class="p">:</span> <span class="mf">0.078</span><span class="p">,</span> <span class="nv">green</span><span class="p">:</span> <span class="mf">0.118</span><span class="p">,</span> <span class="nv">blue</span><span class="p">:</span> <span class="mf">0.306</span><span class="p">,</span> <span class="nv">alpha</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">)</span>
+
+
+<span class="kd">class</span> <span class="kt">WorkSpace</span><span class="p">:</span> <span class="kt">CanvasController</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">background</span> <span class="o">=</span> <span class="kt">Stars</span><span class="p">()</span>
+    <span class="k">var</span> <span class="nv">stars</span> <span class="o">=</span> <span class="kt">Stars</span><span class="p">()</span>
+    
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+        
+        <span class="n">canvas</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="kt">COSMOSbkgd</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="n">stars</span><span class="o">.</span><span class="n">canvas</span>
+        
+    <span class="p">}</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Lookin’ good:</p>
+
+<p><img src="" alt="" data-id="DefinitiveTeemingHaddock" class="gfyitem" /></p>
+
+<p>However, there are still a couple of things we want to achieve:</p>
+
+<ol>
+  <li>Have the constellations snap into place</li>
+  <li>Have the lines animate in / out when snapped</li>
+</ol>
+
+<h2 id="snap-to-it">Snap To It</h2>
+
+<p>Jake’s design considers the following behaviour:</p>
+
+<blockquote>
+  <p>When a sign is on screen and the user lets go or scrolling stops, the sign should snap to the center of the screen.</p>
+</blockquote>
+
+<p>To build this functionality out we need to first answer two question:</p>
+
+<ol>
+  <li>How do we know if the view should snap into place?</li>
+  <li>How do we know when scrolling has stopped, or a user has let go of the screen?</li>
+</ol>
+
+<p>The second requires the first, so I start with the problem of figuring out if the view needs to snap based on its position.</p>
+
+<p>Start by creating a list of target points by adding the following property to the class:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="k">var</span> <span class="nv">snapTargets</span> <span class="p">:</span> <span class="p">[</span><span class="kt">CGFloat</span><span class="p">]</span><span class="o">!</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Then, I create the following:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="kd">func</span> <span class="nf">createSnapTargets</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">snapTargets</span> <span class="o">=</span> <span class="p">[</span><span class="kt">CGFloat</span><span class="p">]()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span><span class="o">...</span><span class="mi">12</span> <span class="p">{</span>
+        <span class="n">snapTargets</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">gapBetweenSigns</span> <span class="o">*</span> <span class="kt">CGFloat</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>This method appends center <code class="highlighter-rouge">x</code> position for each astrological sign.</p>
+
+<p>This method needs to be called during <code class="highlighter-rouge">setup</code>, like so:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="k">override</span> <span class="kd">func</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+   <span class="c1">//bunch of other stuff...</span>
+   <span class="nf">createSnapTargets</span><span class="p">()</span>
+<span class="p">}</span> <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Next, create a method that takes an offset position as input and determines if the view needs to snap or not:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td class="code"><pre><span class="kd">func</span> <span class="nf">snapIfNeeded</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="n">_</span> <span class="nv">scrollView</span><span class="p">:</span> <span class="kt">UIScrollView</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">target</span> <span class="k">in</span> <span class="n">snapTargets</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">dist</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="kt">CGFloat</span><span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">dist</span> <span class="o">&lt;=</span> <span class="kt">CGFloat</span><span class="p">(</span><span class="n">canvas</span><span class="o">.</span><span class="n">width</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">scrollView</span><span class="o">.</span><span class="nf">setContentOffset</span><span class="p">(</span><span class="kt">CGPointMake</span><span class="p">(</span><span class="n">target</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>This iterates over all the targets in <code class="highlighter-rouge">snapTargets</code>. For each target it calculates the distance from the target to the current <code class="highlighter-rouge">x</code> position, and if the target is less than half the width of the screen away it should snap. If it should snap then it sets the current content offset of the scrollview to the target position.</p>
+
+<blockquote>
+  <p>The method also has a <code class="highlighter-rouge">return</code> statement. The purpose of this is that it breaks out of the loop at the proper moment so that the loop doesn’t continue (i.e. if the target is the first in the list it won’t execute the remaining 12).</p>
+</blockquote>
+
+<p>Now, we have to hook up the <code class="highlighter-rouge">snapIfNeeded</code> method to the right moments, which means I now have to figure out when to execute the behaviour.</p>
+
+<p>There are two basic conditions:</p>
+
+<ol>
+  <li>The user is dragging quickly and lets go, the scrollview continues scrolling on its own and decelerates until it stops.</li>
+  <li>The user is dragging slowly and raises their thumb off the screen, but the scrollview doesn’t need to decelerate.</li>
+</ol>
+
+<p>The <code class="highlighter-rouge">UIScrollview</code> class has a few methods that can help us out. They are <code class="highlighter-rouge">scrollViewDidEndDecelerating</code> for the first case and <code class="highlighter-rouge">scrollViewDidEndDragging</code> for the second, both of which are delegate methods.</p>
+
+<p>Add the first delegate method and change it so it looks as follows:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="kd">func</span> <span class="nf">scrollViewDidEndDecelerating</span><span class="p">(</span><span class="nv">scrollView</span><span class="p">:</span> <span class="kt">UIScrollView</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">snapIfNeeded</span><span class="p">(</span><span class="n">scrollView</span><span class="o">.</span><span class="n">contentOffset</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">scrollView</span><span class="p">)</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>This method gets called implicitly when the scrollview stops moving on its own. When it gets called, the method grabs the current offset of the view and sends that to our <code class="highlighter-rouge">snapIfNeeded</code> method.</p>
+
+<p>Also add the second delegate method and change it so it looks as follows:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre><span class="kd">func</span> <span class="nf">scrollViewDidEndDragging</span><span class="p">(</span><span class="nv">scrollView</span><span class="p">:</span> <span class="kt">UIScrollView</span><span class="p">,</span> <span class="n">willDecelerate</span> <span class="nv">decelerate</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="n">decelerate</span> <span class="o">==</span> <span class="kc">false</span> <span class="p">{</span>
+        <span class="nf">snapIfNeeded</span><span class="p">(</span><span class="n">scrollView</span><span class="o">.</span><span class="n">contentOffset</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">scrollView</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>This one also gets called implicitly when the user stops dragging. If the user’s finger or thumb is moving slow enough then the method will have a <code class="highlighter-rouge">decelerate</code> parameter that’s set to <code class="highlighter-rouge">false</code>. In this case, we know we need to immediately check if the view should snap. If <code class="highlighter-rouge">decelerate</code> is <code class="highlighter-rouge">true</code> (when the user stops dragging after a swipe gesture) we know that the previous method will eventually be called, so we do nothing here.</p>
+
+<p>To get these two methods to execute, we need to set the delegate of our top layer.</p>
+
+<p>First, make the entire <code class="highlighter-rouge">ParallaxBackground</code> class a <code class="highlighter-rouge">UIScrollViewDelegate</code> by changing the class declaration to:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="kd">class</span> <span class="kt">ParallaxBackground</span> <span class="p">:</span> <span class="kt">CanvasController</span><span class="p">,</span> <span class="kt">UIScrollViewDelegate</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Second, set the delegate of the top layer in the createBigStars method right before the return statement, like so:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7</pre></td><td class="code"><pre><span class="kd">func</span> <span class="nf">createBigStars</span><span class="p">()</span> <span class="p">{</span>
+     <span class="c1">//…</span>
+   <span class="nf">addDashesMarker</span><span class="p">(</span><span class="n">bigStars</span><span class="p">)</span>
+   <span class="nf">addSignNames</span><span class="p">(</span><span class="n">bigStars</span><span class="p">)</span>
+   <span class="n">bigStars</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
+   <span class="k">return</span> <span class="n">bigStars</span> 
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Check it:</p>
+
+<p><img src="" alt="" data-id="BackBlaringEastrussiancoursinghounds" class="gfyitem" /></p>
+
+<h2 id="animating-the-lines">Animating the Lines</h2>
+
+<p>The final piece of polish is to animate a sign’s lines in only when that sign is centered on the screen. We’ve figured out the triggers (i.e. when to snap, etc.) now we just have to set the lines up so that we can animate them in and out.</p>
+
+<p>There are 2 conditions:</p>
+
+<ol>
+  <li>The lines should appear when the shape has stopped moving and is entered</li>
+  <li>The lines should disappear when the user starts dragging</li>
+</ol>
+
+<p>The first case is easy. In <code class="highlighter-rouge">snapIfNeeded()</code> add the following right before the <code class="highlighter-rouge">return</code> statement:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="nf">delay</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="nv">closure</span><span class="p">:</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="p">()</span> <span class="k">in</span>
+    <span class="k">self</span><span class="o">.</span><span class="n">signLines</span><span class="o">.</span><span class="nf">revealCurrentSignLines</span><span class="p">()</span>
+<span class="p">})</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>This waits a 1/4 second before animating the lines in.</p>
+
+<p>Next, we’re going to have to create a method that triggers when the user starts dragging… This is also easy. Add the following method to your class:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="kd">func</span> <span class="nf">scrollViewWillBeginDragging</span><span class="p">(</span><span class="nv">scrollView</span><span class="p">:</span> <span class="kt">UIScrollView</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">self</span><span class="o">.</span><span class="n">signLines</span><span class="o">.</span><span class="nf">hideCurrentSignLines</span><span class="p">()</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>The <code class="highlighter-rouge">scrollViewWillBeginDragging</code> is a delegate method that gets called automatically when the user starts dragging. So, all we have to do is trigger the lines to hide.</p>
+
+<p><img src="" alt="" data-id="IlliterateBonyAxisdeer" class="gfyitem" /></p>
+
+<h2 id="goto">GoTo</h2>
+
+<p>This last step is something we’re going to do in anticipation of later hooking everything up. Add this method to your Stars class:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14</pre></td><td class="code"><pre><span class="kd">func</span> <span class="nf">goto</span><span class="p">(</span><span class="nv">selection</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">target</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">width</span> <span class="o">*</span> <span class="kt">Double</span><span class="p">(</span><span class="n">gapBetweenSigns</span><span class="p">)</span> <span class="o">*</span> <span class="kt">Double</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span>
+
+    <span class="k">let</span> <span class="nv">anim</span> <span class="o">=</span> <span class="kt">ViewAnimation</span><span class="p">(</span><span class="nv">duration</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span> <span class="k">in</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">bigStars</span><span class="o">.</span><span class="n">contentOffset</span> <span class="o">=</span> <span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">(</span><span class="n">target</span><span class="p">),</span><span class="nv">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">anim</span><span class="o">.</span><span class="n">curve</span> <span class="o">=</span> <span class="o">.</span><span class="kt">EaseOut</span>
+    <span class="n">anim</span><span class="o">.</span><span class="n">addCompletionObserver</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span> <span class="k">in</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">signLines</span><span class="o">.</span><span class="nf">revealCurrentSignLines</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="n">anim</span><span class="o">.</span><span class="nf">animate</span><span class="p">()</span>
+    
+    <span class="n">signLines</span><span class="o">.</span><span class="n">currentIndex</span> <span class="o">=</span> <span class="n">selection</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>We’ll talk about it in a future chapter, but for now it’s a method that takes an index then animates the top layer to the proper position.</p>
+
+<h2 id="fin">Fin.</h2>
+
+<p>The Stars background class is good to go.</p>
+
+<p>Here’s a copy of <a href="https://gist.github.com/C4Framework/8c30681420d7bea327b6">Stars.swift</a>.</p>
+
+<p>Nächste Haltestelle.</p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row chapter-nav">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <h1 class="text-center blue">Well done! Continue COSMOS?</h1>
+          <ul class="examples-list next-prev list-unstyled">
+            
+              <li class="pull-left">
+                <a class="more" href="/cosmos/13-Big-Stars" title="Earlier article: Big Stars">
+                  <div>
+                    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                    <span class="img">
+                      <img src="/images/cosmos/13/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 13<br />Big Stars</p>
+                      <p>We've got the small constellation stars, let's keep going with the big ones.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+            
+              <li class="pull-right">
+                <a class="more" href="/cosmos/15-Radial-Menu" title="Later article: Radial Menu">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/15/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 15<br />Radial Menu</p>
+                      <p>Building the heart of the app - a radial menu with embedded animation that reacts to different gestures.</p>
+                    </div>
+                    <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                  </div>
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row related">
+        <div class="col-xs-12 col-md-12">
+          <h1 class="text-center blue">All COSMOS Chapters</h1>
+          <ul class="examples-list list-unstyled">
+            
+            
+              <li>
+                <a href="/cosmos/0-getting-started">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/0/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 0<br />Getting Started</p>
+                      <p>Get up and running quickly with the COSMOS Xcode project files.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/1-prelude-to-design">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/1/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 1<br />Prelude To Design</p>
+                      <p>An overview explaining why & how we chose to create COSMOS in the first place.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/2-designing-the-cosmos">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/2/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 2<br />Designing the COSMOS</p>
+                      <p>Where to start? Defining the visual concept and deciding the functionality.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/3-plan-it">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/3/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 3<br />Plan It!</p>
+                      <p>Get your goggles on as we start diving into the code with C4.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/4-Infinite-Scrollview">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/4/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 4<br />Infinite Scrollview</p>
+                      <p>Implementing the idea of an infinite scrollview that loops around rather than stopping at the end.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/5-Infinite-Scrollview-Build">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/5/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 5<br />Infinite Scrollview</p>
+                      <p>Time to code – get that infinite scrollview looping.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/6-Astrological-Sign-Provider">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/6/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 6<br />Astrological Sign Provider</p>
+                      <p>How to go about wrangling all the data for the 12 astrological signs.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/7-Astrological-Sign-Provider-Build">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/7/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 7<br />Astrological Sign Provider - Build it!</p>
+                      <p>We've wrangled all that data, now let's do something with it.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/8-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/8/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 8<br />Stars</p>
+                      <p>Start bringing the COSMOS to life with some nice visual work.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/9-Parallax-Testing">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/9/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 9<br />Parallax Testing (Optional)</p>
+                      <p>This optional chapter will walk you through how I originally tested the background.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/10-Stars-Background">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/10/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 10<br />Stars Background</p>
+                      <p>Time to stargaze – we're going to build some constellations.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/11-Sign-Lines">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/11/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 11<br />Sign Lines</p>
+                      <p>Time to stargaze – we're going to build some constellations.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/12-Small-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/12/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 12<br />Small Stars</p>
+                      <p>Bring those constellations to life with stars. We're starting small.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/13-Big-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/13/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 13<br />Big Stars</p>
+                      <p>We've got the small constellation stars, let's keep going with the big ones.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/14-Assembling-The-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/14/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 14<br />Assembling the Stars</p>
+                      <p>Small stars, meet big stars. Time to unite them all.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/15-Radial-Menu">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/15/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 15<br />Radial Menu</p>
+                      <p>Building the heart of the app - a radial menu with embedded animation that reacts to different gestures.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/16-Menu-Rings">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/16/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 16<br />Menu Rings</p>
+                      <p>It's time to build the backbone of our radial menu.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/17-Menu-Rings">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/17/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 17<br />Animating the Menu Rings</p>
+                      <p>Time to bring the radial menu to life with embedded animation.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/18-Menu-Icons">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/18/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 18<br />Menu Icons</p>
+                      <p>Time to flesh out the radial menu with some animated icons.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/19-Menu-Selector">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/19/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 19<br />Menu Selector</p>
+                      <p>Give the radial menu interaction and responsiveness with some programming wizardry.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/20-Menu-Shadow">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/20/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 20<br />Menu Shadow</p>
+                      <p>Give a little visual pop to the radial menu with a simple shadow.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/21-Menu-Pull-It-Together">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/21/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 21<br />The Menu – Pull it Together</p>
+                      <p>We've got all the components, let's get this beast put together now.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/22-Info-Panel">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/22/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 22<br />Info Panel</p>
+                      <p>A straightforward info panel with push controllers, popups and external links.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/23-Pulling-It-All-Together">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/23/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 23<br />Pulling It All Together</p>
+                      <p>Time to weave all the components into a unified app.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/24-Pulling-It-All-Together">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/24/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 24<br />Submitting to App Store</p>
+                      <p>Our last task is to get COSMOS on the App Store. Seriously.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <li class="title"><a href="/#overview">About</a></li>
+          <li><a href="/#overview">Features</a></li>
+          <!-- <li><a href="/about#history">History</a></li> -->
+          <!-- <li><a href="/about/contributors">Contributors</a></li> -->
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <li class="title"><a href="/learn">Learn + Explore</a></li>
+          <li><a href="/install">Install C4</a></li>
+          <li><a href="/examples">Examples</a></li>
+          <li><a href="/tutorials">Tutorials</a></li>
+          <li><a href="http://cocoadocs.org/docsets/C4/1.1.0/">Docs</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <li class="title"><a href="/contact">Connect</a></li>
+          <li><a href="http://discourse.c4ios.com">Forums</a></li>
+          <li><a href="http://www.medium.com/@c4framework" target="_blank">Medium</a></li>
+          <li><a href="http://www.twitter.com/c4framework" target="_blank">Twitter</a></li>
+          <li><a href="https://join-c4.herokuapp.com/" target="_blank">Slack</a></li>
+          <li><a href="https://vimeo.com/c4ios" target="_blank">Vimeo</a></li>
+          <li><a href="http://github.com/c4framework" target="_blank">GitHub</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <!-- <li class="title"><a href="/about">Sign Up for Newsletter</a></li>
+          <li><input type="text" placeholder="Enter Email + Press Enter"></li> -->
+          <li>© 2016 C4</li>
+          <li><a href="/terms">Terms of Use</a></li>
+          <li><a href="mailto:info@c4ios.com">Contact</a></li>
+        </ul>    
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-18444113-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+    <script type="text/javascript" src="/js/toc.js"></script>
+    <script>
+     (function(d, t) {
+        var g = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        g.src = 'http://assets.gfycat.com/js/gfyajax-0.517d.js';
+        s.parentNode.insertBefore(g, s);
+      }(document, 'script'));
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#toc').width($('#toc').parents().width());
+
+        $('#toc').toc({
+          elementClass: 'toc',
+          ulClass: 'nav',
+          heading: 'Contents',
+          indexingFormats: 'number',
+          selector: 'h2, h3, h4',
+        });
+
+        $('body').scrollspy({
+          target: '#toc',
+          offset: $('#headerNav').outerHeight(true)
+        });
+
+        setTimeout(function() {
+          var $sideBar = $('#toc');
+          $sideBar.affix({
+            offset: {
+              top: function() {
+                var offsetTop      = $sideBar.offset().top,
+                sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10),
+                navOuterHeight = $('#headerNav').height();
+                return (this.top = offsetTop - navOuterHeight - sideBarMargin);
+              },
+              bottom: function() {
+                return (this.bottom = $('footer').outerHeight(true) + $('.chapter-nav').outerHeight(true) + $('.related').outerHeight(true) + 60);
+              }
+            }
+          });
+        }, 100);
+
+        $('td.gutter').each(function(index)
+        {
+          $(this).parents('.language-swift').closest('pre').addClass('has-gutter');
+        });
+
+        $('.tutorial img').each(function()
+        {
+          console.log($(this).parent());
+          var img = $(this).attr('src');
+          $(this).attr('src', '/images/cosmos/14/' + img + '').addClass('img-responsive');
+        });
+
+        $('.tutorial p img').unwrap().wrap('<figure></figure>').after(function() {
+            return '<figcaption>'+this.alt+'</figcaption>';
+        });
+
+        $('.footnotes').prepend('<h4>Footnotes</h4>');
+      });
+    </script>
+  </body>
+</html>

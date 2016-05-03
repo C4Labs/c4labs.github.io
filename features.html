@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+  <title>Features</title>
+  <meta name="description" content="">
+  <meta property="og:image" content="http://www.c4ios.com/images/banner.jpg">
+  <meta property="og:url"   content="http://c4ios.com" />
+  <meta property="og:title" content="Features"/>
+  <meta name="og:description" content="">
+  <meta property="og:type"  content="website"/>
+  <meta property="og:site_name"  content="C4"/>
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@c4framework">
+  <meta name="twitter:creator" content="@c4framework">
+  <meta name="twitter:title" content="Features">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="http://www.c4ios.com/images/banner.jpg">
+
+
+  <link rel="stylesheet" type="text/css" href="/css/style.css" >
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+  <link rel="canonical" href="www.c4ios.com/features.html">
+  <link rel="alternate" type="application/rss+xml" title="C4 website" href="www.c4ios.com/feed.xml">
+</head>
+
+    <body class="features">
+
+    <header>
+  <nav class="navbar navbar-default" role="navigation"> 
+    <div class="navbar-header container">
+      <div class="row"> 
+        <div class="col-xs-12 col-sm-12 col-md-12 navlist">
+          <a class="navbar-brand" href="/">
+            <span><img src="/images/c4logo.png"></span>
+          </a>
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/install" >Install</a></li>
+            <li><a href="/tutorials" >Tutorials</a></li>
+            <li><a href="/cosmos" >COSMOS</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/examples" >Examples</a></li>
+            <li><a href="http://discourse.c4ios.com">Forums</a></li>
+            <li><a href="http://cocoadocs.org/docsets/C4/1.1.0/">Documentation</a></li>
+          </ul>
+        </div>
+      </div>  
+    </div>        
+  </nav>      
+</header>
+
+    <div class="container content features" >
+      <article class="post">
+
+  <div class="post-content">
+    <div class="row">
+	<div class="col-md-10 col-md-offset-1 text-center">
+		<h1 class="headliner">Welcome to C4</h1>
+		<h2>Built on top of Swift, C4 puts the power of UIKit and Core Animation at your disposal, allowing you to create inventive digital interactions with far less time and effort. Plus, you get all the interactivity, fun and expressiveness of Swift. Your apps will run lightning-fast.</h2>
+		<h2>The API of C4 is simple and streamlined allowing beginners to get into programming very easily. For seasoned developers, C4 can be dropped into any existing project with as little effort as linking any other native framework . With C4, you’ll save a ton of time working with interactions, animation and media.</h2>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-10 col-md-offset-1 text-center">
+		<h2>Efficient</h2>
+		<p>Spend less time navigating between different frameworks and focus on bringing your ideas to life. C4 combines the power of UIKit and Core Animation into a single set of objects whose APIs are easy to understand and straightforward. And because C4's foundation is built on native frameworks, you’ll be inheriting Swift’s faster code, compile times and optimization for modern hardware.</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<h3 class="text-center">Expressive</h3>
+		<p class="text-center">C4 brings your ideas to life by allowing you to focus on experimenting, designing, visualizing and building rather than on learning low-level technologies. Objects are consistent and intuitive — they all essentially work the same way .  C4's language has been designed to be as simple and expressive as possible.</p>
+		<p class="text-center">For example, C4 compresses the access of properties:</p>
+	
+		<div class="row">
+			<div class="col-md-6">
+        <h4>C4</h4>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">m</span> <span class="o">=</span> <span class="n">movie</span><span class="o">.</span><span class="n">width</span> </code></pre></figure>
+
+            </div>
+            
+            <div class="col-md-6">
+            <h4>UIKit</h4>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">m</span> <span class="o">=</span> <span class="n">movie</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">width</span></code></pre></figure>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <p class="text-center">Animating both view and property changes in C4 is much cleaner, and looks like this:</p>
+            <div class="row">
+              <div class="col-md-6">
+                <h4>C4</h4> 
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kt">ViewAnimation</span><span class="p">(</span><span class="nv">duration</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">shape</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">center</span>
+  <span class="n">shape</span><span class="o">.</span><span class="n">lineWidth</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="p">}</span><span class="o">.</span><span class="nf">animate</span><span class="p">()</span></code></pre></figure>
+
+              </div>
+              <div class="col-md-6">
+                <h4>UIKit + Core Animation</h4>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kt">UIView</span><span class="o">.</span><span class="nf">animateWithDuration</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">center</span>
+<span class="p">}</span>
+
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">begin</span><span class="p">()</span>
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">setValue</span><span class="p">(</span><span class="kt">NSNumber</span><span class="p">(</span><span class="nv">float</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">),</span> <span class="nv">forKey</span><span class="p">:</span> <span class="n">kCATransactionAnimationDuration</span><span class="p">)</span>
+<span class="k">if</span> <span class="k">let</span> <span class="nv">shapeLayer</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">layer</span> <span class="k">as?</span> <span class="kt">CAShapeLayer</span> <span class="p">{</span>
+    <span class="n">shapeLayer</span><span class="o">.</span><span class="n">lineWidth</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="p">}</span>
+<span class="kt">CATransaction</span><span class="o">.</span><span class="nf">commit</span><span class="p">()</span></code></pre></figure>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <p class="text-center">C4 takes advantage of all of Swift’s modernity: closures, tuples, generics, interaction, structs, error handling. And, YES, you can even do this:</p>
+              </div>
+            </div>
+            <div class="row">
+            <div class="col-md-12">
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="nv">bananaName</span> <span class="o">=</span> <span class="s">"Jimmy"</span><span class="o">.</span><span class="n">banana</span></code></pre></figure>
+
+                <p class="text-center">Check the <a href="https://developer.apple.com/swift/">Swift Overview</a> for more.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 text-center">
+            <h3>Easy To Learn</h3>
+            <p>Through both its simplified API and consistent objects, C4 is incredibly easy to learn compared to the frameworks it’s built upon: UIKit, Core Animation, etc. C4’s language has been designed to make it easy for both novice and experienced programmers to pick up and use right away.</p>
+            <h3>Well Supported</h3>
+            <p>The C4 team has always been highly committed to publishing excellent documentation, examples and tutorials for learning how to program with C4.</p>
+            <p>The current release of C4 also includes a full end-to-end tutorial that will walk you through the design, creation and publication of a full-blown app: COSMOS</p>
+            <div class="row">
+              <div class="col-md-6">
+                <a href="https://itunes.apple.com/us/app/c4smos/id985883701?ls=1&amp;mt=8"><img src="images/index/about-app.png" /></a>
+                <p><a href="https://itunes.apple.com/us/app/c4smos/id985883701?ls=1&amp;mt=8">Get COSMOS from the App Store</a></p>
+              </div>
+              <div class="col-md-6">
+                <a href="cosmos"><img src="images/index/about-cosmos.png" /></a>
+                <p><a href="cosmos">Build COSMOS from start to finish</a></p>
+              </div>
+            </div>
+            <p>We’re currently converting over 200 code examples and 30 tutorials to C4's new modern syntax. These examples and tutorials (coming soon) guide new users through core concepts and provide seasoned developers with the reference they need to keep up the pace.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 text-center">
+            <h3>Powerful</h3>
+            <p>Originally based on Objective-C, C4 now takes entire advantage of the Swift programming language — which itself was built to be fast and powerful. Where Swift has been tuned to make intuitive, natural coding perform best, the guts of each component in C4 — every class, every method and every structure –  make that performance sing.</p>
+            <p>Through C4 you are able to work with media, animations and interactions in a way that dissolves the differences between the many frameworks you need to create beautiful user experiences. It seamlessly combines many important components of UIKit, Core Animation, Core Graphics, AVFoundation and QuartzCore.</p>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-10 col-md-offset-1">
+            <h3>Multipurpose</h3>
+            <p>C4 is built for anyone who wants to build beautiful user experiences for iOS and has been designed to reach an incredibly broad set of possible uses. This flexibility is one of the most important aspects of C4, demonstrating its strength across a variety of different use cases and disciplines.</p>
+            <p>C4 has been used for:
+              <ul class="about text-center list-unstyled">
+                <li>Prototyping</li>
+                <li>Mobile Applications</li>
+                <li>Data Visualization</li>
+                <li>Interactive Artworks</li>
+                <li>Computational Design Education</li>
+                <li>Communication Design</li>
+                <li>Print Design</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-10 col-md-offset-1">
+            <h3>Open Source</h3>
+            <p>Sporting the MIT License, C4 is an open-source project whose features and functions can be used freely in educational, artistic and even professional settings. The project is open to anyone who wants to contribute, and the project’s <a href="https://github.com/c4framework/c4ios/">code</a>, <a href="https://github.com/c4framework/c4ios/">documentation</a>, and <a href="https://github.com/C4Framework/C4iOS/wiki">process</a> are completely available for you to read through, learn from and take advantage of. Ongoing commitment by our core team and other developers guarantees that C4 will be constantly updated and focused on user’s interests.</p>
+            <a href="https://join-c4.herokuapp.com/"><img src="images/index/about-slack.png" /></a>
+            <p><a href="https://join-c4.herokuapp.com/">Join our Slack community!</a></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h3 class="text-center">Simplicity</h3>
+            <p class="text-center">Simplicity is a major accomplishment for C4. Across the board, C4 is simple to learn, to use, to read and to adopt. C4 reduces the amount of code you need to the most powerful essentials. </p>
+            <p class="text-center">Take movies, for example. Instead of needing to AVQueuePlayer, AVPlayerItem, navigating asset tracks and learning how to load files through NSBundle, you only have to create a movie from its file name and add it to the canvas:</p>
+          
+          <div class="row">
+            <div class="col-md-6">
+            <h4>C4</h4>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">let</span> <span class="nv">movie</span> <span class="o">=</span> <span class="kt">Movie</span><span class="p">(</span><span class="s">"halo.mp4"</span><span class="p">)</span>
+  <span class="n">canvas</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="n">movie</span><span class="p">)</span>
+  <span class="n">movie</span><span class="p">?</span><span class="o">.</span><span class="nf">play</span><span class="p">()</span>
+<span class="p">}</span></code></pre></figure>
+
+          </div>
+          <div class="col-md-6">
+            <h4>UIKit + AVFoundation</h4>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">guard</span> <span class="k">let</span> <span class="nv">url</span> <span class="o">=</span> <span class="kt">NSBundle</span><span class="o">.</span><span class="nf">mainBundle</span><span class="p">()</span><span class="o">.</span><span class="kt">URLForResource</span><span class="p">(</span><span class="s">"halo.mp4"</span><span class="p">,</span> <span class="nv">withExtension</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nf">fatalError</span><span class="p">(</span><span class="s">"File not found"</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="k">let</span> <span class="nv">asset</span> <span class="o">=</span> <span class="kt">AVAsset</span><span class="p">(</span><span class="kt">URL</span><span class="p">:</span> <span class="n">url</span><span class="p">)</span>
+  <span class="k">let</span> <span class="nv">player</span> <span class="o">=</span> <span class="kt">AVQueuePlayer</span><span class="p">(</span><span class="nv">playerItem</span><span class="p">:</span> <span class="kt">AVPlayerItem</span><span class="p">(</span><span class="k">as</span><span class="nv">set</span><span class="p">:</span> <span class="k">asset</span><span class="p">))</span>
+  <span class="n">player</span><span class="o">.</span><span class="n">actionAtItemEnd</span> <span class="o">=</span> <span class="o">.</span><span class="kt">Pause</span>
+
+  <span class="k">let</span> <span class="nv">movieLayer</span> <span class="o">=</span> <span class="kt">AVPlayerLayer</span><span class="p">(</span><span class="nv">player</span><span class="p">:</span> <span class="n">player</span><span class="p">)</span>
+  <span class="n">movieLayer</span><span class="o">.</span><span class="n">videoGravity</span> <span class="o">=</span> <span class="kt">AVLayerVideoGravityResize</span>
+
+  <span class="k">let</span> <span class="nv">tracks</span> <span class="o">=</span> <span class="k">asset</span><span class="o">.</span><span class="nf">tracksWithMediaType</span><span class="p">(</span><span class="kt">AVMediaTypeVideo</span><span class="p">)</span>
+
+  <span class="k">let</span> <span class="nv">movieTrack</span> <span class="o">=</span> <span class="n">tracks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="k">let</span> <span class="nv">size</span> <span class="o">=</span> <span class="n">movieTrack</span><span class="o">.</span><span class="n">naturalSize</span>
+
+  <span class="n">movieLayer</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="kt">CGRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span><span class="nv">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span><span class="nv">width</span><span class="p">:</span> <span class="n">size</span><span class="o">.</span><span class="n">width</span><span class="p">,</span><span class="nv">height</span><span class="p">:</span> <span class="n">size</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+  <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="nf">addSublayer</span><span class="p">(</span><span class="n">movieLayer</span><span class="p">)</span>
+  <span class="n">player</span><span class="o">.</span><span class="nf">play</span><span class="p">()</span>
+<span class="p">}</span></code></pre></figure>
+
+           </div>
+          </div>
+          <div class="docs">
+            <p class="text-center">… And a <a href="http://cocoadocs.org/docsets/C4/1.1.0/">whole lot more</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+</article>
+
+    </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <li class="title"><a href="/#overview">About</a></li>
+          <li><a href="/#overview">Features</a></li>
+          <!-- <li><a href="/about#history">History</a></li> -->
+          <!-- <li><a href="/about/contributors">Contributors</a></li> -->
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <li class="title"><a href="/learn">Learn + Explore</a></li>
+          <li><a href="/install">Install C4</a></li>
+          <li><a href="/examples">Examples</a></li>
+          <li><a href="/tutorials">Tutorials</a></li>
+          <li><a href="http://cocoadocs.org/docsets/C4/1.1.0/">Docs</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <li class="title"><a href="/contact">Connect</a></li>
+          <li><a href="http://discourse.c4ios.com">Forums</a></li>
+          <li><a href="http://www.medium.com/@c4framework" target="_blank">Medium</a></li>
+          <li><a href="http://www.twitter.com/c4framework" target="_blank">Twitter</a></li>
+          <li><a href="https://join-c4.herokuapp.com/" target="_blank">Slack</a></li>
+          <li><a href="https://vimeo.com/c4ios" target="_blank">Vimeo</a></li>
+          <li><a href="http://github.com/c4framework" target="_blank">GitHub</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <!-- <li class="title"><a href="/about">Sign Up for Newsletter</a></li>
+          <li><input type="text" placeholder="Enter Email + Press Enter"></li> -->
+          <li>© 2016 C4</li>
+          <li><a href="/terms">Terms of Use</a></li>
+          <li><a href="mailto:info@c4ios.com">Contact</a></li>
+        </ul>    
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-18444113-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    </body>
+</html>
