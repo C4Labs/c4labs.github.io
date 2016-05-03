@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+  <title>Astrological Sign Provider - Build it!</title>
+  <meta name="description" content="Building the AstrologicalSignProvider is going to be pretty straightforward. We’re going to construct the basic elements and then fill in the contents for a ...">
+  <meta property="og:image" content="http://www.c4ios.com/images/banner.jpg">
+  <meta property="og:url"   content="http://c4ios.com" />
+  <meta property="og:title" content="Astrological Sign Provider - Build it!"/>
+  <meta name="og:description" content="Building the AstrologicalSignProvider is going to be pretty straightforward. We’re going to construct the basic elements and then fill in the contents for a ...">
+  <meta property="og:type"  content="website"/>
+  <meta property="og:site_name"  content="C4"/>
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@c4framework">
+  <meta name="twitter:creator" content="@c4framework">
+  <meta name="twitter:title" content="Astrological Sign Provider - Build it!">
+  <meta name="twitter:description" content="Building the AstrologicalSignProvider is going to be pretty straightforward. We’re going to construct the basic elements and then fill in the contents for a ...">
+  <meta name="twitter:image" content="http://www.c4ios.com/images/banner.jpg">
+
+
+  <link rel="stylesheet" type="text/css" href="/css/style.css" >
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+  <link rel="canonical" href="www.c4ios.com/cosmos/7-Astrological-Sign-Provider-Build">
+  <link rel="alternate" type="application/rss+xml" title="C4 website" href="www.c4ios.com/feed.xml">
+</head>
+
+    <body class="astrological-sign-provider---build-it!" data-spy="scroll" data-target="#toc">
+
+    <header>
+  <nav class="navbar navbar-default" role="navigation"> 
+    <div class="navbar-header container">
+      <div class="row"> 
+        <div class="col-xs-12 col-sm-12 col-md-12 navlist">
+          <a class="navbar-brand" href="/">
+            <span><img src="/images/c4logo.png"></span>
+          </a>
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/install" >Install</a></li>
+            <li><a href="/tutorials" >Tutorials</a></li>
+            <li><a href="/cosmos" class='active'>COSMOS</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/examples" >Examples</a></li>
+            <li><a href="http://discourse.c4ios.com">Forums</a></li>
+            <li><a href="http://cocoadocs.org/docsets/C4/1.1.0/">Documentation</a></li>
+          </ul>
+        </div>
+      </div>  
+    </div>        
+  </nav>      
+</header>
+
+    <div class="container content astrological-sign-provider---build-it!" >
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 breadcrumb">
+          <h1><a href="/tutorials">Tutorials</a><div class="bread-caret">></div><a href="/cosmos">COSMOS</a><div class="bread-caret">></div>Astrological Sign Provider - Build it!</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <span class="img large">
+            <img src="/images/cosmos/1/poster.png" />
+          </span>
+          <p class="title">Chapter 7<br /><span class="lighter">Astrological Sign Provider - Build it!</span></p>
+          <p>Tags<br /><a href="/tag/getting started">getting started</a>, <a href="/tag/basics">basics</a>, <a href="/tag/introduction">introduction</a>, <a href="/tag/easy">easy</a>, <a href="/tag/c4">c4</a>, </p>
+          <p>Estimated Time<br /><span class="lighter"></span></p>
+
+          <hr />
+
+          <div id="toc"></div>
+        </div>
+
+        <div class="col-xs-9 col-sm-9 col-md-9 tutorial">
+          <p>Building the <code class="highlighter-rouge">AstrologicalSignProvider</code> is going to be pretty straightforward. We’re going to construct the basic elements and then fill in the contents for a single sign. Then, I’ll give you a copy of the final file because the rest of the 11 signs simply need to have their content copy-pasted (so there’s no point in doing that if I already have that file made).</p>
+
+<p>You are going to do the following:</p>
+
+<ol>
+  <li>Create a new subclass of <code class="highlighter-rouge">NSObject</code> called <code class="highlighter-rouge">AstrologicalSignProvider</code></li>
+  <li>Create a structure called <code class="highlighter-rouge">AstrologicalSign</code> that holds data for a single sign</li>
+  <li>Create a <code class="highlighter-rouge">typealias</code> that represents a method that creates an <code class="highlighter-rouge">AstrologicalSign</code></li>
+  <li>Create a set of mappings between strings and a type alias for each of the signs</li>
+  <li>Create a <code class="highlighter-rouge">get</code> method that allows you to grab the data you need by requesting the name of the sign</li>
+  <li>Create a method for each of the signs that returns the data for that sign</li>
+</ol>
+
+<blockquote>
+  <p>From now on, we’re going to be working in <code class="highlighter-rouge">AstrologicalSignProvider.swift</code></p>
+</blockquote>
+
+<h2 id="create-a-struct">Create a Struct</h2>
+
+<p>Above the class declaration, create a struct called <code class="highlighter-rouge">AstrologicalSign</code> that has 4 variables called <code class="highlighter-rouge">shape</code>, <code class="highlighter-rouge">big</code>, <code class="highlighter-rouge">small</code> and <code class="highlighter-rouge">lines</code>, like so:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td class="code"><pre><span class="kd">struct</span> <span class="kt">AstrologicalSign</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">shape</span> <span class="p">:</span> <span class="kt">Shape</span><span class="o">!</span>
+    <span class="k">var</span> <span class="nv">big</span> <span class="p">:</span> <span class="p">[</span><span class="kt">Point</span><span class="p">]</span><span class="o">!</span>
+    <span class="k">var</span> <span class="nv">small</span> <span class="p">:</span> <span class="p">[</span><span class="kt">Point</span><span class="p">]</span><span class="o">!</span>
+    <span class="k">var</span> <span class="nv">lines</span> <span class="p">:</span> <span class="p">[[</span><span class="kt">Point</span><span class="p">]]</span><span class="o">!</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="kt">AstrologicalSignProvider</span> <span class="p">:</span> <span class="kt">NSObject</span> <span class="p">{</span><span class="o">...</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>This struct will give us access to a <code class="highlighter-rouge">Shape</code> (the icon), two arrays of points for the centers of big and small stars, as well as an array of arrays of points that lets us know between which stars we’ll draw lines.</p>
+
+<p>Next, create a <code class="highlighter-rouge">typealias</code> called <code class="highlighter-rouge">AstrologicalSignFunction</code> which defines a kind of function that returns a sign struct. Add it above <code class="highlighter-rouge">AstrologicalSign</code> like so:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="kd">typealias</span> <span class="kt">AstrologicalSignFunction</span> <span class="o">=</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AstrologicalSign</span>
+
+<span class="kd">struct</span> <span class="kt">AstrologicalSign</span> <span class="p">{</span><span class="o">...</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Finally, add a fixed array of strings as an immutable <code class="highlighter-rouge">let</code> to the class. This array represents the order of astrological signs.</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="k">let</span> <span class="nv">order</span> <span class="o">=</span> <span class="p">[</span><span class="s">"pisces"</span><span class="p">,</span> <span class="s">"aries"</span><span class="p">,</span> <span class="s">"taurus"</span><span class="p">,</span> <span class="s">"gemini"</span><span class="p">,</span> <span class="s">"cancer"</span><span class="p">,</span> <span class="s">"leo"</span><span class="p">,</span> <span class="s">"virgo"</span><span class="p">,</span> <span class="s">"libra"</span><span class="p">,</span> <span class="s">"scorpio"</span><span class="p">,</span> <span class="s">"sagittarius"</span><span class="p">,</span> <span class="s">"capricorn"</span><span class="p">,</span> <span class="s">"aquarius"</span><span class="p">]</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="singleton">Singleton</h2>
+
+<p>We’re going to be referencing the provider from a variety of different classes, but the nature of the provider will never change. Instead of having a local instance of the provider in each different class, we’re going to create a <code class="highlighter-rouge">sharedInstance</code> – a singleton – that gets created only once. This instance will be accessible from any object in our project.</p>
+
+<p>Add this property to the class:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="kd">static</span> <span class="k">let</span> <span class="nv">sharedInstance</span> <span class="o">=</span> <span class="kt">AstrologicalSignProvider</span><span class="p">()</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>At this point your file should look like:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></td><td class="code"><pre><span class="kd">import</span> <span class="kt">Foundation</span>
+
+<span class="kd">typealias</span> <span class="kt">AstrologicalSignFunction</span> <span class="o">=</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AstrologicalSign</span>
+
+<span class="kd">struct</span> <span class="kt">AstrologicalSign</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">shape</span> <span class="p">:</span> <span class="kt">Shape</span><span class="o">!</span>
+    <span class="k">var</span> <span class="nv">big</span> <span class="p">:</span> <span class="p">[</span><span class="kt">Point</span><span class="p">]</span><span class="o">!</span>
+    <span class="k">var</span> <span class="nv">small</span> <span class="p">:</span> <span class="p">[</span><span class="kt">Point</span><span class="p">]</span><span class="o">!</span>
+    <span class="k">var</span> <span class="nv">lines</span> <span class="p">:</span> <span class="p">[[</span><span class="kt">Point</span><span class="p">]]</span><span class="o">!</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="kt">AstrologicalSignProvider</span> <span class="p">:</span> <span class="kt">NSObject</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">sharedInstance</span> <span class="o">=</span> <span class="kt">AstrologicalSignProvider</span><span class="p">()</span>
+    
+    <span class="k">let</span> <span class="nv">order</span> <span class="o">=</span> <span class="p">[</span><span class="s">"pisces"</span><span class="p">,</span> <span class="s">"aries"</span><span class="p">,</span> <span class="s">"taurus"</span><span class="p">,</span> <span class="s">"gemini"</span><span class="p">,</span> <span class="s">"cancer"</span><span class="p">,</span> <span class="s">"leo"</span><span class="p">,</span> <span class="s">"virgo"</span><span class="p">,</span> <span class="s">"libra"</span><span class="p">,</span> <span class="s">"scorpio"</span><span class="p">,</span> <span class="s">"sagittarius"</span><span class="p">,</span> <span class="s">"capricorn"</span><span class="p">,</span> <span class="s">"aquarius"</span><span class="p">]</span>
+
+    <span class="k">override</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">init</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="fake-all-the-sign-methods">Fake all the sign methods</h2>
+
+<p>Next, we’re going to create all the sign methods but not fill them in with anything. We’re going to fake them so that we can first build the rest of our class before filling them in. It’s easier this way…</p>
+
+<p>Trust me.</p>
+
+<p>For each of the 12 signs, create a method with the pattern:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="kd">func</span> <span class="nf">signName</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AstrologicalSign</span> <span class="p">{</span>
+   <span class="k">let</span> <span class="nv">sign</span> <span class="o">=</span> <span class="kt">AstrologicalSign</span><span class="p">()</span>
+   <span class="k">return</span> <span class="n">sign</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>And, for each of the 12 signs replace the word signName with the name of the sign. Aries looks like:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="kd">func</span> <span class="nf">aries</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AstrologicalSign</span> <span class="p">{</span>
+    <span class="o">...</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>By now your class should look like:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74</pre></td><td class="code"><pre><span class="kd">import</span> <span class="kt">C4</span>
+
+<span class="kd">typealias</span> <span class="kt">AstrologicalSignFunction</span> <span class="o">=</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AstrologicalSign</span>
+
+<span class="kd">struct</span> <span class="kt">AstrologicalSign</span> <span class="p">{</span>
+   <span class="k">var</span> <span class="nv">shape</span> <span class="o">=</span> <span class="kt">Shape</span><span class="p">()</span>
+   <span class="k">var</span> <span class="nv">big</span> <span class="o">=</span> <span class="p">[</span><span class="kt">Point</span><span class="p">]()</span>
+   <span class="k">var</span> <span class="nv">small</span> <span class="o">=</span> <span class="p">[</span><span class="kt">Point</span><span class="p">]()</span>
+   <span class="k">var</span> <span class="nv">lines</span> <span class="o">=</span> <span class="p">[[</span><span class="kt">Point</span><span class="p">]]()</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="kt">AstrologicalSignProvider</span> <span class="p">:</span> <span class="kt">NSObject</span> <span class="p">{</span>
+   <span class="k">let</span> <span class="nv">order</span> <span class="o">=</span> <span class="p">[</span><span class="s">"pisces"</span><span class="p">,</span> <span class="s">"aries"</span><span class="p">,</span> <span class="s">"taurus"</span><span class="p">,</span> <span class="s">"gemini"</span><span class="p">,</span> <span class="s">"cancer"</span><span class="p">,</span> <span class="s">"leo"</span><span class="p">,</span> <span class="s">"virgo"</span><span class="p">,</span> <span class="s">"libra"</span><span class="p">,</span> <span class="s">"scorpio"</span><span class="p">,</span> <span class="s">"sagittarius"</span><span class="p">,</span> <span class="s">"capricorn"</span><span class="p">,</span> <span class="s">"aquarius"</span><span class="p">]</span>
+
+   <span class="kd">func</span> <span class="nf">taurus</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AstrologicalSign</span> <span class="p">{</span>
+       <span class="k">let</span> <span class="nv">sign</span> <span class="o">=</span> <span class="kt">AstrologicalSign</span><span class="p">()</span>
+       <span class="k">return</span> <span class="n">sign</span>
+   <span class="p">}</span>
+
+   <span class="kd">func</span> <span class="nf">aries</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AstrologicalSign</span> <span class="p">{</span>
+       <span class="k">let</span> <span class="nv">sign</span> <span class="o">=</span> <span class="kt">AstrologicalSign</span><span class="p">()</span>
+       <span class="k">return</span> <span class="n">sign</span>
+   <span class="p">}</span>
+
+   <span class="kd">func</span> <span class="nf">gemini</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AstrologicalSign</span> <span class="p">{</span>
+       <span class="k">let</span> <span class="nv">sign</span> <span class="o">=</span> <span class="kt">AstrologicalSign</span><span class="p">()</span>
+       <span class="k">return</span> <span class="n">sign</span>
+   <span class="p">}</span>
+
+   <span class="kd">func</span> <span class="nf">cancer</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AstrologicalSign</span> <span class="p">{</span>
+       <span class="k">let</span> <span class="nv">sign</span> <span class="o">=</span> <span class="kt">AstrologicalSign</span><span class="p">()</span>
+       <span class="k">return</span> <span class="n">sign</span>
+   <span class="p">}</span>
+
+   <span class="kd">func</span> <span class="nf">leo</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AstrologicalSign</span> <span class="p">{</span>
+       <span class="k">let</span> <span class="nv">sign</span> <span class="o">=</span> <span class="kt">AstrologicalSign</span><span class="p">()</span>
+       <span class="k">return</span> <span class="n">sign</span>
+   <span class="p">}</span>
+
+   <span class="kd">func</span> <span class="nf">virgo</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AstrologicalSign</span> <span class="p">{</span>
+       <span class="k">let</span> <span class="nv">sign</span> <span class="o">=</span> <span class="kt">AstrologicalSign</span><span class="p">()</span>
+       <span class="k">return</span> <span class="n">sign</span>
+   <span class="p">}</span>
+
+   <span class="kd">func</span> <span class="nf">libra</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AstrologicalSign</span> <span class="p">{</span>
+       <span class="k">let</span> <span class="nv">sign</span> <span class="o">=</span> <span class="kt">AstrologicalSign</span><span class="p">()</span>
+       <span class="k">return</span> <span class="n">sign</span>
+   <span class="p">}</span>
+
+   <span class="kd">func</span> <span class="nf">pisces</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AstrologicalSign</span> <span class="p">{</span>
+       <span class="k">let</span> <span class="nv">sign</span> <span class="o">=</span> <span class="kt">AstrologicalSign</span><span class="p">()</span>
+       <span class="k">return</span> <span class="n">sign</span>
+   <span class="p">}</span>
+
+   <span class="kd">func</span> <span class="nf">aquarius</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AstrologicalSign</span> <span class="p">{</span>
+       <span class="k">let</span> <span class="nv">sign</span> <span class="o">=</span> <span class="kt">AstrologicalSign</span><span class="p">()</span>
+       <span class="k">return</span> <span class="n">sign</span>
+   <span class="p">}</span>
+
+   <span class="kd">func</span> <span class="nf">sagittarius</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AstrologicalSign</span> <span class="p">{</span>
+       <span class="k">let</span> <span class="nv">sign</span> <span class="o">=</span> <span class="kt">AstrologicalSign</span><span class="p">()</span>
+       <span class="k">return</span> <span class="n">sign</span>
+   <span class="p">}</span>
+
+   <span class="kd">func</span> <span class="nf">capricorn</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AstrologicalSign</span> <span class="p">{</span>
+       <span class="k">let</span> <span class="nv">sign</span> <span class="o">=</span> <span class="kt">AstrologicalSign</span><span class="p">()</span>
+       <span class="k">return</span> <span class="n">sign</span>
+   <span class="p">}</span>
+
+   <span class="kd">func</span> <span class="nf">scorpio</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AstrologicalSign</span> <span class="p">{</span>
+       <span class="k">let</span> <span class="nv">sign</span> <span class="o">=</span> <span class="kt">AstrologicalSign</span><span class="p">()</span>
+       <span class="k">return</span> <span class="n">sign</span>
+   <span class="p">}</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="create-the-mappings">Create the Mappings</h2>
+
+<p>The next thing we want to do is create a set of mappings that will allow us to “get” a sign simply by requesting it by name. This step is where we start using our <code class="highlighter-rouge">typealias</code> that we created a couple of steps ago.</p>
+
+<p>Add the following after the <code class="highlighter-rouge">let order = [...]</code> property:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="kd">internal</span> <span class="k">var</span> <span class="nv">mappings</span> <span class="o">=</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">AstrologicalSignFunction</span><span class="p">]()</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>There is a really nice feature of Swift that allows us to put functions into arrays and dictionaries, which we’re going to take advantage of shortly. The <code class="highlighter-rouge">internal</code> keyword means that the variable can’t be accessed from outside the class (i.e. it’s only available internally).</p>
+
+<h3 id="init-them">init() them</h3>
+
+<p>The next step is to initialize the mappings. So, modify the init method for the class and set the keys and variables for the mappings. All you need to do is for each of the signs, add its name and associate it with its function, like so:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17</pre></td><td class="code"><pre><span class="k">override</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+   <span class="k">super</span><span class="o">.</span><span class="nf">init</span><span class="p">()</span>
+   <span class="n">mappings</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="s">"pisces"</span><span class="p">:</span><span class="n">pisces</span><span class="p">,</span>
+   <span class="s">"aries"</span><span class="p">:</span><span class="n">aries</span><span class="p">,</span>
+   <span class="s">"taurus"</span><span class="p">:</span><span class="n">taurus</span><span class="p">,</span>
+   <span class="s">"gemini"</span><span class="p">:</span><span class="n">gemini</span><span class="p">,</span>
+   <span class="s">"cancer"</span><span class="p">:</span><span class="n">cancer</span><span class="p">,</span>
+   <span class="s">"leo"</span><span class="p">:</span><span class="n">leo</span><span class="p">,</span>
+   <span class="s">"virgo"</span><span class="p">:</span><span class="n">virgo</span><span class="p">,</span>
+   <span class="s">"libra"</span><span class="p">:</span><span class="n">libra</span><span class="p">,</span>
+   <span class="s">"scorpio"</span><span class="p">:</span><span class="n">scorpio</span><span class="p">,</span>
+   <span class="s">"sagittarius"</span><span class="p">:</span><span class="n">sagittarius</span><span class="p">,</span>
+   <span class="s">"capricorn"</span><span class="p">:</span><span class="n">capricorn</span><span class="p">,</span>
+   <span class="s">"aquarius"</span><span class="p">:</span><span class="n">aquarius</span>
+   <span class="p">]</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<blockquote>
+  <p>You can add this method after the mappings variable</p>
+</blockquote>
+
+<h3 id="a-little-bit-of-explanation">A little bit of explanation…</h3>
+
+<p>So, we’ve done a few things that probably don’t make much sense, which is just fine because the class doesn’t actually do anything yet. However, we’ve also do a lot despite the class not doing anything.</p>
+
+<p>This is what we’ve done:</p>
+
+<ol>
+  <li>We’ve created an <code class="highlighter-rouge">AstrologicalSign</code> struct to represent signs (but haven’t really used them yet)</li>
+  <li>We’ve created a type alias that represents functions</li>
+  <li>We’ve created 12 functions that return sign structs</li>
+  <li>We’ve created a dictionary of <code class="highlighter-rouge">mappings</code> that associates each of the functions with their string-based name (which we’ll use shortly)</li>
+  <li>We’ve created an initializer that builds our mappings</li>
+</ol>
+
+<p>From here, we’ll create a method that allows us to <code class="highlighter-rouge">get</code> a sign by passing our class a name. We’ll follow up with filling in all the empty sign methods.</p>
+
+<h2 id="get-it">Get() it</h2>
+
+<p>To get a sign we want to pass the name of the sign to our class. Why? Because it makes our code cleaner throughout the rest of our project, and it’s easier to read so we know what’s going on.</p>
+
+<p>The <code class="highlighter-rouge">get</code> method is simple, it looks like this:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="nv">sign</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AstrologicalSign</span><span class="p">?</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">function</span> <span class="o">=</span> <span class="n">mappings</span><span class="p">[</span><span class="n">sign</span><span class="o">.</span><span class="n">lowercaseString</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nf">function</span><span class="o">!</span><span class="p">()</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>This method does something nice, it retrieves a method based on the name of the sign being passed, then instead of returning the method it runs the method and returns it (i.e. the <code class="highlighter-rouge">()</code> of the return statement is the part that runs the function, and the <code class="highlighter-rouge">!</code> is the part that first gives us access to the raw value of the returned closure).</p>
+
+<p>So, from now on we can call (from any other class) something like the following:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="n">signProvider</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="s">"aries"</span><span class="p">)</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Which will return an <code class="highlighter-rouge">AstrologicalSign</code> with the data for Aries.</p>
+
+<p>Slick.</p>
+
+<h2 id="fill-in-the-methods">Fill in the methods</h2>
+
+<p>Let’s fill in the first method, and leave the rest for a good copy/paste job.</p>
+
+<p>First, let’s add a path to the <code class="highlighter-rouge">aries()</code> method.</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="k">let</span> <span class="nv">bezier</span> <span class="o">=</span> <span class="kt">Path</span><span class="p">()</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Even though this variable is a let we’ll still be able to add points, curves and lines to it.</p>
+
+<p>To create the aries icon, add the following after creating the bezier:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre></td><td class="code"><pre><span class="n">bezier</span><span class="o">.</span><span class="nf">moveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mf">2.8</span><span class="p">,</span> <span class="mf">15.5</span><span class="p">))</span>
+<span class="n">bezier</span><span class="o">.</span><span class="nf">addCurveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="nv">control1</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">13.9</span><span class="p">),</span> <span class="nv">control2</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">11.6</span><span class="p">))</span>
+<span class="n">bezier</span><span class="o">.</span><span class="nf">addCurveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nv">control1</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="nv">control2</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">bezier</span><span class="o">.</span><span class="nf">addCurveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="nv">control1</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nv">control2</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">bezier</span><span class="o">.</span><span class="nf">addLineToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mf">28.9</span><span class="p">))</span>
+        
+<span class="n">bezier</span><span class="o">.</span><span class="nf">moveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mf">28.9</span><span class="p">))</span>
+<span class="n">bezier</span><span class="o">.</span><span class="nf">addLineToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="n">bezier</span><span class="o">.</span><span class="nf">addCurveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mi">27</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nv">control1</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="nv">control2</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">bezier</span><span class="o">.</span><span class="nf">addCurveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="nv">control1</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nv">control2</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">bezier</span><span class="o">.</span><span class="nf">addCurveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mf">33.2</span><span class="p">,</span> <span class="mf">15.5</span><span class="p">),</span> <span class="nv">control1</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="mf">11.6</span><span class="p">),</span> <span class="nv">control2</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mf">34.9</span><span class="p">,</span> <span class="mf">13.9</span><span class="p">))</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>These method calls construct the shape of Aries into the bezier we just created.</p>
+
+<p>Next, we’ll create the stars (big and small). Add the following:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="k">let</span> <span class="nv">big</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="kt">Point</span><span class="p">(</span><span class="mf">58.0</span><span class="p">,</span><span class="o">-</span><span class="mf">57.7</span><span class="p">),</span>
+   <span class="kt">Point</span><span class="p">(</span> <span class="p">)]</span>
+<span class="k">let</span> <span class="nv">small</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="kt">Point</span><span class="p">(</span><span class="o">-</span><span class="mf">134.5</span><span class="p">,</span><span class="o">-</span><span class="mf">95.2</span><span class="p">),</span>
+   <span class="kt">Point</span><span class="p">(</span><span class="mf">137.0</span><span class="p">,</span><span class="mf">11.3</span><span class="p">)]</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Next, we’ll add an array of arrays :)…</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="k">let</span> <span class="nv">lines</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="p">[</span><span class="n">big</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">small</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+   <span class="p">[</span><span class="n">big</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">big</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+   <span class="p">[</span><span class="n">big</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">small</span><span class="p">[</span><span class="mi">1</span><span class="p">]]]</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>This array takes points from the previous two sets of arrays, so the first entry is actually:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="p">[</span><span class="kt">Point</span><span class="p">(</span><span class="mf">58.0</span><span class="p">,</span><span class="o">-</span><span class="mf">57.7</span><span class="p">),</span> <span class="kt">Point</span><span class="p">(</span><span class="o">-</span><span class="mf">134.5</span><span class="p">,</span><span class="o">-</span><span class="mf">95.2</span><span class="p">)]</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>We could have used tuples, but didn’t because creating a <code class="highlighter-rouge">Line</code> requires passing an array of points. And, because of this structure we can now create lines by writing things like:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="k">let</span> <span class="nv">l</span> <span class="o">=</span> <span class="kt">Line</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Now, to finish off this method we need to populate the sign we’re going to return. Since we’ve already created it all we need to do is add the following before the return statement:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="n">sign</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="kt">Shape</span><span class="p">(</span><span class="n">bezier</span><span class="p">)</span>
+<span class="n">sign</span><span class="o">.</span><span class="n">big</span> <span class="o">=</span> <span class="n">big</span>
+<span class="n">sign</span><span class="o">.</span><span class="n">small</span> <span class="o">=</span> <span class="n">small</span>
+<span class="n">sign</span><span class="o">.</span><span class="n">lines</span> <span class="o">=</span> <span class="n">lines</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>By now we’ve added a lot of lines to the <code class="highlighter-rouge">aries()</code> method which should now look like:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre></td><td class="code"><pre><span class="kd">func</span> <span class="nf">aries</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AstrologicalSign</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">bezier</span> <span class="o">=</span> <span class="kt">Path</span><span class="p">()</span>
+    
+    <span class="n">bezier</span><span class="o">.</span><span class="nf">moveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mf">2.8</span><span class="p">,</span> <span class="mf">15.5</span><span class="p">))</span>
+    <span class="n">bezier</span><span class="o">.</span><span class="nf">addCurveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="nv">control1</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">13.9</span><span class="p">),</span> <span class="nv">control2</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">11.6</span><span class="p">))</span>
+    <span class="n">bezier</span><span class="o">.</span><span class="nf">addCurveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nv">control1</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="nv">control2</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">bezier</span><span class="o">.</span><span class="nf">addCurveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="nv">control1</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nv">control2</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">bezier</span><span class="o">.</span><span class="nf">addLineToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mf">28.9</span><span class="p">))</span>
+    
+    <span class="n">bezier</span><span class="o">.</span><span class="nf">moveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mf">28.9</span><span class="p">))</span>
+    <span class="n">bezier</span><span class="o">.</span><span class="nf">addLineToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+    <span class="n">bezier</span><span class="o">.</span><span class="nf">addCurveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mi">27</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nv">control1</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="nv">control2</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">bezier</span><span class="o">.</span><span class="nf">addCurveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="nv">control1</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nv">control2</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">bezier</span><span class="o">.</span><span class="nf">addCurveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mf">33.2</span><span class="p">,</span> <span class="mf">15.5</span><span class="p">),</span> <span class="nv">control1</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="mf">11.6</span><span class="p">),</span> <span class="nv">control2</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mf">34.9</span><span class="p">,</span> <span class="mf">13.9</span><span class="p">))</span>
+    
+    <span class="k">var</span> <span class="nv">sign</span> <span class="o">=</span> <span class="kt">AstrologicalSign</span><span class="p">()</span>
+    <span class="n">sign</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="kt">Shape</span><span class="p">(</span><span class="n">bezier</span><span class="p">)</span>
+    
+    <span class="k">let</span> <span class="nv">big</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="kt">Point</span><span class="p">(</span><span class="mf">58.0</span><span class="p">,</span><span class="o">-</span><span class="mf">57.7</span><span class="p">),</span>
+        <span class="kt">Point</span><span class="p">(</span><span class="mf">125.5</span><span class="p">,</span><span class="o">-</span><span class="mf">17.7</span><span class="p">)]</span>
+    <span class="n">sign</span><span class="o">.</span><span class="n">big</span> <span class="o">=</span> <span class="n">big</span>
+    
+    <span class="k">let</span> <span class="nv">small</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="kt">Point</span><span class="p">(</span><span class="o">-</span><span class="mf">134.5</span><span class="p">,</span><span class="o">-</span><span class="mf">95.2</span><span class="p">),</span>
+        <span class="kt">Point</span><span class="p">(</span><span class="mf">137.0</span><span class="p">,</span><span class="mf">11.3</span><span class="p">)]</span>
+    <span class="n">sign</span><span class="o">.</span><span class="n">small</span> <span class="o">=</span> <span class="n">small</span>
+    
+    <span class="k">let</span> <span class="nv">lines</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="n">big</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">small</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+        <span class="p">[</span><span class="n">big</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">big</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+        <span class="p">[</span><span class="n">big</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">small</span><span class="p">[</span><span class="mi">1</span><span class="p">]]]</span>
+    <span class="n">sign</span><span class="o">.</span><span class="n">lines</span> <span class="o">=</span> <span class="n">lines</span>
+    
+    <span class="k">return</span> <span class="n">sign</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="last-but-not-least">Last But Not Least</h2>
+
+<p>Instead of copy/pasting everything yourself from a long Numbers file, like I did, just grab the file:</p>
+
+<p><a href="https://gist.github.com/C4Framework/37d4f98f308f783b102e">AstrologicalSignProvider.swift</a></p>
+
+<p>And, test it by heading back to your project’s WorkSpace and overriding <code class="highlighter-rouge">setup()</code> to look like:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre><span class="k">override</span> <span class="kd">func</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+   <span class="k">let</span> <span class="nv">provider</span> <span class="o">=</span> <span class="kt">AstrologicalSignProvider</span><span class="p">()</span>
+   <span class="k">let</span> <span class="nv">aries</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="s">"aries"</span><span class="p">)</span>
+   <span class="nf">print</span><span class="p">(</span><span class="n">aries</span><span class="p">)</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Which prints the following to the console:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="kt">Optional</span><span class="p">(</span><span class="kt">COSMOS</span><span class="o">.</span><span class="kt">AstrologicalSign</span><span class="p">(</span><span class="nv">shape</span><span class="p">:</span> <span class="o">&lt;</span><span class="kt">COSMOS</span><span class="o">.</span><span class="kt">Shape</span><span class="p">:</span> <span class="mh">0x7fb1c0e0a280</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">big</span><span class="p">:</span> <span class="p">[{</span><span class="mf">58.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">57.7</span><span class="p">},</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">}],</span> <span class="nv">small</span><span class="p">:</span> <span class="p">[{</span><span class="o">-</span><span class="mf">134.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2</span><span class="p">},</span> <span class="p">{</span><span class="mf">137.0</span><span class="p">,</span> <span class="mf">11.3</span><span class="p">}],</span> <span class="nv">lines</span><span class="p">:</span> <span class="p">[[{</span><span class="mf">58.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">57.7</span><span class="p">},</span> <span class="p">{</span><span class="o">-</span><span class="mf">134.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2</span><span class="p">}],</span> <span class="p">[{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">},</span> <span class="p">{</span><span class="mf">58.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">57.7</span><span class="p">}],</span> <span class="p">[{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">},</span> <span class="p">{</span><span class="mf">137.0</span><span class="p">,</span> <span class="mf">11.3</span><span class="p">}]]))</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>And, yes… That’s dandy.</p>
+
+<p>Remember to delete the code in <code class="highlighter-rouge">WorkSpace</code>, it was only for testing.</p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row chapter-nav">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <h1 class="text-center blue">Well done! Continue COSMOS?</h1>
+          <ul class="examples-list next-prev list-unstyled">
+            
+              <li class="pull-left">
+                <a class="more" href="/cosmos/6-Astrological-Sign-Provider" title="Earlier article: Astrological Sign Provider">
+                  <div>
+                    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                    <span class="img">
+                      <img src="/images/cosmos/6/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 6<br />Astrological Sign Provider</p>
+                      <p>How to go about wrangling all the data for the 12 astrological signs.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+            
+              <li class="pull-right">
+                <a class="more" href="/cosmos/8-Stars" title="Later article: Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/8/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 8<br />Stars</p>
+                      <p>Start bringing the COSMOS to life with some nice visual work.</p>
+                    </div>
+                    <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                  </div>
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row related">
+        <div class="col-xs-12 col-md-12">
+          <h1 class="text-center blue">All COSMOS Chapters</h1>
+          <ul class="examples-list list-unstyled">
+            
+            
+              <li>
+                <a href="/cosmos/0-getting-started">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/0/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 0<br />Getting Started</p>
+                      <p>Get up and running quickly with the COSMOS Xcode project files.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/1-prelude-to-design">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/1/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 1<br />Prelude To Design</p>
+                      <p>An overview explaining why & how we chose to create COSMOS in the first place.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/2-designing-the-cosmos">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/2/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 2<br />Designing the COSMOS</p>
+                      <p>Where to start? Defining the visual concept and deciding the functionality.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/3-plan-it">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/3/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 3<br />Plan It!</p>
+                      <p>Get your goggles on as we start diving into the code with C4.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/4-Infinite-Scrollview">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/4/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 4<br />Infinite Scrollview</p>
+                      <p>Implementing the idea of an infinite scrollview that loops around rather than stopping at the end.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/5-Infinite-Scrollview-Build">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/5/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 5<br />Infinite Scrollview</p>
+                      <p>Time to code – get that infinite scrollview looping.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/6-Astrological-Sign-Provider">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/6/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 6<br />Astrological Sign Provider</p>
+                      <p>How to go about wrangling all the data for the 12 astrological signs.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/7-Astrological-Sign-Provider-Build">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/7/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 7<br />Astrological Sign Provider - Build it!</p>
+                      <p>We've wrangled all that data, now let's do something with it.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/8-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/8/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 8<br />Stars</p>
+                      <p>Start bringing the COSMOS to life with some nice visual work.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/9-Parallax-Testing">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/9/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 9<br />Parallax Testing (Optional)</p>
+                      <p>This optional chapter will walk you through how I originally tested the background.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/10-Stars-Background">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/10/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 10<br />Stars Background</p>
+                      <p>Time to stargaze – we're going to build some constellations.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/11-Sign-Lines">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/11/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 11<br />Sign Lines</p>
+                      <p>Time to stargaze – we're going to build some constellations.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/12-Small-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/12/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 12<br />Small Stars</p>
+                      <p>Bring those constellations to life with stars. We're starting small.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/13-Big-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/13/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 13<br />Big Stars</p>
+                      <p>We've got the small constellation stars, let's keep going with the big ones.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/14-Assembling-The-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/14/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 14<br />Assembling the Stars</p>
+                      <p>Small stars, meet big stars. Time to unite them all.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/15-Radial-Menu">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/15/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 15<br />Radial Menu</p>
+                      <p>Building the heart of the app - a radial menu with embedded animation that reacts to different gestures.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/16-Menu-Rings">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/16/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 16<br />Menu Rings</p>
+                      <p>It's time to build the backbone of our radial menu.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/17-Menu-Rings">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/17/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 17<br />Animating the Menu Rings</p>
+                      <p>Time to bring the radial menu to life with embedded animation.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/18-Menu-Icons">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/18/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 18<br />Menu Icons</p>
+                      <p>Time to flesh out the radial menu with some animated icons.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/19-Menu-Selector">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/19/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 19<br />Menu Selector</p>
+                      <p>Give the radial menu interaction and responsiveness with some programming wizardry.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/20-Menu-Shadow">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/20/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 20<br />Menu Shadow</p>
+                      <p>Give a little visual pop to the radial menu with a simple shadow.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/21-Menu-Pull-It-Together">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/21/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 21<br />The Menu – Pull it Together</p>
+                      <p>We've got all the components, let's get this beast put together now.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/22-Info-Panel">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/22/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 22<br />Info Panel</p>
+                      <p>A straightforward info panel with push controllers, popups and external links.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/23-Pulling-It-All-Together">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/23/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 23<br />Pulling It All Together</p>
+                      <p>Time to weave all the components into a unified app.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/24-Pulling-It-All-Together">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/24/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 24<br />Submitting to App Store</p>
+                      <p>Our last task is to get COSMOS on the App Store. Seriously.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <li class="title"><a href="/#overview">About</a></li>
+          <li><a href="/#overview">Features</a></li>
+          <!-- <li><a href="/about#history">History</a></li> -->
+          <!-- <li><a href="/about/contributors">Contributors</a></li> -->
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <li class="title"><a href="/learn">Learn + Explore</a></li>
+          <li><a href="/install">Install C4</a></li>
+          <li><a href="/examples">Examples</a></li>
+          <li><a href="/tutorials">Tutorials</a></li>
+          <li><a href="http://cocoadocs.org/docsets/C4/1.1.0/">Docs</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <li class="title"><a href="/contact">Connect</a></li>
+          <li><a href="http://discourse.c4ios.com">Forums</a></li>
+          <li><a href="http://www.medium.com/@c4framework" target="_blank">Medium</a></li>
+          <li><a href="http://www.twitter.com/c4framework" target="_blank">Twitter</a></li>
+          <li><a href="https://join-c4.herokuapp.com/" target="_blank">Slack</a></li>
+          <li><a href="https://vimeo.com/c4ios" target="_blank">Vimeo</a></li>
+          <li><a href="http://github.com/c4framework" target="_blank">GitHub</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <!-- <li class="title"><a href="/about">Sign Up for Newsletter</a></li>
+          <li><input type="text" placeholder="Enter Email + Press Enter"></li> -->
+          <li>© 2016 C4</li>
+          <li><a href="/terms">Terms of Use</a></li>
+          <li><a href="mailto:info@c4ios.com">Contact</a></li>
+        </ul>    
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-18444113-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+    <script type="text/javascript" src="/js/toc.js"></script>
+    <script>
+     (function(d, t) {
+        var g = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        g.src = 'http://assets.gfycat.com/js/gfyajax-0.517d.js';
+        s.parentNode.insertBefore(g, s);
+      }(document, 'script'));
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#toc').width($('#toc').parents().width());
+
+        $('#toc').toc({
+          elementClass: 'toc',
+          ulClass: 'nav',
+          heading: 'Contents',
+          indexingFormats: 'number',
+          selector: 'h2, h3, h4',
+        });
+
+        $('body').scrollspy({
+          target: '#toc',
+          offset: $('#headerNav').outerHeight(true)
+        });
+
+        setTimeout(function() {
+          var $sideBar = $('#toc');
+          $sideBar.affix({
+            offset: {
+              top: function() {
+                var offsetTop      = $sideBar.offset().top,
+                sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10),
+                navOuterHeight = $('#headerNav').height();
+                return (this.top = offsetTop - navOuterHeight - sideBarMargin);
+              },
+              bottom: function() {
+                return (this.bottom = $('footer').outerHeight(true) + $('.chapter-nav').outerHeight(true) + $('.related').outerHeight(true) + 60);
+              }
+            }
+          });
+        }, 100);
+
+        $('td.gutter').each(function(index)
+        {
+          $(this).parents('.language-swift').closest('pre').addClass('has-gutter');
+        });
+
+        $('.tutorial img').each(function()
+        {
+          console.log($(this).parent());
+          var img = $(this).attr('src');
+          $(this).attr('src', '/images/cosmos/7/' + img + '').addClass('img-responsive');
+        });
+
+        $('.tutorial p img').unwrap().wrap('<figure></figure>').after(function() {
+            return '<figcaption>'+this.alt+'</figcaption>';
+        });
+
+        $('.footnotes').prepend('<h4>Footnotes</h4>');
+      });
+    </script>
+  </body>
+</html>

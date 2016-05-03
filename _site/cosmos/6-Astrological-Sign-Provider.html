@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+  <title>Astrological Sign Provider</title>
+  <meta name="description" content="We’re going to create an object that will hold all the data (positions, shapes, etc.) for the astrological signs. It will also define an AstrologicalSign str...">
+  <meta property="og:image" content="http://www.c4ios.com/images/banner.jpg">
+  <meta property="og:url"   content="http://c4ios.com" />
+  <meta property="og:title" content="Astrological Sign Provider"/>
+  <meta name="og:description" content="We’re going to create an object that will hold all the data (positions, shapes, etc.) for the astrological signs. It will also define an AstrologicalSign str...">
+  <meta property="og:type"  content="website"/>
+  <meta property="og:site_name"  content="C4"/>
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@c4framework">
+  <meta name="twitter:creator" content="@c4framework">
+  <meta name="twitter:title" content="Astrological Sign Provider">
+  <meta name="twitter:description" content="We’re going to create an object that will hold all the data (positions, shapes, etc.) for the astrological signs. It will also define an AstrologicalSign str...">
+  <meta name="twitter:image" content="http://www.c4ios.com/images/banner.jpg">
+
+
+  <link rel="stylesheet" type="text/css" href="/css/style.css" >
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+  <link rel="canonical" href="www.c4ios.com/cosmos/6-Astrological-Sign-Provider">
+  <link rel="alternate" type="application/rss+xml" title="C4 website" href="www.c4ios.com/feed.xml">
+</head>
+
+    <body class="astrological-sign-provider" data-spy="scroll" data-target="#toc">
+
+    <header>
+  <nav class="navbar navbar-default" role="navigation"> 
+    <div class="navbar-header container">
+      <div class="row"> 
+        <div class="col-xs-12 col-sm-12 col-md-12 navlist">
+          <a class="navbar-brand" href="/">
+            <span><img src="/images/c4logo.png"></span>
+          </a>
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/install" >Install</a></li>
+            <li><a href="/tutorials" >Tutorials</a></li>
+            <li><a href="/cosmos" class='active'>COSMOS</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/examples" >Examples</a></li>
+            <li><a href="http://discourse.c4ios.com">Forums</a></li>
+            <li><a href="http://cocoadocs.org/docsets/C4/1.1.0/">Documentation</a></li>
+          </ul>
+        </div>
+      </div>  
+    </div>        
+  </nav>      
+</header>
+
+    <div class="container content astrological-sign-provider" >
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 breadcrumb">
+          <h1><a href="/tutorials">Tutorials</a><div class="bread-caret">></div><a href="/cosmos">COSMOS</a><div class="bread-caret">></div>Astrological Sign Provider</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <span class="img large">
+            <img src="/images/cosmos/1/poster.png" />
+          </span>
+          <p class="title">Chapter 6<br /><span class="lighter">Astrological Sign Provider</span></p>
+          <p>Tags<br /><a href="/tag/getting started">getting started</a>, <a href="/tag/basics">basics</a>, <a href="/tag/introduction">introduction</a>, <a href="/tag/easy">easy</a>, <a href="/tag/c4">c4</a>, </p>
+          <p>Estimated Time<br /><span class="lighter"></span></p>
+
+          <hr />
+
+          <div id="toc"></div>
+        </div>
+
+        <div class="col-xs-9 col-sm-9 col-md-9 tutorial">
+          <p>We’re going to create an object that will hold all the data (positions, shapes, etc.) for the astrological signs. It will also define an <code class="highlighter-rouge">AstrologicalSign</code> structure that will hold, for a single sign, information about the shape of its icon, the position of its small and big stars, as well as the location of each of the lines we’ll draw to highlight the shape.</p>
+
+<p>But, before we begin, we need to look at the design files to get a sense of what it is we need to build.</p>
+
+<h2 id="logic">Logic</h2>
+
+<p>The menu and background both make reference to icons that reference each of the twelve astrological signs.</p>
+
+<p><img src="01.png" alt="" /></p>
+
+<p>From looking at these design specs we can tell two things. Also, from talking things over with Jake I figure out a third.</p>
+
+<ol>
+  <li>The signs need to be used from two different objects (i.e. the menu and the background)</li>
+  <li>The signs need to be rendered at different scales</li>
+  <li>I need to be able to animate a single icon from a point to its full shape</li>
+</ol>
+
+<p>These three points help me figure out the following:</p>
+
+<ol>
+  <li>I don’t want to hard code the same shape data two separate objects, so I’ll need a single object to provide me with the shape data when I need it.</li>
+  <li>I can’t use images because I need to animate over the shapes</li>
+  <li>The shapes need to be beziers (i.e. made up of a series of lines and curves) so that I can easily scale and animate them</li>
+</ol>
+
+<p>This is why we’re going to build an <code class="highlighter-rouge">AstrologicalSignProvider</code>.</p>
+
+<p>But, before we begin we need to get the <em>shapes</em> of the signs in code.</p>
+
+<h3 id="icon-shapes">Icon Shapes</h3>
+
+<p>There’s two ways to go about getting the shapes of the signs. We could add an image to a new C4 project, then painstakingly add points and curves to the project, guessing the position of control points and lines until we build each of the signs from scratch. However, between all of the icons there’s something like 200 different points… Guessing all of this would take a week of effort.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+
+<p>Instead of wasting our lives by doing things <a href="http://reliancehvg.co.in/store/images/P/hard%20way_dvd1.jpg">the hard way</a>, it’s way easier to use <a href="http://www.paintcodeapp.com/">PaintCode</a>, a super easy program that will let us create the icons using simple controls and then will spit out a bunch of Objective-C code that we can use in our app.</p>
+
+<p>Minutes instead of days.</p>
+
+<p>While I’m testing out drawing a shape, Jake uses PaintCode to trace all these icons:</p>
+
+<p><img src="02.png" alt="" /></p>
+
+<p>And, when he’s done he hits export and I get a file made up of 12 different methods that look something like this:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7</pre></td><td class="code"><pre><span class="c1">//// Libra</span>
+<span class="kt">UIBezierPath</span><span class="o">*</span> <span class="n">bezier30Path</span> <span class="o">=</span> <span class="kt">UIBezierPath</span><span class="o">.</span><span class="n">bezierPath</span><span class="p">;</span>
+<span class="p">[</span><span class="n">bezier30Path</span> <span class="nv">moveToPoint</span><span class="p">:</span> <span class="kt">CGPointMake</span><span class="p">(</span><span class="mf">272.9</span><span class="p">,</span> <span class="mf">181.68</span><span class="p">)];</span>
+<span class="p">[</span><span class="n">bezier30Path</span> <span class="nv">addLineToPoint</span><span class="p">:</span> <span class="kt">CGPointMake</span><span class="p">(</span><span class="mf">265.4</span><span class="p">,</span> <span class="mf">181.68</span><span class="p">)];</span>
+<span class="p">[</span><span class="n">bezier30Path</span> <span class="nv">addCurveToPoint</span><span class="p">:</span> <span class="kt">CGPointMake</span><span class="p">(</span><span class="mf">254.1</span><span class="p">,</span> <span class="mf">170.38</span><span class="p">)</span> <span class="nv">controlPoint1</span><span class="p">:</span> <span class="kt">CGPointMake</span><span class="p">(</span><span class="mf">265.4</span><span class="p">,</span> <span class="mf">175.48</span><span class="p">)</span> <span class="nv">controlPoint2</span><span class="p">:</span> <span class="kt">CGPointMake</span><span class="p">(</span><span class="mf">260.3</span><span class="p">,</span> <span class="mf">170.38</span><span class="p">)];</span>
+<span class="p">[</span><span class="n">bezier30Path</span> <span class="nv">addCurveToPoint</span><span class="p">:</span> <span class="kt">CGPointMake</span><span class="p">(</span><span class="mf">242.8</span><span class="p">,</span> <span class="mf">181.68</span><span class="p">)</span> <span class="nv">controlPoint1</span><span class="p">:</span> <span class="kt">CGPointMake</span><span class="p">(</span><span class="mf">247.9</span><span class="p">,</span> <span class="mf">170.38</span><span class="p">)</span> <span class="nv">controlPoint2</span><span class="p">:</span> <span class="kt">CGPointMake</span><span class="p">(</span><span class="mf">242.8</span><span class="p">,</span> <span class="mf">175.48</span><span class="p">)];</span>
+<span class="p">[</span><span class="n">bezier30Path</span> <span class="nv">addLineToPoint</span><span class="p">:</span> <span class="kt">CGPointMake</span><span class="p">(</span><span class="mf">235.4</span><span class="p">,</span> <span class="mf">181.68</span><span class="p">)];</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>This is great. But, since we’re working in C4 I take the time to translate this code to our own style:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td class="code"><pre><span class="n">bezier</span><span class="o">.</span><span class="nf">moveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mf">37.5</span><span class="p">,</span> <span class="mf">11.3</span><span class="p">))</span>
+<span class="n">bezier</span><span class="o">.</span><span class="nf">addLineToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mf">11.3</span><span class="p">))</span>
+<span class="n">bezier</span><span class="o">.</span><span class="nf">addCurveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mf">18.7</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nv">control1</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">),</span> <span class="nv">control2</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mf">24.9</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">bezier</span><span class="o">.</span><span class="nf">addCurveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mf">7.4</span><span class="p">,</span> <span class="mf">11.3</span><span class="p">),</span> <span class="nv">control1</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mf">12.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nv">control2</span><span class="p">:</span><span class="kt">Point</span><span class="p">(</span><span class="mf">7.4</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">))</span>
+<span class="n">bezier</span><span class="o">.</span><span class="nf">addLineToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">11.3</span><span class="p">))</span>
+
+<span class="n">bezier</span><span class="o">.</span><span class="nf">moveToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">20.2</span><span class="p">))</span>
+<span class="n">bezier</span><span class="o">.</span><span class="nf">addLineToPoint</span><span class="p">(</span><span class="kt">Point</span><span class="p">(</span><span class="mf">37.5</span><span class="p">,</span> <span class="mf">20.2</span><span class="p">))</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Cleaner. More readable. Ultimately, we’re now able to use C4 to create, scale and animate our shapes.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></p>
+
+<h3 id="star-positions">Star Positions</h3>
+
+<p>On top of shapes, we need to know where the positions of stars should lie. The process for defining them again starts with Jake tracing images and figuring out the positions of stars relative to one another using:</p>
+
+<p><img src="03.png" alt="" /></p>
+
+<p>Since we’re basing our design on this image it’s clear that each <code class="highlighter-rouge">AstrologicalSign</code> will need 3 sets of data: small stars, big stars, lines.</p>
+
+<p>To get the positions Jake uses <a href="http://bohemiancoding.com/sketch/">Sketch 3</a> to position the small and big stars relative to a canvas the same size as an iPhone 4, scaled so that the orientation looks good on the 5 and 6 as well. Each of the positions will be relative to the center of the screen, and we’ll offset those positions to their specific coordinates based on a signs position in the set of 12.</p>
+
+<p><img src="04.png" alt="Show {0,0} and relative positions" /></p>
+
+<p>Each sign will have an array of big and small points… The sets of data for Aries (the simplest of the signs) looks like this:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td class="code"><pre><span class="k">let</span> <span class="nv">big</span> <span class="o">=</span> <span class="p">[</span>
+<span class="kt">Point</span><span class="p">(</span><span class="mf">58.0</span><span class="p">,</span><span class="o">-</span><span class="mf">57.7</span><span class="p">),</span>
+<span class="kt">Point</span><span class="p">(</span><span class="mf">125.5</span><span class="p">,</span><span class="o">-</span><span class="mf">17.7</span><span class="p">)]</span>
+<span class="n">sign</span><span class="o">.</span><span class="n">big</span> <span class="o">=</span> <span class="n">big</span>
+
+<span class="k">let</span> <span class="nv">small</span> <span class="o">=</span> <span class="p">[</span>
+<span class="kt">Point</span><span class="p">(</span><span class="o">-</span><span class="mf">134.5</span><span class="p">,</span><span class="o">-</span><span class="mf">95.2</span><span class="p">),</span>
+<span class="kt">Point</span><span class="p">(</span><span class="mf">137.0</span><span class="p">,</span><span class="mf">11.3</span><span class="p">)]</span>
+<span class="n">sign</span><span class="o">.</span><span class="n">small</span> <span class="o">=</span> <span class="n">small</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p><em>Notice how some of the points are negative?</em> For example, the first <strong>big</strong> point is to the right and up from the center of the screen. Figuring out the center of each star (or image) in Sketch is easy, but calculating its position based on the center isn’t so straightforward… Unless you use <a href="http://www.apple.com/ca/ios/numbers/">Numbers</a>. I create a spreadsheet that takes the values from Sketch and converts them to retina coordinates based on the size of the image being rendered, from which I am then able to subtract those values from the position of the center of the canvas.</p>
+
+<p>For example:</p>
+
+<ol>
+  <li>Sketch measures the top-left coordinate of a 17x17 image to be {585.5, 582}</li>
+  <li>Based on 17x17 the center in retina coordinates becomes {297.00, 295.3}</li>
+  <li>Which is then subtracted by {160, 284}, the center of an iPhone 5 canvas (the size in Sketch that Jake is designing into)</li>
+  <li>The final point becomes {125.5, -17.7}</li>
+</ol>
+
+<p>The lines between the stars are arbitrary, so I come up with a pattern that relies on the star position. Jake takes that pattern and fills in the positions by numbering the big and small stars, then writing out their positions based on their order, like so:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre><span class="k">let</span> <span class="nv">lines</span> <span class="o">=</span> <span class="p">[</span>
+<span class="p">[</span><span class="n">big</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">small</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+<span class="p">[</span><span class="n">big</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">big</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+<span class="p">[</span><span class="n">big</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">small</span><span class="p">[</span><span class="mi">1</span><span class="p">]]]</span>
+<span class="n">sign</span><span class="o">.</span><span class="n">lines</span> <span class="o">=</span> <span class="n">lines</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>The entry for Aries in Jake’s final Numbers file looks like this:</p>
+
+<p><img src="05.png" alt="" /></p>
+
+<h3 id="ready-to-build">Ready to build.</h3>
+
+<p>Now that we know what we need to do, it’s time to build the provider. The guts of the class are really small ~40 lines of code. The methods for each sign take up a lot more space but there’s no logic in them, so they’re pretty straightforward.</p>
+
+<p>Allons-y.</p>
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>With a bunch of breaks, stops for beer, and moments of extreme boredom of course <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>I could have written a script, but I took the time to copy/paste all the points because I could and because I wanted to simply “read” or “know” all the points I was going to work with. <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row chapter-nav">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <h1 class="text-center blue">Well done! Continue COSMOS?</h1>
+          <ul class="examples-list next-prev list-unstyled">
+            
+              <li class="pull-left">
+                <a class="more" href="/cosmos/5-Infinite-Scrollview-Build" title="Earlier article: Infinite Scrollview">
+                  <div>
+                    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                    <span class="img">
+                      <img src="/images/cosmos/5/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 5<br />Infinite Scrollview</p>
+                      <p>Time to code – get that infinite scrollview looping.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+            
+              <li class="pull-right">
+                <a class="more" href="/cosmos/7-Astrological-Sign-Provider-Build" title="Later article: Astrological Sign Provider - Build it!">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/7/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 7<br />Astrological Sign Provider - Build it!</p>
+                      <p>We've wrangled all that data, now let's do something with it.</p>
+                    </div>
+                    <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                  </div>
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row related">
+        <div class="col-xs-12 col-md-12">
+          <h1 class="text-center blue">All COSMOS Chapters</h1>
+          <ul class="examples-list list-unstyled">
+            
+            
+              <li>
+                <a href="/cosmos/0-getting-started">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/0/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 0<br />Getting Started</p>
+                      <p>Get up and running quickly with the COSMOS Xcode project files.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/1-prelude-to-design">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/1/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 1<br />Prelude To Design</p>
+                      <p>An overview explaining why & how we chose to create COSMOS in the first place.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/2-designing-the-cosmos">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/2/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 2<br />Designing the COSMOS</p>
+                      <p>Where to start? Defining the visual concept and deciding the functionality.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/3-plan-it">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/3/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 3<br />Plan It!</p>
+                      <p>Get your goggles on as we start diving into the code with C4.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/4-Infinite-Scrollview">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/4/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 4<br />Infinite Scrollview</p>
+                      <p>Implementing the idea of an infinite scrollview that loops around rather than stopping at the end.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/5-Infinite-Scrollview-Build">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/5/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 5<br />Infinite Scrollview</p>
+                      <p>Time to code – get that infinite scrollview looping.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/6-Astrological-Sign-Provider">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/6/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 6<br />Astrological Sign Provider</p>
+                      <p>How to go about wrangling all the data for the 12 astrological signs.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/7-Astrological-Sign-Provider-Build">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/7/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 7<br />Astrological Sign Provider - Build it!</p>
+                      <p>We've wrangled all that data, now let's do something with it.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/8-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/8/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 8<br />Stars</p>
+                      <p>Start bringing the COSMOS to life with some nice visual work.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/9-Parallax-Testing">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/9/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 9<br />Parallax Testing (Optional)</p>
+                      <p>This optional chapter will walk you through how I originally tested the background.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/10-Stars-Background">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/10/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 10<br />Stars Background</p>
+                      <p>Time to stargaze – we're going to build some constellations.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/11-Sign-Lines">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/11/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 11<br />Sign Lines</p>
+                      <p>Time to stargaze – we're going to build some constellations.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/12-Small-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/12/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 12<br />Small Stars</p>
+                      <p>Bring those constellations to life with stars. We're starting small.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/13-Big-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/13/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 13<br />Big Stars</p>
+                      <p>We've got the small constellation stars, let's keep going with the big ones.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/14-Assembling-The-Stars">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/14/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 14<br />Assembling the Stars</p>
+                      <p>Small stars, meet big stars. Time to unite them all.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/15-Radial-Menu">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/15/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 15<br />Radial Menu</p>
+                      <p>Building the heart of the app - a radial menu with embedded animation that reacts to different gestures.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/16-Menu-Rings">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/16/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 16<br />Menu Rings</p>
+                      <p>It's time to build the backbone of our radial menu.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/17-Menu-Rings">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/17/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 17<br />Animating the Menu Rings</p>
+                      <p>Time to bring the radial menu to life with embedded animation.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/18-Menu-Icons">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/18/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 18<br />Menu Icons</p>
+                      <p>Time to flesh out the radial menu with some animated icons.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/19-Menu-Selector">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/19/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 19<br />Menu Selector</p>
+                      <p>Give the radial menu interaction and responsiveness with some programming wizardry.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/20-Menu-Shadow">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/20/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 20<br />Menu Shadow</p>
+                      <p>Give a little visual pop to the radial menu with a simple shadow.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/21-Menu-Pull-It-Together">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/21/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 21<br />The Menu – Pull it Together</p>
+                      <p>We've got all the components, let's get this beast put together now.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/22-Info-Panel">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/22/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 22<br />Info Panel</p>
+                      <p>A straightforward info panel with push controllers, popups and external links.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/23-Pulling-It-All-Together">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/23/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 23<br />Pulling It All Together</p>
+                      <p>Time to weave all the components into a unified app.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="/cosmos/24-Pulling-It-All-Together">
+                  <div>
+                    <span class="img">
+                      <img src="/images/cosmos/24/poster.png" />
+                    </span>
+                    <div class="text">
+                      <p class="title">Chapter 24<br />Submitting to App Store</p>
+                      <p>Our last task is to get COSMOS on the App Store. Seriously.</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <li class="title"><a href="/#overview">About</a></li>
+          <li><a href="/#overview">Features</a></li>
+          <!-- <li><a href="/about#history">History</a></li> -->
+          <!-- <li><a href="/about/contributors">Contributors</a></li> -->
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <li class="title"><a href="/learn">Learn + Explore</a></li>
+          <li><a href="/install">Install C4</a></li>
+          <li><a href="/examples">Examples</a></li>
+          <li><a href="/tutorials">Tutorials</a></li>
+          <li><a href="http://cocoadocs.org/docsets/C4/1.1.0/">Docs</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <li class="title"><a href="/contact">Connect</a></li>
+          <li><a href="http://discourse.c4ios.com">Forums</a></li>
+          <li><a href="http://www.medium.com/@c4framework" target="_blank">Medium</a></li>
+          <li><a href="http://www.twitter.com/c4framework" target="_blank">Twitter</a></li>
+          <li><a href="https://join-c4.herokuapp.com/" target="_blank">Slack</a></li>
+          <li><a href="https://vimeo.com/c4ios" target="_blank">Vimeo</a></li>
+          <li><a href="http://github.com/c4framework" target="_blank">GitHub</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <ul class="list-unstyled">
+          <!-- <li class="title"><a href="/about">Sign Up for Newsletter</a></li>
+          <li><input type="text" placeholder="Enter Email + Press Enter"></li> -->
+          <li>© 2016 C4</li>
+          <li><a href="/terms">Terms of Use</a></li>
+          <li><a href="mailto:info@c4ios.com">Contact</a></li>
+        </ul>    
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-18444113-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+    <script type="text/javascript" src="/js/toc.js"></script>
+    <script>
+     (function(d, t) {
+        var g = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        g.src = 'http://assets.gfycat.com/js/gfyajax-0.517d.js';
+        s.parentNode.insertBefore(g, s);
+      }(document, 'script'));
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#toc').width($('#toc').parents().width());
+
+        $('#toc').toc({
+          elementClass: 'toc',
+          ulClass: 'nav',
+          heading: 'Contents',
+          indexingFormats: 'number',
+          selector: 'h2, h3, h4',
+        });
+
+        $('body').scrollspy({
+          target: '#toc',
+          offset: $('#headerNav').outerHeight(true)
+        });
+
+        setTimeout(function() {
+          var $sideBar = $('#toc');
+          $sideBar.affix({
+            offset: {
+              top: function() {
+                var offsetTop      = $sideBar.offset().top,
+                sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10),
+                navOuterHeight = $('#headerNav').height();
+                return (this.top = offsetTop - navOuterHeight - sideBarMargin);
+              },
+              bottom: function() {
+                return (this.bottom = $('footer').outerHeight(true) + $('.chapter-nav').outerHeight(true) + $('.related').outerHeight(true) + 60);
+              }
+            }
+          });
+        }, 100);
+
+        $('td.gutter').each(function(index)
+        {
+          $(this).parents('.language-swift').closest('pre').addClass('has-gutter');
+        });
+
+        $('.tutorial img').each(function()
+        {
+          console.log($(this).parent());
+          var img = $(this).attr('src');
+          $(this).attr('src', '/images/cosmos/6/' + img + '').addClass('img-responsive');
+        });
+
+        $('.tutorial p img').unwrap().wrap('<figure></figure>').after(function() {
+            return '<figcaption>'+this.alt+'</figcaption>';
+        });
+
+        $('.footnotes').prepend('<h4>Footnotes</h4>');
+      });
+    </script>
+  </body>
+</html>
