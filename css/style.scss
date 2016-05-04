@@ -1185,53 +1185,47 @@ div.tutorial
 }
 
 div.gfyitem 
-{
-  width: 100%; 
-  background: #ffffff;
-
-  div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) 
-  {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-
-    canvas.gfyPreLoadCanvas {
-      display: none;
-      width: 100% !important;
+{  
+	width:100%;
+	
+	div:not(.gfyCtrlBox):not(.gfyCtrlTabPull)
+	{
+		width: 100% !important;
+		max-width:100% !important;
+		height: auto !important;    
+	
+		.gfyPreLoadCanvas
+		{
+			display: none;
 		}
 
-		video, img
+		video
 		{
-      position: relative !important;
-      margin-top: 0;
-      width: 100%;
-   	}
-  }
+			position:relative !important;
+			height: auto !important;
+			margin-top: 0;
+			width: 100%;
+		}
+	}
 
-  .gfyCtrlBox 
-  {
-    margin-bottom: 10px !important;
-    display: none !important;
+	.gfyCtrlBox
+	{
+		margin-bottom:10px !important; 
+		display: none !important;
+	
+		.gfyCtrlPause, .gfyCtrlReverse, .gfyCtrlSlower, .gfyCtrlFaster
+		{
+			width:15px;
+			height:15px;
+			margin-top:0;
+			display:inline;
+		}
+	}
 
-    .gfyCtrlPause, div.gfyitem .gfyCtrlBox .gfyCtrlReverse, div.gfyitem .gfyCtrlBox .gfyCtrlSlower, div.gfyitem .gfyCtrlBox .gfyCtrlFaster 
-    {
-      width: 15px;
-      height: 15px;
-      margin-top: 0;
-      display: none; 
-   	}
-  }
-
-  .gfyGif 
-  {
-    position: relative !important; 
-  }
-  
-  &.install div video 
-  {
-    height: auto;
-    margin: 12px 0 36px 0 !important;
- 	}
+	.gfyGif
+	{
+		position:relative !important;
+	}
 }
 
 ///////////////////////////////////////////////// TERMS

@@ -6315,32 +6315,28 @@ div.tutorial .footnotes {
     margin-top: 56px; }
 
 div.gfyitem {
-  width: 100%;
-  background: #ffffff; }
+  width: 100%; }
   div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important; }
-    div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) canvas.gfyPreLoadCanvas {
-      display: none;
-      width: 100% !important; }
-    div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) video, div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) img {
+    div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) .gfyPreLoadCanvas {
+      display: none; }
+    div.gfyitem div:not(.gfyCtrlBox):not(.gfyCtrlTabPull) video {
       position: relative !important;
+      height: auto !important;
       margin-top: 0;
       width: 100%; }
   div.gfyitem .gfyCtrlBox {
     margin-bottom: 10px !important;
     display: none !important; }
-    div.gfyitem .gfyCtrlBox .gfyCtrlPause, div.gfyitem .gfyCtrlBox div.gfyitem .gfyCtrlBox .gfyCtrlReverse, div.gfyitem .gfyCtrlBox div.gfyitem .gfyCtrlBox .gfyCtrlSlower, div.gfyitem .gfyCtrlBox div.gfyitem .gfyCtrlBox .gfyCtrlFaster {
+    div.gfyitem .gfyCtrlBox .gfyCtrlPause, div.gfyitem .gfyCtrlBox .gfyCtrlReverse, div.gfyitem .gfyCtrlBox .gfyCtrlSlower, div.gfyitem .gfyCtrlBox .gfyCtrlFaster {
       width: 15px;
       height: 15px;
       margin-top: 0;
-      display: none; }
+      display: inline; }
   div.gfyitem .gfyGif {
     position: relative !important; }
-  div.gfyitem.install div video {
-    height: auto;
-    margin: 12px 0 36px 0 !important; }
 
 .container.terms {
   min-height: 100%;
