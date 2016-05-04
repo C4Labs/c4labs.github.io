@@ -986,7 +986,12 @@ div.tutorial
 			code
 			{
 				color: $light-grey;
-				font-family: 'SF UI Display';
+				font-family: "SF Reg";
+				white-space: pre-wrap;
+		    white-space: -moz-pre-wrap;
+		    white-space: -pre-wrap;
+		    white-space: -o-pre-wrap;
+		    word-wrap: break-word;
 			}
 		}
 	}
@@ -1236,4 +1241,3 @@ div.gfyitem
 	min-height: 100%;
 	margin-bottom: 600px;
 }
-
