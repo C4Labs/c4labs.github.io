@@ -5976,22 +5976,22 @@ hr {
     left: 47.5%;
     z-index: 9999; }
 
-.index-content {
+.index-content, .features {
   text-align: center; }
-  .index-content pre {
+  .index-content pre, .features pre {
     background-color: white;
     text-align: left; }
-  .index-content h1.headliner {
+  .index-content h1.headliner, .features h1.headliner {
     font-size: 5em;
     margin-bottom: 48px; }
-  .index-content .col-md-10 p {
+  .index-content .col-md-10 p, .features .col-md-10 p {
     font-size: 1.25em;
     font-weight: 100;
     color: #828691;
     margin-bottom: 36px; }
-  .index-content .col-md-10 ul li {
+  .index-content .col-md-10 ul li, .features .col-md-10 ul li {
     color: light-grey !important; }
-  .index-content code {
+  .index-content code, .features code {
     font-size: 90%; }
 
 .cta {
