@@ -49,7 +49,7 @@ When you run it, you should see the switch with its default colors.
 ### Add Some Assets
 You're going to need some assets that we've already prepared. 
 
-  [Download the assets](http://www.c4ios.com/tutorials/moon-switch/assets.zip)
+  [Download the assets](http://www.c4ios.com/images/tutorials/customizing-switch/assets.zip)
   
 After unzipping the file grab all of the assets and drag them into the `Images.xcassets` folder in your project, like so:
 
