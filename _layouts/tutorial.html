@@ -15,7 +15,7 @@
       </div>
 
       <div class="row">
-        <div class="col-xs-3 col-sm-3 col-md-3">
+        <div class="col-xs-12 col-sm-3 col-md-3">
           <span class="img large">
             <img src="{{ site.baseurl }}/images/tutorials/{{ page.url | split: '/' | last }}/{{ page.image }}" />
           </span>
@@ -25,10 +25,10 @@
 
           <hr />
 
-          <div id="toc"></div>
+          <div id="toc hidden-xs"></div>
         </div>
 
-        <div class="col-xs-9 col-sm-9 col-md-9 tutorial">
+        <div class="col-xs-12 col-sm-9 col-md-9 tutorial">
           {{ content }}
         </div>
       </div>

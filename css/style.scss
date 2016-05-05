@@ -258,6 +258,19 @@ footer
 			}
 		}
 	}
+
+	@media (max-width: $screen-xs-max)
+	{
+		font-size: 0.75em;
+
+		.container
+		{
+			ul
+			{
+				margin-bottom: 24px;
+			}
+		}
+	}
 }
 
 ///////////////////////////////////////////////// OVERALL ELEMENTS
@@ -861,6 +874,20 @@ span.title
 	  top: 54px;
 	  margin: auto;
 	}
+
+	@media screen and (max-width: $screen-xs-max)
+	{
+		height: 150px;
+
+		img
+		{
+			position: relative;
+			margin: 20px auto;
+			width: 120px;
+			left: 0;
+			top: 0;
+		}
+	}
 }
 
 div.tutorial
@@ -1105,16 +1132,6 @@ div.tutorial
 			margin-bottom: 0px;
 			box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
 
-			.next
-			{
-				float: right;
-			}
-
-			.previous
-			{
-				float: left;
-			}
-
 			.glyphicon
 			{
 				&.glyphicon-menu-left
@@ -1148,6 +1165,19 @@ div.tutorial
 			&:nth-child(2)
 			{
 				float: right;
+			}
+		}
+	}
+
+
+	@media screen and (max-width: $screen-xs-max)
+	{
+		.examples-list.next-prev
+		{
+			li
+			{
+				width: 100%;
+				margin-bottom: 12px;
 			}
 		}
 	}

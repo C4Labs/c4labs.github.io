@@ -5838,6 +5838,11 @@ footer {
       border: none;
       width: 90%;
       text-align: center; }
+  @media (max-width: 767px) {
+    footer {
+      font-size: 0.75em; }
+      footer .container ul {
+        margin-bottom: 24px; } }
 
 .note {
   color: #2062FF; }
@@ -6154,6 +6159,15 @@ span.title {
     left: 54px;
     top: 54px;
     margin: auto; }
+  @media screen and (max-width: 767px) {
+    .img.large {
+      height: 150px; }
+      .img.large img {
+        position: relative;
+        margin: 20px auto;
+        width: 120px;
+        left: 0;
+        top: 0; } }
 
 div.tutorial p {
   margin-bottom: 24px; }
@@ -6275,10 +6289,6 @@ div.tutorial .footnotes {
     border-radius: 8px;
     margin-bottom: 0px;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1); }
-    .chapter-nav .examples-list li .next {
-      float: right; }
-    .chapter-nav .examples-list li .previous {
-      float: left; }
     .chapter-nav .examples-list li .glyphicon {
       font-size: 2em;
       color: #B9BBC1;
@@ -6297,6 +6307,10 @@ div.tutorial .footnotes {
       color: #2062FF; }
     .chapter-nav .examples-list li:nth-child(2) {
       float: right; }
+@media screen and (max-width: 767px) {
+  .chapter-nav .examples-list.next-prev li {
+    width: 100%;
+    margin-bottom: 12px; } }
 
 .related-tutorial {
   margin-top: 300px; }
