@@ -6013,9 +6013,25 @@ hr {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     padding: 36px 12px;
     margin: 0 auto; }
+  @media (max-width: 991px) {
+    .cta .col-md-3 {
+      padding-left: 12px;
+      padding-right: 12px; }
+      .cta .col-md-3 p {
+        font-size: 0.85em; } }
   @media screen and (max-width: 767px) {
-    .cta .col-md-3:nth-child(n + 3) {
-      margin-top: 48px; } }
+    .cta .col-md-3 {
+      padding-left: 6px;
+      padding-right: 6px; }
+      .cta .col-md-3:nth-child(n + 3) {
+        margin-top: 48px; }
+      .cta .col-md-3 span {
+        width: 60px;
+        height: 75px; }
+        .cta .col-md-3 span img {
+          width: 100%; }
+      .cta .col-md-3 p.title {
+        color: #2062FF; } }
   .cta span {
     height: 100px;
     width: 100px;

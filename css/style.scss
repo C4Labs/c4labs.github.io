@@ -606,11 +606,41 @@ hr
 			margin: 0 auto;
 		}
 
+		@media (max-width: $screen-sm-max)
+		{
+			padding-left: 12px;
+			padding-right: 12px;
+
+			p
+			{
+				font-size: 0.85em;
+			}
+		}
+
 		@media screen and (max-width: $screen-xs-max)
 		{
 			&:nth-child(n + 3)
 			{
 				margin-top: 48px;
+			}
+
+			padding-left: 6px;
+			padding-right: 6px;
+
+			span 
+			{
+				width: 60px;
+				height: 75px;
+
+				img
+				{
+					width: 100%;
+				}
+			}
+
+			p.title
+			{
+				color: $link-note-blue;
 			}
 		}
 	}
