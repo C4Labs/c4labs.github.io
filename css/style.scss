@@ -555,13 +555,20 @@ hr
 			font-weight: 100;
 			color: $light-grey;
 			margin-bottom: 36px;
+
+			@media (max-width: $screen-xs-max)
+			{
+				font-size: 0.9em;
+    		margin-bottom: 24px;
+    		line-height: 1.75;
+			}
 		}
 
 		ul
 		{
 			li
 			{
-				color: light-grey !important;
+				color: $light-grey !important;
 			}
 		}
 	}

@@ -44,7 +44,7 @@ h1 {
     line-height: 1.05; } }
 h2 {
   font-size: 1.25em;
-  line-height: 1.15384615;
+  line-height: 1.5;
   letter-spacing: 2.25px; }
 
 @media (min-width: 43.75em) {
@@ -58,7 +58,7 @@ h2 {
     letter-spacing: 0.75px; } }
 h3 {
   font-size: 1.375em;
-  line-height: 1.13636364;
+  line-height: 1.5;
   letter-spacing: 2.25px; }
 
 @media (min-width: 43.75em) {

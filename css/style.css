@@ -5665,7 +5665,7 @@ h1 {
     line-height: 1.05; } }
 h2 {
   font-size: 1.25em;
-  line-height: 1.15384615;
+  line-height: 1.5;
   letter-spacing: 2.25px; }
 
 @media (min-width: 43.75em) {
@@ -5679,7 +5679,7 @@ h2 {
     letter-spacing: 0.75px; } }
 h3 {
   font-size: 1.375em;
-  line-height: 1.13636364;
+  line-height: 1.5;
   letter-spacing: 2.25px; }
 
 @media (min-width: 43.75em) {
@@ -5994,8 +5994,13 @@ hr {
     font-weight: 100;
     color: #828691;
     margin-bottom: 36px; }
+    @media (max-width: 767px) {
+      .index-content .col-md-10 p, .features .col-md-10 p {
+        font-size: 0.9em;
+        margin-bottom: 24px;
+        line-height: 1.75; } }
   .index-content .col-md-10 ul li, .features .col-md-10 ul li {
-    color: light-grey !important; }
+    color: #828691 !important; }
   .index-content code, .features code {
     font-size: 90%; }
 
