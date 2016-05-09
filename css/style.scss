@@ -89,7 +89,7 @@ nav
 
 	@media screen and (max-width: $screen-xs-max)
 	{
-		height: 160px;
+		height: 110px;
 	}
 
 	.navbar-header
@@ -108,13 +108,13 @@ nav
 
 		@media screen and (max-width: $screen-sm-max)
 		{
-			font-size: 0.9em;
+			font-size: 0.75em;
+			padding: 0 !important;
 
 			ul
 			{
 				text-align: center;
-				width: 50%;
-	    	float: left !important;
+				width: 45%;
 
 				li
 				{
@@ -136,26 +136,13 @@ nav
 			{
 				text-align: center;
 				width: 100%;
-	    	margin-left: auto !important;
-	    	margin-right: auto !important;
-	    	float: none !important;
-
-				&.navbar-left
-				{
-					margin-top: 48px;
-				}
+	    	margin: -12px auto 0 auto !important;
 
 				li
 				{
 					float: left;
 					text-align: center;
-					width: 33%;
-
-					&:nth-child(2)
-					{
-						padding: 0 !important;
-					}
-    			
+					width: 16.5%;
 				}
 			}
 		}
@@ -199,6 +186,11 @@ nav
 		{
 			width: 48px;
 			margin-top: -6px;
+		}
+
+		@media (max-width: $screen-xs-max) 
+		{
+			top: 30px;
 		}
 	}
 }

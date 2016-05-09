@@ -6,15 +6,23 @@
           <a class="navbar-brand" href="{{ site.baseurl }}/">
             <span><img src="{{ site.baseurl }}/images/c4logo.png"></span>
           </a>
-          <ul class="nav navbar-nav navbar-left">
+          <ul class="nav navbar-nav navbar-left hidden-xs">
             <li><a href="/install" {% if page.url contains '/install/' %}class='active'{% endif %}>Install</a></li>
             <li><a href="/tutorials" {% if page.url contains '/tutorials/' %}class='active'{% endif %}>Tutorials</a></li>
             <li><a href="/cosmos" {% if page.url contains '/cosmos/' %}class='active'{% endif %}>COSMOS</a></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right hidden-xs">
             <li><a href="/examples" {% if page.url contains '/examples/' %}class='active'{% endif %}>Examples</a></li>
             <li><a href="http://discourse.c4ios.com">Forums</a></li>
-            <li><a href="http://cocoadocs.org/docsets/C4/1.1.0/">Documentation</a></li>
+            <li><a href="http://cocoadocs.org/docsets/C4/1.1.0/">Docs</a></li>
+          </ul>
+          <ul class="nav navbar-nav visible-xs">
+            <li><a href="/install" {% if page.url contains '/install/' %}class='active'{% endif %}>Install</a></li>
+            <li><a href="/tutorials" {% if page.url contains '/tutorials/' %}class='active'{% endif %}>Tutorials</a></li>
+            <li><a href="/cosmos" {% if page.url contains '/cosmos/' %}class='active'{% endif %}>COSMOS</a></li>
+            <li><a href="/examples" {% if page.url contains '/examples/' %}class='active'{% endif %}>Examples</a></li>
+            <li><a href="http://discourse.c4ios.com">Forums</a></li>
+            <li><a href="http://cocoadocs.org/docsets/C4/1.1.0/">Docs</a></li>
           </ul>
         </div>
       </div>  
