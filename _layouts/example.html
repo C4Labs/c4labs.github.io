@@ -3,7 +3,7 @@
 
   {% include head.html %}
 
-    <body class="{{ page.title | downcase }}" data-spy="scroll" data-target="#toc">
+    <body class="{{ page.title | downcase }}">
 
     {% include header.html %}
 
@@ -24,8 +24,6 @@
           <p>Estimated Time<br /><span class="lighter">{{ page.length }}</span></p>
 
           <hr />
-
-          <div id="toc" class="hidden-xs visible-sm visible-md visible-lg"></div>
         </div>
 
         <div class="col-xs-12 col-sm-9 col-md-9 tutorial">
@@ -96,7 +94,7 @@
                 var offsetTop = $sideBar.offset().top,
                 sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10),
                 navOuterHeight = $('#headerNav').height();
-                return (this.top = offsetTop - navOuterHeight - sideBarMargin - 90);
+                return (this.top = offsetTop - navOuterHeight - sideBarMargin);
               },
               bottom: function() {
                 return (this.bottom = $('footer').outerHeight(true) + $('.chapter-nav').outerHeight(true) + $('.related-tutorial').outerHeight(true) + 500);
