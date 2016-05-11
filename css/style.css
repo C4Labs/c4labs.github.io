@@ -5712,7 +5712,8 @@ code, pre {
   font-size: 1em; }
 
 body {
-  background-color: #fbfbfb; }
+  background-color: #fbfbfb;
+  margin-top: 90px; }
 
 row {
   margin-left: -24px;
@@ -5753,19 +5754,23 @@ row {
     margin: 0 auto; }
 
 .navbar {
-  border-radius: 0px; }
+  border-radius: 0px;
+  z-index: 9999999; }
+
+.navbar-default {
+  background-color: rgba(237, 237, 237, 0.93); }
 
 nav {
-  height: 90px; }
+  height: 70px; }
   @media screen and (max-width: 767px) {
     nav {
-      height: 110px; } }
+      height: 75px; } }
   nav .navbar-header {
     float: none; }
   nav .navbar-nav {
     margin: 0; }
   nav div.navlist {
-    margin-top: 18px; }
+    margin-top: 6px; }
     @media screen and (max-width: 991px) {
       nav div.navlist {
         font-size: 0.75em;
@@ -5805,11 +5810,11 @@ nav {
     left: 0;
     text-align: center; }
     nav .navbar-brand img {
-      width: 48px;
+      width: 36px;
       margin-top: -6px; }
     @media (max-width: 767px) {
       nav .navbar-brand {
-        top: 30px; } }
+        top: 20px; } }
 
 footer {
   background: #efefef; }
@@ -6376,7 +6381,8 @@ div.gfyitem {
       margin-top: 0;
       display: inline; }
   div.gfyitem .gfyGif {
-    position: relative !important; }
+    position: relative !important;
+    width: 100%; }
 
 .container.terms {
   min-height: 100%;

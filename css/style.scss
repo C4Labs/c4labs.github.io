@@ -24,6 +24,7 @@ $screen-md-max: ($screen-lg-min - 1);
 body
 {
 	background-color: #fbfbfb;
+	margin-top: 90px;
 }
 
 row 
@@ -85,16 +86,21 @@ row
 .navbar
 {
 	border-radius: 0px;
+	z-index: 9999999;
 }
 
+.navbar-default
+{
+	background-color: rgba(237, 237, 237, 0.93);
+}
 
 nav
 {
-	height: 90px;
+	height: 70px;
 
 	@media screen and (max-width: $screen-xs-max)
 	{
-		height: 110px;
+		height: 75px;
 	}
 
 	.navbar-header
@@ -109,7 +115,7 @@ nav
 
 	div.navlist
 	{
-		margin-top: 18px;
+		margin-top: 6px;
 
 		@media screen and (max-width: $screen-sm-max)
 		{
@@ -189,13 +195,13 @@ nav
 
     img
 		{
-			width: 48px;
+			width: 36px;
 			margin-top: -6px;
 		}
 
 		@media (max-width: $screen-xs-max) 
 		{
-			top: 30px;
+			top: 20px;
 		}
 	}
 }
@@ -1294,6 +1300,7 @@ div.gfyitem
 	.gfyGif
 	{
 		position:relative !important;
+		width: 100%;
 	}
 }
 
