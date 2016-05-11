@@ -10,19 +10,17 @@
     <div class="container content {{ page.title | downcase }}" >
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 breadcrumb">
-          <h1><a href="/tutorials">Tutorials</a><div class="bread-caret">></div>{{ page.title }}</h1>
+          <h1><a href="/examples">Examples</a><div class="bread-caret">></div>{{ page.title }}</h1>
         </div>
       </div>
 
       <div class="row">
         <div class="col-xs-12 col-sm-3 col-md-3">
           <span class="img large">
-            <img src="{{ site.baseurl }}/images/tutorials/{{ page.url | split: '/' | last }}/{{ page.image }}" />
+            <img src="{{ site.baseurl }}/images/examples/{{ page.url | split: '/' | last }}/{{ page.image }}" />
           </span>
           <p>Author<br /><span class="lighter">{{ page.author }}</span></p>
           {% include post-tags.html %}
-          <p>Estimated Time<br /><span class="lighter">{{ page.length }}</span></p>
-
           <hr />
         </div>
 
@@ -35,15 +33,15 @@
     <div class="container">
       <div class="row related-tutorial">
         <div class="col-xs-12 col-md-12">
-          <h1 class="text-center blue">Nice Work! Explore More Tutorials?</h1>
+          <h1 class="text-center blue">More Examples?</h1>
           <ul class="examples-list list-unstyled">
-            {% assign tutorials = site.categories['tutorials'] | sort: 'order' %}
-            {% for post in tutorials %}
+            {% assign examples = site.categories['examples'] | sort: 'order' %}
+            {% for post in examples limit:10 %}
               <li>
                 <a href="{{ post.url }}">
                   <div>
                     <span class="img">
-                      <img src="{{ site.baseurl }}/images/tutorials/{{ post.url | split: '/' | last }}/{{ post.image }}" />
+                      <img src="{{ site.baseurl }}/images/examples/{{ post.url | split: '/' | last }}/{{ post.image }}" />
                     </span>
                     <div class="text">
                       <p><span>{{ post.title }}</span><br />{{ post.description }}</p>
@@ -59,7 +57,6 @@
 
     {% include footer.html %}
 
-
     <script type="text/javascript" src="{{ site.path }}/js/toc.js"></script>
     <script>
      (function(d, t) {
@@ -71,38 +68,6 @@
     </script>
     <script type="text/javascript">
       $(document).ready(function() {
-        $('#toc').width($('#toc').parents().width());
-
-        $('#toc').toc({
-          elementClass: 'toc',
-          ulClass: 'nav',
-          heading: 'Contents',
-          indexingFormats: 'number',
-          selector: 'h2:not(.toc-omit), h3:not(.toc-omit), h4:not(.toc-omit)'
-        });
-
-        $('body').scrollspy({
-          target: '#toc',
-          offset: $('#headerNav').outerHeight(true)
-        });
-
-        setTimeout(function() {
-          var $sideBar = $('#toc');
-          $sideBar.affix({
-            offset: {
-              top: function() {
-                var offsetTop = $sideBar.offset().top,
-                sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10),
-                navOuterHeight = $('#headerNav').height();
-                return (this.top = offsetTop - navOuterHeight - sideBarMargin);
-              },
-              bottom: function() {
-                return (this.bottom = $('footer').outerHeight(true) + $('.chapter-nav').outerHeight(true) + $('.related-tutorial').outerHeight(true) + 500);
-              }
-            }
-          });
-        }, 100);
-
         $('td.gutter').each(function(index)
         {
           $(this).parents('.language-swift').closest('pre').addClass('has-gutter');

@@ -68,7 +68,7 @@ h3 {
 @media (min-width: 56.25em) {
   h3 {
     font-size: 1.75em;
-    line-height: 0.75; } }
+    line-height: 1.5; } }
 h4 {
   font-size: 1.125em;
   line-height: 1.11111111;
