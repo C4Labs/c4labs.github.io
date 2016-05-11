@@ -5879,6 +5879,9 @@ hr {
   .image-wrapper .image-caption {
     color: #828691; }
 
+a {
+  color: #2062FF; }
+
 .container-fluid {
   background-color: #ffffff;
   margin-top: 0px; }
@@ -6268,6 +6271,13 @@ div.tutorial blockquote {
   div.tutorial blockquote p {
     color: #2062FF;
     line-height: 1.75em; }
+  div.tutorial blockquote a {
+    color: #2062FF;
+    border-bottom: 1px solid #2062FF; }
+    div.tutorial blockquote a:hover {
+      text-decoration: none;
+      color: #86aaff;
+      border-bottom: 1px solid #86aaff; }
 div.tutorial ul, div.tutorial ol {
   margin-bottom: 24px;
   font-size: 95%; }
