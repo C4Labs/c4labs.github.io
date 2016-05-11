@@ -5711,6 +5711,9 @@ code, pre {
   font-family: 'Inconsolata';
   font-size: 1em; }
 
+body {
+  background-color: #fbfbfb; }
+
 row {
   margin-left: -24px;
   margin-right: -24px; }
