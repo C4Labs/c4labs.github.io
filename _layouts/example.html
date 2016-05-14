@@ -76,7 +76,7 @@
         $('.tutorial img').each(function()
         {
           var img = $(this).attr('src');
-          $(this).attr('src', '/images/tutorials/{{ page.url | split: '/' | last }}/' + img + '').addClass('img-responsive');
+          $(this).attr('src', '/images/examples/{{ page.url | split: '/' | last }}/' + img + '').addClass('img-responsive');
         });
 
         $('.tutorial p img').unwrap().wrap('<figure></figure>').after(function() {

@@ -13,7 +13,7 @@ description: 'C4 Examples'
 			<h3>We've got a ton of examples to write up and get online, rest assured we'll start putting them online ASAP.</h3>
 			<p>– C4 team</p>
 			
-			<!-- UNCOMMENT WHEN EXAMPLES READY
+			<!-- UNCOMMENT WHEN EXAMPLES READY -->
 			{% for post in examplesPosts %}
 			  <li class="examples-index">
 			  	<a href="{{ post.url }}">
@@ -26,7 +26,7 @@ description: 'C4 Examples'
 				  </a>
 			  </li>
 			{% endfor %}
-			 -->
+			
 	</ul>
 </div>
 
