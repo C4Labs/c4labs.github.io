@@ -1,6 +1,6 @@
 ---
 title: Stroke Start & End (Animated)
-description: How to animate the stroke start and end.
+description: Animate the stroke start and end.
 date:   2016-05-10 13:59:59 -0800
 layout: example
 categories: examples

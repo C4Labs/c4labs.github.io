@@ -1,6 +1,6 @@
 ---
 title: Dash Pattern
-description: How to set the dash pattern of a shape's stroke.
+description: Set the dash pattern of a shape's stroke.
 date:   2016-05-10 12:59:59 -0800
 layout: example
 categories: examples

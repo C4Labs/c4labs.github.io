@@ -1,6 +1,6 @@
 ---
 title: Line Join
-description: How to change the style of joints of a polygon.
+description: Change the joint style of a polygon.
 date:   2016-05-10 17:59:59 -0800
 layout: example
 categories: examples

@@ -1,6 +1,6 @@
 ---
 title: Stroke Start & End
-description: How to set the stroke start and end.
+description: Set the stroke start and end.
 date:   2016-05-10 14:59:59 -0800
 layout: example
 categories: examples

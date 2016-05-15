@@ -1,6 +1,6 @@
 ---
 title: Text Shapes
-description: How to create shapes using fonts and strings.
+description: Create text shapes using fonts and strings.
 date:   2016-05-10 20:59:59 -0800
 layout: example
 categories: examples

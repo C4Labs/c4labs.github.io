@@ -1,6 +1,6 @@
 ---
 title: Arcs & Wedges
-description: How to create arcs and wedges.
+description: Create arcs and wedges.
 date:   2016-05-10 21:59:59 -0800
 layout: example
 categories: examples

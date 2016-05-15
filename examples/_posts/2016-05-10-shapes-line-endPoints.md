@@ -1,6 +1,6 @@
 ---
 title: Line End Points
-description: How to change the end points of a Line.
+description: Change the end points of a Line.
 date:   2016-05-10 15:59:59 -0800
 layout: example
 categories: examples

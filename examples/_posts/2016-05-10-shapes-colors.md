@@ -1,6 +1,6 @@
 ---
 title: Shape Colors
-description: How to set the fill and stroke colors of a shape.
+description: Set the fill and stroke colors of a shape.
 date:   2016-05-10 19:59:59 -0800
 layout: example
 categories: examples

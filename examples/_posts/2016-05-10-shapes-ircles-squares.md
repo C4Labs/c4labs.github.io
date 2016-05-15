@@ -1,6 +1,6 @@
 ---
 title: Circles & Squares
-description: How to create circles, ellipses, squares and rectangles.
+description: Create circles, ellipses, squares and rectangles.
 date:   2016-05-10 23:59:59 -0800
 layout: example
 categories: examples

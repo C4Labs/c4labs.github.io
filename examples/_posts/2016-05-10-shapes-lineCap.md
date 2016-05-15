@@ -1,6 +1,6 @@
 ---
 title: Line Cap
-description: How to change the style of open ends of a polygon.
+description: Change the style of open ends of a polygon.
 date:   2016-05-10 16:59:59 -0800
 layout: example
 categories: examples
