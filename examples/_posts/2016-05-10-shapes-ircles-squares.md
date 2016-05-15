@@ -1,7 +1,7 @@
 ---
 title: Circles & Squares
 description: How to create circles, ellipses, squares and rectangles.
-date:   2016-05-11 10:17:39 -0800
+date:   2016-05-10 23:59:59 -0800
 layout: example
 categories: examples
 permalink: /examples/shapes-circles-squares/
