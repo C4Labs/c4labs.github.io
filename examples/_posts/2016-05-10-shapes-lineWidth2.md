@@ -1,7 +1,7 @@
 ---
 title: Line Width 2
-description: Ka-pow.
-date:   2016-05-10 01:00:59 -0800
+description: Change the thickness of a shape's line.
+date:   2016-05-10 17:59:59 -0800
 layout: example
 categories: examples
 permalink: /examples/shapes-lineWidth2/

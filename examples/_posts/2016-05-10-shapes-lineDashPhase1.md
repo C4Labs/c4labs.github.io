@@ -1,7 +1,7 @@
 ---
 title: Dash Phase 1
 description: Offest a Line's dash pattern.
-date:   2016-05-10 11:59:59 -0800
+date:   2016-05-10 10:59:59 -0800
 layout: example
 categories: examples
 permalink: /examples/shapes-lineDashPhase1/

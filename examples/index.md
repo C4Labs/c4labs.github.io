@@ -9,9 +9,7 @@ description: 'C4 Examples'
 <div class="row">
 	<ul class="col-md-12 col-sm-12 col-xs-12 examples-block list-unstyled">
 		{% assign examplesPosts = site.categories['examples'] %}
-			<h2>The examples page is coming soon, bear with us and thanks for your patience!</h2>
-			<h3>We've got a ton of examples to write up and get online, rest assured we'll start putting them online ASAP.</h3>
-			<p>– C4 team</p>
+			<h2>Here are short examples that highlight the properties and techniques that are important for working with C4.</h2>
 			
 			<!-- UNCOMMENT WHEN EXAMPLES READY -->
 			{% for post in examplesPosts %}
@@ -26,7 +24,5 @@ description: 'C4 Examples'
 				  </a>
 			  </li>
 			{% endfor %}
-			
 	</ul>
 </div>
-
