@@ -1,6 +1,6 @@
 ---
 title: Creating Images
-description: Creat an image.
+description: Create an image.
 date:   2016-05-14 23:59:59 -0800
 layout: example
 categories: examples

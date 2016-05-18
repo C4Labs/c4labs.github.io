@@ -11,7 +11,7 @@ author: Travis Kirton
 ---
 ![](stretching.png)
 
-## RGB Colors
+## Stretching Images
 This example shows how you can stretch and set the size of an image.
 
 ### Width
