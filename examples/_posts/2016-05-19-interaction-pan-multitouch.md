@@ -11,9 +11,45 @@ author: Travis Kirton
 ---
 ![](pan-multitouch.png)
 
-## System Fonts
+## Multitouch Pan
+Pan gestures can easily register multiple touches. In this case, we're going to attach the gesture's touch points to the four corners of a shape. You can access the touch points of a gesture via its `locations` variable:
 
 {% highlight swift lineos %}
+obj.addPanGestureRecognizer { locations, center, translation, velocity, state in {
+    for loc in locations {
+        //do stuff
+    }
+}
+{% endhighlight %}
+
+### Center v. Locations
+For a single-touch gestures (e.g. pan, longpress, etc.) there is no difference between `center` and `locations[0]`. However, for multiple touch gestures the `center` represents the geometric center (aka. centroid) of all the touches.
+
+{% highlight swift lineos %}
+obj.addPanGestureRecognizer { locations, center, translation, velocity, state in {
+    if locations.count == 1 {
+        //center == locations[0]
+    } else {
+        //center != locations[0]
+    }
+}
+{% endhighlight %}
+
+### Vector Tricks
+We want a set of points equally distributed around the canvas' center. So, to do this we create two `Vector` objects that represent the displacement of `x`, and `y` respectively.
+
+Then, with those displacement vectors we can calculate the points of our shape. Using this handy technique:
+
+{% highlight swift lineos %}
+Point - Vector = Point
+{% endhighlight %}
+
+For example: 
+
+{% highlight swift lineos %}
+let dx = Vector(x: 100, y: 0)
+let point = canvas.center + dx
+//point == Point(canvas.center.x + 100, canvas.center.y)
 {% endhighlight %}
 
 ## Example

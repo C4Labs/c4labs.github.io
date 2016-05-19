@@ -11,10 +11,16 @@ author: Travis Kirton
 ---
 ![](tap-object-random-color.png)
 
-## System Fonts
+## Trigger Random Behaviour
+You can add gestures to any visible object, including the `canvas`. This simple example shows you how to trigger a change in color to an object when it is tapped. 
 
 {% highlight swift lineos %}
+obj.addTapGestureRecognizer { locations, center, state in
+    //do stuff
+}
 {% endhighlight %}
+
+> An object's tap gesture is discreet to itself, once it registers you know that specific object has been acted upon. You won't ever have to check the location of the gesture to confirm which object has been tapped.
 
 ## Example
 {% highlight swift lineos %}

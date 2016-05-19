@@ -11,10 +11,16 @@ author: Travis Kirton
 ---
 ![](pan-center-rotation.png)
 
-## System Fonts
+## Center an Object on a Gesture
+The easiest way to "drag" an object is to add a pan gesture to the canvas and have the object follow the pan.
 
 {% highlight swift lineos %}
+canvas.addPanGestureRecognizer { locations, center, translation, velocity, state in
+    shape.center = center
+}
 {% endhighlight %}
+
+> Note the use of `ShapeLayer.disableActions = true`? This makes sure that the changes to the objects following it are immediate, i.e. they won't animate.
 
 ## Example
 {% highlight swift lineos %}

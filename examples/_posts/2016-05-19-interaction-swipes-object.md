@@ -11,9 +11,14 @@ author: Travis Kirton
 ---
 ![](swipes-object.png)
 
-## System Fonts
+## A Swipe for Every Direction
+A swipe can only register in a single direction. So, if you want to add multiple swipes to a single object you'll have to add multiple gesture recognizers. Here are the directions you can choose from:
 
 {% highlight swift lineos %}
+.Right //Default
+.Down
+.Left
+.Up
 {% endhighlight %}
 
 ## Example

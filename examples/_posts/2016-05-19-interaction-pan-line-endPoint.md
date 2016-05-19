@@ -11,10 +11,10 @@ author: Travis Kirton
 ---
 ![](pan-line-endPoint.png)
 
-## System Fonts
+## Dynamic Line End Points
+You can change the end points of a line. Here's how to attach one to a pan gesture, and then toggle it's visibility depending on the state of the gesture.
 
-{% highlight swift lineos %}
-{% endhighlight %}
+> This example uses `if-else` instead of `switch`, just because we can.
 
 ## Example
 {% highlight swift lineos %}

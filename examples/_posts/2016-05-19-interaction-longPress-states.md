@@ -12,8 +12,37 @@ author: Travis Kirton
 ![](longPress-states.png)
 
 ## State Switching
+Every gesture has the following states:
 
 {% highlight swift lineos %}
+.Began
+.Changed
+.Ended
+.Possible
+.Cancelled
+.Failed
+{% endhighlight %}
+
+You'll mostly be using the top 3, and when you do this is how you do it:
+
+{% highlight swift lineos %}
+obj.addLongPressGestureRecognizer { locations, center, state {
+	switch state {
+	case .Began:
+	    //do stuff
+	case .Changed: 
+	    // do stuff
+	case .Ended: 
+	    // do stuff
+    }
+}
+{% endhighlight %}
+
+### Minimum Press Duration
+By default, a long press gesture takes `0.25s` to trigger. That means the user needs to hold down for that long before the `.Began` state triggers. However, you can easily change that time like this:
+
+{% highlight swift lineos %}
+press.minimumPressDuration = 0.0 
 {% endhighlight %}
 
 ## Example

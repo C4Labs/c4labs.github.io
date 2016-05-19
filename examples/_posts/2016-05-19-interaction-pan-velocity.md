@@ -1,6 +1,6 @@
 ---
 title: Pan + Velocity
-description: Use a pan gesture's velocity to change a shape's lineWidth.
+description: Use a pan's velocity to change a shape's lineWidth.
 date:   2016-05-08 23:59:59 -0800
 layout: example
 categories: examples
@@ -11,10 +11,16 @@ author: Travis Kirton
 ---
 ![](pan-velocity.png)
 
-## System Fonts
+## Velocity
+You might see the `velocity` parameter in a gesture. This parameter is a representation of the speed of movement of the gesture between the current event and previous event. It is also measured by the change in the `center`.
 
 {% highlight swift lineos %}
+obj.addPanGestureRecognizer { locations, center, translation, velocity, state in
+    print(velocity)
+}
 {% endhighlight %}
+
+> Velocity can vary greatly, depending on how fast the user moves their touches. For example, it can range from 0...3000+, so you'll have to calibrate a bit like we do in the example below.
 
 ## Example
 {% highlight swift lineos %}
