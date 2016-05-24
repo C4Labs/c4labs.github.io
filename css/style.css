@@ -6291,8 +6291,12 @@ div.tutorial .footnotes {
   margin-top: 24px;
   width: 100%; }
 
-li.examples-index {
-  float: left; }
+.examples-index li {
+  margin-bottom: 18px; }
+  .examples-index li a {
+    color: #4A4E58; }
+    .examples-index li a:hover span {
+      color: #2062FF; }
 
 .toc {
   font-size: 14px; }
