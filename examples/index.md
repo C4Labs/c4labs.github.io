@@ -7,22 +7,96 @@ description: 'C4 Examples'
 # Examples
 
 <div class="row">
-	<ul class="col-md-12 col-sm-12 col-xs-12 examples-block list-unstyled">
-		{% assign examplesPosts = site.categories['examples'] %}
-			<h2>These short examples introduce a breadth of techniques, concepts and tricks that will get you primed for making amazing things with C4.</h2>
-			
-			<!-- UNCOMMENT WHEN EXAMPLES READY -->
-			{% for post in examplesPosts %}
-			  <li class="examples-index">
-			  	<a href="{{ post.url }}">
-			  		<div>
-				  		<div class="text">
-					  		<p class="title">{{ post.title }}</p>
-					  		<p>{{ post.description }}</p>
-					  	</div>
-				  	</div>
-				  </a>
-			  </li>
-			{% endfor %}
-	</ul>
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<h2>These short examples introduce a breadth of techniques, concepts and tricks that will get you primed for making amazing things with C4.</h2>
+	</div>
+</div>
+
+<div class="row">
+	{% assign sorted_cats = site.categories | sort %}
+	{% for category in sorted_cats %}
+		{% assign sorted_posts = category[1] | sort %}
+		{% if category[0] == "shapes" %}
+			<div class="col-md-4 col-sm-12 col-xs-12">
+				<h2 id="{{category[0] | uri_escape | downcase }}">{{ category[0] | capitalize }}</h2>
+				<ul class="list-unstyled">
+				  {% for post in sorted_posts %} 
+				 	<li>
+				 		<a href="{{  post.url }}">{{  post.title }}</a>
+				 		<p>{{ post.description }}</p>
+				 	</li>
+				 	{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
+	{% endfor %}
+
+	{% for category in sorted_cats %}
+		{% assign sorted_posts = category[1] | sort %}
+		{% if category[0] == "views" %}
+			<div class="col-md-4 col-sm-12 col-xs-12">
+				<h2 id="{{category[0] | uri_escape | downcase }}">{{ category[0] | capitalize }}</h2>
+				<ul class="list-unstyled">
+				  {% for post in sorted_posts %} 
+				 	<li>
+				 		<a href="{{  post.url }}">{{  post.title }}</a>
+				 		<p>{{ post.description }}</p>
+				 	</li>
+				 	{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
+	{% endfor %}
+
+	{% for category in sorted_cats %}
+		{% assign sorted_posts = category[1] | sort %}
+		{% if category[0] == "images" %}
+			<div class="col-md-4 col-sm-12 col-xs-12">
+				<h2 id="{{category[0] | uri_escape | downcase }}">{{ category[0] | capitalize }}</h2>
+				<ul class="list-unstyled">
+				  {% for post in sorted_posts %} 
+				 	<li>
+				 		<a href="{{  post.url }}">{{  post.title }}</a>
+				 		<p>{{ post.description }}</p>
+				 	</li>
+				 	{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
+	{% endfor %}
+
+	{% for category in sorted_cats %}
+		{% assign sorted_posts = category[1] | sort %}
+		{% if category[0] == "math" %}
+			<div class="col-md-4 col-sm-12 col-xs-12">
+				<h2 id="{{category[0] | uri_escape | downcase }}">{{ category[0] | capitalize }}</h2>
+				<ul class="list-unstyled">
+				  {% for post in sorted_posts %} 
+				 	<li>
+				 		<a href="{{  post.url }}">{{  post.title }}</a>
+				 		<p>{{ post.description }}</p>
+				 	</li>
+				 	{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
+	{% endfor %}
+
+	{% for category in sorted_cats %}
+		{% assign sorted_posts = category[1] | sort %}
+		{% if category[0] == "color" %}
+			<div class="col-md-4 col-sm-12 col-xs-12">
+				<h2 id="{{category[0] | uri_escape | downcase }}">{{ category[0] | capitalize }}</h2>
+				<ul class="list-unstyled">
+				  {% for post in sorted_posts %} 
+				 	<li>
+				 		<a href="{{  post.url }}">{{  post.title }}</a>
+				 		<p>{{ post.description }}</p>
+				 	</li>
+				 	{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
+	{% endfor %}
+
 </div>

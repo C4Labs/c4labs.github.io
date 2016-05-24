@@ -33,7 +33,9 @@
     <div class="container">
       <div class="row related-tutorial">
         <div class="col-xs-12 col-md-12">
-          <h1 class="text-center blue">More Examples?</h1>
+          
+          <a href="{{ site.baseurl }}/examples"><h2 class="text-center">Back to All Examples</h2></a>
+          <!-- removing this temporarily
           <ul class="examples-list list-unstyled">
             {% assign examples = site.categories['examples'] | sort: 'order' %}
             {% for post in examples limit:10 %}
@@ -51,9 +53,11 @@
               </li>
             {% endfor %}
           </ul>
+          -->
         </div>
       </div>
     </div>
+
 
     {% include footer.html %}
 

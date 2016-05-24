@@ -3,7 +3,7 @@ title: Arcs & Wedges
 description: Create arcs and wedges.
 date:   2016-05-10 21:59:59 -0800
 layout: example
-categories: examples
+categories: examples, shapes
 permalink: /examples/shapes-arcs-wedges/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]
