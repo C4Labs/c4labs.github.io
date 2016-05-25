@@ -1,7 +1,7 @@
 ---
 title: Properties
 description: Check out all properties available to a specific font.
-date:   2015-05-12 23:59:59 -0800
+date:   2015-05-12 00:02:00 -0800
 layout: example
 categories: examples, fonts
 permalink: /examples/fonts-properties/
