@@ -3,7 +3,7 @@ title: Color Burn
 description: Apply a color burn filter to an image.
 date:   2016-05-15 23:59:59 -0800
 layout: example
-categories: examples
+categories: examples, filters
 permalink: /examples/filters-color-burn/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

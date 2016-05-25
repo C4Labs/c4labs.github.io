@@ -3,7 +3,7 @@ title: Animating a Gradient
 description: You can animate all the properties of a gradient.
 date:   2016-05-06 23:59:59 -0800
 layout: example
-categories: examples
+categories: examples, advanced
 permalink: /examples/gradients-animate/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

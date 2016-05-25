@@ -3,7 +3,7 @@ title: Layering
 description: You can swap the layer position of any two views.
 date:   2016-05-11 17:59:59 -0800
 layout: example
-categories: examples
+categories: examples, views
 permalink: /examples/views-layering/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

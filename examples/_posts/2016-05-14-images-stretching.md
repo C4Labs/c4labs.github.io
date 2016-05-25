@@ -3,7 +3,7 @@ title: Stretching Images
 description: Set the width, height or frame of an image.
 date:   2016-05-14 23:59:59 -0800
 layout: example
-categories: examples
+categories: examples, images
 permalink: /examples/images-stretching/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

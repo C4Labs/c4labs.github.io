@@ -3,7 +3,7 @@ title: Translate
 description: Translate a view.
 date:   2016-05-11 11:59:59 -0800
 layout: example
-categories: examples
+categories: examples, views
 permalink: /examples/views-translate/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

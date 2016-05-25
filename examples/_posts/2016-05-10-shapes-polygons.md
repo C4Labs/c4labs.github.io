@@ -3,7 +3,7 @@ title: Polygons
 description: Create lines, triangles and non-uniform polygons.
 date:   2016-05-10 22:59:59 -0800
 layout: example
-categories: examples
+categories: examples, shapes
 permalink: /examples/shapes-polygons/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

@@ -3,7 +3,7 @@ title: Playback
 description: Toggle the playback of an audio player.
 date:   2016-05-17 23:59:59 -0800
 layout: example
-categories: examples
+categories: examples, audio
 permalink: /examples/audio-play-pause/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

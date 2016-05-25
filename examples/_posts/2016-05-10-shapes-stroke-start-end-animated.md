@@ -3,7 +3,7 @@ title: Stroke Start & End (Animated)
 description: Animate the stroke start and end.
 date:   2016-05-10 12:59:59 -0800
 layout: example
-categories: examples
+categories: examples, shapes
 permalink: /examples/shapes-stroke-start-end-animated/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

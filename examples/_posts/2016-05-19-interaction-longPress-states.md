@@ -3,7 +3,8 @@ title: State Switching
 description: Use a long press gesture's state to update a shape's color.
 date:   2016-05-08 23:59:59 -0800
 layout: example
-categories: examples
+categories: examples, interaction
+
 permalink: /examples/interaction-longPress-states/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

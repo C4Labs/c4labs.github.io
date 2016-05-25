@@ -3,7 +3,7 @@ title: Rotation
 description: Rotate a view more than 180°.
 date:   2016-05-11 09:59:59 -0800
 layout: example
-categories: examples
+categories: examples, views
 permalink: /examples/views-rotation/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

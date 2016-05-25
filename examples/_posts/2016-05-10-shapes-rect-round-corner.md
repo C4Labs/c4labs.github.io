@@ -3,7 +3,7 @@ title: Rounded Corners
 description: Create text shapes using fonts and strings.
 date:   2016-05-10 05:59:59 -0800
 layout: example
-categories: examples
+categories: examples, shapes
 permalink: /examples/shapes-rect-round-corner/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

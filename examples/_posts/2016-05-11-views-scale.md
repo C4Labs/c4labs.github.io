@@ -3,7 +3,7 @@ title: Scale
 description: Scale a view.
 date:   2016-05-11 12:59:59 -0800
 layout: example
-categories: examples
+categories: examples, views
 permalink: /examples/views-scale/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

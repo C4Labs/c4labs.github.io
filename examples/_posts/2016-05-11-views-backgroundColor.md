@@ -3,7 +3,7 @@ title: Background Color
 description: Set the background color of any visible object.
 date:   2016-05-11 22:59:59 -0800
 layout: example
-categories: examples
+categories: examples, views
 permalink: /examples/views-backgroundColor/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

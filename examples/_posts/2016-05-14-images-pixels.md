@@ -3,7 +3,7 @@ title: Pixels
 description: Create an image using Pixel data.
 date:   2016-05-14 23:59:59 -0800
 layout: example
-categories: examples
+categories: examples, images
 permalink: /examples/images-pixels/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

@@ -3,7 +3,7 @@ title: Line Cap
 description: Change the style of open ends of a polygon.
 date:   2016-05-10 15:59:59 -0800
 layout: example
-categories: examples
+categories: examples, shapes
 permalink: /examples/shapes-lineCap/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

@@ -1,9 +1,10 @@
+
 ---
 title: Dash Pattern
 description: Set the dash pattern of a shape's stroke.
 date:   2016-05-10 11:59:59 -0800
 layout: example
-categories: examples
+categories: examples, shapes
 permalink: /examples/shapes-lineDashPattern/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

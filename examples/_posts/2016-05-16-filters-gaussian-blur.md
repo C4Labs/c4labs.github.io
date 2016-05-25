@@ -3,7 +3,7 @@ title: Gaussian Blur
 description: Apply a gaussian blur filter to an image.
 date:   2016-05-15 23:59:59 -0800
 layout: example
-categories: examples
+categories: examples, filters
 permalink: /examples/filters-gaussian-blur/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

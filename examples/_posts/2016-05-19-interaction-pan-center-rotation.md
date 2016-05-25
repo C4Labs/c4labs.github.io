@@ -3,7 +3,8 @@ title: Pan + Rotate a Shape
 description: Update a shape's rotation property while panning.
 date:   2016-05-08 23:59:59 -0800
 layout: example
-categories: examples
+categories: examples, interaction
+
 permalink: /examples/interaction-pan-center-rotation/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

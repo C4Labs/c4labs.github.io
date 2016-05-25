@@ -3,7 +3,7 @@ title: Colors & Locations
 description: Change the colors of a gradient and locations where they draw.
 date:   2016-05-06 23:59:59 -0800
 layout: example
-categories: examples
+categories: examples, advanced
 permalink: /examples/gradients-colors-locations/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

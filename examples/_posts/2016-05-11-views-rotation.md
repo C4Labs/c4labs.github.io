@@ -3,7 +3,7 @@ title: Anchor Point
 description: Change the relative center position of a view.
 date:   2016-05-11 09:59:59 -0800
 layout: example
-categories: examples
+categories: examples, views
 permalink: /examples/views-anchorPoint/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

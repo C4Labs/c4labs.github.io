@@ -3,7 +3,7 @@ title: Border
 description: Reveal and style the border of a view.
 date:   2016-05-11 21:59:59 -0800
 layout: example
-categories: examples
+categories: examples, views
 permalink: /examples/views-border/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

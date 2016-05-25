@@ -3,7 +3,7 @@ title: Line End Points
 description: Change the end points of a Line.
 date:   2016-05-10 14:59:59 -0800
 layout: example
-categories: examples
+categories: examples, shapes
 permalink: /examples/shapes-line-endPoints/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

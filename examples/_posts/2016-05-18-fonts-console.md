@@ -3,7 +3,7 @@ title: Family Names
 description: Print out all font family names available on the latest iOS.
 date:   2016-05-12 23:59:59 -0800
 layout: example
-categories: examples
+categories: examples, fonts
 permalink: /examples/fonts-console/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

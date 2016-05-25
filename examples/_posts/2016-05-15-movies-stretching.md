@@ -3,7 +3,7 @@ title: Stretching Movies
 description: Set the width, height or frame of a movie.
 date:   2016-05-15 23:59:59 -0800
 layout: example
-categories: examples
+categories: examples, movies
 permalink: /examples/movies-stretching/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

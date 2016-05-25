@@ -3,7 +3,7 @@ title: Bloom
 description: Apply a bloom filter to an image.
 date:   2016-05-15 23:59:59 -0800
 layout: example
-categories: examples
+categories: examples, filters
 permalink: /examples/filters-bloom/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

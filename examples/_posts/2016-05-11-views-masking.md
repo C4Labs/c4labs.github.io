@@ -3,7 +3,7 @@ title: Masking
 description: Mask a view with any other view.
 date:   2016-05-11 16:59:59 -0800
 layout: example
-categories: examples
+categories: examples, views
 permalink: /examples/views-masking/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

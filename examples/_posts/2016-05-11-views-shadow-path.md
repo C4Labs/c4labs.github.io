@@ -3,7 +3,7 @@ title: Shadow Path
 description: Change the path / outline of a view's shadow.
 date:   2016-05-11 13:59:59 -0800
 layout: example
-categories: examples
+categories: examples, views
 permalink: /examples/views-shadow-path/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

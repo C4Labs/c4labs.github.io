@@ -3,7 +3,7 @@ title: Animated Subview Masking
 description: Add a subview to an animated mask... Even more lovely.
 date:   2016-05-11 14:59:59 -0800
 layout: example
-categories: examples
+categories: examples, views
 permalink: /examples/views-masking-animated-subviews/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

@@ -3,7 +3,7 @@ title: Mask to Bounds
 description: Clip visible contents if they fall outside a view's frame.
 date:   2016-05-11 19:59:59 -0800
 layout: example
-categories: examples
+categories: examples, views
 permalink: /examples/views-masksToBounds/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]

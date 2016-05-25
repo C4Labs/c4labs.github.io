@@ -3,7 +3,7 @@ title: Multiple Swipe Gestures
 description: Add multiple gestures to a single object.
 date:   2016-05-08 23:59:59 -0800
 layout: example
-categories: examples
+categories: examples, interaction
 permalink: /examples/interaction-swipes-object/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]
