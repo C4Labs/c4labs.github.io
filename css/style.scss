@@ -1121,9 +1121,22 @@ div.tutorial
 	}
 }
 
-li.examples-index
+.examples-index li
 {
-	float: left;
+	margin-bottom: 18px;
+	
+	a
+	{
+		color: $body-grey;
+
+		&:hover
+		{
+			span
+			{
+				color: $link-note-blue;
+			}
+		}
+	}
 }
 
 .toc

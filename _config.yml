@@ -28,7 +28,5 @@ exclude:
 
 lsi: false
 
-catgories: [cosmos]
-
 gems: 
   - pygments.rb
