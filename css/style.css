@@ -5715,7 +5715,7 @@ body {
   background-color: #fbfbfb;
   margin-top: 90px; }
 
-row {
+.row {
   margin-left: -24px;
   margin-right: -24px; }
 
@@ -5743,9 +5743,10 @@ row {
       width: 100%; } }
   .container .post-content {
     margin-bottom: 96px; }
+    .container .post-content h1 {
+      margin: 36px 0 48px; }
 
 .container-fluid {
-  background: rgba(147, 147, 147, 0.08);
   margin-top: 48px;
   margin-bottom: 48px; }
   .container-fluid .row {
@@ -5883,111 +5884,85 @@ a {
   color: #2062FF; }
 
 .container-fluid {
-  background-color: #ffffff;
-  margin-top: 0px; }
+  margin-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px; }
 
 .background {
-  width: 1200px;
-  height: 800px;
-  margin: 0 auto;
+  width: 100%;
+  height: 700px;
+  margin: -90px auto 0;
   position: relative;
   overflow: hidden; }
-  @media screen and (max-width: 1199px) {
-    .background {
-      width: 100% !important; }
-      .background #scroll-grid {
-        width: 100% !important;
-        max-height: 100% !important; }
-        .background #scroll-grid .taglines {
-          margin-top: 0px !important; }
-        .background #scroll-grid .poster {
-          left: 0 !important;
-          width: 100%; }
-      .background .image {
-        max-width: 200px !important; } }
-  @media screen and (max-width: 1199px) {
-    .background #scroll-grid .poster {
-      width: 50%;
-      left: 25% !important; } }
-  @media screen and (max-width: 767px) {
-    .background {
-      max-height: 100% !important; }
-      .background #scroll-grid {
-        max-height: 75% !important; }
-        .background #scroll-grid .taglines h1 {
-          font-size: 2.5em !important; }
-        .background #scroll-grid .taglines p {
-          font-size: 1.25em !important; }
-        .background #scroll-grid .poster {
-          width: 100%;
-          left: 0 !important;
-          top: 350px !important; }
-        .background #scroll-grid .gradient {
-          top: 400px !important; }
-      .background .chevron {
-        display: none; } }
   .background #scroll-grid {
-    width: 1200px;
-    height: 2400px;
-    overflow: hidden;
-    position: absolute; }
-    .background #scroll-grid .taglines {
-      text-align: center;
-      margin-top: 200px;
-      z-index: 99999;
-      position: relative; }
-      .background #scroll-grid .taglines h1 {
-        font-size: 5em;
-        color: #4A4E58; }
-      .background #scroll-grid .taglines p {
-        font-size: 2em;
-        color: #4A4E58;
-        font-family: "SF Thin";
-        letter-spacing: 1.5px;
-        margin: 12px 0 36px; }
-      .background #scroll-grid .taglines a.button {
-        color: #2062FF;
-        background-color: rgba(32, 98, 255, 0.08);
-        border-radius: 4px;
-        padding: 15px 20px; }
-        .background #scroll-grid .taglines a.button:hover {
-          text-decoration: none;
-          background-color: rgba(32, 98, 255, 0.16); }
-    .background #scroll-grid .image {
+    width: 100%; }
+    .background #scroll-grid .wrapper {
+      width: 5000px;
+      height: 900px;
+      overflow: hidden;
+      position: absolute; }
+    .background #scroll-grid .first {
+      -webkit-animation: bannermove 90s linear infinite;
+      -moz-animation: bannermove 90s linear infinite;
+      -ms-animation: bannermove 90s linear infinite;
+      -o-animation: bannermove 90s linear infinite;
+      animation: bannermove 90s linear infinite; }
+@keyframes "bannermove" {
+  0% {
+    margin-left: 0px; }
+  100% {
+    margin-left: -2500px; } }
+@-moz-keyframes bannermove {
+  0% {
+    margin-left: 0px; }
+  100% {
+    margin-left: -2500px; } }
+@-webkit-keyframes "bannermove" {
+  0% {
+    margin-left: 0px; }
+  100% {
+    margin-left: -2500px; } }
+@-ms-keyframes "bannermove" {
+  0% {
+    margin-left: 0px; }
+  100% {
+    margin-left: -2500px; } }
+@-o-keyframes "bannermove" {
+  0% {
+    margin-left: 0px; }
+  100% {
+    margin-left: -2500px; } }
+    .background #scroll-grid .laptop {
       position: absolute;
-      max-width: 400px; }
-      .background #scroll-grid .image a {
-        float: left;
-        background: white;
-        transition: all 0.25s ease; }
-        .background #scroll-grid .image a img {
-          width: 100%;
-          opacity: 0.4;
-          box-shadow: 0px 0px 20px #cccccc; }
-        .background #scroll-grid .image a:hover {
-          z-index: 9999999; }
-          .background #scroll-grid .image a:hover img {
-            opacity: 1; }
-    .background #scroll-grid .poster {
-      position: absolute;
-      left: 315px;
       z-index: 9999;
-      top: 450px; }
-    .background #scroll-grid .gradient {
-      width: 100%;
-      height: 200px;
-      position: absolute;
-      top: 600px;
-      z-index: 999;
-      background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 62%, white 99%);
-      background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 62%, white 99%);
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 62%, white 99%);
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0); }
-  .background .chevron {
-    position: absolute;
-    top: 777px;
-    left: 47.5%;
-    z-index: 9999; }
+      top: 275px;
+      width: 800px;
+      left: 0;
+      right: 0;
+      margin: 0 auto; }
+
+.taglines {
+  text-align: center;
+  margin-bottom: 200px;
+  z-index: 99999;
+  position: relative; }
+  .taglines h1 {
+    font-size: 5em;
+    color: #4A4E58; }
+  .taglines p {
+    font-size: 2em;
+    color: #4A4E58;
+    font-family: "SF Thin";
+    letter-spacing: 1.5px;
+    margin: 12px 0 36px; }
+  .taglines a.button {
+    color: #2062FF;
+    background-color: rgba(32, 98, 255, 0.08);
+    border-radius: 4px;
+    padding: 15px 20px; }
+    .taglines a.button:hover {
+      text-decoration: none;
+      background-color: rgba(32, 98, 255, 0.16); }
 
 .index-content, .features {
   text-align: center; }
@@ -6133,7 +6108,8 @@ a {
   .examples-block li {
     float: left;
     width: 24%;
-    margin: 0px 12px 12px 0px; }
+    margin: 0px 12px 12px 0px;
+    padding: 12px; }
     @media screen and (max-width: 991px) {
       .examples-block li {
         width: 23%; } }
