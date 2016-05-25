@@ -1,7 +1,7 @@
 ---
 title: Playback
 description: Toggle the playback of an audio player.
-date:   2015-05-17 23:59:59 -0800
+date:   2015-05-17 00:04:00 -0800
 layout: example
 categories: examples, audio
 permalink: /examples/audio-play-pause/

@@ -1,7 +1,7 @@
 ---
 title: Stretching Movies
 description: Set the width, height or frame of a movie.
-date:   2015-05-15 23:59:59 -0800
+date:   2015-05-15 00:01:00 -0800
 layout: example
 categories: examples, movies
 permalink: /examples/movies-stretching/

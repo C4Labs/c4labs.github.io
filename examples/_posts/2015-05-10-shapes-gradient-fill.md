@@ -1,7 +1,7 @@
 ---
 title: Gradient Fill
 description: Fill your shapes with gradients.
-date:   2015-05-10 05:59:59 -0800
+date:   2015-05-10 00:20:00 -0800
 layout: example
 categories: examples, shapes
 permalink: /examples/shapes-gradient-fill/

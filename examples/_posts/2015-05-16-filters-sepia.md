@@ -1,7 +1,7 @@
 ---
 title: Sepia
 description: Apply a sepia filter to an image.
-date:   2015-05-15 23:59:59 -0800
+date:   2015-05-16 00:07:00 -0800
 layout: example
 categories: examples, filters
 permalink: /examples/filters-sepia/

@@ -1,7 +1,7 @@
 ---
 title: Shape Colors
 description: Set the fill and stroke colors of a shape.
-date:   2015-05-10 19:59:59 -0800
+date:   2015-05-10 00:06:00 -0800
 layout: example
 categories: examples, shapes
 permalink: /examples/shapes-colors/

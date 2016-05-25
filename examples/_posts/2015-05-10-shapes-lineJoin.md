@@ -1,7 +1,7 @@
 ---
 title: Line Join
 description: Change the joint style of a polygon.
-date:   2015-05-10 16:59:59 -0800
+date:   2015-05-10 00:09:00 -0800
 layout: example
 categories: examples, shapes
 permalink: /examples/shapes-lineJoin/

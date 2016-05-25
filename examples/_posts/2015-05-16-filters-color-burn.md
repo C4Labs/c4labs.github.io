@@ -1,7 +1,7 @@
 ---
 title: Color Burn
 description: Apply a color burn filter to an image.
-date:   2015-05-15 23:59:59 -0800
+date:   2015-05-15 00:02:00 -0800
 layout: example
 categories: examples, filters
 permalink: /examples/filters-color-burn/

@@ -1,7 +1,7 @@
 ---
 title: Dash Phase 3
 description: Fancy patterns, oh my.
-date:   2015-05-10 08:59:59 -0800
+date:   2015-05-10 00:17:00 -0800
 layout: example
 categories: examples, shapes
 permalink: /examples/shapes-lineDashPhase3/

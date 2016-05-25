@@ -6,7 +6,7 @@ layout: example
 categories: examples, advanced
 permalink: /examples/advanced-automata/
 image: poster.png
-tags: [advanced, cellular, automata, bytes]
+tags: [advanced, cellular, automata, bytes, images, pixels]
 author: Travis Kirton
 ---
 ![](automata.png)

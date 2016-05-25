@@ -1,7 +1,7 @@
 ---
 title: Rotation
 description: Rotate a view more than 180°.
-date:   2015-05-11 09:59:59 -0800
+date:   2015-05-11 00:12:00 -0800
 layout: example
 categories: examples, views
 permalink: /examples/views-rotation/

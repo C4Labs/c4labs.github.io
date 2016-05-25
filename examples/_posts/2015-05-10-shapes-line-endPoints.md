@@ -1,7 +1,7 @@
 ---
 title: Line End Points
 description: Change the end points of a Line.
-date:   2015-05-10 14:59:59 -0800
+date:   2015-05-10 00:11:00 -0800
 layout: example
 categories: examples, shapes
 permalink: /examples/shapes-line-endPoints/

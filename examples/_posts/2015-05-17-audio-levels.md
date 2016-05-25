@@ -1,7 +1,7 @@
 ---
 title: Levels
 description: Grab the current levels (aka. meters) from a player.
-date:   2015-05-17 23:59:59 -0800
+date:   2015-05-17 00:05:00 -0800
 layout: example
 categories: examples, audio
 permalink: /examples/audio-levels/

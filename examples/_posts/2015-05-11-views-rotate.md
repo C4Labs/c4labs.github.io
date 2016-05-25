@@ -1,7 +1,7 @@
 ---
 title: Rotate
 description: Rotate a view.
-date:   2015-05-11 10:59:59 -0800
+date:   2015-05-11 00:13:00 -0800
 layout: example
 categories: examples, views
 permalink: /examples/views-rotate/

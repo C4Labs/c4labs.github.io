@@ -1,7 +1,7 @@
 ---
 title: Stroke Start & End
 description: Set the stroke start and end.
-date:   2015-05-10 13:59:59 -0800
+date:   2015-05-10 00:18:00 -0800
 layout: example
 categories: examples, shapes
 permalink: /examples/shapes-stroke-start-end/

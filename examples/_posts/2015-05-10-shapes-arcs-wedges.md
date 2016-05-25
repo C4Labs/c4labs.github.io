@@ -1,7 +1,7 @@
 ---
 title: Arcs & Wedges
 description: Create arcs and wedges.
-date:   2015-05-10 21:59:59 -0800
+date:   2015-05-10 00:03:00 -0800
 layout: example
 categories: examples, shapes
 permalink: /examples/shapes-arcs-wedges/
