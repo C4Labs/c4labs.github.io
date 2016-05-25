@@ -1,8 +1,8 @@
 ---
-layout: page
-title: 'Basics'
+layout: tutorial-index
+title: 'Tutorials'
 categories: cosmos, tutorials
-description: 'Here be tutorials'
+description: 'Check out in-depth tutorials for C4'
 ---
 
 # Tutorials
