@@ -1,7 +1,7 @@
 ---
 title: Animated Subview Masking
 description: Add a subview to an animated mask... Even more lovely.
-date:   2015-05-11 14:59:59 -0800
+date:   2015-05-11 00:10:00 -0800
 layout: example
 categories: examples, views
 permalink: /examples/views-masking-animated-subviews/

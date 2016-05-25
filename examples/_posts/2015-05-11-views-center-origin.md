@@ -1,7 +1,7 @@
 ---
 title: Positioning Views
 description: Set the center and origin points to position your views.
-date:   2015-05-11 23:59:59 -0800
+date:   2015-05-11 00:00:00 -0800
 layout: example
 categories: examples, views
 permalink: /examples/views-center-origin/

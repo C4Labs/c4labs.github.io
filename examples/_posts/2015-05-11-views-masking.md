@@ -1,7 +1,7 @@
 ---
 title: Masking
 description: Mask a view with any other view.
-date:   2015-05-11 16:59:59 -0800
+date:   2015-05-11 00:08:00 -0800
 layout: example
 categories: examples, views
 permalink: /examples/views-masking/

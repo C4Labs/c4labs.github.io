@@ -1,7 +1,7 @@
 ---
 title: Interactive Subviews
 description: Tap to remove a subview, and watch it come back.
-date:   2015-05-11 18:59:59 -0800
+date:   2015-05-11 00:06:00 -0800
 layout: example
 categories: examples, views
 permalink: /examples/views-subviews-interactive/

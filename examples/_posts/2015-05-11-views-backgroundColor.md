@@ -1,7 +1,7 @@
 ---
 title: Background Color
 description: Set the background color of any visible object.
-date:   2015-05-11 22:59:59 -0800
+date:   2015-05-11 00:03:00 -0800
 layout: example
 categories: examples, views
 permalink: /examples/views-backgroundColor/

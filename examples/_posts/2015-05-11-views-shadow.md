@@ -1,7 +1,7 @@
 ---
 title: Shadows
 description: All views have a shadow.
-date:   2015-05-11 13:59:59 -0800
+date:   2015-05-11 00:17:00 -0800
 layout: example
 categories: examples, views
 permalink: /examples/views-shadow/

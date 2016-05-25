@@ -1,7 +1,7 @@
 ---
 title: Shadow Path
 description: Change the path / outline of a view's shadow.
-date:   2015-05-11 13:59:59 -0800
+date:   2015-05-11 00:18:00 -0800
 layout: example
 categories: examples, views
 permalink: /examples/views-shadow-path/

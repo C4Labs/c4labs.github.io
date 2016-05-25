@@ -1,7 +1,7 @@
 ---
 title: Border
 description: Reveal and style the border of a view.
-date:   2015-05-11 21:59:59 -0800
+date:   2015-05-11 00:02:00 -0800
 layout: example
 categories: examples, views
 permalink: /examples/views-border/

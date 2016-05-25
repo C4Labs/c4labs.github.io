@@ -1,7 +1,7 @@
 ---
 title: Mask to Bounds
 description: Clip visible contents if they fall outside a view's frame.
-date:   2015-05-11 19:59:59 -0800
+date:   2015-05-11 00:07:00 -0800
 layout: example
 categories: examples, views
 permalink: /examples/views-masksToBounds/

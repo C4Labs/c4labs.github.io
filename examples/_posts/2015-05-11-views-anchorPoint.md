@@ -1,7 +1,7 @@
 ---
 title: Anchor Point
 description: Change the relative center position of a view.
-date:   2015-05-11 09:59:59 -0800
+date:   2015-05-11 00:11:00 -0800
 layout: example
 categories: examples, views
 permalink: /examples/views-anchorPoint/
