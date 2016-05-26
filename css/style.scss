@@ -849,6 +849,14 @@ a
 			}
 		}
 	}
+
+	@media screen and (max-width: $screen-xs-max)
+	{
+		li
+		{
+			width: 50%;
+		}
+	}
 }
 
 span.title

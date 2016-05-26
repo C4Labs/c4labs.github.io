@@ -6148,6 +6148,9 @@ a {
         .examples-block li div.text p.author {
           font-size: 90%;
           color: #2062FF !important; }
+  @media screen and (max-width: 767px) {
+    .examples-block li {
+      width: 50%; } }
 
 span.title {
   color: #4A4E58;
