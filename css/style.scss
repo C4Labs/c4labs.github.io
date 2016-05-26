@@ -329,18 +329,27 @@ hr
 	color: $c4-blue;
 }
 
-.image-wrapper {
+.image-wrapper 
+{
 	text-align: center;
 
-	.image-caption {
+	.image-caption 
+	{
 		color: $light-grey;
-		//margin-top: $spacing-unit / 3;
 	}
 }
 
 a
 {
 	color: $c4-blue;
+}
+
+:target:before 
+{
+	content: "";
+	display: block;
+	height: 90px;
+	margin: -90px 0 0;
 }
 
 
