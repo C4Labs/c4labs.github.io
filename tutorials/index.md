@@ -12,17 +12,20 @@ description: 'Check out in-depth tutorials for C4'
 		{% assign tutorialsPosts = site.categories['tutorials'] %}
 		{% for post in tutorialsPosts %}
 		  <li class="text-center">
-		  	<a href="{{ post.url }}">
-		  		<div>
-		  			<span class="img">
-			  			<img src="{{ site.baseurl }}/images/tutorials/{{ post.url | split: '/' | last }}/{{ post.image }}" class="img-responsive" />
-			  		</span>
-			  		<div class="text">
-				  		<p class="title">{{ post.title }}</p>
-				  		<p>{{ post.description }}</p>
+		  	<div class="wrapper">
+			  	<a href="{{ post.url }}">
+			  		<div>
+			  			<span class="img">
+				  			<img src="{{ site.baseurl }}/images/tutorials/{{ post.url | split: '/' | last }}/{{ post.image }}" class="img-responsive" />
+				  		</span>
+				  		<div class="text">
+					  		<p class="title">{{ post.title }}</p>
+					  		<p>{{ post.description }}</p>
+					  		<p class="author">By {{ post.author }}</p>
+					  	</div>
 				  	</div>
-			  	</div>
-			  </a>
+				  </a>
+				</div>
 		  </li>
 		{% endfor %}
 	</ul>
