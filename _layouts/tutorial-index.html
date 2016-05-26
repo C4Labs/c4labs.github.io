@@ -20,17 +20,18 @@
 	</body>
 
 	<script type="text/javascript">
-		var maxHeight = 0;
+		$( document ).ready(function() {
+			var maxHeight = 0;
 
-		$('ul.examples-block li').each(function()
-		{
-   		var elHeight = $(this).height();
-   		if (elHeight > maxHeight) 
-   		{ 
-   			maxHeight = elHeight; 
-   		}
+			$('ul.examples-block li').each(function()
+			{
+   			var elHeight = $(this).height();
+   			if (elHeight > maxHeight) 
+	   		{ 
+	   			maxHeight = elHeight; 
+	   		}
+			});
+			$('ul.examples-block li').height(maxHeight + 48);
 		});
-
-		$('ul.examples-block li').height(maxHeight + 48);
 	</script>
 </html>
