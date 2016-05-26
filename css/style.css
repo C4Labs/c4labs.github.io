@@ -5942,6 +5942,17 @@ a {
       left: 0;
       right: 0;
       margin: 0 auto; }
+  @media screen and (max-width: 767px) {
+    .background {
+      height: 400px; }
+      .background #scroll-grid .wrapper {
+        height: 400px;
+        width: 2500px; }
+      .background #scroll-grid .banner img {
+        width: 1250px; }
+      .background #scroll-grid .laptop {
+        width: 350px;
+        top: 150px; } }
 
 .taglines {
   text-align: center;
@@ -5965,6 +5976,9 @@ a {
     .taglines a.button:hover {
       text-decoration: none;
       background-color: rgba(32, 98, 255, 0.16); }
+  @media screen and (max-width: 767px) {
+    .taglines {
+      height: 75px; } }
 
 .index-content, .features {
   text-align: center; }

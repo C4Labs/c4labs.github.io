@@ -359,21 +359,6 @@ a
 	position: relative;
 	overflow: hidden;
 
-	@media screen and (max-width: $screen-md-max)
-	{
-		
-	}
-
-	@media screen and (max-width: $screen-md-max)
-	{
-
-	}
-
-	@media screen and (max-width: $screen-xs-max)
-	{
-		
-	}
-
 	#scroll-grid
 	{
 		width: 100%;
@@ -461,6 +446,31 @@ a
 			margin: 0 auto;
 		}
 	}
+
+	@media screen and (max-width: $screen-xs-max)
+	{
+		height: 400px;
+
+		#scroll-grid
+		{
+			 .wrapper
+			{	
+				height: 400px;
+				width: 2500px;
+			}
+
+			.banner img
+			{
+				width: 1250px;
+			}
+
+			.laptop
+			{
+				width: 350px;
+				top: 150px;
+			}
+		}
+	}
 }
 
 .taglines
@@ -497,6 +507,11 @@ a
 			text-decoration: none;
 			background-color: rgba(32, 98, 255, 0.16);
 		}
+	}
+
+	@media screen and (max-width: $screen-xs-max)
+	{
+		height: 75px;
 	}
 }
 
