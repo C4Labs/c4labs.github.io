@@ -5978,7 +5978,10 @@ a {
       background-color: rgba(32, 98, 255, 0.16); }
   @media screen and (max-width: 767px) {
     .taglines {
-      height: 75px; } }
+      height: 200px;
+      margin-top: -96px; }
+      .taglines h1 {
+        font-size: 3em; } }
 
 .index-content, .features {
   text-align: center; }

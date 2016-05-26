@@ -511,7 +511,13 @@ a
 
 	@media screen and (max-width: $screen-xs-max)
 	{
-		height: 75px;
+		height: 200px;
+		margin-top: -96px;
+
+		h1
+		{
+			font-size: 3em;
+		}
 	}
 }
 
