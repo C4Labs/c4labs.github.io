@@ -8,7 +8,7 @@ categories: tutorials
 permalink: /tutorials/checkmark/
 image: poster.png
 tags: [getting started, basics, introduction, easy, c4]
-author: Ollie (with a little &#10084; from Travis)
+author: Oliver Andrews
 ---
 
 # Checkmark

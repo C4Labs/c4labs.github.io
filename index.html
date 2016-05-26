@@ -15,21 +15,24 @@ description: 'C4 is an open-source creative coding framework that harnesses the 
     <div class="container-fluid">
       <div class="background">
         <div id="scroll-grid">
-          <div class="taglines">
-            <h1>Code, creatively.</h1>
-            <p>Apps. Interaction. Media Arts. Oh my.</p>
-            <a class="button" href="{{ baseurl }}/install">Get Started</a>
+          <div class="wrapper">
+            <div class="banner">
+            <img class="first" src="images/index/poster.jpg" />
+            <img src="images/index/poster.jpg" />
+            </div>
           </div>
-          <img class="poster" src="images/index/poster.png" />
-          <div class="gradient"></div>
+          <img class="laptop" src="images/index/laptop.png" />
         </div>
-
-        <a class="chevron" href="#overview"><img src="images/index/chevron.png" /></a>
       </div>
     </div>
 
-
     <div class="container index-content">
+      <div class="row taglines">
+        <h1>Code, creatively.</h1>
+        <p>Apps. Interaction. Media Arts. Oh my.</p>
+        <a class="button" href="{{ baseurl }}/install">Get Started</a>
+      </div>
+
       <div class="row">
         <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
           <a name="overview"></a>
@@ -272,7 +275,6 @@ func viewDidLoad() {
     {% include footer.html %}
 
     <script src="js/jquery.transit.min.js"></script>
-    <script src="js/index-scroll.js"></script>
     <script>
 
     </script>

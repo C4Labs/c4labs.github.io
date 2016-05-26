@@ -27,7 +27,7 @@ body
 	margin-top: 90px;
 }
 
-row 
+.row 
 {
   margin-left: -24px;
 	margin-right: -24px;
@@ -66,12 +66,16 @@ row
 	.post-content
 	{
 		margin-bottom: 96px;
+
+		h1
+		{
+			margin: 36px 0 48px;
+		}
 	}
 }
 
 .container-fluid
 {
-	background: rgba(147, 147, 147, 0.08);
 	margin-top: 48px;
 	margin-bottom: 48px;
 
@@ -342,200 +346,172 @@ a
 
 .container-fluid
 {
-	background-color: #ffffff;
 	margin-top: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 .background
 {
-	width: 1200px;
-	height: 800px;		
-	margin: 0 auto;
+	width: 100%;
+	height: 700px;		
+	margin: -90px auto 0;
 	position: relative;
 	overflow: hidden;
 
-	@media screen and (max-width: $screen-md-max)
+	#scroll-grid
 	{
-		width: 100% !important;
+		width: 100%;
 
-		#scroll-grid
+		.wrapper
 		{
-			width: 100% !important;
-			max-height: 100% !important;
-
-			.taglines
-			{
-				margin-top: 0px !important;
-			}
-
-			.poster
-			{
-				left: 0 !important;
-				width: 100%;
-			}
+			width: 5000px;
+			height: 900px;
+			overflow: hidden;
+			position: absolute;
 		}
 
-		.image
+		.banner img
 		{
-			max-width: 200px !important;
+			float: left;
 		}
-	}
 
-	@media screen and (max-width: $screen-md-max)
-	{
-
-		#scroll-grid
+		.first 
 		{
-			.poster
-			{
-				width: 50%;
-				left: 25% !important;
+			 -webkit-animation: bannermove 90s linear infinite;
+			    -moz-animation: bannermove 90s linear infinite;
+			     -ms-animation: bannermove 90s linear infinite;
+			      -o-animation: bannermove 90s linear infinite;
+			         animation: bannermove 90s linear infinite;
 			}
+			 
+			@keyframes "bannermove" {
+			 0% {
+			    margin-left: 0px;
+			 }
+			 100% {
+			    margin-left: -2500px;
+			 }
+			 
+			}
+			 
+			@-moz-keyframes bannermove {
+			 0% {
+			   margin-left: 0px;
+			 }
+			 100% {
+			   margin-left: -2500px;
+			 }
+			 
+			}
+			 
+			@-webkit-keyframes "bannermove" {
+			 0% {
+			   margin-left: 0px;
+			 }
+			 100% {
+			   margin-left: -2500px;
+			 }
+			 
+			}
+			 
+			@-ms-keyframes "bannermove" {
+			 0% {
+			   margin-left: 0px;
+			 }
+			 100% {
+			   margin-left: -2500px;
+			 }
+			 
+			}
+			 
+			@-o-keyframes "bannermove" {
+			 0% {
+			   margin-left: 0px;
+			 }
+			 100% {
+			   margin-left: -2500px;
+			 }
+			 
+			}
+
+		.laptop
+		{
+			position: absolute;
+			z-index: 9999;
+			top: 275px;
+    	width: 800px;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
 		}
 	}
 
 	@media screen and (max-width: $screen-xs-max)
 	{
-		max-height: 100% !important;
+		height: 400px;
 
 		#scroll-grid
 		{
-			max-height: 75% !important;
-
-			.taglines
-			{
-				h1
-				{
-					font-size: 2.5em !important;
-				}
-
-				p
-				{
-					font-size: 1.25em !important;
-				}
+			 .wrapper
+			{	
+				height: 400px;
+				width: 2500px;
 			}
 
-			.poster
+			.banner img
 			{
-				width: 100%;
-				left: 0 !important;
-				top: 350px !important;
+				width: 1250px;
 			}
 
-			.gradient
+			.laptop
 			{
-				top: 400px !important;
+				width: 350px;
+				top: 150px;
 			}
 		}
+	}
+}
 
-		.chevron
+.taglines
+{
+	text-align: center;
+	margin-bottom: 200px;
+	z-index: 99999;
+	position: relative;
+
+	h1
+	{
+		font-size: 5em;
+		color: $body-grey;
+	}
+
+	p
+	{
+		font-size: 2em;
+		color: $body-grey;
+		font-family: "SF Thin";
+		letter-spacing: 1.5px;
+		margin: 12px 0 36px;
+	}
+
+	a.button
+	{
+		color: $c4-blue;
+		background-color: rgba(32, 98, 255, 0.08);
+		border-radius: 4px;
+		padding: 15px 20px;
+
+		&:hover
 		{
-			display: none;
+			text-decoration: none;
+			background-color: rgba(32, 98, 255, 0.16);
 		}
 	}
 
-	#scroll-grid
+	@media screen and (max-width: $screen-xs-max)
 	{
-		width: 1200px;
-		height: 2400px;
-		overflow: hidden;
-		position: absolute;
-
-		.taglines
-		{
-			text-align: center;
-			margin-top: 200px;
-			z-index: 99999;
-			position: relative;
-
-			h1
-			{
-				font-size: 5em;
-				color: $body-grey;
-			}
-
-			p
-			{
-				font-size: 2em;
-				color: $body-grey;
-				font-family: "SF Thin";
-    		letter-spacing: 1.5px;
-    		margin: 12px 0 36px;
-			}
-
-			a.button
-			{
-				color: $c4-blue;
-				background-color: rgba(32, 98, 255, 0.08);
-				border-radius: 4px;
-				padding: 15px 20px;
-
-				&:hover
-				{
-					text-decoration: none;
-					background-color: rgba(32, 98, 255, 0.16);
-				}
-			}
-		}
-
-		.image
-		{
-			position: absolute;
-			max-width: 400px;
-
-			a
-			{
-				float: left;
-				background: white;
-				transition: all 0.25s ease;
-
-				img
-				{
-					width: 100%;
-					opacity: 0.4;
-					box-shadow: 0px 0px 20px #cccccc;
-				}
-
-				&:hover
-				{
-					z-index: 9999999;
-
-					img
-					{
-						opacity: 1;
-					}
-				}
-			}
-		}
-
-		.poster
-		{
-			position: absolute;
-			left: 315px;
-			z-index: 9999;
-			top: 450px;
-		}
-
-		.gradient
-		{
-			width: 100%;
-			height: 200px;
-			position: absolute;
-			top: 600px;
-			z-index: 999;
-			background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 62%, rgba(255,255,255,1) 99%);
-			background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 62%,rgba(255,255,255,1) 99%);
-			background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 62%,rgba(255,255,255,1) 99%); 
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0);
-		}
-	}
-
-	.chevron
-	{
-		position: absolute;
-    top: 777px;
-    left: 47.5%;
-    z-index: 9999;
+		height: 75px;
 	}
 }
 
@@ -817,47 +793,18 @@ a
 
 .examples-block
 {
-	width: 100%;	
+	width: 100%;
+	padding: 0;	
 
 	li
 	{
+		width: 25%;
 		float: left;
-		width: 24%;
-		margin: 0px 12px 12px 0px;
 
-		@media screen and (max-width: $screen-sm-max)
+		div.wrapper
 		{
-			width: 23%;
-		}
-
-		@media screen and (max-width: $screen-xs-max)
-		{
-			width: 47%;
-
-		&:nth-child(odd)
-		{
-			margin-left: 0;
-			padding-left: 0; 
-		}
-
-		&:nth-child(even)
-		{
-			margin-right: 0;
-			padding-right: 0;
-		}
-		}
-
-
-		&:nth-child(4n + 1)
-		{
-			margin-left: 0;
-			padding-left: 0; 
-		}
-
-		&:nth-child(4n + 4)
-		{
-			margin-right: 0;
-			padding-right: 0;
+			width: 80%;
+			margin: 0 auto;
 		}
 
 		span.img 
@@ -869,6 +816,7 @@ a
 				margin: 0 auto;	
 				border: 1px solid #e7e7e7;
 				width: 100%;
+				border-radius: 12px;
 			}
 			
 		}
@@ -885,6 +833,12 @@ a
 				&.title
 				{
 					color: $body-grey;
+				}
+
+				&.author
+				{
+					font-size: 90%;
+					color: $c4-blue !important;
 				}
 			}
 		}
