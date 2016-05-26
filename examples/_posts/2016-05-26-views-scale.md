@@ -1,7 +1,7 @@
 ---
 title: Scale
 description: Scale a view.
-date:   2016-05-26 00:16:00 -0800
+date:   2016-05-26 00:15:00 -0800
 layout: example
 categories: examples, views
 permalink: /examples/views-scale/
