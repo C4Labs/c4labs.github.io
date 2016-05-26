@@ -386,6 +386,11 @@ a
 			position: absolute;
 		}
 
+		.banner img
+		{
+			float: left;
+		}
+
 		.first 
 		{
 			 -webkit-animation: bannermove 90s linear infinite;
@@ -773,48 +778,18 @@ a
 
 .examples-block
 {
-	width: 100%;	
+	width: 100%;
+	padding: 0;	
 
 	li
 	{
+		width: 25%;
 		float: left;
-		width: 24%;
-		margin: 0px 12px 12px 0px;
-		padding: 12px;
 
-		@media screen and (max-width: $screen-sm-max)
+		div.wrapper
 		{
-			width: 23%;
-		}
-
-		@media screen and (max-width: $screen-xs-max)
-		{
-			width: 47%;
-
-		&:nth-child(odd)
-		{
-			margin-left: 0;
-			padding-left: 0; 
-		}
-
-		&:nth-child(even)
-		{
-			margin-right: 0;
-			padding-right: 0;
-		}
-		}
-
-
-		&:nth-child(4n + 1)
-		{
-			margin-left: 0;
-			padding-left: 0; 
-		}
-
-		&:nth-child(4n + 4)
-		{
-			margin-right: 0;
-			padding-right: 0;
+			width: 80%;
+			margin: 0 auto;
 		}
 
 		span.img 
@@ -826,6 +801,7 @@ a
 				margin: 0 auto;	
 				border: 1px solid #e7e7e7;
 				width: 100%;
+				border-radius: 12px;
 			}
 			
 		}
@@ -842,6 +818,12 @@ a
 				&.title
 				{
 					color: $body-grey;
+				}
+
+				&.author
+				{
+					font-size: 90%;
+					color: $c4-blue !important;
 				}
 			}
 		}

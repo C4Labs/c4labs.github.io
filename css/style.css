@@ -5901,6 +5901,8 @@ a {
       height: 900px;
       overflow: hidden;
       position: absolute; }
+    .background #scroll-grid .banner img {
+      float: left; }
     .background #scroll-grid .first {
       -webkit-animation: bannermove 90s linear infinite;
       -moz-animation: bannermove 90s linear infinite;
@@ -6104,36 +6106,21 @@ a {
       margin: 0 0 0 12px; }
 
 .examples-block {
-  width: 100%; }
+  width: 100%;
+  padding: 0; }
   .examples-block li {
-    float: left;
-    width: 24%;
-    margin: 0px 12px 12px 0px;
-    padding: 12px; }
-    @media screen and (max-width: 991px) {
-      .examples-block li {
-        width: 23%; } }
-    @media screen and (max-width: 767px) {
-      .examples-block li {
-        width: 47%; }
-        .examples-block li:nth-child(odd) {
-          margin-left: 0;
-          padding-left: 0; }
-        .examples-block li:nth-child(even) {
-          margin-right: 0;
-          padding-right: 0; } }
-    .examples-block li:nth-child(4n + 1) {
-      margin-left: 0;
-      padding-left: 0; }
-    .examples-block li:nth-child(4n + 4) {
-      margin-right: 0;
-      padding-right: 0; }
+    width: 25%;
+    float: left; }
+    .examples-block li div.wrapper {
+      width: 80%;
+      margin: 0 auto; }
     .examples-block li span.img {
       display: block; }
       .examples-block li span.img img {
         margin: 0 auto;
         border: 1px solid #e7e7e7;
-        width: 100%; }
+        width: 100%;
+        border-radius: 12px; }
     .examples-block li div.text {
       margin-top: 18px; }
       .examples-block li div.text p {
@@ -6141,6 +6128,9 @@ a {
         color: #828691; }
         .examples-block li div.text p.title {
           color: #4A4E58; }
+        .examples-block li div.text p.author {
+          font-size: 90%;
+          color: #2062FF !important; }
 
 span.title {
   color: #4A4E58;
