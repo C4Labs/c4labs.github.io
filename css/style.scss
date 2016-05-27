@@ -699,6 +699,17 @@ a
 	h1
 	{
 		margin: 45px 0 50px;
+
+		@media screen and (max-width: $screen-xs-max)
+		{
+			margin: 12px 0;
+			display: inline-flex;
+
+			a
+			{
+				display: inline-table;
+			}
+		}
 	}
 
 	a
@@ -1365,7 +1376,6 @@ div.gfyitem
 
 #archives
 {
-	width: 100%;
 
 	.archive-group
 	{

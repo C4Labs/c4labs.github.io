@@ -6068,6 +6068,12 @@ a {
   background: none; }
   .breadcrumb h1 {
     margin: 45px 0 50px; }
+    @media screen and (max-width: 767px) {
+      .breadcrumb h1 {
+        margin: 12px 0;
+        display: inline-flex; }
+        .breadcrumb h1 a {
+          display: inline-table; } }
   .breadcrumb a {
     float: left;
     color: #4A4E58;
@@ -6413,9 +6419,7 @@ div.gfyitem {
   min-height: 100%;
   margin-bottom: 600px; }
 
-#archives {
-  width: 100%; }
-  #archives .archive-group {
-    width: 25%; }
+#archives .archive-group {
+  width: 25%; }
 
 /*# sourceMappingURL=style.css.map */
