@@ -1,7 +1,7 @@
 ---
 title: round()
 description: How to apply the round() function.
-date:   2016-05-27 23:59:59 -0800
+date:   2016-05-27 00:12:00 -0800
 layout: example
 categories: examples, math
 permalink: /examples/math-round/

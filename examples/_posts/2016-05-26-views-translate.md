@@ -12,7 +12,7 @@ author: Travis Kirton
 ![](translate.png)
 
 ## Translate
-You can translate a view by creating a `Transform` and setting it to the view's property:
+You can translate a view by creating a `Transform` and setting it like this:
 
 {% highlight swift lineos %}
 view.transform = Transform.makeTranslation()
