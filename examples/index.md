@@ -63,7 +63,9 @@ description: 'C4 Examples'
 			</div>
 		{% endif %}
 	{% endfor %}
+</div>
 
+<div class="row examples-index">
 	{% assign sorted_cats = site.categories | sort %}
 	{% for category in sorted_cats %}
 		{% assign sorted_posts = category[1] | sort %}
@@ -114,7 +116,9 @@ description: 'C4 Examples'
 			</div>
 		{% endif %}
 	{% endfor %}
+</div>
 
+<div class="row examples-index">
 	{% assign sorted_cats = site.categories | sort %}
 	{% for category in sorted_cats %}
 		{% assign sorted_posts = category[1] | sort %}
@@ -165,7 +169,9 @@ description: 'C4 Examples'
 			</div>
 		{% endif %}
 	{% endfor %}
+</div>
 
+<div class="row examples-index">
 	{% assign sorted_cats = site.categories | sort %}
 	{% for category in sorted_cats %}
 		{% assign sorted_posts = category[1] | sort %}
