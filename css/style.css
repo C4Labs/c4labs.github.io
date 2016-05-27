@@ -6413,4 +6413,9 @@ div.gfyitem {
   min-height: 100%;
   margin-bottom: 600px; }
 
+#archives {
+  width: 100%; }
+  #archives .archive-group {
+    width: 25%; }
+
 /*# sourceMappingURL=style.css.map */

@@ -1,29 +1,46 @@
 ---
 layout: page
 permalink: /tags/
+title: 
 ---
 
-<ul class="tag-cloud">
-{% for tag in site.tags %}
-  <li style="font-size: {{ tag | last | size | times: 100 | divided_by: site.tags.size | plus: 70  }}%">
-    <a href="#{{ tag | first | slugize }}">
-      {{ tag | first }}
-    </a>
-  </li>
-{% endfor %}
-</ul>
+<div class="post-content">
+  <h1 id="examples">Tags</h1>
 
-<div id="archives">
-{% for tag in site.tags %}
-  <div class="archive-group">
-    {% capture tag_name %}{{ tag | first }}{% endcapture %}
-    <h3 id="#{{ tag_name | slugize }}">{{ tag_name }}</h3>
-    <a name="{{ tag_name | slugize }}"></a>
-    {% for post in site.tags[tag_name] %}
-    <article class="archive-item">
-      <h4><a href="{{ root_url }}{{ post.url }}">{{post.title}}</a></h4>
-    </article>
-    {% endfor %}
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <h2>Explore the complete list of C4 tags here.</h2>
+    </div>
   </div>
-{% endfor %}
+
+  <div id="archives">
+  {% for tag in site.tags %}
+    <div class="archive-group">
+      {% capture tag_name %}{{ tag | first }}{% endcapture %}
+      <h3 id="#{{ tag_name | slugize }}"><strong>{{ tag_name }}</strong></h3>
+      <a name="{{ tag_name | slugize }}"></a>
+      {% for post in site.tags[tag_name] %}
+      <article class="archive-item">
+        <small><a href="{{ root_url }}{{ post.url }}">{{post.title}}</a></small>
+      </article>
+      {% endfor %}
+    </div>
+  {% endfor %}
+  </div>
 </div>
+
+  <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
+
+  <script type="text/javascript">
+  var elem = document.querySelector('#archives');
+    var msnry = new Masonry( elem, {
+      // options
+      itemSelector: '.archive-group'
+    });
+
+    // element argument can be a selector string
+    //   for an individual element
+    var msnry = new Masonry( '.archive-group', {
+      // options
+    });
+  </script>
