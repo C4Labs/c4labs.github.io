@@ -13,6 +13,10 @@ author: Travis Kirton
 # Radial Audio
  I built a loading view for a 28-iPad installation I've been working on over at [Logic&Form](http://www.logicandform.com). The majority of code focuses on the setup and styling of shapes, so it is straightforward. The outcome is a dynamic radial visualization of sound that uses timers, audio samples and metering.
 
+Here's what we'll be building: 
+
+![](){: data-id="JadedDishonestCollardlizard" .gfyitem }
+
 Let's get to it.
 
 ## Breakdown
