@@ -1,7 +1,7 @@
 ---
 title: Pixels
 description: Create an image using Pixel data.
-date:   2016-05-31 00:03:00 -0800
+date:   2016-05-31 00:03:00 -0700
 layout: example
 categories: examples, images
 permalink: /examples/images-pixels/

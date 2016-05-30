@@ -1,7 +1,7 @@
 ---
 title: Checkerboard
 description: Generate a checkerboard image.
-date:   2016-06-02 00:01:00 -0800
+date:   2016-06-02 00:01:00 -0700
 layout: example
 categories: examples, filters
 permalink: /examples/filters-checkerboard/

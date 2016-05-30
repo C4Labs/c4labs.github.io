@@ -1,7 +1,7 @@
 ---
 title: Creating Images
 description: Create an image.
-date:   2016-05-31 00:00:00 -0800
+date:   2016-05-31 00:00:00 -0700
 layout: example
 categories: examples, images
 permalink: /examples/images-create/

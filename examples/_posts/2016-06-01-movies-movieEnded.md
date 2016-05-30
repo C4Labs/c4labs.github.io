@@ -1,7 +1,7 @@
 ---
 title: movieEnded
 description: Do stuff automatically when a movie reaches its end point.
-date:   2016-06-01 00:02:00 -0800
+date:   2016-06-01 00:02:00 -0700
 layout: example
 categories: examples, movies
 permalink: /examples/movies-movieEnded/

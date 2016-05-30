@@ -1,7 +1,7 @@
 ---
 title: clamp()
 description: How to apply the clamp() function.
-date:   2016-05-27 00:06:00 -0800
+date:   2016-05-27 00:06:00 -0700
 layout: example
 categories: examples, math
 permalink: /examples/math-clamp/

@@ -1,7 +1,7 @@
 ---
 title: Rounded Corners
 description: Create text shapes using fonts and strings.
-date:   2016-05-25 00:21:00 -0800
+date:   2016-05-25 00:21:00 -0700
 layout: example
 categories: examples, shapes
 permalink: /examples/shapes-rect-round-corner/

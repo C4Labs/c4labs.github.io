@@ -1,7 +1,7 @@
 ---
 title: floor()
 description: How to apply the floor() function.
-date:   2016-05-27 00:08:00 -0800
+date:   2016-05-27 00:08:00 -0700
 layout: example
 categories: examples, math
 permalink: /examples/math-floor/

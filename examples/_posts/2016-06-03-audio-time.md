@@ -1,7 +1,7 @@
 ---
 title: Timing
 description: How to read the time properties of an audio player.
-date:   2016-06-03 00:03:00 -0800
+date:   2016-06-03 00:03:00 -0700
 layout: example
 categories: examples, audio
 permalink: /examples/audio-time/

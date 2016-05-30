@@ -1,7 +1,7 @@
 ---
 title: Default Fonts
 description: Create a font, and change its size.
-date:   2016-06-06 00:00:00 -0800
+date:   2016-06-06 00:00:00 -0700
 layout: example
 categories: examples, fonts
 permalink: /examples/fonts-default-small/

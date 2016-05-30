@@ -1,7 +1,7 @@
 ---
 title: Colors & Locations
 description: Change the colors of a gradient and locations where they draw.
-date:   2016-06-07 00:02:00 -0800
+date:   2016-06-07 00:02:00 -0700
 layout: example
 categories: examples, gradients
 permalink: /examples/gradients-colors-locations/

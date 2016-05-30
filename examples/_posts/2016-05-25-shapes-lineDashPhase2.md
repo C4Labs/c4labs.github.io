@@ -1,7 +1,7 @@
 ---
 title: Dash Phase 2
 description: Offest a closed shape's dash pattern.
-date:   2016-05-25 00:16:00 -0800
+date:   2016-05-25 00:16:00 -0700
 layout: example
 categories: examples, shapes
 permalink: /examples/shapes-lineDashPhase2/

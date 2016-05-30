@@ -1,7 +1,7 @@
 ---
 title: Linear Gradient
 description: Generate a linear gradient image.
-date:   2016-06-02 00:06:00 -0800
+date:   2016-06-02 00:06:00 -0700
 layout: example
 categories: examples, filters
 permalink: /examples/filters-linear-gradient/

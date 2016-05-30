@@ -1,7 +1,7 @@
 ---
 title: Automata
 description: An oldie, but a goodie. Export Cellular Automata imagery.
-date:   2016-06-09 00:03:00 -0800
+date:   2016-06-09 00:03:00 -0700
 layout: example
 categories: examples, advanced
 permalink: /examples/advanced-automata/

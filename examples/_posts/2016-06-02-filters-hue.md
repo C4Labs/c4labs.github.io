@@ -1,7 +1,7 @@
 ---
 title: Hue
 description: Apply a hue filter to an image.
-date:   2016-06-02 00:05:00 -0800
+date:   2016-06-02 00:05:00 -0700
 layout: example
 categories: examples, filters
 permalink: /examples/filters-hue/

@@ -1,7 +1,7 @@
 ---
 title: Volume
 description: Change the volume of an audio player.
-date:   2016-06-03 00:01:00 -0800
+date:   2016-06-03 00:01:00 -0700
 layout: example
 categories: examples, audio
 permalink: /examples/audio-volume/

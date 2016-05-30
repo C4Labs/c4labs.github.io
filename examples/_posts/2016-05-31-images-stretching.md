@@ -1,7 +1,7 @@
 ---
 title: Stretching Images
 description: Set the width, height or frame of an image.
-date:   2016-05-31 00:01:00 -0800
+date:   2016-05-31 00:01:00 -0700
 layout: example
 categories: examples, images
 permalink: /examples/images-stretching/

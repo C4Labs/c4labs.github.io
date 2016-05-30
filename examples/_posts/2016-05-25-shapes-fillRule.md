@@ -1,7 +1,7 @@
 ---
 title: Fill Rule
 description: Even, Odd? Change how you fill a complex shape.
-date:   2016-05-25 00:13:00 -0800
+date:   2016-05-25 00:13:00 -0700
 layout: example
 categories: examples, shapes
 permalink: /examples/shapes-fillRule/

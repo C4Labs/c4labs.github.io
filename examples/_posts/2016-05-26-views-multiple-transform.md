@@ -1,7 +1,7 @@
 ---
 title: Multiple Transforms
 description: Transform while you transform.
-date:   2016-05-26 00:16:00 -0800
+date:   2016-05-26 00:16:00 -0700
 layout: example
 categories: examples, views
 permalink: /examples/views-multiple-transform/

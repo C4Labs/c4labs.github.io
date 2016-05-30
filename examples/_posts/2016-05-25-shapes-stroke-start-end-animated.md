@@ -1,7 +1,7 @@
 ---
 title: Stroke Start & End (Animated)
 description: Animate the stroke start and end.
-date:   2016-05-25 00:19:00 -0800
+date:   2016-05-25 00:19:00 -0700
 layout: example
 categories: examples, shapes
 permalink: /examples/shapes-stroke-start-end-animated/

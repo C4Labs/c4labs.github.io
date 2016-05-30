@@ -1,7 +1,7 @@
 ---
 title: Interactive Curves
 description: Update curve control points using gestures.
-date:   2016-05-25 00:12:00 -0800
+date:   2016-05-25 00:12:00 -0700
 layout: example
 categories: examples, shapes
 permalink: /examples/shapes-curves-interactive/

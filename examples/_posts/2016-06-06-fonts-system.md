@@ -1,7 +1,7 @@
 ---
 title: System Fonts
 description: Here's how you can use iOS system fonts.
-date:   2016-06-06 00:01:00 -0800
+date:   2016-06-06 00:01:00 -0700
 layout: example
 categories: examples, fonts
 permalink: /examples/fonts-system/

@@ -1,7 +1,7 @@
 ---
 title: Stars & Regular Polygons
 description: Create stars and regular polygons.
-date:   2016-05-25 00:02:00 -0800
+date:   2016-05-25 00:02:00 -0700
 layout: example
 categories: examples, shapes
 permalink: /examples/shapes-star-regular-polygon/

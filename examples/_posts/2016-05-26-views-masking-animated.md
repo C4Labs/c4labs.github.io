@@ -1,7 +1,7 @@
 ---
 title: Animated Masking
 description: Animate a view's mask... So lovely.
-date:   2016-05-26 00:09:00 -0800
+date:   2016-05-26 00:09:00 -0700
 layout: example
 categories: examples, views
 permalink: /examples/views-masking-animated/

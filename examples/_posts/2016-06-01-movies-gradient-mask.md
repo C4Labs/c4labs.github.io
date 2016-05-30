@@ -1,7 +1,7 @@
 ---
 title: Gradient Mask
 description: Apply a Gradient mask to a movie.
-date:   2016-06-01 00:03:00 -0800
+date:   2016-06-01 00:03:00 -0700
 layout: example
 categories: examples, movies
 permalink: /examples/movies-gradient-mask/

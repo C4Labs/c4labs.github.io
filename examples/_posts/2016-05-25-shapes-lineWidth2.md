@@ -1,7 +1,7 @@
 ---
 title: Line Width 2
 description: Change the thickness of a shape's line.
-date:   2016-05-25 00:08:00 -0800
+date:   2016-05-25 00:08:00 -0700
 layout: example
 categories: examples, shapes
 permalink: /examples/shapes-lineWidth2/

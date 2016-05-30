@@ -1,7 +1,7 @@
 ---
 title: Polygons
 description: Create lines, triangles and non-uniform polygons.
-date:   2016-05-25 00:01:00 -0800
+date:   2016-05-25 00:01:00 -0700
 layout: example
 categories: examples, shapes
 permalink: /examples/shapes-polygons/

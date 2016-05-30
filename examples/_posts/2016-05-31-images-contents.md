@@ -1,7 +1,7 @@
 ---
 title: Image Contents
 description: Change the entire contents of an image.
-date:   2016-05-31 00:02:00 -0800
+date:   2016-05-31 00:02:00 -0700
 layout: example
 categories: examples, images
 permalink: /examples/images-contents/

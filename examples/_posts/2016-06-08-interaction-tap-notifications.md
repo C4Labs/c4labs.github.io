@@ -1,7 +1,7 @@
 ---
 title: Notifications
 description: Use notifications to communicate between objects.
-date:   2016-06-08 00:01:00 -0800
+date:   2016-06-08 00:01:00 -0700
 layout: example
 categories: examples, interaction
 

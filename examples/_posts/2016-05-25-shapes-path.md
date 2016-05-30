@@ -1,7 +1,7 @@
 ---
 title: Path
 description: Change the shape of a shape.
-date:   2016-05-25 00:22:00 -0800
+date:   2016-05-25 00:22:00 -0700
 layout: example
 categories: examples, shapes
 permalink: /examples/shapes-path/

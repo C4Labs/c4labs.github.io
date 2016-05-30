@@ -1,7 +1,7 @@
 ---
 title: Creating Movies
 description: Create, play and pause a movie.
-date:   2016-06-01 00:00:00 -0800
+date:   2016-06-01 00:00:00 -0700
 layout: example
 categories: examples, movies
 permalink: /examples/movies-create-play/

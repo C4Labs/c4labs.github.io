@@ -1,7 +1,7 @@
 ---
 title: Multiple Swipe Gestures
 description: Add multiple gestures to a single object.
-date:   2016-06-08 00:07:00 -0800
+date:   2016-06-08 00:07:00 -0700
 layout: example
 categories: examples, interaction
 permalink: /examples/interaction-swipes-object/

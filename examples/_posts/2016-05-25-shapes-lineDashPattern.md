@@ -1,7 +1,7 @@
 ---
 title: Dash Pattern
 description: Set the dash pattern of a shape's stroke.
-date:   2016-05-25 00:14:00 -0800
+date:   2016-05-25 00:14:00 -0700
 layout: example
 categories: examples, shapes
 permalink: /examples/shapes-lineDashPattern/

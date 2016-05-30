@@ -1,7 +1,7 @@
 ---
 title: Layering
 description: You can swap the layer position of any two views.
-date:   2016-05-26 00:04:00 -0800
+date:   2016-05-26 00:04:00 -0700
 layout: example
 categories: examples, views
 permalink: /examples/views-layering/

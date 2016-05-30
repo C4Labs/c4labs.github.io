@@ -1,7 +1,7 @@
 ---
 title: Multitouch Pan
 description: Deform a shape through a multitouch pan gesture.
-date:   2016-06-08 00:05:00 -0800
+date:   2016-06-08 00:05:00 -0700
 layout: example
 categories: examples, interaction
 permalink: /examples/interaction-pan-multitouch/

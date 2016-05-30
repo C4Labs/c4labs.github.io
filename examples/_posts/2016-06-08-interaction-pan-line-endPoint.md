@@ -1,7 +1,7 @@
 ---
 title: Pan + Line End Points
 description: Remove, add and update a line's endPoint while panning.
-date:   2016-06-08 00:02:00 -0800
+date:   2016-06-08 00:02:00 -0700
 layout: example
 categories: examples, interaction
 

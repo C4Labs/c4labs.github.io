@@ -1,7 +1,7 @@
 ---
 title: Color Components
 description: Extract the values of a color.
-date:   2016-05-30 23:59:59 -0800
+date:   2016-05-30 00:06:00 -0700
 layout: example
 categories: examples, color
 permalink: /examples/color-components/

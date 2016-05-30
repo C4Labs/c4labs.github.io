@@ -1,7 +1,7 @@
 ---
 title: Color Basics
 description: Intro to creating colors.
-date:   2016-05-30 23:59:59 -0800
+date:   2016-05-30 00:00:00 -0700
 layout: example
 categories: examples, color
 permalink: /examples/color-basics/

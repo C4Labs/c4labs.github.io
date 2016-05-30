@@ -1,7 +1,7 @@
 ---
 title: Arcs
 description: Continuous end-to-end drawing of arcs. 
-date:   2016-06-09 00:00:00 -0800
+date:   2016-06-09 00:00:00 -0700
 layout: example
 categories: examples, advanced
 permalink: /examples/advanced-arcs/

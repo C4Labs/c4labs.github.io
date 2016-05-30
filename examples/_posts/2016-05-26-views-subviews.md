@@ -1,7 +1,7 @@
 ---
 title: Subviews
 description: Add any view to any other view.
-date:   2016-05-26 00:05:00 -0800
+date:   2016-05-26 00:05:00 -0700
 layout: example
 categories: examples, views
 permalink: /examples/views-subviews/

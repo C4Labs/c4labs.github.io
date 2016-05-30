@@ -1,7 +1,7 @@
 ---
 title: Curves
 description: Create Bezier and Quad Curves.
-date:   2016-05-25 00:04:00 -0800
+date:   2016-05-25 00:04:00 -0700
 layout: example
 categories: examples, shapes
 permalink: /examples/shapes-curves/

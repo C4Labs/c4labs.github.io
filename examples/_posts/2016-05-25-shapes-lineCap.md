@@ -1,7 +1,7 @@
 ---
 title: Line Cap
 description: Change the style of open ends of a polygon.
-date:   2016-05-25 00:10:00 -0800
+date:   2016-05-25 00:10:00 -0700
 layout: example
 categories: examples, shapes
 permalink: /examples/shapes-lineCap/

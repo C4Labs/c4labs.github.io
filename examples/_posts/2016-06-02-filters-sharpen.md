@@ -1,7 +1,7 @@
 ---
 title: Sharpen
 description: Apply a sharpen filter to an image.
-date:   2016-06-02 00:08:00 -0800
+date:   2016-06-02 00:08:00 -0700
 layout: example
 categories: examples, filters
 permalink: /examples/filters-sharpen/

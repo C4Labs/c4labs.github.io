@@ -1,7 +1,7 @@
 ---
 title: Opacity
 description: Set the opacity of a view.
-date:   2016-05-26 00:01:00 -0800
+date:   2016-05-26 00:01:00 -0700
 layout: example
 categories: examples, views
 permalink: /examples/views-opacity/
