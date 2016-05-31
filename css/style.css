@@ -5893,15 +5893,15 @@ p a, .container.install li a, small a, .related-example a {
 
 .background {
   width: 100%;
-  height: 775px;
+  height: 650px;
   margin: -90px auto 0;
   position: relative;
   overflow: hidden; }
   .background #scroll-grid {
     width: 100%; }
     .background #scroll-grid .wrapper {
-      width: 5000px;
-      height: 900px;
+      width: 3840px;
+      height: 650px;
       overflow: hidden;
       position: absolute; }
     .background #scroll-grid .banner img {
@@ -5916,31 +5916,31 @@ p a, .container.install li a, small a, .related-example a {
   0% {
     margin-left: 0px; }
   100% {
-    margin-left: -2500px; } }
+    margin-left: -1920px; } }
 @-moz-keyframes bannermove {
   0% {
     margin-left: 0px; }
   100% {
-    margin-left: -2500px; } }
+    margin-left: -1920px; } }
 @-webkit-keyframes "bannermove" {
   0% {
     margin-left: 0px; }
   100% {
-    margin-left: -2500px; } }
+    margin-left: -1920px; } }
 @-ms-keyframes "bannermove" {
   0% {
     margin-left: 0px; }
   100% {
-    margin-left: -2500px; } }
+    margin-left: -1920px; } }
 @-o-keyframes "bannermove" {
   0% {
     margin-left: 0px; }
   100% {
-    margin-left: -2500px; } }
+    margin-left: -1920px; } }
     .background #scroll-grid .laptop {
       position: absolute;
       z-index: 9999;
-      top: 350px;
+      top: 200px;
       width: 800px;
       left: 0;
       right: 0;
@@ -5950,9 +5950,9 @@ p a, .container.install li a, small a, .related-example a {
       height: 400px; }
       .background #scroll-grid .wrapper {
         height: 400px;
-        width: 2500px; }
+        width: 1920px; }
       .background #scroll-grid .banner img {
-        width: 1250px; }
+        width: 960px; }
       .background #scroll-grid .laptop {
         width: 300px;
         top: 200px; } }
