@@ -7,7 +7,7 @@ length: 10 - 20 minutes
 categories: tutorials
 permalink: /tutorials/processing/
 image: poster.png
-tags: [getting started, basics, introduction, easy, c4]
+tags: [tutorial, processing, interaction]
 author: Travis Kirton
 ---
 

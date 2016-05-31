@@ -7,7 +7,7 @@ length: 10 - 20 minutes
 categories: tutorials
 permalink: /tutorials/checkmark/
 image: poster.png
-tags: [getting started, basics, introduction, easy, c4]
+tags: [tutorial, animation, paths]
 author: Oliver Andrews
 ---
 

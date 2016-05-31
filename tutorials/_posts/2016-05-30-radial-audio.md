@@ -7,7 +7,7 @@ length: 10 - 20 minutes
 categories: tutorials
 permalink: /tutorials/radial-audio/
 image: poster.png
-tags: [getting started, basics, introduction, easy, c4]
+tags: [tutorial, animation, audio, timer, metering]
 author: Travis Kirton
 ---
 # Radial Audio

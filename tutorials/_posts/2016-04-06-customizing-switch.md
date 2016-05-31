@@ -7,8 +7,8 @@ length: 10 - 20 minutes
 categories: tutorials
 permalink: /tutorials/customizing-switch/
 image: poster.png
-tags: [getting started, basics, introduction, easy, c4]
-author: Oliver Andrews
+tags: [tutorial, switch, animation, subviews]
+author: Oliver Andrews (with a little ❤ from Travis)
 ---
 
 # Customizing A Switch
