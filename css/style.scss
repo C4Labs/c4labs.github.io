@@ -384,7 +384,7 @@ p a, .container.install li a, small a, .related-example a
 .background
 {
 	width: 100%;
-	height: 775px;		
+	height: 650px;		
 	margin: -90px auto 0;
 	position: relative;
 	overflow: hidden;
@@ -395,8 +395,8 @@ p a, .container.install li a, small a, .related-example a
 
 		.wrapper
 		{
-			width: 5000px;
-			height: 900px;
+			width: 3840px;
+			height: 650px;
 			overflow: hidden;
 			position: absolute;
 		}
@@ -420,7 +420,7 @@ p a, .container.install li a, small a, .related-example a
 			    margin-left: 0px;
 			 }
 			 100% {
-			    margin-left: -2500px;
+			    margin-left: -1920px;
 			 }
 			 
 			}
@@ -430,7 +430,7 @@ p a, .container.install li a, small a, .related-example a
 			   margin-left: 0px;
 			 }
 			 100% {
-			   margin-left: -2500px;
+			   margin-left: -1920px;
 			 }
 			 
 			}
@@ -440,7 +440,7 @@ p a, .container.install li a, small a, .related-example a
 			   margin-left: 0px;
 			 }
 			 100% {
-			   margin-left: -2500px;
+			   margin-left: -1920px;
 			 }
 			 
 			}
@@ -450,7 +450,7 @@ p a, .container.install li a, small a, .related-example a
 			   margin-left: 0px;
 			 }
 			 100% {
-			   margin-left: -2500px;
+			   margin-left: -1920px;
 			 }
 			 
 			}
@@ -460,7 +460,7 @@ p a, .container.install li a, small a, .related-example a
 			   margin-left: 0px;
 			 }
 			 100% {
-			   margin-left: -2500px;
+			   margin-left: -1920px;
 			 }
 			 
 			}
@@ -469,7 +469,7 @@ p a, .container.install li a, small a, .related-example a
 		{
 			position: absolute;
 			z-index: 9999;
-			top: 350px;
+			top: 200px;
     	width: 800px;
 			left: 0;
 			right: 0;
@@ -486,12 +486,12 @@ p a, .container.install li a, small a, .related-example a
 			 .wrapper
 			{	
 				height: 400px;
-				width: 2500px;
+				width: 1920px;
 			}
 
 			.banner img
 			{
-				width: 1250px;
+				width: 960px;
 			}
 
 			.laptop
