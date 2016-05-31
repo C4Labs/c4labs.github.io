@@ -5887,6 +5887,13 @@ hr {
 a {
   color: #2062FF; }
 
+p a, .container.install li a, small a, .related-example a {
+  border-bottom: 1px solid #2062FF; }
+  p a:hover, .container.install li a:hover, small a:hover, .related-example a:hover {
+    color: #86aaff !important;
+    border-bottom: 1px solid #86aaff;
+    text-decoration: none; }
+
 :target:before {
   content: "";
   display: block;
@@ -6065,6 +6072,17 @@ a {
     color: #828691; }
     .cta p.title {
       color: #4A4E58; }
+
+.container.examples a {
+  color: #2062FF;
+  border-bottom: 1px solid #2062FF; }
+  .container.examples a:hover {
+    text-decoration: none;
+    color: #86aaff;
+    border-bottom: 1px solid #86aaff; }
+.container.examples span {
+  color: #4A4E58;
+  text-decoration: none; }
 
 .breadcrumb {
   background: none; }
