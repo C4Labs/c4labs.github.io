@@ -1,33 +1,33 @@
 ---
-title: Sharpen
-description: Apply a sharpen filter to an image.
-date:   2016-06-02 00:08:00 -0700
+title: Sepia
+description: Apply a sepia filter to an image.
+date:   2016-05-31 00:07:00 -0700
 layout: example
 categories: examples, filters
-permalink: /examples/filters-sharpen/
+permalink: /examples/filters-sepia/
 image: poster.png
 tags: [filters]
 author: Travis Kirton
 ---
-![](Sharpen.png)
+![](sepia.png)
 
 ## Sepia
-This example shows how you can apply a sharpen filter to an image.
+This example shows how you can apply a sepia filter to an image.
 
 {% highlight swift lineos %}
-let filter = Sharpen()
+let filter = Sepia()
 //change filter settings
 img.apply(filter)
 {% endhighlight %}
 
 ## Example
 {% highlight swift lineos %}
-let image = Image("rockies")!
+let image = Image("chop")!
 image.constrainsProportions = true
 image.width = canvas.width
 canvas.add(image)
 
-var filter = Sharpen()
-filter.sharpness = 15
+var filter = Sepia()
+filter.intensity = 5
 image.apply(filter)
 {% endhighlight %}

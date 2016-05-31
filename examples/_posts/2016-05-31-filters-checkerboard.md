@@ -1,23 +1,23 @@
 ---
-title: Color Burn
-description: Apply a color burn filter to an image.
-date:   2016-06-02 00:02:00 -0700
+title: Checkerboard
+description: Generate a checkerboard image.
+date:   2016-05-31 00:01:00 -0700
 layout: example
 categories: examples, filters
-permalink: /examples/filters-color-burn/
+permalink: /examples/filters-checkerboard/
 image: poster.png
 tags: [filters]
 author: Travis Kirton
 ---
-![](color-burn.png)
+![](checkerboard.png)
 
-## Color Burn
-This example shows how you can apply a color burn filter to an image.
+## Checkerboard
+This example shows how you can generate a checkerboard pattern as an image.
 
 {% highlight swift lineos %}
-let filter = ColorBurn()
+let filter = Checkerboard()
 //change filter settings
-img.apply(filter)
+img.generate(filter)
 {% endhighlight %}
 
 ## Example

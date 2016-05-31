@@ -1,36 +1,34 @@
 ---
-title: Twirl
-description: Apply a twirl filter to an image.
-date:   2016-06-02 00:09:00 -0700
+title: Hue
+description: Apply a hue filter to an image.
+date:   2016-05-31 00:05:00 -0700
 layout: example
 categories: examples, filters
-permalink: /examples/filters-twirl/
+permalink: /examples/filters-hue/
 image: poster.png
 tags: [filters]
 author: Travis Kirton
 ---
-![](twirl.png)
+![](hue.png)
 
-## Twirl
-This example shows how you can apply a twirl filter to an image.
+## Bloom
+This example shows how you can apply a hue filter to an image.
 
 {% highlight swift lineos %}
-let filter = Twirl()
+let filter = Hue()
 //change filter settings
 img.apply(filter)
 {% endhighlight %}
 
 ## Example
 {% highlight swift lineos %}
-let image = Image("chop")!
+let image = Image("rockies")!
 image.constrainsProportions = true
 image.width = canvas.width
 image.center = canvas.center
 canvas.add(image)
 
-var filter = Twirl()
-filter.center = Point(0.5, 0.5)
-filter.angle = 2*M_PI
-filter.radius = 200
+var filter = Hue()
+filter.angle = M_PI
 image.apply(filter)
 {% endhighlight %}

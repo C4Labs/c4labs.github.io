@@ -1,7 +1,7 @@
 ---
 title: Gaussian Blur
 description: Apply a gaussian blur filter to an image.
-date:   2016-06-02 00:04:00 -0700
+date:   2016-05-31 00:04:00 -0700
 layout: example
 categories: examples, filters
 permalink: /examples/filters-gaussian-blur/

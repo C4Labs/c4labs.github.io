@@ -1,21 +1,21 @@
 ---
-title: Hue
-description: Apply a hue filter to an image.
-date:   2016-06-02 00:05:00 -0700
+title: Sharpen
+description: Apply a sharpen filter to an image.
+date:   2016-05-31 00:08:00 -0700
 layout: example
 categories: examples, filters
-permalink: /examples/filters-hue/
+permalink: /examples/filters-sharpen/
 image: poster.png
 tags: [filters]
 author: Travis Kirton
 ---
-![](hue.png)
+![](Sharpen.png)
 
-## Bloom
-This example shows how you can apply a hue filter to an image.
+## Sepia
+This example shows how you can apply a sharpen filter to an image.
 
 {% highlight swift lineos %}
-let filter = Hue()
+let filter = Sharpen()
 //change filter settings
 img.apply(filter)
 {% endhighlight %}
@@ -25,10 +25,9 @@ img.apply(filter)
 let image = Image("rockies")!
 image.constrainsProportions = true
 image.width = canvas.width
-image.center = canvas.center
 canvas.add(image)
 
-var filter = Hue()
-filter.angle = M_PI
+var filter = Sharpen()
+filter.sharpness = 15
 image.apply(filter)
 {% endhighlight %}
