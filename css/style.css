@@ -5833,7 +5833,8 @@ footer {
       margin-bottom: 18px; }
       footer .container li.title a {
         color: #4A4E58;
-        border-bottom: 1px solid #4A4E58; }
+        border-bottom: 1px solid #4A4E58;
+        padding-bottom: 2px; }
         footer .container li.title a:hover {
           text-decoration: none; }
     footer .container li + li {
@@ -5858,7 +5859,8 @@ footer {
     padding: 22px 24px; }
   .note a {
     color: #2062FF;
-    border-bottom: 1px solid #2062FF; }
+    border-bottom: 1px solid #2062FF;
+    padding-bottom: 2px; }
     .note a:hover {
       text-decoration: none;
       color: #86aaff;
@@ -6076,9 +6078,10 @@ a {
           display: inline-table; } }
   .breadcrumb a {
     float: left;
-    color: #4A4E58;
+    color: #333333;
+    letter-spacing: 1.25px;
     border-bottom: 1px solid #4A4E58;
-    padding-bottom: 6px; }
+    padding-bottom: 5.5px; }
     .breadcrumb a:hover {
       color: #2062FF;
       border-bottom: 1px solid #2062FF;
@@ -6240,18 +6243,22 @@ div.tutorial figure {
 div.tutorial h1 {
   margin: 0 0 42px 0; }
 div.tutorial h2 {
-  margin: 48px 0 18px 0; }
+  font-family: 'SF Thin';
+  font-weight: 200;
+  font-size: 1.75em;
+  letter-spacing: 0.75px;
+  margin: 70px 0 18px 0; }
 div.tutorial p {
-  color: #828691; }
+  color: #6c6d73; }
   div.tutorial p strong {
-    color: #4A4E58;
-    font-weight: 600; }
+    color: #494a50;
+    font-weight: 500; }
   div.tutorial p code {
     font-family: 'Inconsolata';
     background: none;
     color: #FF0079;
     padding: 0;
-    font-size: 100%; }
+    font-size: 110%; }
 div.tutorial div.highlight {
   margin: 24px 0; }
 div.tutorial .highlighter-rouge .highlight {
@@ -6289,7 +6296,7 @@ div.tutorial ul, div.tutorial ol {
   margin-bottom: 24px;
   font-size: 95%; }
   div.tutorial ul li, div.tutorial ol li {
-    color: #828691;
+    color: #6c6d73;
     padding-left: 12px; }
     div.tutorial ul li code, div.tutorial ol li code {
       color: #ff0079; }
@@ -6330,9 +6337,9 @@ div.tutorial .footnotes {
     top: 90px;
     position: fixed !important; }
   .toc .toc-link-2 {
-    padding-left: 20px !important; }
+    padding: 3px 3px 3px 20px !important; }
   .toc .toc-link-3 {
-    padding-left: 40px !important; }
+    padding: 3px 3px 3px 40px !important; }
 
 .chapter-nav .examples-list {
   margin-top: 42px; }
