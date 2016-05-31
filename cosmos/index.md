@@ -3,6 +3,12 @@ layout: cosmos
 title:  'COSMOS Index'
 categories: cosmos, tutorials
 ---
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-12">
+		<h1 class="breadcrumb"><a href="/tutorials">Tutorials</a><div class="bread-caret">></div>COSMOS</h1>
+	</div>
+</div>
+
 <div class="row intro">
 	<div class="col-xs-12 col-md-6">
 		<h2>Learn by doing with our C4-powered app-building tutorial. Let us walk you through the process of how we built a nice little iOS app called COSMOS.</h2>
