@@ -11,7 +11,7 @@ author: Travis Kirton
 ---
 ![](hue.png)
 
-## Bloom
+## Hue
 This example shows how you can apply a hue filter to an image.
 
 {% highlight swift lineos %}

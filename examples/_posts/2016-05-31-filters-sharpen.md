@@ -9,7 +9,7 @@ image: poster.png
 tags: [filters]
 author: Travis Kirton
 ---
-![](Sharpen.png)
+![](sharpen.png)
 
 ## Sepia
 This example shows how you can apply a sharpen filter to an image.
