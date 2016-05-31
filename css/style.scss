@@ -718,7 +718,6 @@ p a, .container.install li a, small a, .related-example a
 			color: lighten($c4-blue, 20%);
 			border-bottom: 1px solid lighten($c4-blue, 20%);
 		}
-
 	}
 	span
 	{
@@ -727,25 +726,41 @@ p a, .container.install li a, small a, .related-example a
 	}
 }
 
-.breadcrumb
+.container.cosmos, .container.tutorials, .container.example
 {
-	background: none;
+	margin-top: 150px;
+}
 
-	h1
+h1.breadcrumb
+{
+	display: inline-flex;
+	margin-bottom: 72px;
+
+	.bread-caret
 	{
-		margin: 45px 0 50px;
+		margin: 0 12px;
+	}
 
-		@media screen and (max-width: $screen-xs-max)
+	a
+	{
+		color: #333333;
+
+		&:hover
 		{
-			margin: 12px 0;
-			display: inline-flex;
-
-			a
-			{
-				display: inline-table;
-			}
+			color: lighten($c4-blue, 20%);
+			border-bottom: 1px solid lighten($c4-blue, 20%);
+			text-decoration: none;
 		}
 	}
+}
+
+h5.breadcrumb
+{
+  background: none;
+  margin: 0 0 72px 0;
+  padding: 0;
+  font-size: 1.2em;
+  letter-spacing: 1px;
 
 	a
 	{
