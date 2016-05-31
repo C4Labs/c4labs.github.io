@@ -242,6 +242,7 @@ footer
 				{
 					color: $body-grey;	
 					border-bottom: 1px solid $body-grey;
+					padding-bottom: 2px;
 
 					&:hover
 					{
@@ -297,6 +298,7 @@ footer
 	{
 		color: $link-note-blue;
 		border-bottom: 1px solid $link-note-blue;
+		padding-bottom: 2px;
 
 		&:hover
 		{
@@ -715,9 +717,10 @@ a
 	a
 	{
 		float: left;
-		color: $body-grey;
+		color: #333333;
+		letter-spacing: 1.25px;
 		border-bottom: 1px solid $body-grey;
-		padding-bottom: 6px;
+		padding-bottom: 5.5px;
 
 		&:hover
 		{
@@ -1023,17 +1026,21 @@ div.tutorial
 
 	h2
 	{
-		margin: 48px 0 18px 0;
+		font-family: 'SF Thin';
+		font-weight: 200;
+		font-size: 1.75em;
+		letter-spacing: 0.75px;
+		margin: 70px 0 18px 0;
 	}
 
 	p
 	{
-		color: $light-grey;
+		color: #6c6d73;
 
 		strong
 		{
-			color: $body-grey;
-			font-weight: 600;
+			color: #494a50;
+			font-weight: 500;
 		}
 
 		code
@@ -1042,7 +1049,7 @@ div.tutorial
 			background: none;
 			color: $code-pink;
 			padding: 0;
-			font-size: 100%;
+			font-size: 110%;
 		}
 	}
 
@@ -1110,7 +1117,7 @@ div.tutorial
 
 		li
 		{
-			color: $light-grey;
+			color: #6c6d73;
 			padding-left: 12px;
 
 			code
@@ -1201,12 +1208,12 @@ div.tutorial
 
  	.toc-link-2 
  	{
-		padding-left: 20px !important;
+		padding: 3px 3px 3px 20px !important;
 	}
 
 	.toc-link-3
  	{
-		padding-left: 40px !important;
+		padding: 3px 3px 3px 40px !important;
 	}
 }
 
