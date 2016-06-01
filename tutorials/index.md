@@ -21,7 +21,6 @@ description: 'Check out in-depth tutorials for C4'
 				  		<div class="text">
 					  		<p class="title">{{ post.title }}</p>
 					  		<p>{{ post.description }}</p>
-					  		<p class="author">By {{ post.author }}</p>
 					  	</div>
 				  	</div>
 				  </a>
