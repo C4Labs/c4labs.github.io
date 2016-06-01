@@ -1,7 +1,7 @@
 ---
 title: Rate
 description: Change the playback rate of an audio player.
-date:   2016-06-03 00:02:00 -0700
+date:   2016-06-01 00:02:00 -0700
 layout: example
 categories: examples, audio
 permalink: /examples/audio-rate/
