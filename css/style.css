@@ -6336,7 +6336,8 @@ div.tutorial .footnotes {
     border-bottom: 1px solid #4A4E58;
     display: inline-block;
     padding: 0px !important;
-    margin-bottom: 24px; }
+    margin-bottom: 24px;
+    color: #4A4E58; }
   .toc ul li.active > a {
     color: #4A4E58;
     background: rgba(130, 134, 145, 0.15); }
@@ -6344,7 +6345,7 @@ div.tutorial .footnotes {
       color: #4A4E58;
       background: rgba(130, 134, 145, 0.15); }
   .toc a {
-    color: #828691;
+    color: #4A4E58;
     padding: 7px !important; }
   .toc.affix {
     top: 90px;

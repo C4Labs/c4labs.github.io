@@ -1227,6 +1227,7 @@ div.tutorial
 			display: inline-block;
 			padding: 0px !important;
 			margin-bottom: 24px;
+			color: $body-grey;
 		}
 	}
 
@@ -1247,7 +1248,7 @@ div.tutorial
 
 	a
 	{
-		color: $light-grey;
+		color: $body-grey;
 		padding: 7px !important;
 	}
 
