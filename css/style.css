@@ -5744,6 +5744,9 @@ body {
 
 .navbar-default {
   background-color: rgba(237, 237, 237, 0.97); }
+  .navbar-default::before {
+    -webkit-filter: blur(5px);
+    filter: blur(5px); }
 
 nav {
   height: 70px; }
