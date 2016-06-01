@@ -53,6 +53,7 @@
             {% if page.next.url and page.next.categories contains 'cosmos' %}
               <li class="pull-right">
                 <a class="more" href="{{ page.next.url }}" title="Later article: {{ page.next.title }}">
+                  <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
                   <div>
                     <span class="img">
                       <img src="{{ site.baseurl }}/images/cosmos/{{ page.next.chapter }}/{{ page.next.image }}" />
@@ -61,7 +62,6 @@
                       <p class="title">Chapter {{ page.next.chapter }}<br />{{ page.next.title }}</p>
                       <p>{{ page.next.description }}</p>
                     </div>
-                    <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
                   </div>
                 </a>
               </li>
