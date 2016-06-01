@@ -6177,7 +6177,7 @@ h5.breadcrumb {
         margin: 0 auto;
         border: 1px solid #e7e7e7;
         width: 100%;
-        border-radius: 12px; }
+        border-radius: 4px; }
     .examples-block li div.text {
       margin-top: 18px; }
       .examples-block li div.text p {
@@ -6209,7 +6209,8 @@ span.title {
   .img.large img {
     width: 100%;
     display: block;
-    margin: auto; }
+    margin: auto;
+    border-radius: 4px; }
   @media screen and (max-width: 767px) {
     .img.large {
       height: 150px; }
