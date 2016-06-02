@@ -1,7 +1,7 @@
 ---
 title: Animating a Gradient
 description: You can animate all the properties of a gradient.
-date:   2016-06-07 00:03:00 -0700
+date:   2016-06-02 00:03:00 -0700
 layout: example
 categories: examples, gradients
 permalink: /examples/gradients-animate/

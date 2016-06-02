@@ -1,7 +1,7 @@
 ---
 title: Family Names
 description: Print out all font family names available on the latest iOS.
-date:   2016-06-06 00:03:00 -0700
+date:   2016-06-02 00:03:00 -0700
 layout: example
 categories: examples, fonts
 permalink: /examples/fonts-console/

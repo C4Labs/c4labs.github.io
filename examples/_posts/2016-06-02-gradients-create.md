@@ -1,7 +1,7 @@
 ---
 title: Gradients
 description: Create gradients.
-date:   2016-06-07 00:00:00 -0700
+date:   2016-06-02 00:00:00 -0700
 layout: example
 categories: examples, gradients
 permalink: /examples/gradients-create/
