@@ -93,6 +93,51 @@ body
 	}
 }
 
+.updates
+{
+  position: fixed;
+  top: 0;
+  left: auto;
+  right: auto;
+  width: 100%;
+  background: #3F78FF;
+  z-index: 9999999;
+  height: 50px;
+
+  .container
+  {
+  	a
+	  {
+	  	color: #ffffff;
+	  	padding: 14px 0;
+	  	width: 90%;
+	  	display: inline-block;
+	  	font-family: 'SF Reg';
+	  }
+  }
+
+  .glyphicon-remove
+  {
+  	color: white;
+  	padding: 18px 0;
+  	font-size: 0.75em;
+
+  	&:hover
+  	{
+  		cursor: pointer;
+  	}
+  }
+
+  @media screen and (max-width: $screen-xs-max)
+  {
+  	a
+  	{
+  		padding: 10px 0 !important;
+  		font-size: 0.8em;
+  	}
+  }
+}
+
 .navbar
 {
 	border-radius: 0px;
@@ -108,6 +153,11 @@ body
 		-webkit-filter: blur(5px);
 		filter: blur(5px);
 	}
+}
+
+.main-page nav
+{
+	margin-top: 50px;
 }
 
 nav

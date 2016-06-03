@@ -8,9 +8,12 @@ description: 'C4 is an open-source creative coding framework that harnesses the 
 
   {% include head.html %}
 
-    <body class="{{ page.title | downcase }}">
+    <body class="{{ page.title | downcase }} main-page">
+
+    {% include updates.html %}
 
     {% include header.html %}
+
 
     <div class="container-fluid hero">
       <div class="background">
@@ -276,5 +279,11 @@ func viewDidLoad() {
 
   {% include footer.html %}
   
+  <script>
+    $('span.glyphicon-remove').click(function() {
+      $('.updates').remove();
+      $('.main-page nav').css('margin-top', '0px');
+    });
+  </script>  
   </body>
 </html>
