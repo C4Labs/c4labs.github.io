@@ -6,7 +6,7 @@ layout: tutorial
 length: 10 - 20 minutes
 categories: tutorials
 permalink: /tutorials/customizing-switch/
-image: poster.png
+image: poster.gif
 tags: [tutorial, switch, animation, subviews]
 author: Oliver Andrews (with a little ❤ from Travis)
 ---

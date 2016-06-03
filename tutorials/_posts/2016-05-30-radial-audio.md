@@ -6,7 +6,7 @@ layout: tutorial
 length: 10 - 20 minutes
 categories: tutorials
 permalink: /tutorials/radial-audio/
-image: poster.png
+image: poster.gif
 tags: [tutorial, animation, audio, timer, metering]
 author: Travis Kirton
 ---

@@ -6,7 +6,7 @@ layout: tutorial
 length: 10 - 20 minutes
 categories: tutorials
 permalink: /tutorials/slack-logo/
-image: poster.png
+image: poster.gif
 tags: [tutorial, animation, masking, transform]
 author: Travis Kirton
 ---
