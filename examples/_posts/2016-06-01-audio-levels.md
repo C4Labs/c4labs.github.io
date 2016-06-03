@@ -6,7 +6,7 @@ layout: example
 categories: examples, audio
 permalink: /examples/audio-levels/
 image: poster.png
-tags: [audio, interaction, timers]
+tags: [audio, animation, timer, metering]
 author: Travis Kirton
 ---
 ![](levels.png)
