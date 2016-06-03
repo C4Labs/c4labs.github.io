@@ -6094,15 +6094,14 @@ p a, .container.install li a, small a, .related-example a {
   .cta a:hover {
     text-decoration: none; }
     .cta a:hover div {
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4); }
+      background: #ffffff; }
       .cta a:hover div p {
         text-decoration: none; }
   .cta .col-md-3 div {
     max-width: 210px;
-    border-radius: 8px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     padding: 36px 12px;
-    margin: 0 auto; }
+    margin: 0 auto;
+    background: #eeeeee; }
   @media (max-width: 991px) {
     .cta .col-md-3 {
       padding-left: 12px;

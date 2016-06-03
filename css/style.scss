@@ -749,7 +749,7 @@ p a, .container.install li a, small a, .related-example a
 
 			div
 			{
-				box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+				background: #ffffff;
 
 				p
 				{
@@ -764,10 +764,9 @@ p a, .container.install li a, small a, .related-example a
 		div
 		{
 			max-width: 210px;
-			border-radius: 8px;
-			box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 			padding: 36px 12px;
 			margin: 0 auto;
+			background: #eeeeee;
 		}
 
 		@media (max-width: $screen-sm-max)
