@@ -3863,8 +3863,6 @@ tbody.collapse.in {
     background-color: transparent; }
   .navbar-default .navbar-toggle {
     border-color: #ddd; }
-    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-      background-color: #ddd; }
     .navbar-default .navbar-toggle .icon-bar {
       background-color: #888; }
   .navbar-default .navbar-collapse,
@@ -5725,6 +5723,10 @@ body {
   @media screen and (max-width: 1199px) {
     .container {
       width: 100%; } }
+  @media screen and (max-width: 767px) {
+    .container {
+      padding-left: 36px;
+      padding-right: 36px; } }
   .container .post-content {
     margin-bottom: 96px; }
     .container .post-content h1 {
@@ -5768,20 +5770,22 @@ nav {
           text-align: center;
           width: 45%; }
           nav div.navlist ul li {
-            width: 33%;
-            margin: 0 auto;
-            text-align: center; }
+            width: 33%; }
             nav div.navlist ul li:nth-child(2) {
               padding: 0 !important; } }
     @media screen and (max-width: 767px) {
       nav div.navlist ul {
         text-align: center;
         width: 100%;
-        margin: -12px auto 0 auto !important; }
+        float: left; }
         nav div.navlist ul li {
-          float: left;
-          text-align: center;
-          width: 16.5%; } }
+          float: none;
+          text-align: left;
+          width: 100%;
+          font-size: 1.75em;
+          font-family: 'SF Thin';
+          letter-spacing: 1px;
+          margin: 10px 0 0 6px; } }
     nav div.navlist ul li {
       margin-top: 10px; }
       nav div.navlist ul li:nth-child(2) {
@@ -5804,7 +5808,37 @@ nav {
       margin-top: -6px; }
     @media (max-width: 767px) {
       nav .navbar-brand {
-        top: 20px; } }
+        position: relative;
+        float: right;
+        width: 42px; }
+        nav .navbar-brand span {
+          float: right; }
+          nav .navbar-brand span img {
+            width: 42px; } }
+
+.navbar-toggle {
+  float: left;
+  border: none; }
+
+.navbar-toggle .icon-bar {
+  background-color: #000000;
+  width: 24px;
+  height: 1px; }
+  .navbar-toggle .icon-bar.smaller {
+    width: 18px; }
+  .navbar-toggle .icon-bar + .icon-bar {
+    margin-top: 6px; }
+
+.navbar-collapse.in {
+  width: 110%;
+  margin-left: -12px;
+  overflow-y: none;
+  background-color: rgba(237, 237, 237, 0.97);
+  border: none;
+  padding-bottom: 12px; }
+
+.collapsing {
+  display: none; }
 
 footer {
   background: #efefef; }
@@ -5836,9 +5870,18 @@ footer {
       text-align: center; }
   @media (max-width: 767px) {
     footer {
-      font-size: 0.75em; }
-      footer .container ul {
-        margin-bottom: 24px; } }
+      font-size: 1.25em;
+      font-family: "SF Thin";
+      letter-spacing: 1px; }
+      footer .container {
+        padding-top: 36px;
+        padding-bottom: 36px; }
+        footer .container ul {
+          margin-bottom: 24px; }
+      footer .brand {
+        width: 36px;
+        display: block;
+        float: right; } }
 
 .note {
   color: #2062FF; }
@@ -5859,6 +5902,9 @@ footer {
 hr {
   margin: 48px 0;
   border-top: 1px solid #B9BBC1; }
+  @media screen and (max-width: 767px) {
+    hr {
+      margin: 36px 0; } }
 
 .lighter {
   color: #828691; }
@@ -6073,6 +6119,9 @@ p a, .container.install li a, small a, .related-example a {
 
 .container.cosmos, .container.tutorials, .container.example {
   margin-top: 150px; }
+  @media screen and (max-width: 767px) {
+    .container.cosmos, .container.tutorials, .container.example {
+      margin-top: 120px; } }
 
 h1.breadcrumb {
   display: inline-flex;
@@ -6108,6 +6157,18 @@ h5.breadcrumb {
     display: inline-block;
     font-size: 80%;
     margin: 3px 14px 0 18px; }
+  @media screen and (max-width: 767px) {
+    h5.breadcrumb {
+      background: none;
+      margin-bottom: 42px;
+      padding: 0;
+      font-size: 0.8em;
+      line-height: 0.75em;
+      font-family: "SF Reg"; }
+      h5.breadcrumb a {
+        letter-spacing: 0; }
+      h5.breadcrumb .bread-caret {
+        margin: 0 10px; } }
 
 .intro h2 {
   margin: -6px 0 30px 0; }
@@ -6213,13 +6274,13 @@ span.title {
     border-radius: 4px; }
   @media screen and (max-width: 767px) {
     .img.large {
-      height: 150px; }
+      height: 135px;
+      width: 135px;
+      margin-right: 27px; }
       .img.large img {
         position: relative;
-        margin: 20px auto;
-        width: 120px;
-        left: 0;
-        top: 0; } }
+        margin: 0;
+        width: 100%; } }
 
 div.tutorial p {
   margin-bottom: 24px; }
@@ -6308,6 +6369,9 @@ div.tutorial blockquote {
 div.tutorial ul, div.tutorial ol {
   margin-bottom: 24px;
   font-size: 95%; }
+  @media screen and (max-width: 767px) {
+    div.tutorial ul, div.tutorial ol {
+      font-size: 0.8em; } }
   div.tutorial ul li, div.tutorial ol li {
     color: #6c6d73;
     padding-left: 12px; }
@@ -6385,7 +6449,14 @@ div.tutorial .footnotes {
 @media screen and (max-width: 767px) {
   .chapter-nav .examples-list.next-prev li {
     width: 100%;
-    margin-bottom: 12px; } }
+    margin-bottom: 12px;
+    padding: 0; }
+    .chapter-nav .examples-list.next-prev li .glyphicon {
+      font-size: 1em; }
+      .chapter-nav .examples-list.next-prev li .glyphicon.glyphicon-menu-left {
+        margin: 34px 6px 0 0; }
+      .chapter-nav .examples-list.next-prev li .glyphicon.glyphicon-menu-right {
+        margin: 34px 0 0 6px; } }
 
 .related-tutorial {
   margin-top: 300px; }

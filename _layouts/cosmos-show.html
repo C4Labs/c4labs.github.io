@@ -10,6 +10,7 @@
     <div class="container content {{ page.title | downcase | replace: ' ', '-' }} cosmos" >
       <div class="row">
         <div class="col-xs-12 col-sm-3 col-md-3">
+          <h5 class="visible-xs breadcrumb"><a href="/tutorials">Tutorials</a><div class="bread-caret">></div><a href="/cosmos">COSMOS</a><div class="bread-caret">></div>{{ page.title }}</h5>
           <span class="img large">
             <img src="{{ site.baseurl }}/images/cosmos/1/{{ page.image }}" />
           </span>
@@ -23,7 +24,7 @@
         </div>
 
         <div class="col-xs-12 col-sm-9 col-md-9 tutorial">
-          <h5 class="breadcrumb"><a href="/tutorials">Tutorials</a><div class="bread-caret">></div><a href="/cosmos">COSMOS</a><div class="bread-caret">></div>{{ page.title }}</h5>
+          <h5 class=" hidden-xs breadcrumb"><a href="/tutorials">Tutorials</a><div class="bread-caret">></div><a href="/cosmos">COSMOS</a><div class="bread-caret">></div>{{ page.title }}</h5>
           {{ content }}
         </div>
       </div>
