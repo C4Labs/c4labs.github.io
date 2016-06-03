@@ -1,6 +1,6 @@
 ---
 layout: cosmos
-title:  'COSMOS Index'
+title:  'Learn to build COSMOS'
 categories: cosmos, tutorials
 ---
 <div class="row">
