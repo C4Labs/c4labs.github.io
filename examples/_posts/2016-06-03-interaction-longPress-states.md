@@ -1,7 +1,7 @@
 ---
 title: State Switching
 description: Use a long press gesture's state to update a shape's color.
-date:   2016-06-08 00:06:00 -0700
+date:   2016-06-03 00:06:00 -0700
 layout: example
 categories: examples, interaction
 

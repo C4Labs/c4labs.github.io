@@ -1,7 +1,7 @@
 ---
 title: Pan + Velocity
 description: Use a pan's velocity to change a shape's lineWidth.
-date:   2016-06-08 00:04:00 -0700
+date:   2016-06-03 00:04:00 -0700
 layout: example
 categories: examples, interaction
 

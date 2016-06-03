@@ -1,7 +1,7 @@
 ---
 title: Pan + Rotate a Shape
 description: Update a shape's rotation property while panning.
-date:   2016-06-08 00:03:00 -0700
+date:   2016-06-03 00:03:00 -0700
 layout: example
 categories: examples, interaction
 

@@ -1,7 +1,7 @@
 ---
 title: Random Color Tap
 description: Use a tap to randomly change the color of objects.
-date:   2016-06-08 00:00:00 -0700
+date:   2016-06-03 00:00:00 -0700
 layout: example
 categories: examples, interaction
 permalink: /examples/interaction-tap-object-random-color/
