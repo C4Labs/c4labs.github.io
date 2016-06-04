@@ -738,7 +738,8 @@ p a, .container.install li a, small a, .related-example a
 
 .cta
 {
-	margin: 72px 0;
+	margin-top: 72px;
+	margin-bottom: 72px;
 
 	a
 	{
@@ -833,6 +834,25 @@ p a, .container.install li a, small a, .related-example a
 	}
 }
 
+.banners
+{
+	margin-bottom: 48px;
+
+	h2
+	{
+		font-size: 2em;
+
+		@media screen and (max-width: $screen-xs-max)
+		{
+			font-size: 1.5em;
+		}
+	}
+
+	.app-store
+	{
+		margin: 24px 0 0;
+	}
+}
 
 ///////////////////////////////////////////////// EXAMPLES + TUTORIALS
 

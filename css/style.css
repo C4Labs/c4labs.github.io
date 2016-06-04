@@ -6090,7 +6090,8 @@ p a, .container.install li a, small a, .related-example a {
     font-size: 90%; }
 
 .cta {
-  margin: 72px 0; }
+  margin-top: 72px;
+  margin-bottom: 72px; }
   .cta a:hover {
     text-decoration: none; }
     .cta a:hover div {
@@ -6133,6 +6134,16 @@ p a, .container.install li a, small a, .related-example a {
     color: #828691; }
     .cta p.title {
       color: #4A4E58; }
+
+.banners {
+  margin-bottom: 48px; }
+  .banners h2 {
+    font-size: 2em; }
+    @media screen and (max-width: 767px) {
+      .banners h2 {
+        font-size: 1.5em; } }
+  .banners .app-store {
+    margin: 24px 0 0; }
 
 .container.examples a {
   color: #2062FF;
