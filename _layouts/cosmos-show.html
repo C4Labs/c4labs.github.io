@@ -72,34 +72,7 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="row related">
-        <div class="col-xs-12 col-md-12">
-          <h1 class="text-center blue">All COSMOS Chapters</h1>
-          <ul class="examples-list list-unstyled">
-            {% assign cosmosPosts = site.categories['cosmos'] | sort: 'order' %}
-            {% for post in cosmosPosts %}
-              <li>
-                <a href="{{ post.url }}">
-                  <div>
-                    <span class="img">
-                      <img src="{{ site.baseurl }}/images/cosmos/{{ post.chapter }}/{{ post.image }}" />
-                    </span>
-                    <div class="text">
-                      <p class="title">Chapter {{ post.chapter }}<br />{{ post.title }}</p>
-                      <p>{{ post.description }}</p>
-                    </div>
-                  </div>
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-    </div>
-
     {% include footer.html %}
-
 
     <script type="text/javascript" src="{{ site.path }}/js/toc.js"></script>
     <script>

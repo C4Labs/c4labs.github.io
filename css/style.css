@@ -6458,44 +6458,46 @@ div.tutorial .footnotes {
   .toc .toc-link-3 {
     padding: 3px 3px 3px 40px !important; }
 
-.chapter-nav .examples-list {
-  margin-top: 42px; }
-  .chapter-nav .examples-list li {
-    width: 47%;
-    padding: 30px 20px;
-    background: #ffffff;
-    border-radius: 8px;
-    margin-bottom: 0px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1); }
-    .chapter-nav .examples-list li .glyphicon {
-      font-size: 2em;
-      color: #B9BBC1;
-      margin-top: 24px; }
-      .chapter-nav .examples-list li .glyphicon.glyphicon-menu-left {
-        float: left;
-        margin-right: 12px; }
-      .chapter-nav .examples-list li .glyphicon.glyphicon-menu-right {
-        float: right;
-        margin-left: 12px; }
-    .chapter-nav .examples-list li .text {
-      display: block;
-      overflow: hidden; }
-    .chapter-nav .examples-list li a:hover span.glyphicon {
-      box-shadow: none;
-      color: #2062FF; }
-    .chapter-nav .examples-list li:nth-child(2) {
-      float: right; }
-@media screen and (max-width: 767px) {
-  .chapter-nav .examples-list.next-prev li {
-    width: 100%;
-    margin-bottom: 12px;
-    padding: 0; }
-    .chapter-nav .examples-list.next-prev li .glyphicon {
-      font-size: 1em; }
-      .chapter-nav .examples-list.next-prev li .glyphicon.glyphicon-menu-left {
-        margin: 34px 6px 0 0; }
-      .chapter-nav .examples-list.next-prev li .glyphicon.glyphicon-menu-right {
-        margin: 34px 0 0 6px; } }
+.chapter-nav {
+  margin-bottom: 48px; }
+  .chapter-nav .examples-list {
+    margin-top: 42px; }
+    .chapter-nav .examples-list li {
+      width: 47%;
+      padding: 30px 20px;
+      background: #ffffff;
+      border-radius: 8px;
+      margin-bottom: 0px;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1); }
+      .chapter-nav .examples-list li .glyphicon {
+        font-size: 2em;
+        color: #B9BBC1;
+        margin-top: 24px; }
+        .chapter-nav .examples-list li .glyphicon.glyphicon-menu-left {
+          float: left;
+          margin-right: 12px; }
+        .chapter-nav .examples-list li .glyphicon.glyphicon-menu-right {
+          float: right;
+          margin-left: 12px; }
+      .chapter-nav .examples-list li .text {
+        display: block;
+        overflow: hidden; }
+      .chapter-nav .examples-list li a:hover span.glyphicon {
+        box-shadow: none;
+        color: #2062FF; }
+      .chapter-nav .examples-list li:nth-child(2) {
+        float: right; }
+  @media screen and (max-width: 767px) {
+    .chapter-nav .examples-list.next-prev li {
+      width: 100%;
+      margin-bottom: 12px;
+      padding: 0; }
+      .chapter-nav .examples-list.next-prev li .glyphicon {
+        font-size: 1em; }
+        .chapter-nav .examples-list.next-prev li .glyphicon.glyphicon-menu-left {
+          margin: 34px 6px 0 0; }
+        .chapter-nav .examples-list.next-prev li .glyphicon.glyphicon-menu-right {
+          margin: 34px 0 0 6px; } }
 
 .related-tutorial {
   margin-top: 300px; }
