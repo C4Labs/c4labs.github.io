@@ -1,7 +1,7 @@
 ---
 title: Cells
 description: Create randomly moving layered cells.
-date:   2016-06-09 00:02:00 -0700
+date:   2016-06-06 00:02:00 -0700
 layout: example
 categories: examples, advanced
 permalink: /examples/advanced-cells/
