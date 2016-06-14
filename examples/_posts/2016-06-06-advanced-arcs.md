@@ -5,7 +5,7 @@ date:   2016-06-06 00:00:00 -0700
 layout: example
 categories: examples, advanced
 permalink: /examples/advanced-arcs/
-image: poster.png
+image: poster.gif
 tags: [advanced, timers, arcs]
 author: Travis Kirton
 ---

@@ -5,7 +5,7 @@ date:   2016-06-06 00:03:00 -0700
 layout: example
 categories: examples, advanced
 permalink: /examples/advanced-automata/
-image: poster.png
+image: poster.gif
 tags: [advanced, cellular, automata, bytes, images, pixels]
 author: Travis Kirton
 ---
