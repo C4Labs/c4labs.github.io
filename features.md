@@ -130,7 +130,7 @@ let bananaName = "Jimmy".banana
         <div class="row text-center">
           <div class="col-md-10 col-md-offset-1">
             <h3>Open Source</h3>
-            <p>Sporting the MIT License, C4 is an open-source project whose features and functions can be used freely in educational, artistic and even professional settings. The project is open to anyone who wants to contribute, and the project’s <a href="https://github.com/c4framework/c4ios/">code</a>, <a href="https://github.com/c4framework/c4ios/">documentation</a>, and <a href="https://github.com/C4Framework/C4iOS/wiki">process</a> are completely available for you to read through, learn from and take advantage of. Ongoing commitment by our core team and other developers guarantees that C4 will be constantly updated and focused on user’s interests.</p>
+            <p>Sporting the MIT License, C4 is an open-source project whose features and functions can be used freely in educational, artistic and even professional settings. The project is open to anyone who wants to contribute, and the project’s <a href="https://github.com/c4labs/c4ios/">code</a>, <a href="https://github.com/c4labs/c4ios/">documentation</a>, and <a href="https://github.com/c4labs/C4iOS/wiki">process</a> are completely available for you to read through, learn from and take advantage of. Ongoing commitment by our core team and other developers guarantees that C4 will be constantly updated and focused on user’s interests.</p>
             <a href="https://join-c4.herokuapp.com/"><img src="images/index/about-slack.png" /></a>
             <p><a href="https://join-c4.herokuapp.com/">Join our Slack community!</a></p>
           </div>

@@ -173,7 +173,7 @@ class ViewController: C4CanvasController {
 
 		<ol>
 			<li>Install Carthage</li>
-			<li>Create Cartfile and in it paste github <code>”C4Framework/C4iOS&quot; ~&gt; 1.0.1</code></li>
+			<li>Create Cartfile and in it paste github <code>"C4Labs/C4iOS&quot; ~&gt; 1.1.0</code></li>
 			<li>Run <code>carthage update</code></li>
 			<li>In your project reference the framework in Carthage/Build/iOS/C4.framework</li>
 		</ol>
@@ -194,7 +194,7 @@ class ViewController: C4CanvasController {
 
 		<ol>
 			<li>Download Github for Mac</li>
-			<li>Click the <a href="github-mac://openRepo/https://github.com/C4Framework/C4iOS" title="Clone in Desktop">Clone in Desktop</a> link</li>
+			<li>Click the <a href="github-mac://openRepo/https://github.com/c4labs/C4iOS" title="Clone in Desktop">Clone in Desktop</a> link</li>
 			<li>Open Xcode</li>
 			<li>Create new Single-View application</li>
 			<li>Right-click on <code>ViewController.swift</code></li>

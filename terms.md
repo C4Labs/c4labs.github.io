@@ -8,7 +8,7 @@ permalink: /terms/
 
 ### Open Source
 
-C4 is an open source project, hosted on [GitHub](https://github.com/C4Framework/C4iOS). It has an [MIT License](http://en.wikipedia.org/wiki/MIT_License#License_terms), so it’s as open as possible.
+C4 is an open source project, hosted on [GitHub](https://github.com/c4labs/C4iOS). It has an [MIT License](http://en.wikipedia.org/wiki/MIT_License#License_terms), so it’s as open as possible.
 
 **Copyright © 2016 Travis Kirton**
 
