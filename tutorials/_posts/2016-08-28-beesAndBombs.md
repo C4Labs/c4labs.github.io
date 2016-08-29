@@ -210,3 +210,5 @@ containerRotateForward.animate()
 That's it. We broke down what looked like a complex animation of 4 shapes into a process of animating 6 layers (i.e. 5 shapes, a container and a main square), while toggling 5 separate layers (i.e. the wedges and the main square).
 
 For a complete copy of the code, see this gist: [Bees + Bombs](https://gist.github.com/C4Framework/d693bab4956b6ce8eb3f06f93d20a158)
+
+And, if you want to see how this could be done with masks: [Bees + Bombs w/ Masks](https://gist.github.com/C4Framework/76000617a2a4a9f8f23fba6bfa5807b8)
