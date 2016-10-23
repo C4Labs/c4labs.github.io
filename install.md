@@ -42,9 +42,9 @@ permalink: /install/
 		<p>The easiest way to create new projects is to install C4 directly into Xcode. I highly recommend this approach because it makes it extremely easy to quickly create new projects and test out your ideas. </p>
 
 		<div class="download-block">
-			<a href="http://www.c4ios.com/C4Installer_1_1_0.pkg"><img class="download" src="/images/install/02.png"/></a>
+			<a href="http://www.c4ios.com/C4Installer_2_0_0.pkg"><img class="download" src="/images/install/02.png"/></a>
 			<h3>C4 Installer</h3>
-			<p>The latest stable C4 release.<br /><a href="http://www.c4ios.com/C4Installer_1_1_0.pkg">Download</a></p>
+			<p>The latest stable C4 release.<br /><a href="http://www.c4ios.com/C4Installer_2_0_0.pkg">Download</a></p>
 		</div>
 
 		<ol>
