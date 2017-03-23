@@ -27,7 +27,7 @@ permalink: /install/
 				<a href="#jcvd"><figure><img class="img-responsive" src="/images/install/01b.png"/><figcaption>Use Cocoapods<br />(JCVD)</figcaption></figure></a>
 			</div>
 			<div class="col-img">
-				<a href="#ong"><figure><img class="img-responsive" src="/images/install/01c.png"/><figcaption>Use Carthage<br />(the guy from Ong Bak)</figcaption></figure></a>
+				<a href="#ong"><figure><img class="img-responsive" src="/images/install/01c.png"/><figcaption>Use Carthage<br />(Tony Jaa)</figcaption></figure></a>
 			</div>
 			<div class="col-img">
 				<a href="#jet"><figure><img class="img-responsive" src="/images/install/01d.png"/><figcaption>Use Github for Mac<br />(Jet Li)</figcaption></figure></a>
