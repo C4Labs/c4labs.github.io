@@ -144,7 +144,7 @@ S0106003ee1c0f960:C4CocoaPod SlantMacPro$
 import UIKit
 import C4
 
-class ViewController: C4CanvasController {
+class ViewController: CanvasController {
     override func setup() {
         canvas.backgroundColor = C4Blue
     }
@@ -203,7 +203,7 @@ class ViewController: C4CanvasController {
 			<figure><img class="gfyitem install" data-id="DeadRegularAffenpinscher" /></figure>
 			</li>
 			<li>Embed the linked framework into your Xcode. In <code>General &gt; Embedded Binaries</code> click the <code>+</code> and add <code>C4.framework</code><br/><img class="gfyitem install" data-id="RapidBoldHogget" /></li>
-			<li>Update the <code>ViewController</code> so it is a <code>C4CanvasController</code>… There will probably be a warning.<br/><img class="gfyitem install" data-id="WideeyedMedicalCollie" /></li>
+			<li>Update the <code>ViewController</code> so it is a <code>CanvasController</code>… There will probably be a warning.<br/><img class="gfyitem install" data-id="WideeyedMedicalCollie" /></li>
 			<li>Build the framework (for the simulator)<br/><img class="gfyitem install" data-id="BlueQuestionableJohndory" /></li>
 			<li>In <code>setup()</code> change the background color to blue.<br/><img class="gfyitem install" data-id="ImpossibleAbleFlee" /></li>
 			<li>Run the app (for the simulator)<br/><img class="gfyitem install" data-id="CheapPessimisticCanine" /></li>
