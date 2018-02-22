@@ -100,7 +100,7 @@ permalink: /install/
 use_frameworks!
 
 target 'TitleOfYourProject' do
-  pod 'C4', '~> 1.0'
+  pod 'C4', '~> 3.0.1'
 end
 {% endhighlight %}
 
